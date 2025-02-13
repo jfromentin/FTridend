@@ -1,0 +1,11 @@
+#ifndef SCHROEDER_TREE_HPP
+#define SCHROEDER_TREE_HPP
+
+
+class SchroederTree{
+private:
+public:
+  
+  
+};
+#endif

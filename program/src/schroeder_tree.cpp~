@@ -1,0 +1,5 @@
+#include "schroeder_tree.hpp"
+
+SchroederTree:SchroederTree(const initializer_list<Int>& l) {
+  
+}
