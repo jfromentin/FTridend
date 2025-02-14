@@ -1,0 +1,289 @@
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amssymb,authblk}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{faktor}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage[linewidth=1pt,
+middlelinecolor= black,
+middlelinewidth=0.4pt,
+roundcorner=1pt,
+topline = false,
+rightline = false,
+bottomline = false,
+rightmargin=0pt,
+skipabove=0pt,
+skipbelow=0pt,
+leftmargin=-1cm,
+innerleftmargin=1cm,
+innerrightmargin=0pt,
+innertopmargin=0pt,
+innerbottommargin=0pt]{mdframed}
+
+\usepackage{multicol}
+\usepackage{array}
+%\usepackage{subfigure}
+\usepackage{subcaption}
+\usepackage[a4paper]{geometry}
+\usepackage{shuffle}
+\usepackage[french]{babel}
+\usepackage{hyperref}
+\usepackage{tikz, tikz-cd}
+\usepackage{fp}
+\usepackage{ifthen}
+\usepackage{calc}
+\usetikzlibrary{automata, positioning, arrows}
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}[section]
+\newtheorem{Eg}{\textbf{Example}}[section]
+\newtheorem{Egs}{\textbf{Examples}}[section]
+\newtheorem{Rq}{\textbf{Remark}}[section]
+\newtheorem{Not}{\textbf{Notation}}[section]
+\newtheorem*{Eg*}{Exemple}
+\newtheorem*{defi*}{Définition}
+\newtheorem*{Rq*}{\textbf{Remarque}}
+
+\newtheorem{innercustomgeneric}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheorem}[2]{%
+	\newenvironment{#1}[1]
+	{%
+		\renewcommand\customgenericname{#2}%
+		\renewcommand\theinnercustomgeneric{##1}%
+		\innercustomgeneric
+	}
+	{\endinnercustomgeneric}
+}
+\newcustomtheorem{customdefi}{Definition}
+\newcustomtheorem{customrq}{Remark}
+\newcustomtheorem{customEgs}{Examples}
+\newcustomtheorem{customEg}{Example}
+
+\theoremstyle{plain}
+\newtheorem{Prop}[defi]{Proposition}
+\newtheorem{Lemme}[defi]{Lemma}
+\newtheorem{Cor}[defi]{Corollary}
+\newtheorem{thm}[defi]{Theorem}
+\newtheorem*{thm*}{Theorme}
+\newtheorem*{Lemme*}{Lemma}
+\newtheorem*{Prop*}{Proposition}
+
+\newtheorem{innercustomgenerictwo}{\customgenericname}
+\providecommand{\customgenericname}{}
+\newcommand{\newcustomtheoremplain}[2]{%
+	\newenvironment{#1}[1]
+	{%
+		\renewcommand\customgenericname{#2}%
+		\renewcommand\theinnercustomgenerictwo{##1}%
+		\innercustomgenerictwo
+	}
+	{\endinnercustomgeneric}
+}
+\newcustomtheoremplain{customthm}{Théorème}
+\newcustomtheoremplain{customlemma}{Lemme}
+\newcustomtheoremplain{customprop}{Proposition}
+
+\newcommand{\IE}[2]{$\llbracket #1,#2 \rrbracket$}
+\newcommand{\IEM}[2]{\llbracket #1,#2 \rrbracket}
+\newcommand{\e}{\varepsilon}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Nz}{\ensuremath{\mathbb{N}\setminus\{0\}}}
+\newcommand{\ssi}{if and only if}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\I}[1]{\mathcal{I}_{#1}}
+\newcommand{\C}[1]{\mathcal{C}\left(#1\right)}
+\newcommand{\B}[1]{\mathcal{B}_{#1}}
+\newcommand{\R}[1]{\mathcal{R}\left(#1\right)}
+\newcommand{\Sch}{Schroeder}
+\DeclareMathOperator{\Leaf}{Leaf}
+\DeclareDocumentCommand{\NC}{m}{\ensuremath{\mathcal{NC}_{#1}}}
+\DeclareDocumentCommand{\Mon}{m}{\ensuremath{\mathcal{NC}_{#1}}}
+\DeclareDocumentCommand{\IP}{m}{\ensuremath{\mathcal{IP}_{#1}}}
+
+\DeclareMathOperator{\lf}{lf}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Prim}{Prim}
+\DeclareMathOperator{\ima}{Im}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\car}{car}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Br}{\mathcal{B}r}
+\DeclareMathOperator{\Tree}{\mathcal{T}}
+\DeclareMathOperator{\Coass}{Coass}
+\DeclareMathOperator{\Codend}{Codend}
+\DeclareMathOperator{\Par}{Par}
+\DeclareMathOperator{\batc}{QSh}
+\DeclareMathOperator{\A}{\mathcal{A}}
+
+\providecommand{\keywords}[1]{\textbf{\textit{Keywords.}} #1}
+\providecommand{\AMSclass}[1]{\textbf{\textit{AMS classification.}} #1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Macros arbres%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Y}{\raisebox{-0.25\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\clip(-1.2,0.) rectangle (1.2,2.);
+			\draw [line width=.5pt] (0.,0.)-- (0.,1.);
+			\draw [line width=.5pt] (0.,1.)-- (-1.,2.);
+			\draw [line width=.5pt] (0.,1.)-- (1.,2.);
+\end{tikzpicture}}}
+\newcommand{\YY}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)--(0,1);
+			\draw (0,1)--(-2,3);
+			\draw (-1.25,2.25)--(-0.5,3);
+			\draw (1.25,2.25)--(0.5,3);
+			\draw (0,1)--(2,3);
+\end{tikzpicture}}}
+
+\NewDocumentCommand{\labY}{m m}{\raisebox{-0.25\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm]
+			\draw [line width=.5pt] (0.,0.)-- (0.,1.);
+			\draw [line width=.5pt] (0.,1.)-- (-1.,2.);
+			\draw [line width=.5pt] (0.,1.)-- (1.,2.);
+			%decoration
+			\draw[above] (-1,2) node {\footnotesize{#1}};
+			\draw[above] (-1,2) node {\footnotesize{#2}}; 
+\end{tikzpicture}}}
+
+
+\NewDocumentCommand{\labbalaisg}{m m m}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm]
+			\draw (0,0)-- (0,1);
+			\draw (0,1)-- (-1,2);
+			\draw (-0.5,1.5)-- (0,2);
+			\draw (0,1)-- (1,2);
+			%decorations
+			\draw[above] (0,2) node {\footnotesize{#2}};
+			\draw[above] (-1,2) node {\footnotesize{#1}};
+			\draw[above] (1,2) node {\footnotesize{#3}};
+\end{tikzpicture}}}
+
+\NewDocumentCommand{\labbalaisd}{m m m}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm]
+			\draw (0,0)-- (0,1);
+			\draw (0,1)-- (-1,2);
+			\draw (0.5,1.5)-- (0,2);
+			\draw (0,1)-- (1,2);
+			%decorations
+			\draw[above] (1,2) node {\footnotesize{#3}};
+			\draw[above] (0,2) node {\footnotesize{#2}};
+			\draw[above] (-1,2) node {\footnotesize{#1}};
+\end{tikzpicture}}}
+
+\NewDocumentCommand{\labbalais}{m m m}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm]
+			\draw (0,0)-- (0,2);
+			\draw (0,1)-- (-1,2);
+			\draw (0,1)-- (1,2);
+			%decorations
+			\draw[above] (0,2) node {\footnotesize{#1}};
+			\draw[above] (-1,2) node {\footnotesize{#2}};
+			\draw[above] (1,2) node {\footnotesize{#3}};
+		\end{tikzpicture}}}
+
+
+\NewDocumentCommand{\labYY}{m m m m}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+			\draw (0,0)--(0,1);
+			\draw (0,1)--(-2,3);
+			\draw (-1.25,2.25)--(-0.5,3);
+			\draw (1.25,2.25)--(0.5,3);
+			\draw (0,1)--(2,3);
+			%decorations
+			\draw[above] (-2,3) node{\footnotesize{#1}} ;
+			\draw[above]  (-0.5,3) node{\footnotesize{#2}};
+			\draw[above]  (0.5,3) node{\footnotesize{#3}};
+			\draw[above]  (2,3) node{\footnotesize{#4}};
+\end{tikzpicture}}}
+
+\newcommand{\peignedroit}[3]{\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.25cm,y=0.25cm]
+			% Etage 1
+			\draw (0,0)--(0,1);
+			%Etage 2
+			\draw (0,1)--(-1,2) node[left]{$F_{#1}$};
+			% Etage 3
+			\draw (0,1)--(6,7);
+			\draw (2,3)--(1,4) node[left]{$F_{#2}$};
+			%Etage...
+			\draw (3.,4.5) node[rotate=45]{$\cdots$};
+			%Etage k
+			\draw (5,6)--(4,7) node[left]{$F_{#3}$};
+\end{tikzpicture} }}
+\newcommand{\peignegauche}[3]{\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.25cm,y=0.25cm]
+			% Etage 1
+			\draw (0,0)--(0,1);
+			%Etage 2
+			\draw (0,1)--(1,2) node[right]{$F_{#1}$};
+			% Etage 3
+			\draw (0,1)--(-6,7);
+			\draw (-2,3)--(-1,4) node[right]{$F_{#2}$};
+			%Etage...
+			\draw (-3.,4.5) node[rotate=135]{$\cdots$};
+			%Etage k
+			\draw (-5,6)--(-4,7) node[right]{$F_{#3}$};
+\end{tikzpicture}}}
+\newcommand{\balais}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)--(0,2);
+			\draw (0,1)-- (-1,2);
+			\draw (0,1)-- (1,2);
+\end{tikzpicture}}}
+\newcommand{\balaisg}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)-- (0,1);
+			\draw (0,1)-- (-1,2);
+			\draw (-0.5,1.5)-- (0,2);
+			\draw (0,1)-- (1,2);
+\end{tikzpicture}}}
+\newcommand{\balaisd}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)-- (0,1);
+			\draw (0,1)-- (-1,2);
+			\draw (0.5,1.5)-- (0,2);
+			\draw (0,1)-- (1,2);
+\end{tikzpicture}}}
+\DeclareDocumentCommand{\corollagraft}{m m m m}{\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.4cm,y=0.4cm]
+			\draw (0,0)--(0,1);
+			\draw (0,1)-- (-2,3) node[above,left] {$t_{#1}$};
+			\draw (0,1)-- (-1,3) node[above] {$t_{#2}$};
+			\draw (0,1)-- (1,3) node[above] {$t_{#3}$};
+			\draw (0,1)-- (2,3) node[above,right] {$t_{#4}$};
+			\draw (0,2.5) node[above] {$\dots$};
+\end{tikzpicture}}}
+
+
+\begin{document}
+\title{{\bfseries \Sch{} trees, monotonous  and machine computations}}
+\author{P.\bsc{Catoire}, J.\bsc{Fromentin}
+	\thanks{Contact: \href{mailto: pierre.catoire@univ-littoral.fr; 
+		}
+	{pierre.catoire@univ-littoral.fr
+}}}
+\affil{\small{Univ. Littoral Côte d'Opale, UR 2597
+		LMPA, Laboratoire de Mathématiques Pures et Appliquées Joseph Liouville
+		F-62100 Calais, France
+	}.}
+
+
+\maketitle
+\begin{abstract}
+	%Ton joli résumé
+\end{abstract}
+\keywords
+{
+	%Tes jolis mots clés
+}
+
+\AMSclass{%16T05,16T10,16W50,05B35
+}
+
+%Architecture maître-esclave
+\tableofcontents
+\input{Sch_maths}
+
+
+\bibliography{bibliography_Sch}
+\bibliographystyle{plain}
+\end{document}
