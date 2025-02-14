@@ -195,7 +195,7 @@ We can represent a poset as a graph where the edges represent covering relations
 		\end{tikzpicture}
 	\end{figure}
 \end{Eg}
-\begin{defi}[composition of chains in the poset \IP{}]
+\begin{defi}[composition of chains in the poset \IP{}]\label{defi:products of chains}
 	Let $n,m\in\Nz$ and consider $c$ a $k$-chain of $\IP{n}$ and $d$ a $l$-chain of $\IP{m}$.
 	We define many compositions of the two chains $c$ and $d$ as the chain of $\IP{n+m}$ defined by:
 	\begin{align*}
@@ -658,7 +658,7 @@ As a consequence, one can see a \Sch{} tree as an initial chain in some $\IP{}$.
 \begin{Rq}
 	This equation is well defined
 \end{Rq}
-\begin{Eg}
+\begin{Eg}\label{Eg:tree_left}
 For instance, consider the chain $c$ given below:
 	\begin{align*}
 		\left( 1~2~3~4~5~6~7~8~9,  
@@ -860,8 +860,13 @@ Note that in this poset, a Shroeder tree with 4 leaves is exactly an initial cha
 
 For more details let us consider the $\IP{5}$ poset in figure~\ref{fig:IP5}:
 \begin{figure}
+	\label{fig:IP5_whole}
+	\centering
+	\caption{The construction on $\IP{5}$}
+	\begin{subfigure}{0.9\textwidth}
 	\label{fig:IP5}
-	\caption{The 5-tree poset}
+	\centering
+	\subcaption{The 5-tree poset}	
 	\begin{tikzpicture}[rotate=180, x=1.5cm, y=1.5cm]
 		%Noeud du diagramme, le noeud du noeud est donné par la suite des tailles des blocs
 		\node (P5) at (0,0) {$(1~2~3~4~5)$};
@@ -920,13 +925,11 @@ For more details let us consider the $\IP{5}$ poset in figure~\ref{fig:IP5}:
 		\draw[green] (P1121)--(P11111) node[right,near start]{\footnotesize{$3$}};
 		\draw[purple] (P1112)--(P11111) node[right,near start]{\footnotesize{$4$}};
 	\end{tikzpicture}
-\end{figure}
-
-After applying the rule on the first raw, one gets:
-\begin{figure}
-	\centering
-	\label{fig:simplifications}
-	\caption{Simplifying the first row is enough}
+	\end{subfigure}
+	\begin{subfigure}{0.9\textwidth}
+		\centering
+		\label{fig:simplifications}
+		\caption{Simplifying the first row is enough}
 		\begin{tikzpicture}[rotate=180, x=1.5cm, y=1.5cm]
 			%Noeud du diagramme, le noeud du noeud est donné par la suite des tailles des blocs
 			\node (P5) at (0,0) {$(1~2~3~4~5)$};
@@ -984,7 +987,10 @@ After applying the rule on the first raw, one gets:
 			\draw[green] (P221)--(P11111);
 			\draw[blue] (P212)--(P11111);
 		\end{tikzpicture}
+	\end{subfigure}
 \end{figure}
+
+After applying the rule on the first raw, one gets the figure~\ref{fig:simplifications}.
 
 This property of simplification in a poset needs more than just a poset. We need a map $\pi:P\times P \rightarrow \{0,1\}$ that tells us whether we can perform a "parallelisation simplification rule", for instance consider the subposet of the poset $\IP{6}$ given in figure~\ref{fig:part_IP6}:
 \begin{figure}
