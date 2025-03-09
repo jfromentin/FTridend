@@ -31,9 +31,10 @@ innerbottommargin=0pt]{mdframed}
 \usepackage{array}
 %\usepackage{subfigure}
 \usepackage{subcaption}
+\usepackage{nicematrix}
 \usepackage[a4paper]{geometry}
 \usepackage{shuffle}
-\usepackage[french]{babel}
+\usepackage[english]{babel}
 \usepackage{hyperref}
 \usepackage{tikz, tikz-cd}
 \usepackage{fp}
@@ -123,6 +124,8 @@ innerbottommargin=0pt]{mdframed}
 \DeclareMathOperator{\Par}{Par}
 \DeclareMathOperator{\batc}{QSh}
 \DeclareMathOperator{\A}{\mathcal{A}}
+\DeclareMathOperator{\clos}{g}
+\DeclareMathOperator{\len}{len}
 
 \providecommand{\keywords}[1]{\textbf{\textit{Keywords.}} #1}
 \providecommand{\AMSclass}[1]{\textbf{\textit{AMS classification.}} #1}
@@ -151,7 +154,7 @@ innerbottommargin=0pt]{mdframed}
 			\draw [line width=.5pt] (0.,1.)-- (1.,2.);
 			%decoration
 			\draw[above] (-1,2) node {\footnotesize{#1}};
-			\draw[above] (-1,2) node {\footnotesize{#2}}; 
+			\draw[above] (1,2) node {\footnotesize{#2}}; 
 \end{tikzpicture}}}
 
 
@@ -256,11 +259,11 @@ innerbottommargin=0pt]{mdframed}
 
 \begin{document}
 \title{{\bfseries \Sch{} trees, monotonous  and machine computations}}
-\author{P.\bsc{Catoire}, J.\bsc{Fromentin}
+\author{P.Catoire, J.Fromentin}
 	\thanks{Contact: \href{mailto: pierre.catoire@univ-littoral.fr; 
 		}
 	{pierre.catoire@univ-littoral.fr
-}}}
+}}
 \affil{\small{Univ. Littoral Côte d'Opale, UR 2597
 		LMPA, Laboratoire de Mathématiques Pures et Appliquées Joseph Liouville
 		F-62100 Calais, France
