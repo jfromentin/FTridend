@@ -374,7 +374,7 @@ We introduce a final notation before giving the action of quasi-shuffles over th
 \end{Not}
 
 \begin{defi}
-	Let $\sigma\in S_{k+l}$ and put $C_i$ the code of the forest $F_i$ for all $i\in\IEM{1}{k+l}$. Put $n=\max(\sigma)$.
+	Let $\sigma\in S_{k+l}$ and put $C_i$ the code of the forest $F_i$ for all $i\in\IEM{1}{k+l}$ and $m_i$ the number length of forests of $C_i$. Put $n=\max(\sigma)$.
 	\begin{enumerate}
 		\item put $\tau_1=\sigma^{-1}|_{\IEM{1}{k}}$ and begin with:
 		\[
@@ -383,9 +383,9 @@ We introduce a final notation before giving the action of quasi-shuffles over th
 		\item put $\tau_2=\sigma^{-1}|_{\IEM{k+1}{k+l}}$ and for all $i\in\IEM{1}{n}$ compute iteratively:
 		\begin{align*}
 			D_i&=\begin{cases}
-				f_r(D_{i-1},C_{j'}) &\text{ if } \exists (j,j')\in\IEM{1}{k}\times\IEM{k+1}{k+l},\sigma(j')=\sigma(j)=i, \\
-				D_{i-1} & \text{ if } \exists j\in\IEM{1}{k}, \sigma(j)=i \text{ and } i\notin \ima(\tau_2),\\
-				f_lD_{i-1} C_{j'}  &\text{ if } \exists j'\in\IEM{k+1}{k+l}, \sigma(j')=i \text{ and } i\notin \ima(\tau_1).
+				D_{i-1}\circ C_{j'}\leftarrow g^{m_j+m_{j'}+1} &\text{ if } \exists (j,j')\in\IEM{1}{k}\times\IEM{k+1}{k+l},\sigma(j')=\sigma(j)=i, \\
+				D_{i-1}\leftarrow g^{m_j+1} & \text{ if } \exists j\in\IEM{1}{k}, \sigma(j)=i \text{ and } i\notin \ima(\tau_2),\\
+				D_{i-1}\circ C_{j'} \leftarrow g^{m_{j'}+1}   &\text{ if } \exists j'\in\IEM{k+1}{k+l}, \sigma(j')=i \text{ and } i\notin \ima(\tau_1).
 			\end{cases}
 		\end{align*}
 		Define $D_n\coloneqq\sigma(C_t,C_s)$.
