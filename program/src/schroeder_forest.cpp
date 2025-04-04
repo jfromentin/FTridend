@@ -1,7 +1,10 @@
 #include "schroeder_forest.hpp"
 
 void SchroederForest::display() const {
-  cout << "==== Forest ====" << endl;
+  cout << "---- Forest ----" << endl;
   SchroederTree::display();
-  cout << "> size = " << size << endl;
+  if (display_forest_size) {
+    cout << "> size = " << size << endl;
+  }
+  cout << "----------------" << endl;
 }
