@@ -16,9 +16,11 @@ SchroederTree::SchroederTree(const initializer_list<Int>& l) {
   n = popcount(v);
   assert(v == ((1L << n) - 1));
   ++ n;
+  initialize();
 }
 
 void SchroederTree::display() const {
+  //cout << "Height = " << h << endl;
   for (int j = 0; j < n; ++ j) {
     cout  << char('a' + j) << ' ';
   }
@@ -80,7 +82,81 @@ void SchroederTree::display() const {
   }
 }
 
+void SchroederTree::compute_left_forest_infos() {
+  number_left_forests = 0;
+  // Test empty case
+  if (h < 2) return;
+  // We start with the rightmost angle
+  Int mask = p[h - 1];
+  Int a = n - 1;
+  for (int l = h - 2 ; l >= 0; -- l){
+    Int temp = mask & p[l];
+    if (temp != mask) {
+      int t = countr_one(temp);
+      ForestInfo& node = left_forest_infos[number_left_forests++];
+      node.a = t;
+      node.h = l + 1;
+      node.n = a - t;
+      a = t;
+      mask = (1L << t) - 1;
+    }
+  }
+}
+
+void SchroederTree::compute_right_forest_infos() {
+  number_right_forests = 0;
+  // Test empty case
+  if (h < 2) return;
+  // We start with the rightmost angle
+  Int mask = p[h - 1];
+  Int miss_ones = 65535 - mask;
+  Int a = -1;
+  for (int l = h - 2 ; l >= 0; -- l){
+    Int temp = mask & p[l];
+    if (temp != mask) {
+      temp += miss_ones;
+      int t = 15 - countl_one(temp);
+      ForestInfo& node = right_forest_infos[number_right_forests++];
+      node.a = t;
+      node.h = l + 1;
+      node.n = t - a;
+      a = t;
+      mask &= ~((1L << (a + 1)) -1);
+    }
+  }
+}
+
 Array<SchroederForest> SchroederTree::left_comb_splitting() const {
+  Array<SchroederForest> res(number_left_forests);
+  for (int f = 0; f < number_left_forests; ++f) {
+    const ForestInfo& info = left_forest_infos[f];
+    res[f].h = info.h;
+    res[f].n = info.n;
+    Int a2 = (2 << info.a);
+    for (int l = 0; l < res[f].h; ++l) {
+      res[f].p[l] = p[l] / a2;
+    }
+    res[f].compute_size();
+  }
+  return res;
+}
+
+Array<SchroederForest> SchroederTree::right_comb_splitting() const {
+  Array<SchroederForest> res(number_right_forests);
+  for (int f = 0; f < number_right_forests; ++f) {
+    const ForestInfo& info = right_forest_infos[f];
+    res[f].h = info.h;
+    res[f].n = info.n;
+    Int div = (1L << (info.a + 1 - info.n)); 
+    for (int l = 0; l < res[f].h; ++l) {
+      res[f].p[l] = ((p[l] / div) % (1L << res[f].n));
+    }
+    res[f].compute_size();
+  }
+  return res;
+}
+
+/*Array<SchroederForest> SchroederTree::left_comb_splitting() const {
   int s = 0; // Size of the comb
   Int pos[N]; // Localisation of each forest of the comb splitting.
   // Forest i will be given as the Schroeder tree of leaves pos[i] + 1, ..., pos[i + 1]
@@ -161,4 +237,4 @@ Array<SchroederForest> SchroederTree::right_comb_splitting() const {
     res[ind].compute_size();
   }
   return res;
-}
+  }*/

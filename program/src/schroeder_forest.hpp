@@ -24,6 +24,6 @@ inline SchroederForest::SchroederForest(const SchroederTree& T): SchroederTree(T
 }
 
 inline void SchroederForest::compute_size() {
-  size = n - popcount(p[h - 2]);
+  size = n - popcount(p[h - 1]);
 }
 #endif
