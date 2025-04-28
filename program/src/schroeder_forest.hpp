@@ -1,7 +1,10 @@
 #ifndef SCHROEDER_FOREST_HPP
 #define SCHROEDER_FOREST_HPP
 
+#include <bit>
 #include "schroeder_tree.hpp"
+
+using namespace std;
 
 class SchroederForest:public SchroederTree{
 private:

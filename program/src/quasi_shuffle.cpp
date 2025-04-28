@@ -3,27 +3,7 @@
 void QuasiShuffle::display() const {
   for(int i = 0; i < l + r; ++ i) cout << tab[i] + 1 << ' ';
   cout << endl;
-  /*
-  int f = (1L << (n - 1));
-  for (int i = 0; i < n; ++ i) {
-    if (left & f) {
-      if (right & f) {
-	cout << " \u2500\u253c\u2500" << endl; // Both
-      }
-      else {
-	cout << " \u2500\u2524" << endl; // Left
-      }
-    }
-    else if (right & f) {
-      cout << "  \u251c\u2500" << endl; // Right
-    }
-    else {
-      cout << " ?" << endl; // None
-    }
-    f >>= 1;
-  }
-  cout << "\u2550\u2550\u2567\u2550\u2550" << endl; // Root*/
- }
+}
 
 void QuasiShuffle::initialize() {
   if (l == 0 or r == 0) {
@@ -33,9 +13,26 @@ void QuasiShuffle::initialize() {
     tau = nullptr;
   }
   else {
-    type = QSLeft;
-    tau = new QuasiShuffle(l - 1, r);
-    compute_left_sigma();
+    switch(p) {
+    case PLeft:
+    case PAll:
+      type = QSLeft;
+      tau = new QuasiShuffle(l - 1, r);
+      compute_left_sigma();
+      break;
+    case PMiddle:
+      type = QSMiddle;
+      tau = new QuasiShuffle(l - 1, r - 1);
+      compute_middle_sigma();
+      break;
+    case PRight:
+      type = QSRight;
+      tau = new QuasiShuffle(l, r - 1);
+      compute_right_sigma();
+      break;
+    default:
+      assert(false);
+    }
   }
 }
 
@@ -79,7 +76,6 @@ void QuasiShuffle::compute_middle_sigma() {
     tab[k] = tau->tab[i] + 1;
     ++ k;
   }
-  
 }
 
 void QuasiShuffle::compute_right_sigma() {
@@ -101,6 +97,7 @@ bool QuasiShuffle::next() {
   }
   switch(type) {
   case QSLeft:
+    if (p == PLeft) return false;
     type = QSMiddle;
     delete tau;
     tau = new QuasiShuffle(l - 1, r - 1);
@@ -108,6 +105,7 @@ bool QuasiShuffle::next() {
     return true;
     break;
   case QSMiddle:
+    if (p == PMiddle) return false;
     type = QSRight;
     delete tau;
     tau = new QuasiShuffle(l, r - 1);

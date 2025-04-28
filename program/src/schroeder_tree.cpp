@@ -102,14 +102,15 @@ Array<SchroederForest> SchroederTree::left_comb_splitting() const {
   }
   Array<SchroederForest> res(s);
   for (int i = 0; i < s; ++ i) {
-    res[i].n = pos[i + 1] - pos[i];
-    res[i].h = hpos[i + 1] - hpos[i];
+    int ind = s - i - 1;
+    res[ind].n = pos[i + 1] - pos[i];
+    res[ind].h = hpos[i + 1] - hpos[i] + 1;
  
-    res[i].p[0] = 0;
-    for (int j = 1; j < res[i].h; ++ j) {
-      res[i].p[j] = (p[j + hpos[i]] >> (pos[i] + 1));
+    res[ind].p[0] = 0;
+    for (int j = 1; j < res[ind].h; ++ j) {
+      res[ind].p[j] = (p[j + hpos[i]] >> (pos[i] + 1));
     }
-    res[i].compute_size();
+    res[ind].compute_size();
   }
   return res;
 }
@@ -118,9 +119,10 @@ Array<SchroederForest> SchroederTree::left_comb_splitting() const {
 Array<SchroederForest> SchroederTree::right_comb_splitting() const {
   int s = 0;
   Int pos[N]; // Localisation of each forest of the comb splitting.
-  // Forest i will be given as the Schroeder tree of leaves pos[i + 1] - 1, ..., pos[i]
+  // Forest i will be given as the Schroeder tree of leaves pos[i + 1], ..., pos[i] - 1
   
   pos[0] = n - 1;
+
   Int k = n - 1;
   Int f = 1L << (n - 2);
   for (int i = 0; i < h; ++ i) {
@@ -133,25 +135,30 @@ Array<SchroederForest> SchroederTree::right_comb_splitting() const {
       pos[s] = k;
     }
   }
+ 
   Int ht = h - 1;
   Int hb;
   Array<SchroederForest> res(s);
-    for (int i = 0; i < s; ++ i) {
+  Int right_leaf  = (1 << (n - 2));
+  for (int i = 0; i < s; ++ i) {
+    int ind = s - i - 1;
+    
     int nf = pos[i] - pos[i + 1];
-    res[i].n = nf;
+    res[ind].n = nf;
     // Right most forest is special leave n does not appeat directly 
-    if (i > 0) --nf;
-    Int mask = ((1 << nf) - 1) << pos[i + 1];
+    //if (i > 0) --nf;
+    Int mask = ((1 << (nf - 1)) - 1) << pos[i + 1];
     while((p[ht] & mask) != 0) --ht;
     hb = ht + 1;
-    while((p[hb] & mask) != mask) ++hb;
+    // Detect connection height of the full forest with the right most leaf
+    while(((p[hb] & mask) != mask) or ((p[hb] & right_leaf) == 0)) ++hb;
     int hf = hb - ht + 1;
-    res[i].h = hf;
-    res[i].p[0] = 0;
+    res[ind].h = hf;
+    res[ind].p[0] = 0;
     for (int j = 1; j < hf; ++ j) {
-      res[i].p[j] = ((p[j + ht] & mask) >> pos[i + 1]);
+      res[ind].p[j] = ((p[j + ht] & mask) >> pos[i + 1]);
     }
-    res[i].compute_size();  
+    res[ind].compute_size();
   }
   return res;
 }

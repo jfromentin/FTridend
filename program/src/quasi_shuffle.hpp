@@ -2,11 +2,12 @@
 #define QUASI_SHUFFLE_HPP
 
 #include "common.hpp"
-
+enum PType {PLeft, PMiddle, PRight, PAll};
 enum QSType {QSBase, QSLeft, QSMiddle, QSRight};
 
 class QuasiShuffle {
 private:
+  PType p;
   int l, r;
   QSType type;
   QuasiShuffle* tau;
@@ -22,26 +23,33 @@ private:
   void compute_sigma();
 public:
   QuasiShuffle();
-  QuasiShuffle(int l, int r);
+  QuasiShuffle(int l, int r, PType ptype = PAll);
   void initialize();
   void display() const;
   bool next();
-  int rank() const;
+  int operator[](int i) const;
+  
 };
 
 
 inline QuasiShuffle::QuasiShuffle() {
+  p = PAll;
   l = 0;
   r = 0;
   tau = nullptr;
 }
 
-inline QuasiShuffle::QuasiShuffle(int ll, int rr) {
+inline QuasiShuffle::QuasiShuffle(int ll, int rr, PType pp) {
+  p = pp;
   l = ll;
   r = rr;
   initialize();
 }
 
+inline int QuasiShuffle::operator[](int i) const {
+  assert(i < l + r);
+  return tab[i];
+}
 
 
 #endif
