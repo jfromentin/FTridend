@@ -26,13 +26,15 @@ from sage.env import *
 #SAGE_MOD = os.path.join(SAGE_SRC, 'sage')
 
 # the option -Wp,-w remove all preprocessor warnings
-module_combo = Extension('ftridend.kernel',
+module_ftridend = Extension('ftridend.kernel',
                     extra_compile_args = ['-std=c++20', '-O3', '-g'],
                     include_dirs = [],#SAGE_EXT,SAGE_INC,SAGE_MOD],
                     sources = ['cpp/kernel/schroeder_tree.cpp',
+                               'cpp/kernel/schroeder_forest.cpp',
                                #
                                'cpp/sage/schroeder_tree.cpp',
+                               'cpp/sage/schroeder_forest.cpp',
                                #
                                'cpp/sage/module.cpp'])
 
-setup (name = 'ftridend.kernel', ext_modules = [module_combo])
+setup (name = 'ftridend.kernel', ext_modules = [module_ftridend])

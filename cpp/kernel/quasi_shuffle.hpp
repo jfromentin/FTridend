@@ -23,6 +23,7 @@
 #include "common.hpp"
 enum PType {PLeft, PMiddle, PRight, PAll};
 enum QSType {QSBase, QSLeft, QSMiddle, QSRight};
+enum GType {GLeft = 1, GRight = 2, GBoth = 3};
 
 class QuasiShuffle {
 private:
@@ -47,6 +48,8 @@ public:
   void display() const;
   bool next();
   int operator[](int i) const;
+  GType graft_type(int i) const;
+  int max_value() const;
   
 };
 
@@ -70,6 +73,31 @@ inline int QuasiShuffle::operator[](int i) const {
   return tab[i];
 }
 
+inline GType QuasiShuffle::graft_type(int i) const {
+  int res = 0;
+  int j = 0;
+  for(; j < l; ++ j) {
+    if (tab[j] == i) {
+      res = GLeft;
+    }
+  }
+  for(; j < l + r; ++ j) {
+    if (tab[j] == i) {
+      res += GRight;
+      break;
+    }
+  }
+  return GType(res);
 
+}
+
+inline int QuasiShuffle::max_value() const {
+  int res = 0;
+  for (int i = 0; i < l + r; ++ i){
+    if (tab[i] > res) res = tab[i];
+  }
+  return res;
+}
+  
 #endif
 

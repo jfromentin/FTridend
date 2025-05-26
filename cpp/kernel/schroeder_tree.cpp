@@ -55,7 +55,8 @@ void SchroederTree::display(ostream& os) const {
   if (verbose_display) {
     os << "  ";
     for (int j = 0; j < n - 1; ++ j) {
-      os << char('0' + j);
+      if (j < 10) os << char('0' + j);
+      else os << char('A' + j - 10);
     }
   }
   os << endl;
@@ -135,7 +136,7 @@ void SchroederTree::compute_right_forest_infos() {
   // Test empty case
   if (h < 2) return;
   Int mask = p[0];
-  // We start with the left tmost angle
+  // We start with the left most angle
   Int a = -1;
   for (int l = h - 2 ; l >= 0; -- l){
     Int temp = mask & p[l];
@@ -151,17 +152,37 @@ void SchroederTree::compute_right_forest_infos() {
   }
 }
 
+void SchroederTree::set_left_comb_forest(SchroederForest& f, Int i) const {
+  assert(0 <= i and i < number_left_forests);
+  const ForestInfo& info = left_forest_infos[i];
+  f.h = info.h;
+  f.n = info.n;
+  Int mask = (1L << (f.n - 1)) - 1;
+  Int a2 = (2 << info.a);
+  for (int l = 0; l < f.h; ++l) {
+    f.p[l] = (p[l] / a2) & mask;
+  }
+  f.compute_size();
+}
+
+
+void SchroederTree::set_right_comb_forest(SchroederForest& f, Int i) const {
+  assert(0 <= i and i < number_right_forests);
+  const ForestInfo& info = right_forest_infos[i];
+  f.h = info.h;
+  f.n = info.n;
+  Int mask = (1L << (f.n - 1)) - 1;
+  Int div = (1L << (info.a + 1 - info.n)); 
+  for (int l = 0; l < f.h; ++l) {
+    f.p[l] = (((p[l] / div) % (1L << f.n))) & mask;
+  }
+  f.compute_size();
+}
+
 Array<SchroederForest> SchroederTree::left_comb_splitting() const {
   Array<SchroederForest> res(number_left_forests);
   for (int f = 0; f < number_left_forests; ++f) {
-    const ForestInfo& info = left_forest_infos[f];
-    res[f].h = info.h;
-    res[f].n = info.n;
-    Int a2 = (2 << info.a);
-    for (int l = 0; l < res[f].h; ++l) {
-      res[f].p[l] = p[l] / a2;
-    }
-    res[f].compute_size();
+    set_left_comb_forest(res[f], f);
   }
   return res;
 }
@@ -169,15 +190,53 @@ Array<SchroederForest> SchroederTree::left_comb_splitting() const {
 Array<SchroederForest> SchroederTree::right_comb_splitting() const {
   Array<SchroederForest> res(number_right_forests);
   for (int f = 0; f < number_right_forests; ++f) {
-    const ForestInfo& info = right_forest_infos[f];
-    res[f].h = info.h;
-    res[f].n = info.n;
-    Int div = (1L << (info.a + 1 - info.n)); 
-    for (int l = 0; l < res[f].h; ++l) {
-      res[f].p[l] = ((p[l] / div) % (1L << res[f].n));
-    }
-    res[f].compute_size();
+    set_right_comb_forest(res[f], f);
   }
   return res;
+}
+
+SchroederTree::SchroederTree(const SchroederTree& Tl, const SchroederTree& Tr, const QuasiShuffle &sigma) {
+  Int l = Tl.number_right_forests;
+  Int r = Tr.number_left_forests;
+  Int t = l + r;
+  n = Tl.n + Tr.n - 1;
+  h = 0; 
+  Int il = 0; // index of the current layer of left tree Tl 
+  Int ir; // index of the current layer of right tree Tt 
+  // Construction of the forests comming from Tl
+  Int shift = Tl.n - 1;
+  for(il = 0; il < Tl.h - l; ++ il) {
+    p[h] = Tl.p[il] + (Tr.p[0] << shift) ;
+    ++ h;   
+  }
+  // il is a step too far 
+  -- il;
+  // Read the quasi suffle sigma sigma(0), ..., sigma(t - 1)
+  ir = 0;
+  Int ifr = r - 1;
+  for (int i = sigma.max_value(); i >= 0 ; -- i) {
+    GType g = sigma.graft_type(i);
+    if (g == GRight or g == GBoth) {
+      // Construct a right forest
+      const ForestInfo& info = Tr.left_forest_infos[ifr --];
+      for (; ir < info.h; ++ ir) {
+	p[h] = Tl.p[il] + (Tr.p[ir] << shift) ;
+	if (p[h] != p[h - 1]) ++ h; // Check if the new layer is different from the previous one
+      }
+      if (g == GBoth) ++ il;
+      // Graft Right or (Left and Right)
+      p[h] = Tl.p[il] + (Tr.p[ir] << shift);
+      ++ h;
+    }
+    else {
+      ++ il;
+      p[h] = Tl.p[il] + (Tr.p[ir] << shift);
+      ++ h;
+      
+    }
+    
+  }
+  
+ 
 }
 

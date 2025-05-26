@@ -23,8 +23,10 @@
 
 #include <bit>
 #include <initializer_list>
+
 #include "common.hpp"
 #include "array.hpp"
+#include "quasi_shuffle.hpp"
 
 class SchroederForest;
 
@@ -48,6 +50,7 @@ protected:
 public:
   SchroederTree();
   SchroederTree(const initializer_list<Int>& l);
+  SchroederTree(const SchroederTree&, const SchroederTree&, const QuasiShuffle &sigma);
   bool validate();
   void initialize();
 
@@ -56,10 +59,13 @@ public:
   Int layer(Int i) const;
   Int left_forests_length() const;
   Int right_forests_length() const;
-    
+  const ForestInfo& get_left_forest_info(Int i) const;
+  const ForestInfo& get_right_forest_info(Int i) const;
+  void set_left_comb_forest(SchroederForest& f, Int i) const;
+  void set_right_comb_forest(SchroederForest& f, Int i) const;
   Array<SchroederForest> left_comb_splitting() const;
   Array<SchroederForest> right_comb_splitting() const;
-  
+
   void display(ostream& os = cout) const;
   
   // Sage functions
@@ -116,9 +122,20 @@ SchroederTree::right_forests_length() const {
 
 inline Int
 SchroederTree::layer(Int i) const {
-  assert(0<= i and i < h);
+  assert (0 <= i and i < h);
   return p[i];
 }
 
+inline const ForestInfo&
+SchroederTree::get_left_forest_info(Int i) const {
+  assert (0 <= i and i < number_left_forests);
+  return left_forest_infos[i];
+}
+
+inline const ForestInfo&
+SchroederTree::get_right_forest_info(Int i) const {
+  assert (0 <= i and i < number_right_forests);
+  return right_forest_infos[i];
+}
 
 #endif

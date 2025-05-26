@@ -17,8 +17,8 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-#ifndef PYTHON_MATRIX_HPP
-#define PYTHON_MATRIX_HPP
+#ifndef PYTHON_SCHROEDER_FOREST_HPP
+#define PYTHON_SCHROEDER_FOREST_HPP
 
 #include <Python.h>
 #include <sstream>
@@ -61,6 +61,11 @@ static PyTypeObject SchroederForestType = {
 };
 #pragma GCC diagnostic pop
 
+
+inline PyObject* SchroederForest_size(SchroederForestObject* self, PyObject *Py_UNUSED(ignored)) {
+  return PyLong_FromLong(self -> data.size());
+}
+
 inline PyObject* SchroederForest_height(SchroederForestObject* self, PyObject *Py_UNUSED(ignored)) {
   return PyLong_FromLong(self -> data.height());
 }
@@ -69,13 +74,6 @@ inline PyObject* SchroederForest_leaves(SchroederForestObject* self, PyObject *P
   return PyLong_FromLong(self -> data.leaves());
 }
 
-inline PyObject* SchroederForest_left_forests_length(SchroederForestObject* self, PyObject *Py_UNUSED(ignored)) {
-  return PyLong_FromLong(self -> data.left_forests_length());
-}
-
-inline PyObject* SchroederForest_right_forests_length(SchroederForestObject* self, PyObject *Py_UNUSED(ignored)) {
-  return PyLong_FromLong(self -> data.right_forests_length());
-}
 
 inline PyObject* SchroederForest_display(SchroederForestObject* self, PyObject *Py_UNUSED(ignored)) {
   ostringstream os;

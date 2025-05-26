@@ -17,8 +17,8 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-#ifndef PYTHON_MATRIX_HPP
-#define PYTHON_MATRIX_HPP
+#ifndef PYTHON_SCHROEDER_TREE_HPP
+#define PYTHON_SCHROEDER_TREE_HPP
 
 #include <Python.h>
 #include <sstream>
@@ -35,8 +35,10 @@ PyObject* SchroederTree_leaves(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_layer(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_left_forests_length(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_right_forests_length(SchroederTreeObject*, PyObject*);
-PyObject* SchroederTree_left_forests(SchroederTreeObject*, PyObject*);
-PyObject* SchroederTree_right_forests(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_left_forest(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_right_forest(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_left_forest_info(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_right_forest_info(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_display(SchroederTreeObject*, PyObject*);
 
 static PyMethodDef SchroederTreeMethods[] = {
@@ -45,8 +47,10 @@ static PyMethodDef SchroederTreeMethods[] = {
   {"layer", (PyCFunction)SchroederTree_layer, METH_VARARGS, "Return the specified layer of the tree"},
   {"left_forests_length", (PyCFunction)SchroederTree_left_forests_length, METH_VARARGS, "Return the number  of forests of the tree seen as left comb."},
   {"right_forests_length", (PyCFunction)SchroederTree_right_forests_length, METH_VARARGS, "Return the number  of forests of the tree seen as right comb."},
-  {"left_forests", (PyCFunction)SchroederTree_left_forests, METH_VARARGS, "Return the forests of the tree seen as left comb."},
-  {"right_forests", (PyCFunction)SchroederTree_right_forests, METH_VARARGS, "Return the forests of the tree seen as right comb."},
+  {"left_forest", (PyCFunction)SchroederTree_left_forest, METH_VARARGS, "Set the ith forest of the tree seen as left comb."},
+  {"right_forest", (PyCFunction)SchroederTree_right_forest, METH_VARARGS, "Set the ith forest of the tree seen as right comb."},
+  {"left_forest_info", (PyCFunction)SchroederTree_left_forest_info, METH_VARARGS, "Return information of the ith forest of the tree seen as left comb."},
+  {"right_forest_info", (PyCFunction)SchroederTree_right_forest_info, METH_VARARGS, "Return information of the ith forest of the tree seen as right comb."},
   {"display", (PyCFunction)SchroederTree_display, METH_NOARGS, "Display the tree"},
   {NULL}
 };

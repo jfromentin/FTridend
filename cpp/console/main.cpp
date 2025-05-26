@@ -25,25 +25,16 @@
 using namespace std;
 
 int main() {
-  //SchroederTree T = {1, 9, 13, 15, 31, 127};
-  //SchroederTree T = {1,9,15,47,431,943,1007,1023};
-  //SchroederTree T = {1, 17, 209, 497, 509, 511};
-  SchroederTree T = {511, 510, 494, 302, 14, 2};
-  T.display();
-  bool b = T.validate();
-  cout << b <<endl;
-  /*auto left = T.left_comb_splitting();
-  auto right = T.right_comb_splitting();
-  cout << "*************" << endl;
-  cout << "* Left comb *" << endl;
-  cout << "*************" << endl;
-  for (size_t i = 0; i < left.size(); ++i) {
-    left[i].display();
-  }
-  cout << "*************" << endl;
-  cout << "* Right comb *" << endl;
-  cout << "*************" << endl;
-  for (size_t i = 0; i < right.size(); ++i) {
-    right[i].display();
-    }*/
+  SchroederTree T1 = {31, 30, 14, 2};
+  SchroederTree T2 = {127, 123, 121, 120, 104, 40};
+  QuasiShuffle sigma(3, 2);
+  do{
+    if (sigma[0] == 0 and sigma[1] == 2 and sigma[2] == 3 and sigma[3] == 1 and sigma[4] == 2) {
+      sigma.display();
+      SchroederTree T(T1, T2, sigma);
+      T.display();
+      cout <<endl;
+    }
+  }while(sigma.next());
+  
 }
