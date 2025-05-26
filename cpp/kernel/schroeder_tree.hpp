@@ -51,15 +51,18 @@ public:
   bool validate();
   void initialize();
 
-  
-  Array<SchroederForest> left_comb_splitting() const;
-  Array<SchroederForest> right_comb_splitting() const;
-
   Int height() const;
   Int leaves() const;
   Int layer(Int i) const;
-  void display() const;
+  Int left_forests_length() const;
+  Int right_forests_length() const;
+    
+  Array<SchroederForest> left_comb_splitting() const;
+  Array<SchroederForest> right_comb_splitting() const;
   
+  void display(ostream& os = cout) const;
+  
+  // Sage functions
   void sage_init(Int h, Int n);
   void sage_set_value(Int i, Int v);
 };
@@ -99,6 +102,16 @@ SchroederTree::height() const {
 inline Int
 SchroederTree::leaves() const {
   return n;
+}
+
+inline Int
+SchroederTree::left_forests_length() const {
+  return number_left_forests;
+}
+
+inline Int
+SchroederTree::right_forests_length() const {
+  return number_right_forests;
 }
 
 inline Int

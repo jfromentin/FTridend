@@ -48,17 +48,17 @@ SchroederTree::SchroederTree(const initializer_list<Int>& l) {
   initialize();
 }
 
-void SchroederTree::display() const {
+void SchroederTree::display(ostream& os) const {
   for (int j = 0; j < n; ++ j) {
-    cout  << char('a' + j) << ' ';
+    os << char('a' + j) << ' ';
   }
   if (verbose_display) {
-    cout << "  ";
+    os << "  ";
     for (int j = 0; j < n - 1; ++ j) {
-      cout  << char('0' + j);
+      os << char('0' + j);
     }
   }
-  cout << endl;
+  os << endl;
   for (int i = 1; i < h ; ++ i) {
     bool line = false;
     Int f = 1;
@@ -66,46 +66,46 @@ void SchroederTree::display() const {
       if (p[i - 1] & f) {
 	if (line) {
 	  if (not (p[i] & f)) {
-	    cout << "\u2534";
+	    os << "\u2534";
 	  }
 	  else {
-	    cout << "\u2524";
+	    os << "\u2524";
 	  }
 	}
-        else if ((p[i] & f) == f) cout << "\u2502"; //|
-	else cout << "\u2570"; //|_
+        else if ((p[i] & f) == f) os << "\u2502"; //|
+	else os << "\u2570"; //|_
       }
-      else if (line) cout << "\u2500"; //-
-      else cout << ' ';
+      else if (line) os << "\u2500"; //-
+      else os << ' ';
       if (not (p[i] & f)) {
 	if ((p[i - 1] & f)) line = true;
       }
       else line = false;
-      if (line) cout << "\u2500"; //-
-      else cout << ' ';
+      if (line) os << "\u2500"; //-
+      else os << ' ';
       
       f *= 2;
     }
-    if (line) cout << "\u2524"; //-|
-    else cout << "\u2502"; //|
+    if (line) os << "\u2524"; //-|
+    else os << "\u2502"; //|
     if (verbose_display) {
-      cout << " = ";
+      os << " = ";
       f = 1;
       for (int j = 0; j < n - 1; ++ j) {
-	if (p[i] & f) cout << '*';
-	else cout << '.';
+	if (p[i] & f) os << '*';
+	else os << '.';
 	f *= 2;
       }
-      cout << " = " << p[i];
+      os << " = " << p[i];
     }
-    cout << endl;
+    os << endl;
   }
   if (display_root) {
     // Display root
     for (int j = 0; j < n - 1; ++ j) {
-      cout << "  ";
+      os << "  ";
     }
-    cout << "\u2567" << endl;
+    os << "\u2567" << endl;
   }
 }
 
@@ -114,12 +114,12 @@ void SchroederTree::compute_left_forest_infos() {
   // Test empty case
   if (h < 2) return;
   // We start with the rightmost angle
-  Int mask = p[h - 1];
+  Int mask = p[0]; 
   Int a = n - 1;
   for (int l = h - 2 ; l >= 0; -- l){
     Int temp = mask & p[l];
-    if (temp != mask) {
-      int t = countr_one(temp);
+    if (temp != 0) {
+      int t = countr_zero(temp);
       ForestInfo& node = left_forest_infos[number_left_forests++];
       node.a = t;
       node.h = l + 1;
@@ -134,15 +134,13 @@ void SchroederTree::compute_right_forest_infos() {
   number_right_forests = 0;
   // Test empty case
   if (h < 2) return;
-  // We start with the rightmost angle
-  Int mask = p[h - 1];
-  Int miss_ones = 65535 - mask;
+  Int mask = p[0];
+  // We start with the left tmost angle
   Int a = -1;
   for (int l = h - 2 ; l >= 0; -- l){
     Int temp = mask & p[l];
-    if (temp != mask) {
-      temp += miss_ones;
-      int t = 15 - countl_one(temp);
+    if (temp != 0) {
+      int t = 15 - countl_zero(temp);
       ForestInfo& node = right_forest_infos[number_right_forests++];
       node.a = t;
       node.h = l + 1;
@@ -183,85 +181,3 @@ Array<SchroederForest> SchroederTree::right_comb_splitting() const {
   return res;
 }
 
-/*Array<SchroederForest> SchroederTree::left_comb_splitting() const {
-  int s = 0; // Size of the comb
-  Int pos[N]; // Localisation of each forest of the comb splitting.
-  // Forest i will be given as the Schroeder tree of leaves pos[i] + 1, ..., pos[i + 1]
-  Int hpos[N]; // Time when pos[i] has been computed
-  pos[0] = 0;
-  hpos[0] = 0;
-  int k = 0;
-  Int f = 1;
-  for (int i = 0; i < h; ++ i) {
-    while (p[i] & f) {
-      f *= 2;
-      ++ k;
-    }
-    if (k != pos[s]) {
-      ++ s;
-      pos[s] = k;
-      hpos[s] = i;
-    }
-  }
-  Array<SchroederForest> res(s);
-  for (int i = 0; i < s; ++ i) {
-    int ind = s - i - 1;
-    res[ind].n = pos[i + 1] - pos[i];
-    res[ind].h = hpos[i + 1] - hpos[i] + 1;
- 
-    res[ind].p[0] = 0;
-    for (int j = 1; j < res[ind].h; ++ j) {
-      res[ind].p[j] = (p[j + hpos[i]] >> (pos[i] + 1));
-    }
-    res[ind].compute_size();
-  }
-  return res;
-}
-
-
-Array<SchroederForest> SchroederTree::right_comb_splitting() const {
-  int s = 0;
-  Int pos[N]; // Localisation of each forest of the comb splitting.
-  // Forest i will be given as the Schroeder tree of leaves pos[i + 1], ..., pos[i] - 1
-  
-  pos[0] = n - 1;
-
-  Int k = n - 1;
-  Int f = 1L << (n - 2);
-  for (int i = 0; i < h; ++ i) {
-    while(p[i] & f) {
-      f /= 2;
-      --k;
-    }
-    if (k != pos[s]) {
-      ++s;
-      pos[s] = k;
-    }
-  }
- 
-  Int ht = h - 1;
-  Int hb;
-  Array<SchroederForest> res(s);
-  Int right_leaf  = (1 << (n - 2));
-  for (int i = 0; i < s; ++ i) {
-    int ind = s - i - 1;
-    
-    int nf = pos[i] - pos[i + 1];
-    res[ind].n = nf;
-    // Right most forest is special leave n does not appeat directly 
-    //if (i > 0) --nf;
-    Int mask = ((1 << (nf - 1)) - 1) << pos[i + 1];
-    while((p[ht] & mask) != 0) --ht;
-    hb = ht + 1;
-    // Detect connection height of the full forest with the right most leaf
-    while(((p[hb] & mask) != mask) or ((p[hb] & right_leaf) == 0)) ++hb;
-    int hf = hb - ht + 1;
-    res[ind].h = hf;
-    res[ind].p[0] = 0;
-    for (int j = 1; j < hf; ++ j) {
-      res[ind].p[j] = ((p[j + ht] & mask) >> pos[i + 1]);
-    }
-    res[ind].compute_size();
-  }
-  return res;
-  }*/

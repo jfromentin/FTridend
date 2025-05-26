@@ -21,6 +21,7 @@
 #define PYTHON_MATRIX_HPP
 
 #include <Python.h>
+#include <sstream>
 #include "../kernel/schroeder_tree.hpp"
 
 typedef struct {
@@ -32,11 +33,21 @@ int SchroederTreeInit(SchroederTreeObject*, PyObject*, PyObject*);
 PyObject* SchroederTree_height(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_leaves(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_layer(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_left_forests_length(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_right_forests_length(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_left_forests(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_right_forests(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_display(SchroederTreeObject*, PyObject*);
 
 static PyMethodDef SchroederTreeMethods[] = {
   {"height", (PyCFunction)SchroederTree_height, METH_NOARGS, "Return the height of the tree"},
   {"leaves", (PyCFunction)SchroederTree_leaves, METH_NOARGS, "Return the number of leaves of the tree"},
   {"layer", (PyCFunction)SchroederTree_layer, METH_VARARGS, "Return the specified layer of the tree"},
+  {"left_forests_length", (PyCFunction)SchroederTree_left_forests_length, METH_VARARGS, "Return the number  of forests of the tree seen as left comb."},
+  {"right_forests_length", (PyCFunction)SchroederTree_right_forests_length, METH_VARARGS, "Return the number  of forests of the tree seen as right comb."},
+  {"left_forests", (PyCFunction)SchroederTree_left_forests, METH_VARARGS, "Return the forests of the tree seen as left comb."},
+  {"right_forests", (PyCFunction)SchroederTree_right_forests, METH_VARARGS, "Return the forests of the tree seen as right comb."},
+  {"display", (PyCFunction)SchroederTree_display, METH_NOARGS, "Display the tree"},
   {NULL}
 };
 
@@ -63,6 +74,21 @@ inline PyObject* SchroederTree_height(SchroederTreeObject* self, PyObject *Py_UN
 inline PyObject* SchroederTree_leaves(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
   return PyLong_FromLong(self -> data.leaves());
 }
+
+inline PyObject* SchroederTree_left_forests_length(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
+  return PyLong_FromLong(self -> data.left_forests_length());
+}
+
+inline PyObject* SchroederTree_right_forests_length(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
+  return PyLong_FromLong(self -> data.right_forests_length());
+}
+
+inline PyObject* SchroederTree_display(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
+  ostringstream os;
+  self -> data.display(os);
+  return PyUnicode_FromString(os.str().c_str());
+}
+
 
 
 #endif
