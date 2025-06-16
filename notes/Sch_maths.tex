@@ -232,7 +232,7 @@ Let us remind the following definition:
 
 Let $t$ be a tree. It $t$ can always be seen as:
 \begin{center}
-	\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+	\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.5cm,y=0.5cm]
 			% Etage 1
 			\draw (0,0)--(0,1);
 			%Etage 2
@@ -257,7 +257,7 @@ where $k$ is the number of nodes on the right-most branch of $t$ and for $i\in\I
 \begin{Not}
 	Let $F=t_1\dots t_n$ be a forest composed of $n$ trees. Instead of writing:
 	\begin{center}
-		\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+		\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.5cm,y=0.5cm]
 				% Etage 1
 				\draw (0,0)--(0,1);
 				%Etage 2
@@ -268,7 +268,7 @@ where $k$ is the number of nodes on the right-most branch of $t$ and for $i\in\I
 		\end{tikzpicture}},
 	\end{center}
 	we will write:
-	\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+	\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
 			% Etage 1
 			\draw (0,0)--(0,1);
 			%Etage 2
@@ -279,7 +279,7 @@ where $k$ is the number of nodes on the right-most branch of $t$ and for $i\in\I
 
 As a consequence, we deduce that all tree $t$ can be seen as:
 \begin{center}
-	\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+	\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
 			% Etage 1
 			\draw (0,0)--(0,1);
 			%Etage 2
@@ -338,34 +338,34 @@ The free tridendriform algebra is built on the vector space $\K\Tree \oplus \K\c
  \begin{Egs}
  	For instance, we give some examples of trees and their decompositions as right and left combs:
  		\begin{itemize}
- 				 \item \YY=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 				 \item \YY=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  					\draw (0,0)--(0,1);
  					\draw (0,1)--(2,3);
  					\draw (1,2)--(0,3);
  					\draw (0,1)--(-1,2);
  					\draw  (-1,2) node[above,left]{\small{F}};
  					\draw  (1,3.75) node[below,left]{\small{Q}};
- 			\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 			\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  					\draw (0,0)--(0,1);
  					\draw (0,1)--(-2,3);
  					\draw (-1,2)--(0,3);
  					\draw (0,1)--(1,2);
  					\draw  (1,2) node[below,right]{\small{F}};
  					\draw  (1.5,3.75) node[above,left]{\small{Q}};
- 		\end{tikzpicture}} where $F=\Y$ and $Q=|.$ 		\item \balais=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 		\end{tikzpicture}} where $F=\Y$ and $Q=|.$ 		\item \balais=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round, x=0.3cm,y=0.3cm]
  					% Etage 1
  					\draw (0,0)--(0,1);
  					%Etage 2
  					\draw (0,1)--(-1,2) node[left]{$F$};
  					\draw (0,1)--(1,2);
- 			\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 			\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  					% Etage 1
  					\draw (0,0)--(0,1);
  					%Etage 2
  					\draw (0,1)--(1,2)node[right]{$F$};
  					\draw (0,1)--(-1,2);
  		\end{tikzpicture}} where $F=||.$
- 		\item \raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 		\item \raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round, x=0.3cm,y=0.3cm]
  					\draw (0,0)--(0,1);
  					\draw (0,1) -- (-3,4);
  					\draw (0,1)--(3,4);
@@ -373,13 +373,13 @@ The free tridendriform algebra is built on the vector space $\K\Tree \oplus \K\c
  					\draw (0,3.2) -- (-0.8,4);
  					\draw (0,3.2) -- (0.8,4);
  					\draw (-2.2,3.2) --(-1.2,4);
- 		\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 		\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  					% Etage 1
  					\draw (0,0)--(0,1);
  					%Etage 2
  					\draw (0,1)--(-1,2) node[left]{$H$};
  					\draw (0,1)--(1,2);
- 			\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 			\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  					\draw (0,0)--(0,1);
  					\draw (0,1)--(-2,3);
  					\draw (-1,2)--(0,3);
@@ -387,7 +387,7 @@ The free tridendriform algebra is built on the vector space $\K\Tree \oplus \K\c
  					\draw  (1,2) node[below,right]{\small{F}};
  					\draw  (1.5,3.75) node[above,left]{\small{Q}};
  		\end{tikzpicture}} where $H=\Y\Y$, $Q=|$ and $F=\Y |.$
- 	\item \raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 	\item \raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  		\draw (0,0)--(0,1);
  		\draw (0,1)--(-4,5);
  		\draw (0,1)--(4,5);
@@ -397,7 +397,7 @@ The free tridendriform algebra is built on the vector space $\K\Tree \oplus \K\c
  		\draw (-3,4)--(-2,5);
  		\draw (1.75,4.25)--(2.5,5);
  		\draw (1.75,4.25)--(1.75,4.25);
- 	\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 	\end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  	\draw (0,0)--(0,1);
  	\draw (0,1)--(-1,2);
  	\draw (0,1)--(4,5);
@@ -406,14 +406,14 @@ The free tridendriform algebra is built on the vector space $\K\Tree \oplus \K\c
  	\draw (-1,2) node[left] {{$F$}};
  	\draw (0,3) node[left] {{$G$}};
  	\draw (1.5,4.5) node[left] {{$H$}};
- \end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ \end{tikzpicture}}=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  \draw (0,0)--(0,1);
  \draw (0,1)--(1,2);
  \draw (0,1)--(-2,3);
  \draw (-1,2)--(0,3);
  \draw (0,3) node[right] {$J$};
  \draw (1,2) node[right] {$I$};
-\end{tikzpicture}} with $F=\balais, G=|, H=\Y$ and $I=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+\end{tikzpicture}} with $F=\balais, G=|, H=\Y$ and $I=\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
 \draw (0,0)--(0,1);
 \draw (0,1)--(-2,3);
 \draw (0,1)--(2,3);
@@ -429,7 +429,7 @@ The free tridendriform algebra is built on the vector space $\K\Tree \oplus \K\c
  	\begin{enumerate}
  		\item  We first consider the ladder with $n$ nodes:
  		\begin{center}
- 			\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 			\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  					\begin{scope}{shift={(-3,0)}}
  						\draw (0,0)--(0,2.5);
  						\draw[dashed] (0,2.5)--(0,5);
@@ -448,7 +448,7 @@ The free tridendriform algebra is built on the vector space $\K\Tree \oplus \K\c
  \begin{Eg}\label{Eg:quasiaction}
  	Consider the $(2,2)$-quasi-shuffle $\sigma=(1,3,2,3)$. Let us take:
  	
- 	$t=$	\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+ 	$t=$	\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.2cm,y=0.2cm]
  			% Etage 1
  			\draw (0,0)--(0,1);
  			%Etage 2
@@ -456,7 +456,7 @@ The free tridendriform algebra is built on the vector space $\K\Tree \oplus \K\c
  			% Etage 3
  			\draw (0,1)--(2,3);
  			\draw (1,2)--(0,3) node[left,above]{$F_2$};
- 	\end{tikzpicture}} and $s=$ \raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+ 	\end{tikzpicture}} and $s=$ \raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.2cm,y=0.2cm]
  			% Etage 1
  			\draw (0,0)--(0,1);
  			%Etage 2
@@ -465,7 +465,7 @@ The free tridendriform algebra is built on the vector space $\K\Tree \oplus \K\c
  			\draw (0,1)--(-2,3);
  			\draw (-1,2)--(0,3) node[right,above]{$F_{4}$};
  	\end{tikzpicture}}.
- 	Then $\sigma(t,s)=$\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
+ 	Then $\sigma(t,s)=$\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
  			\draw (0,0)--(0,4);
  			%Noeud 1
  			\draw (0,1)--(-1,2) node[left]{$F_1$};
@@ -626,7 +626,7 @@ These maps $\Phi$ may seem mysterious, but just compute this on the example:
 \begin{Eg}
 	Consider the tree $t$ given below:
 	\[
-	\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+	\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.2cm,y=0.2cm]
 			\draw (0,0)--(0,5);
 			\draw (0,1)--(-4,5);
 			\draw (-2.5,3.5)--(-1,5);
@@ -809,7 +809,7 @@ For instance, consider the chain $c$ given below:
 \end{center} 
 Hence:
 \[
-\Psi(c)=\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+\Psi(c)=\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.2cm,y=0.2cm]
 		\draw (0,0)--(0,5);
 		\draw (0,1)--(-4,5);
 		\draw (-2.5,3.5)--(-1,5);
