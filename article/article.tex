@@ -34,6 +34,7 @@
 \DeclareMathOperator{\internodes}{in}
 \DeclareMathOperator{\Coass}{Coass}
 \DeclareMathOperator{\Codend}{Codend}
+\DeclareMathOperator{\Code}{Code}
 \DeclareMathOperator{\Set}{Set}
 \DeclareMathOperator{\Par}{Par}
 \DeclareMathOperator{\Part}{\mathcal{P}}
@@ -68,6 +69,8 @@
 
 \newtheorem{thm}{Theorem}
 \newtheorem{prop}{Proposition}
+\newtheorem{Cor}{Corollary}
+\newtheorem{Lemma}{Lemma}
 \theoremstyle{definition}
 \newtheorem{exam}{Example}
 \newtheorem{defi}{Definition}
@@ -213,6 +216,10 @@
 \begin{document}
 
 \maketitle
+
+\begin{abstract}
+	We introduce a primitive computation problem in a the free tridendriform algebra which is a Hopf algebra based on \Schw{} trees. We know a complex way to generate all of them, hence we want to implement this method on a computer. However, we need to create this tools to implement Schroeder trees and the multiplications over this algebra to be able to compute the primitive elements of the free tridendriform algebra. In this paper, we detail how we made the problem mathematically understandable for a computer and how we did implement it.
+\end{abstract}
 
 \section{Introduction}
 
@@ -474,10 +481,10 @@ where $k$ is the number of nodes on the right-most branch of $t$ and for $i\in\I
 \end{Not}
 
 With these notations, we notice that all tree $t$ can be seen either  respectively like a \emph{right comb} or a \emph{left comb}:
-\begin{align*}
+\begin{align}\label{eq:tree_combs}
 	t&=\peignedroit{F_1}{F_2}{F_k}
 	& \text{ and } &&  s=\peignegauche{F_{k+1}}{F_{k+2}}{F_{k+l}},
-\end{align*}
+\end{align}
 where $F_1,\dots,F_k$ and $F_{k+1},\dots, F_{k+l}$ are non-empty forests.
 \begin{defi}
 	The writing defined above is the writing of $t$ as a \emph{right comb}.
@@ -511,6 +518,50 @@ The free tridendriform algebra is built on the vector space $\K\Sch \oplus \K\cd
 	\]
 	We will denote $\batc(k,l)$ the set of all $(k,l)$-quasi-shuffles.
 \end{defi}
+We can easily prove that: %TODO ON ajoute une référence ou on le démontre ? Personnelemnt je pense qu'ajouter une référence est suffisant.
+\begin{Lemma}\label{lem:Indution_batc}
+	Let $k,l\geq 2$. Then, the following sets are in bijections for $k,l\geq 2$:
+	\begin{align*}
+		\{\sigma\in\batc(k,l) \,|\, \sigma^{-1}(\{1\})=\{1\}\} &\simeq \batc(k-1,l), \\
+		\{\sigma\in\batc(k,l) \,|\, \sigma^{-1}(\{1\})=\{k+1\}\} &\simeq \batc(k,l-1), \\
+		\{\sigma\in\batc(k,l) \,|\, \sigma^{-1}(\{1\})=\{1,k+1\}\} &\simeq \batc(k-1,l-1).
+	\end{align*}
+	The initial cases for this induction are:
+	\[ % font issue for the and here
+	\batc(1,0)=\{\Id_{\{1\}}\}=\batc(0,1) \text{ \textrm{and} } \batc(1,1)=\{\Id_{\{1,2\}}, (2,1)\}.
+	\]
+\end{Lemma}
+\begin{proof}
+	\begin{description}
+		\item[First case] we denote by $\sigma'\IEM{1}{k+l-1}\rightarrow \NN$ the unique map such that:
+		\[
+		\forall n\in\IEM{1}{k+l}, \sigma(n)=\begin{cases}
+			1 &\text{ if } n=1, \\
+			\sigma'(n-1)+1 & \text{otherwise.}
+		\end{cases}
+		\]
+		It is left to the reader to check that $\sigma'$ is an element of $\batc(k-1,l).$
+		\item[Second case] we denote by $\sigma':\IEM{1}{k+l-1}\rightarrow \NN$ the unique map such that:
+		\[
+		\forall n\in\IEM{1}{k+l}, \sigma(n)=\begin{cases}
+			1 &\text{ if } n=k+1, \\
+			\sigma'(n)+1 & \text{if} n<k+1, \\
+			\sigma'(n-1)+1 & \text{otherwise.}
+		\end{cases}
+		\]
+		It is left to the reader to check that $\sigma'$ is an element of $\batc(k,l-1).$
+		\item[Third case] we denote $\sigma':\IEM{1}{k+l-1}\rightarrow \NN$ the unique map such that:
+		\[
+		\forall n\in\IEM{1}{k+l}, \sigma(n)=\begin{cases}
+			1 &\text{ if } n=1 \text{ or } n=k+1, \\
+			\sigma'(n-1)+1 & \text{ if } n\leq k, \\
+			\sigma'(n-2)+1 & \text{ otherwise}. \\
+		\end{cases}
+		\]
+		It is left to the reader to check that $\sigma'$ is an element of $\batc(k-1,l-1).$
+	\end{description}
+	Hence it establishes the maps from the left to the right in the lemma. Conversely, one remarks these maps $\sigma\mapsto\sigma'$ are invertible.
+\end{proof}
 
 
 Let $t,s$ two trees different from $|$. We look $t$ as a right comb and $s$ as a left comb. In other words, we put:
@@ -874,14 +925,14 @@ Using the section $s$, we can identify to any \Schw{} tree a finite list of bina
 \begin{defi}
 	For any $n\in\NN,$ we introduce a map $\varphi_n: \Schl(n)\rightarrow \IC(\IEM{1}{n})$ defined for any $t\in\Schl(n)$ by the \emph{unique} initial chain describing the life time of the angles of $t$ in function of the levels of the tree.
 	
-	We also define $\Set_n$, the map sending any element of $\IC(\IEM{1}{n})$ onto a list of length $n$ with $0$'s and $1$'s encoding the element of $\mathcal{P}(\IEM{1}{n})$ considered. More precisely, for any $X\in\mathcal{P}(\IEM{1}{n})$:
+	We also define $\Set_n$, the map sending any element of $\IC(\IEM{1}{n})$ onto a list of length $n$ with $0$'s and $1$'s encoding the element of $\mathcal{P}(\IEM{1}{n})$ considered. More precisely, for any ${X\in\mathcal{P}(\IEM{1}{n})}$:
 	\[
 	\Set_n(X)\coloneq (\mathbbm{1}_X(i))_{i\in\IEM{1}{n}}.
 	\]
 	
-	Finally, we introduce the $n$-binary map, denoted $B_n$, that sends any sequence with $0$'s and $1$'s of length $n$ onto an integer the following way:
+	Finally, we introduce the binary map, denoted $B$, that sends any sequence with $0$'s and $1$'s onto an integer the following way:
 	\[ %TODO Notation à introduire
-	\forall s\in \{0,1\}^{\star}, B_n(s)=\sum^{|s|}_{i=0} s_i\cdot 2^i.
+	\forall s\in \{0,1\}^{\star}, B(s)=\sum^{|s|}_{i=0} s_i\cdot 2^i.
 	\] 
 \end{defi}
 \begin{exam}\label{Eg:tree_code}
@@ -918,17 +969,20 @@ Using the section $s$, we can identify to any \Schw{} tree a finite list of bina
 			\{3\}~\{5\} \\
 			\emptyset
 		\end{array}
-		&& \overset{\Set_n}{\longrightarrow} &&  \begin{array}{ccccc}
+		&& \overset{\Set_5}{\longrightarrow} &&  \begin{array}{ccccc}
 			1 & 1 & 1 & 1 & 1 \\
 			0 & 0 & 1 & 1 & 1 \\
 			0 & 0 & 1 & 0 & 1 \\
 			0 & 0 & 0 & 0 & 0
-		\end{array} && \overset{B_n}{\longrightarrow} && \begin{array}{c}
+		\end{array} && \overset{B}{\longrightarrow} && \begin{array}{c}
 			31 \\ 28 \\ 20 \\ 0
 		\end{array}
 	\end{align}
 \end{exam}
 
+\begin{Not}
+	We will call the \emph{code map}, denoted $\Code$, the map $\Set\circ\varphi\circ s$.
+\end{Not}
 Thanks to this result we can now encode one \Schw{} tree as a list of integers into a computer. Now, we can look at the action of quasi-shuffles on our encoding of trees for an easy computation in the free tridendriform algebra with one generator.
 
 \PCt{Je mets une partie pour décrire l'image des $\varphi_n$ que l'on ne conservera peut-être pas.}
@@ -964,13 +1018,14 @@ x=\bigcup_{c\in\Con(x)} c.
 \begin{proof}
 	Todo
 \end{proof}
+\PCt{Est-ce qu'on parle des suites croissantes pour le poids de Hamming ?} 
 
 \subsection{The tridendriform structure for 0 and 1 sequences}
 
 One usual operation we can perform words is the concatenation. In our particular case, the tridendriform operations over $\IC{}$ are more complicated. In fact, we could multiply two initial chains with partition set and different lengths.
 
 \begin{Rq}
-	For now on, for any $n\in\NN$ we will no longer distinguish element of $\IC(\IEM{1}{n})$ and the sequence of words with length $n$ over $\{0,1\}$ associated to it. We also allow ourselves to mix the notations.
+	For now on, for any $n\in\NN$ we will no longer distinguish element of $\IC(\IEM{1}{n})$ and its image by the map $\Set$. We also allow ourselves to mix the notations.
 \end{Rq}
 
 \subsubsection{Preliminary definitions}
@@ -985,6 +1040,7 @@ In order to describe properly to the computer what we want to do, we have to ide
 \end{defi}
 \begin{Rq}
 	The forest code associated to the empty chain, denoted $\varepsilon$, is $\unit$. 
+	Note that if $C$ is a forest code that is not an initial chain, then there exists a unique forest $F$ such that $\Code(T)=C$ with $T$ is the grafting of all the element of the forest $F$ in this order to a common root. Hence, we extend the definition of the map $\Code$ to forests codes in such a way that $\Code(C)=F.$ 
 \end{Rq}
 \begin{exam}
 	For instance, the forest code of $\balaisd~\Y~\unit$ is:
@@ -1057,7 +1113,7 @@ In order to describe properly to the computer what we want to do, we have to ide
 	0 & 0 & 0 & 1 & 1 & 1 \\
 	0 & 0 & 0 & 1 & 0 & 1 \\
 	0 & 0 & 0 & 0 & 0 & 0
-	\end{tblr} = \Set\circ\phi(s) \coloneqq S.
+	\end{tblr} = \Code(s) \eqqcolon S.
 	\] 
 	Hence:
 	\begin{align*}
@@ -1077,7 +1133,7 @@ In order to describe properly to the computer what we want to do, we have to ide
 		0 & 1
 		\end{tblr}\right).
 	\end{align*}
-	Associating to it the $3$-uplet of the forests code, we have:
+	Associating to it the $3$-uplet of the forests code by inverting $\Code$ and applying it component-wise, we have:
 	\[
 	\left( \unit, \balais{}, \Y{}~\unit\right).
 	\]
@@ -1107,10 +1163,10 @@ In order to describe properly to the computer what we want to do, we have to ide
 		F_1 & 1  & C_1 
 		\end{tblr} \text{ if it is a forest code.}
 		\]
-		such that $F_1$ and $C_1$ are respectively $\tilde{F_1}$ and $\tilde{C_1}$ keeping only once any instance of a integer sequence. Moreover, the red line spotted is the \emph{rightmost} column with this property in $C$. 
+		such that $F_1$ and $C_1$ are respectively $\tilde{F_1}$ and $\tilde{C_1}$ keeping only once any instance of a integer sequence. Moreover, the red line spotted is the \emph{rightmost} column in $C$ ending with a $1$ or with a unique $0$ if the last line is full of zeros. 
 \end{defi}
 \begin{exam}
-		We will start from a tree, consider its code, we apply the decomposition detailed above and compare  the right comb decomposition of the tree with the forest associated to the sequence of forest code.
+		We will start from a tree, consider its code, then apply the decomposition detailed above and compare  the right comb decomposition of the tree with the forest associated to the sequence of forest code.
 	\[
 	t=\raisebox{-0.3\height}{\begin{tikzpicture}[x=0.3cm, y=0.3cm]
 	%structure de l'arbre
@@ -1138,11 +1194,11 @@ In order to describe properly to the computer what we want to do, we have to ide
 	0 & 1 & 0 & 1 & 1 \\
 	0 & 1 & 0 & 0 & 0 \\
 	0 & 0 & 0 & 0 & 0
-	\end{tblr} =\Set \circ \varphi(t)\coloneqq T
+	\end{tblr} =\Code(t)\eqqcolon T
 	\] 
 	Hence:
 	\begin{align*}
-		\LCD{T}&=\left(\begin{tblr}{colspec={c}}
+		\RCD{T}&=\left(\begin{tblr}{colspec={c}}
 		1  \\
 		0
 		\end{tblr}, \RCD{\begin{tblr}{colspec={ccc}, column{3}={bg=blue!25}}
@@ -1177,14 +1233,22 @@ Now, we have an analogous of the comb decomposition for our sequences. We can no
 
 By analogy with \Schw{} trees, we put:
 
-\begin{defi}
-	Let $T\in\IC(\IEM{1}{n})$ and $S\in\IC(\IEM{1}{m})$. Let us denote $k=\RTL(T)$ and $l=\LTL(S)$. Consider $\sigma\in\batc(k,l)$ which has for image $\IEM{1}{r}$. We denote by $\sigma(t,s)$ the element of $\IC(\IEM{1}{m+n})$ defined by:
+\begin{defi}\label{defi:quasishuffle_code}
+	Let $T\in\IC(\IEM{1}{n})$ and $S\in\IC(\IEM{1}{m})$. Let us denote $k=\RTL(T)$ and $l=\LTL(S)$. Consider $\sigma\in\batc(k,l)$ which has for image $\IEM{1}{r}$. We denote by $\sigma(T,S)$ the element of $\IC(\IEM{1}{m+n})$ defined by:
 	\begin{enumerate}
-		\item 	 
-		\item 
-		\item 
+		\item on the first $m$ integers, copy all the $k$ forests codes of $\RCD{T}$ (excepted to the rightmost one $\unit$) separated by a column of ones on their right;  
+		\item for $h$ from $r$ to $1$ with a $-1$ step: %Je ne sais pas trop comment tourner ça !
+		\begin{description} % TODO à réécrire en mettant de bonnes notations pour RCD et LCD
+			\item[Case 1] if $\sigma^{-1}(\{h\})=\{i\}, i\in\IEM{1}{k}$, write $0$'s below the code of $F_i$ and on its adjacent right column.
+			\item[Case 2] if $\sigma^{-1}(\{h\})=\{j\}, j\in\IEM{k=1}{k+l}$, include the code of $F_j$ at its appropriate place shifted by $n$ with a ones column on its left write $0$'s below the code of $F_j$ and on its adjacent left column. write $0$'s below the code of $F_j$ and on its adjacent left column.
+			\item[Case 3] if $\sigma^{-1}(\{h\})=\{i,j\}, (i,j)\in\IEM{1}{k}\times\IEM{k+1}{k+l}$, include the code of $F_j$ at its appropriate place shifted by $n$ with a ones column on its left write $0$'s below the code of $F_j$ and on its adjacent left column. Then, write $0$'s below the code of $F_j$ and on its adjacent left column \emph{and} below the code of $F_i$ and on its adjacent right column.
+		\end{description}
+		The element obtained from this operation is denoted $\sigma(T,S)$.
 	\end{enumerate} 
 \end{defi}
+\begin{Rq}
+	For this operation, one should remind the ending positions of each forest code.
+\end{Rq}
 
 \begin{exam}
 		Consider the $(2,2)$-quasi-shuffle $\sigma=(1,3,2,3)$. Let us take 
@@ -1192,10 +1256,10 @@ By analogy with \Schw{} trees, we put:
 		% Etage 1
 		\draw (0,0)--(0,1);
 		%Etage 2
-		\draw (0,1)--(-1,2) node[left]{$F_1$};
+		\draw (0,1)--(-1,2) node[left]{$f_1$};
 		% Etage 3
 		\draw (0,1)--(2,3);
-		\draw (1,2)--(0,3) node[left,above]{$F_2$};
+		\draw (1,2)--(0,3) node[left,above]{$f_2$};
 		%marquages des sommets
 		\filldraw (0,1) circle (0.15);
 		\filldraw (1,2) circle (0.15);
@@ -1204,10 +1268,10 @@ By analogy with \Schw{} trees, we put:
 		% Etage 1
 		\draw (0,0)--(0,1);
 		%Etage 2
-		\draw (0,1)--(1,2) node[right]{$F_{3}$};
+		\draw (0,1)--(1,2) node[right]{$f_{3}$};
 		% Etage 3
 		\draw (0,1)--(-2,3);
-		\draw (-1,2)--(0,3) node[right,above]{$F_{4}$};
+		\draw (-1,2)--(0,3) node[right,above]{$f_{4}$};
 		%marquages des sommets
 		\filldraw (0,1) circle (0.15);
 		\filldraw (-1,2) circle (0.15);
@@ -1216,54 +1280,282 @@ By analogy with \Schw{} trees, we put:
 	Then $\sigma(t,s)=$\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.3cm,y=0.3cm]
 		\draw (0,0)--(0,4);
 		%Noeud 1
-		\draw (0,1)--(-1,2) node[left]{$F_1$};
+		\draw (0,1)--(-1,2) node[left]{$f_1$};
 		%Noeud 2
-		\draw (0,2)--(1,3) node[right]{$F_3$};
+		\draw (0,2)--(1,3) node[right]{$f_3$};
 		%Noeud 3
-		\draw (0,3)--(-1,4) node[left]{$F_2$};
-		\draw (0,3)--(1,4) node[right]{$F_4$};
+		\draw (0,3)--(-1,4) node[left]{$f_2$};
+		\draw (0,3)--(1,4) node[right]{$f_4$};
 		%marquage des noeuds
 		\filldraw (0,1) circle (0.15);
 		\filldraw (0,2) circle (0.15);
 		\filldraw (0,3) circle (0.15);
 		\draw[color=black, fill=white] (0,4) circle (0.15);
 		\end{tikzpicture}}.
+	Then, let us denote for all $i\in\IEM{1}{4}, \Code(f_i)=F_i$.
 	Hence, the code associated to $t$ and $s$ respectively denoted $T$ and $S$ are of the shape:
 	\[
 	T=\begin{tblr}{colspec={cccccc},
+	cell{2}{1}={r=3,c=2}{c},
+	cell{5}{4}={r=3,c=2}{c}
 	}
 	1 & \cdots & 1 & 1 & \cdots &  1 \\
 	F_1 & F_1 & 1 & 1  & \cdots & 1 \\
 	F_1  & F_1 & \vdots &1   & \cdots & 1 \\
 	F_1 & F_1  & 1 & 1 & \cdots & 1  \\
-	0 & \cdots & 0 & 1 & 1 & 1  \\
-	0 & \cdots & 0 & F_2 & 1 &  0 \\
-	0 & \cdots & 0 & F_2 &\vdots & 0\\
-	0 & \cdots & 0 & F_2 & 1 & 0 \\
+	\vdots & \vdots & 1 & F_2 &  &  1 \\
+	\vdots & \vdots & 1 & F_2 & & \vdots\\
+	\vdots & \vdots & 1 & F_2 &  & 1 \\
+	\vdots & \vdots & 1 & 0 & \cdots & 0 \\
 	0 & \cdots & 0 & 0 & \cdots & 0
 	\end{tblr} \text{ and }
 	S=\begin{tblr}{colspec={cccccc},
-		cell{1}{2}={r=1,c=2}{c},
 		 cell{2}{2}={r=3,c=2}{c},
-		cell{6}{5}={r=3,c=1}{c}
+		cell{6}{5}={r=3,c=2}{c}
 	}
-	   1 & \cdots & \cdots & 1 & \cdots &  1 \\
+	   1 & \cdots & 1 & 1 & \cdots &  1 \\
 	   1 &  F_4 & F_4 &1  & \cdots & 1 \\
 	   \vdots & F_4  & F_4 &1   & \cdots & 1 \\
 	   1 & F_4 & F_4  & 1 & \cdots & 1  \\
-	   0 & \cdots & 0 & 1 & 1 & 1  \\
-	   0 & \cdots & 0 &1 & F_3 & 0 \\
-	   0 & \cdots & 0 & \vdots  & F_3 & 0\\
-	   0 & \cdots & 0 & 1 & F_3 & 0 \\
-	   0 & \cdots & 0 & 0 & \cdots & 0
+	   0 & \cdots & 0 & 1 & \cdots & 1  \\
+	   0 & \cdots & 0 &1 & F_3 &  \\
+	   0 & \cdots & 0 & \vdots  & F_3 & \\
+	   0 & \cdots & 0 & 1 & F_3 &  \\
+	   0 & \cdots & 0 & 0 & \cdots & 0 
+	\end{tblr}
+	\]
+	Then, $\sigma(T,S)$ is the code of the tree $\sigma(t,s)$ given by:
+	\[
+	\begin{tblr}{colspec={cccccccccccc},
+			cell{2}{1}={r=3,c=2}{c},
+			cell{5}{4}={r=3,c=2}{c},
+			cell{8}{8}={r=3,c=2}{c},
+			cell{12}{11}={r=3,c=2}{c},
+			row{11}={bg=blue!25},
+			row{15}={bg=red!25},
+			row{16}={bg=yellow!25}
+		}
+		1 & \cdots & 1 & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & 1 \\
+		F_1 & F_1 & 1 	   & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & 1 \\
+		F_1 & F_1 & \vdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \vdots \\
+		F_1 & F_1 &	   	 1 & 1 		& \cdots & 	1	  & 	1  & \cdots & \cdots & \cdots & \cdots  & 1 \\
+		\vdots & \vdots & \vdots & F_2 & F_2 & \vdots & \vdots & \cdots & \cdots & \cdots & \cdots  & \vdots \\
+		\vdots & \vdots & \vdots & F_2 & F_2 & 1 & 1 & \cdots & \cdots & \cdots & \cdots  & 1 \\
+		\vdots & \vdots & 1		 & F_2 & F_2 & 1 & 1 & \cdots & \cdots & 1  & \cdots & 1 \\
+		\vdots & \vdots & 1		& \vdots & \vdots & 1 	   & 1 		& F_4  & F_4 & \vdots & \cdots  & \vdots \\
+		\vdots & \vdots & 1		& \vdots & \vdots & \vdots & \vdots & F_4  & F_4 & \vdots & \cdots  & \vdots \\
+		\vdots & \vdots & 1		& \vdots & \vdots & 1 	   & 1	    & F_4  & F_4 & 	1    & \cdots & 1 \\
+		\vdots & \vdots & 1		& 0      & \cdots & 0 	   & 0	    &\cdots& 0   & 1 & \cdots & 1 \\
+		\vdots & \vdots & 1		& 0      & \cdots & 0 	   & 0	    &\cdots& 0	 	 & 1      & F_3  & F_3 \\
+		\vdots & \vdots & 1		& 0      & \cdots & 0 	   & 0	    &\cdots& \vdots  & \vdots & F_3  & F_3 \\
+		\vdots & \vdots & 1		& 0      & \cdots & 0 	   & 0	    &\cdots& 	0 	 &	  1   & F_3  & F_3 \\
+		\vdots & \vdots & 1		& 0      & \cdots & 0 	   & 0	    &\cdots& \cdots  &	  0   &\cdots& 0 \\
+		0	   & \cdots & \cdots& \cdots & \cdots & 0      & 0	    &\cdots& \cdots  &	  0   &\cdots& 0 
 	\end{tblr}
 	\]
 \end{exam}
 
-\subsubsection{The relationship with \Schw{} trees}
+With this definition, we are now able to define three operators in $\ima(\Code)$
 
-\section{Coding the problem}
+\begin{defi}\label{defi:operations_codes}
+	Let $T$ and $S$ be two elements in $\ima(\Code)$ such that ${k=|\RTL(T)|}$ and ${l=|\LTL(S)|}$. We define:
+	\begin{align*}
+		T \prec S= \sum_{\substack{\sigma\in\batc(k,l) \\ \sigma^{-1}(\{1\})=\{1\}}} \sigma(T,S), &&
+		T \succ S= \sum_{\substack{\sigma\in\batc(k,l) \\ \sigma^{-1}(\{1\})=\{1\}}} \sigma(T,S), \\
+		T \cdot S= \sum_{\substack{\sigma\in\batc(k,l) \\ \sigma^{-1}(\{1\})=\{1,k+1\}}} \sigma(T,S), \\
+	\end{align*}
+\end{defi}
 
+In the sequel, we show that this structure is a tridendriform structure on $\ima(\Code)$ showing it is isomorphic the to free tridendriform algebra of \Schw{} trees. Hence it gives us a mathematical background to implement programs in the section~\ref{sec:coding}.
+
+\begin{thm} %TODO Le plus malin serait de définir une right comb length et une left comb length je pense
+	Let $t,s$ be two \Schw{} trees with shapes given in equation~\eqref{eq:tree_combs}. Hence, $k$ is the right comb length of $t$ and $l$ the left comb length of $s$. Let $\sigma\in\batc(k,l)$. Then:
+	\[
+	\Code(\sigma(t,s))= \sigma(\Code(t),\Code(s)).
+	\]
+\end{thm}
+\begin{proof}
+In order to prove this theorem, we will proceed by induction over the sum $\max(k,l)$. If $l=0$ or $k=0$, this means that $s=\unit$ or $t=\unit$.
+\begin{description}
+	\item[Initialization] if $\max(k,l)=1$ and $k+l=1$, then the identity shuffle is acting on this pair of tree and one of them is $\unit$. By definition~\ref{defi:quasishuffle_code}, we get back the tree code of the non-unit element.
+	Otherwise, if $k+l=2$ hence $\sigma=(1,1)$, then:
+	\[
+	t=\raisebox{-0.3\height}{\begin{tikzpicture}[x=0.25cm,y=0.25cm]
+		\draw (0,0) -- (0,1);
+		\draw (0,1) -- (1,2);
+		\draw (0,1) -- (-1,2);
+		\draw (-1,2) node[left] {$f_1$};
+	\end{tikzpicture}}, 
+	s=\raisebox{-0.3\height}{\begin{tikzpicture}[x=0.25cm,y=0.25cm]
+		\draw (0,0) -- (0,1);
+		\draw (0,1) -- (1,2);
+		\draw (0,1) -- (-1,2);
+		\draw (1,2) node[right] {$f_2$};
+	\end{tikzpicture}} \text{ and } \sigma(t,s)=\raisebox{-0.3\height}{\begin{tikzpicture}[x=0.25cm,y=0.25cm]
+	\draw (0,0) -- (0,1);
+	\draw (0,1) -- (1,2);
+	\draw (0,1) -- (-1,2);
+	\draw (1,2) node[right] {$F_2$};
+	\draw (-1,2) node[left] {$F_1$};
+	\end{tikzpicture}}
+	\]
+	Their respective codes are:
+	\[
+	T=\begin{tblr}{colspec={ccc},
+			cell{2}{1}={r=3,c=2}{c}
+		}
+		1 & \cdots & 1 \\
+		F_1 & F_1 & 1 \\
+		F_1 & F_1 & \vdots \\
+		F_1 & F_1 & 1 \\
+		0 & \cdots & 0 \\
+	\end{tblr}, s=\begin{tblr}{colspec={ccc},
+		cell{2}{2}={r=3,c=2}{c}
+	}
+	1 & \cdots & 1 \\
+	1 & F_2 & F_2 \\
+	1 & F_2 & F_2 \\
+	1 & F_2 & F_2 \\
+	0 & \cdots & 0 \\
+	\end{tblr} \text{ and } \sigma(T,S)=\begin{tblr}{colspec={cccccccc},
+		cell{2}{1}={r=3,c=3}{c},
+		cell{5}{6}={r=3,c=3}{c},
+	}
+	1 & \cdots & 1 & 1 & 1 & 1 & \cdots & 1\\
+	F_1 & F_1 & F_1 & 1 & 1 & 1 & \cdots & 1 \\
+	F_1 & F_1 & 1 & \vdots & \vdots & \vdots & \vdots & \vdots \\
+	F_1 & F_1 & 1 & 1 & 1 & 1 & \cdots & 1 \\
+	0 & \cdots & 0 & 1 & 1 & F_2 & F_2 & F_2 \\
+	0 & \cdots & 0 & \vdots & \vdots & F_2 & F_2 & F_2\\
+	0 & \cdots & 0 & 1 & 1 & F_2 & F_2 & F_2\\
+	0 & \cdots & 0 & 0 & 0 & 0 & \cdots & 0\\
+	\end{tblr}
+	\]
+	Note that the code of $\sigma(T,S)$ has for associated tree $\sigma(t,s)$.
+	\item[Heredity] Suppose that there exists $1\geq r\in\NN^*$ such that for all couple $(k,l)$ with $\max(k,l)\leq r'$, we have:
+	\[
+	\sigma(\Code(t),\Code(s))=\Code(\sigma(t,s)).
+	\]
+	Let us prove that this property is true for $r+1$. Let $t,s$ be two trees with right comb length $k$ and left comb length $l$, let $\sigma\in\bat(k,l)$ such that $\max(k,l)=r+1$. Note that if $k=0$ or $l=0$, the result is obvious by definition~\ref{defi:operations_codes}. There are three possible cases left, in those cases, we use the notations of the proof of lemma~\ref{lem:Indution_batc}:
+	\begin{description} 
+		\item[First case] $\sigma^{-1}(\{1\})=\{1\}$:
+		Then:
+		\begin{align*}
+			\Code(\sigma(t,s))&=\Code\left(\raisebox{-0.3\height}{\begin{tikzpicture}[x=0.25cm,y=0.25cm]
+				\draw (0,0) -- (0,1);
+				\draw (0,1) -- (-1,2);
+				\draw (0,1) -- (1,2);
+				\draw (-1,2) node[left] {$f_1$};
+				\draw (1,2) node[right] {$\sigma'(t',s)$};
+			\end{tikzpicture}}\right)\text{ where } t'=\raisebox{-0.3\height}{\begin{tikzpicture}[x=0.25cm,y=0.25cm]
+			\draw (0,0) -- (0,1);
+			\draw (0,1) -- (-1,2);
+			\draw (0,1) -- (1,2);
+			\draw (-1,2) node[left] {$f_1$};
+			\draw (1,2) node[right] {$t'$};
+		\end{tikzpicture}}, \\
+		&=\begin{tblr}{colspec={cccccc},
+				cell{2}{1}={r=3,c=2}{c},
+				cell{5}{4}={r=3,c=3}{c}
+			}
+			1 & \cdots & 1 & 1 & \cdots & 1 \\
+			F_1 & F_1 & 1 & 1 & \cdots & 1 \\
+			F_1 & F_1 & \vdots & 1 & \cdots & 1 \\
+			F_1 & F_1 & 1 & 1 & \cdots & 1 \\
+			\vdots & \vdots & 1 	   &  \Code(\sigma'(t',s)) & \sigma(t',s) & \sigma(t',s)  \\
+			\vdots & \vdots & \vdots   &  \sigma(t',s) & \sigma(t',s) & \sigma(t',s)  \\
+			\vdots & \vdots & 1	       &  \sigma(t',s) & \sigma(t',s) & \sigma(t',s) \\
+			0 & \cdots & 0 & 0 & \cdots & 0
+		\end{tblr}
+		\end{align*}
+		Applying the induction hypothesis, we have:
+		\begin{align*}
+			\Code(\sigma(t,s))&=\begin{tblr}{colspec={cccccc},
+					cell{2}{1}={r=3,c=2}{c},
+					cell{5}{4}={r=3,c=3}{c}
+				}
+				1 & \cdots & 1 & 1 & \cdots & 1 \\
+				F_1 & F_1 & 1 & 1 & \cdots & 1 \\
+				F_1 & F_1 & \vdots & 1 & \cdots & 1 \\
+				F_1 & F_1 & 1 & 1 & \cdots & 1 \\
+				\vdots & \vdots & 1 	   &  \sigma'(\Code(t'),\Code(s)) & \sigma(t',s) & \sigma(t',s)  \\
+				\vdots & \vdots & \vdots   &  \sigma(t',s) & \sigma(t',s) & \sigma(t',s)  \\
+				\vdots & \vdots & 1	       &  \sigma(t',s) & \sigma(t',s) & \sigma(t',s) \\
+				0 & \cdots & 0 & 0 & \cdots & 0
+			\end{tblr} \\
+			&= \sigma(\Code(t), \Code(s)).
+		\end{align*}
+	\item[Second case] $\sigma^{-1}(\{1\})=\{k+1\}$%, we denote $\sigma'$ the unique element of $\batc(k,l-1)$ such that:
+%		\[
+%		\forall n\in\IEM{1}{k+l}, \sigma(n)=\begin{cases}
+%			k+1 &\text{ if } n=k+1, \\
+%			\sigma'(n)+1 & \text{ if }n\leq k, \\
+%			\sigma'(n-1)+1 & \text{otherwise.}
+%		\end{cases}
+%		\]
+			is similar to the first one. So it is left to the reader.
+		\item[Third case] $\sigma^{-1}(\{1\})=\{1,k+1\}$.
+		Then:
+		\begin{align*}
+			\Code(\sigma(t,s))&= \Code\left(\raisebox{-0.3\height}{\begin{tikzpicture}[x=0.25cm, y=0.25cm]
+				\draw (0,0) -- (0,2);
+				\draw (0,1) -- (-1,2);
+				\draw (0,1) -- (1,2);
+				\draw (0,2) node[above]{$\sigma'(t',s')$};
+				\draw (-1,2) node[left]{$f_1$};
+				\draw (1,2) node[right]{$f_{k+1}$};				
+			\end{tikzpicture}}\right) \text{ where } s'=\raisebox{-0.3\height}{\begin{tikzpicture}[x=0.25cm,y=0.25cm]
+			\draw (0,0) -- (0,1);
+			\draw (0,1) -- (1,2);
+			\draw (0,1) -- (-1,2);
+			\draw (-1,2) node[left]{$s'$};
+			\draw (1,2) node[right]{$f_{k+1}$};
+			\end{tikzpicture}} \\
+			&=\begin{tblr}{colspec={cccccccccc},
+				cell{2}{1}={r=3,c=3}{c},
+				cell{5}{5}={r=3,c=3}{c},
+				cell{8}{9}={r=3,c=3}{c}
+			}
+				 1 & \cdots & 1 & 1 & 1 & \cdots & 1 & 1 & 1 &  \cdots & 1 \\
+				F_1 & F_1    & F_1 & \vdots & \vdots & \cdots & \vdots & \vdots & \vdots & \cdots & \vdots \\	
+				F_1 & F_1    & F_1 & 1 & 1 & \cdots    & 1 & 1 & 1 & \cdots & 1 \\
+				F_1 & F_1    & F_1 & 1 & 1 & \cdots    & 1 & 1 & 1 & \cdots & 1 \\	
+				0   & \cdots &  0  & 1 & \Code(\sigma'(t,s')) &   &   & \vdots &\vdots & \cdots & \vdots \\	
+				\vdots & \vdots &\vdots& \vdots  & \sigma'(t,s')&   &   & 1 & 1 & \cdots & 1 \\
+				0 	& \cdots &  0  & 1 & \sigma'(t,s')&   &   & 1 & 1 & \cdots & 1 \\	
+				0 	& \cdots &  0  & 1 & 0			  & \cdots   &  0  & 1 & F_{k+1} & F_{k+1} & F_{k+1} \\
+				\vdots	& \cdots &  \vdots  &  \vdots & 0	& \cdots   &  \vdots  & \vdots & F_{k+1} & F_{k+1} & F_{k+1} \\
+				0 	& \cdots &  0  & 1 & 0			  & \cdots   &  0  & 1 & F_{k+1} & F_{k+1} & F_{k+1} \\
+				0 	& \cdots &  0  & 1 & 0			  & \cdots   &  0  & 1 & 0 & \cdots & 0 \\
+				0 	& \cdots &  0  & 0 & 0			  & \cdots   &  0  & 0 & 0 & \cdots & 0 \\
+			\end{tblr}
+		\end{align*}
+		Applying the induction hypothesis, we have $\Code(\sigma'(t',s'))=\sigma(\Code(t'),\Code(s')).$ Then applying the construction case number $3$ in definition~\ref{defi:quasishuffle_code}, one has:
+		\[
+		\Code(\sigma(t,s))=\sigma(\Code(t),\Code(s)).
+		\]
+	\end{description}
+	Hence by the induction principle, we have proved the theorem. \qedhere
+\end{description}	
+\end{proof}
+Finally, the map $\Code$ is also linear hence:
+\begin{Cor}
+	The $\Code$ map is an isomorphism of tridendriform algebras into its image.
+\end{Cor}
+\begin{proof}
+	To prove this corollary, one just needs to show that $\Code$ is a tridendriform morphism from $(\Sch,\prec,\succ,\cdots)$ into $(\ima(\Code),\prec, \succ, \cdot)$. Let $t,s\in\Sch$ such $t$ as right comb length $k$ and $s$ has left comb length $l$. We show $\Code$ is a morphism for the middle product:
+	\begin{align*}
+		\Code(t\cdot s)&=\sum_{\substack{\sigma(k,l) \\ \sigma^{-1}{\{1\}}=\{1,k+1\}}} \Code(\sigma(t,s)) \\
+		&=\sum_{\substack{\sigma(k,l) \\ \sigma^{-1}{\{1\}}=\{1,k+1\}}} \sigma(\Code(t),\Code(s)) \\
+		&=\Code(t) \cdot\Code(s).
+	\end{align*}
+	The other cases are similar.
+\end{proof}
+Now that we are sure the two descriptions are isomorphic, we can get into coding.
+
+\section{Coding the problem} \label{sec:coding}
+
+A seen in last corollary, we will represent \Schw{} trees as an element of $\ima(\Code).$
 
 \bibliographystyle{plain}
 \bibliography{article.bib}
