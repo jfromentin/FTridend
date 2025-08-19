@@ -60,6 +60,7 @@
 \newcommand{\IE}[2]{$\llbracket #1,#2 \rrbracket$}
 \newcommand{\IEM}[2]{\llbracket #1,#2 \rrbracket}
 \newcommand{\ssi}{if and only if}
+\NewDocumentCommand{\Sage}{}{Sagemath}
 \newcommand{\Schw}{Schroeder} %le mot Schroeder pour éviter les fautes de frappes
 \NewDocumentCommand{\prev}{m}{\ensuremath{{#1}_{\leftarrow}}}
 \NewDocumentCommand{\suiv}{m}{\ensuremath{{#1}_{\rightarrow}}}
@@ -225,6 +226,29 @@
 
 \subsection{About the paper}
 
+\paragraph{Its aim}
+
+The objective of this work  is to implement the objects and operations in a Hopf algebra involving \Schw{} trees. Those trees introduced in definition~\ref{defi:Sch_tree} can be endowed with three linear maps $\prec, \succ$ and $\cdots$ making it a free tridendriform algebra structure~\cite{} where the products can be described with quasi-shuffles (theorem~\ref{thm:produit}) . 
+Tridendriform algebras arise in different topics in mathematics like free probability~\cite{}, the study of Rota-Baxter algebras~\cite{} or in other topics like number theory~\cite{}.
+Some computation tools already exist for some algebras on \Sage{}~\cite{Sage_book,Sage_doc} but not for all. 
+Hence, implementing the free tridendriform algebra~\cite{} (over one generator) allows us to implement any tridendriform algebras coding a quotient map by a tridendriform ideal from \Schw{} trees to the desired objects.
+
+This algebra turns out to be a Hopf algebra with its coproduct given in theorem~\ref{thm:coproduit}. Computing the space of primitive elements of this algebra, we describe at least the largest cocommutative algebra inside it thanks to the Cartier-Quillen-Milnor-Moore theorem~\cite{}. An inductive algorithm is given in the article~\cite{2023_Cat} (shown in figure~\ref{fig:algo_idea}) to compute those elements using only $\prec, \succ$ and $\cdot$ operations.  
+
+Initially, we wanted to implement efficiently (low complexity) this algorithm to compute all primitive elements in any degree.
+But to our surprise, using some naive approaches, this task is really difficult. Hence, we need to choose a point of view of the problem to get a clear and efficient implementation of this algorithm. 
+
+To solve this problem, we used a particular representations of \Schw{} trees as initial chains (definition~\ref{def:init_chain}) or specific sequences over the alphabet $\{0,1\}$ (definition~\ref{defi:lifetime}). Those representations are called \emph{codes} of the tree. Thanks to this point of view, we are able to describe the action of quasi-shuffles on a pair of tree's code in definition~\ref{defi:quasishuffle_code} such that it describes the initial action of these elements onto pair of \Schw{} trees (theorem~\ref{Cor:iso_codes_trees}). Thanks to this point of view, we present the implementation in $C++$ of the trees as codes and of the three basics operations $\prec, \succ$ and $\cdot$ on codes that is equivalent to the original one on \Schw{} trees. We evaluate its time and memory complexity.
+
+\paragraph{Its structure}
+
+The paper is divided in the following way:
+\begin{itemize}
+	\item Section~\ref{sec:the_problem} describes and gives the minimum piece of information needed to understand the general mathematical setting in which we are working. We introduce the main objects of this work, \Schw{} trees in definition~\ref{defi:Sch_tree} and quasi-shuffles in definition~\ref{def:quasi_shuffles}. Then, we detail the Hopf algebra structure on $(\K\Sch,\prec, \succ, \cdot)$ (figure~\ref{fig:algo_idea}) and we introduce the algorithm which computes its space of primitive elements.
+	\item Section~\ref{sec:pov} is a mathematical description of the encoding we use to implement our problem. We introduce the concept of \Schw{} levelled trees (definition~\ref{defi:levelled_trees}), initial chains and the map associating to any initial chain a $0$'s  and $1$'s sequence (definition~\ref{def:init_chain}). Then, we choose a way to associate to any \Schw{} tree a levelled \Schw{} tree (proposition~\ref{prop:trees_to_levels}) which gives a way to get a $0$'s and $1$'s	sequence from any \Schw{} tree. A sequence obtained by this transformation will be called a \emph{tree code}. Finally, we present a tridendriform structure on tree codes (definition~\ref{defi:quasishuffle_code}) that turns out to be isomorphic to the one on \Schw{} trees (corollary~\ref{Cor:iso_codes_trees}).
+	\item The last section~\ref{sec:coding} we present the implementation we made in $C++$ to solve this problem and the results it produces. 
+\end{itemize}
+
 
 \subsection{Notations used in the article}
 
@@ -235,12 +259,14 @@ In this list, we put all a table of contents of notations used here :
 	\item $\SchF$ the set of forest of Schroeder tree.
 \end{itemize}
 
-\section{About the original problem}
+\subsection{Acknowledgments}
+
+\section{About the original problem} \label{sec:the_problem}
 
 \subsection{\Schw{} trees and comb representations}
 
 Let us remind the following definition:
-\begin{defi}
+\begin{defi}\label{defi:Sch_tree}
 	A \emph{\Schw{} tree} is a rooted tree such that any vertices which is not a leaf has at least $2$ children.
 	This set can be graded with the number of leaves minus $1$. For any $n\in\NN\setminus\{0\}$, we define $\Sch(\nn)$ the set of \Schw{} trees with $n+1$ leaves.
 	We also put:
@@ -510,7 +536,7 @@ where $F_1,\dots,F_k$ and $F_{k+1},\dots, F_{k+l}$ are non-empty forests.
 \end{defi} 
 
 The free tridendriform algebra is built on the vector space $\K\Sch \oplus \K\cdot |$ where $|$ is the unit of the product $*$. We will denote it by $(\Sch{},\prec,\cdot,\succ)$. We have a combinatorial interpretation of the product $*$. For this let us introduce:
-\begin{defi}[Quasi-shuffle]
+\begin{defi}[Quasi-shuffle]\label{def:quasi_shuffles}
 	Let $k,l\in\NN\setminus \{0\}$. A \emph{$(k,l)$-quasi-shuffle} is a surjective map $\sigma:\IEM{1}{k+l}\twoheadrightarrow\IEM{1}{n}$ surjective for some positive integer $n$
 	such that:
 	\[
@@ -693,10 +719,10 @@ From the article~\cite{euleridem} of M.Ronco, we recall the main result:
 	This raise to a map $\Omega$ defined over $\Sch$ such that $\Omega|_{T(\Prim_{\Codend}(\Sch(n)))}=\Omega_n$.
 \end{thm}
 
-As a consequence, we have a recipe to produce the primitives of this algebra by induction as shown in figure~\cite{fig:algo_idea}:
+As a consequence, we have a recipe to produce the primitives of this algebra by induction as shown in figure~\ref{fig:algo_idea}:
 \begin{figure}[h]
 	\centering
-	\begin{tikzcd}
+	\begin{tikzcd} %TODO à recadrer
 		\Prim_{\Codend}(\Sch(1)) \arrow[r,"\theta_1"] &\Prim_{\Coass}(\Sch(2)) \arrow[r,"\Omega_1"] & \Prim_{\Codend}(\Sch(2)) \arrow[r,"\theta_1"] & \Prim_{\Codend}(\Sch(3)) \arrow[r,"\Omega_2"]& \dots
 	\end{tikzcd}
 	\caption{Diagram of the induction}
@@ -705,7 +731,7 @@ As a consequence, we have a recipe to produce the primitives of this algebra by 
 
 This figure~\ref{fig:algo_idea} enables us to compute $\Prim_{\Coass}(\Sch)$ by induction over the degree of its elements starting with $\Prim_{\Codend}(\Sch(1))=\left\{\Y\right\}$. We will now look at the practical aspects to implement an algorithm on a computer. 
 
-\section{Our point of view of Schroeder trees and their operations}
+\section{Our point of view of Schroeder trees and their operations}\label{sec:pov}
 
 Our motivation is to compute the process detailed in figure~\ref{fig:algo_idea}. First to describe some primitives elements and second to try and guess an explicit combinatorial formula describing this process.
 But a question arise from this: \textquote{How shall we implement trees to get efficiency and a easy code ?} 
@@ -716,7 +742,7 @@ The idea to represent \Schw{} trees into a computer is to add \emph{levels} givi
 
 \subsubsection{Levelled Schroeder Tree}
 
-\begin{defi}
+\begin{defi} \label{defi:levelled_trees}
 	%définition des heap-order et arbres de Sch à niveaux à mettre ici
 	The set of levelled \Schw{} tree is denoted $\Schl$ while the levelled \Schw{} trees with $n$ leaves is denoted $\Schl(\nn)$.
 \end{defi}
@@ -797,7 +823,7 @@ Labelled trees in $\pi_4^{-1}(t_7)$ consists of the following two levelled trees
 We want to code \Schw{} trees as levelled Schroeder trees. For this purpose, we need to make a choice of a representative levelled \Schw{} tree of each \Schw{} tree.  
 
 \subsubsection{Our point of view on \Schw{} trees}
-\begin{defi}[Initial chains]
+\begin{defi}[Initial chains] \label{def:init_chain}
 	Let $\mathcal{P}=(P,\leq)$ be a lattice with a minimum and a maximum element.
 	Let $C$ be a chain in this poset, we say it is \emph{initial} if $\min(\mathcal{P})$ and $\max(\mathcal{P})$ are in the chain $C$.
 \end{defi}
@@ -848,7 +874,7 @@ But as said previously many levelled \Schw{} trees give a same \Schw{} tree. Hen
 \subsubsection{Our choice of section}
 
 For our use, we introduce the following map:
-\begin{prop}
+\begin{prop}\label{prop:trees_to_levels}
 	We denote $s:\Sch \rightarrow \Schl$ the unique map such that for any $t\in\Sch(n)$, $s(t)$ is the \emph{unique} levelled \Schw{} tree such that for any internal vertices $t$ its level is greater than all the internal vertices to its right.
 	Then, $s$ is well-defined and this is a section to the map $\pi\coloneqq \displaystyle\bigoplus_{n=0}^{+\infty} \pi_n$.
 \end{prop}
@@ -922,7 +948,7 @@ For the sequel let us introduce some definitions
 
 Using the section $s$, we can identify to any \Schw{} tree a finite list of binary words thanks to the map defined below
 
-\begin{defi}
+\begin{defi}\label{defi:lifetime}
 	For any $n\in\NN,$ we introduce a map $\varphi_n: \Schl(n)\rightarrow \IC(\IEM{1}{n})$ defined for any $t\in\Schl(n)$ by the \emph{unique} initial chain describing the life time of the angles of $t$ in function of the levels of the tree.
 	
 	We also define $\Set_n$, the map sending any element of $\IC(\IEM{1}{n})$ onto a list of length $n$ with $0$'s and $1$'s encoding the element of $\mathcal{P}(\IEM{1}{n})$ considered. More precisely, for any ${X\in\mathcal{P}(\IEM{1}{n})}$:
@@ -1033,7 +1059,7 @@ One usual operation we can perform words is the concatenation. In our particular
 In order to describe properly to the computer what we want to do, we have to identify the elements encoding the comb representation of the tree associated to it. 
 
 %TODO Notation setminus pour les suites à définir
-\begin{defi}[forest code]
+\begin{defi}[forest code]\label{defi:forest_codes}
 	Let $n\in\NN$. Let $C'$ be an initial chain of the set $\IEM{1}{n}$ and put $C=C'\setminus \max(C)$.
 	Any $C$ satisfying this property or being an initial chain will be called a \emph{forest code}. 
 	The forest associated to a forest code is the trees we get deleting the root of the tree encoded by $C'.$
@@ -1539,11 +1565,11 @@ In order to prove this theorem, we will proceed by induction over the sum $\max(
 \end{description}	
 \end{proof}
 Finally, the map $\Code$ is also linear hence:
-\begin{Cor}
+\begin{Cor}\label{Cor:iso_codes_trees}
 	The $\Code$ map is an isomorphism of tridendriform algebras into its image.
 \end{Cor}
 \begin{proof}
-	To prove this corollary, one just needs to show that $\Code$ is a tridendriform morphism from $(\Sch,\prec,\succ,\cdots)$ into $(\ima(\Code),\prec, \succ, \cdot)$. Let $t,s\in\Sch$ such $t$ as right comb length $k$ and $s$ has left comb length $l$. We show $\Code$ is a morphism for the middle product:
+	To prove this corollary, one just needs to show that $\Code$ is a tridendriform morphism from $(\Sch,\prec,\succ,\cdot)$ into $(\ima(\Code),\prec, \succ, \cdot)$. Let $t,s\in\Sch$ such $t$ as right comb length $k$ and $s$ has left comb length $l$. We show $\Code$ is a morphism for the middle product:
 	\begin{align*}
 		\Code(t\cdot s)&=\sum_{\substack{\sigma(k,l) \\ \sigma^{-1}{\{1\}}=\{1,k+1\}}} \Code(\sigma(t,s)) \\
 		&=\sum_{\substack{\sigma(k,l) \\ \sigma^{-1}{\{1\}}=\{1,k+1\}}} \sigma(\Code(t),\Code(s)) \\
