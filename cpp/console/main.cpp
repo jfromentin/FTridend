@@ -20,13 +20,55 @@
 #include "../kernel/schroeder_tree.hpp"
 #include "../kernel/schroeder_forest.hpp"
 #include "../kernel/quasi_shuffle.hpp"
-#include "../kernel/tridend_schroeder_algebra.hpp"
+#include "../kernel/schroeder_vector.hpp"
+#include "../kernel/schroeder_module.hpp"
+#include "../kernel/primitives.hpp"
 
+#include "../kernel/ordered_partition.hpp"
 using namespace std;
 
 int main() {
-  SchroederTree T1 = {31, 30, 14, 2};
-  SchroederTree T2 = {127, 123, 121, 120, 104, 40};
+  
+  
+  Primitives P;
+  P.init();
+  P.display(0);
+  P.next();
+  /*  SchroederTree T1 = {3,1};
+  SchroederTree T2 = {3,2};
+  T1.display();
+  T2.display();
+  //SchroederTree T1 = {31, 30, 14, 2};
+  //SchroederTree T2 = {127, 123, 121, 120, 104, 40};
+
+  //  SchroederModule<int> M;
+  SchroederVector<int> u = SchroederModule<int>::product(T1, T2);
+  u.display();
+
+  cout << "------" << endl;
+  SchroederVector<int> v = SchroederModule<int>::product(u, u);
+  v.display();*/
+  /*SchroederVector<int> u(T1);
+  u.display();
+  u.add(T2, -3);
+  cout << "-----------------" << endl;
+  u.display();
+  cout << "-----------------" << endl;
+  SchroederVector<int> v;
+  v.display();
+  cout << "++++++" << endl;
+  u.add(T1);
+  cout << "-----------------" << endl;
+  u.display();
+  u.add(T1, -2);
+  cout << "-----------------" << endl;
+  u.display();
+  u.add(T2, 3);
+  cout << "-----------------" << endl;
+  u.display();*/
+  /*SchroederTree T2 = {127, 123, 121, 120, 104, 40};
+  T1.display();
+  T2.display();
   QuasiShuffle sigma(3, 2);
   do{
     if (sigma[0] == 0 and sigma[1] == 2 and sigma[2] == 3 and sigma[3] == 1 and sigma[4] == 2) {
@@ -35,6 +77,7 @@ int main() {
       T.display();
       cout <<endl;
     }
-  }while(sigma.next());
+    }while(sigma.next());*/
+
   
 }

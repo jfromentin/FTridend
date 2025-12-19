@@ -198,7 +198,7 @@ Array<SchroederForest> SchroederTree::right_comb_splitting() const {
 SchroederTree::SchroederTree(const SchroederTree& Tl, const SchroederTree& Tr, const QuasiShuffle &sigma) {
   Int l = Tl.number_right_forests;
   Int r = Tr.number_left_forests;
-  Int t = l + r;
+  // Int t = l + r;
   n = Tl.n + Tr.n - 1;
   h = 0; 
   Int il = 0; // index of the current layer of left tree Tl 
@@ -231,12 +231,9 @@ SchroederTree::SchroederTree(const SchroederTree& Tl, const SchroederTree& Tr, c
     else {
       ++ il;
       p[h] = Tl.p[il] + (Tr.p[ir] << shift);
-      ++ h;
-      
+      ++ h;   
     }
-    
   }
-  
- 
+  initialize();
 }
 

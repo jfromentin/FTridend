@@ -17,20 +17,35 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
+#define PY_SSIZE_T_CLEAN
+#include <Python.h>
+#include "schroeder_tree.hpp"
+#include "schroeder_forest.hpp"
 
-#ifndef COMMON_HPP
-#define COMMON_HPP
+static PyModuleDef ftridend_kernel_module = {
+  .m_base = PyModuleDef_HEAD_INIT,
+  .m_name = "ftridend.kernel",
+  .m_doc = "Kernel part of the ftridend module.",
+  .m_size = -1,
+};
 
-#include <iostream>
-#include <cstdint>
-#include <cassert>
-
-using namespace std;
-
-using Int = uint16_t;
-
-static const size_t N = 16;
-static const bool verbose_display = false;
-static const bool display_root = false;
-static const bool display_forest_size = false;
-#endif
+PyMODINIT_FUNC
+PyInit_kernel(void)
+{
+  PyObject *m;
+  if (PyType_Ready(&SchroederTreeType) < 0) return NULL;
+  if (PyType_Ready(&SchroederForestType) < 0) return NULL;
+  
+  m = PyModule_Create(&ftridend_kernel_module);
+  if (m == NULL) return NULL;
+  
+  if (PyModule_AddObjectRef(m, "SchroederTree", (PyObject *)&SchroederTreeType) < 0) {
+    Py_DECREF(m);
+    return NULL;
+  }
+  if (PyModule_AddObjectRef(m, "SchroederForest", (PyObject *)&SchroederForestType) < 0) {
+    Py_DECREF(m);
+    return NULL;
+  }
+  return m;
+}

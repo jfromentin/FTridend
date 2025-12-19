@@ -71,6 +71,10 @@ public:
   // Sage functions
   void sage_init(Int h, Int n);
   void sage_set_value(Int i, Int v);
+
+  //
+  size_t hash() const;
+  bool operator==(const SchroederTree&) const;
 };
 
 
@@ -138,4 +142,19 @@ SchroederTree::get_right_forest_info(Int i) const {
   return right_forest_infos[i];
 }
 
+inline size_t
+SchroederTree::hash() const {
+  size_t res = 0;
+  for (int i = 0; i < h - 1; ++ i) res += p[i];
+  return res;		    			     
+}
+
+inline bool
+SchroederTree::operator==(const SchroederTree& t) const {
+  if (h != t.h) return false;
+  for (int i = 0; i < h - 1; ++ i) {
+    if (p[i] != t.p[i]) return false;
+  }
+  return true;
+}
 #endif

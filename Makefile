@@ -2,13 +2,13 @@ EXE 		= ftridend
 PYTHON 		= python/ftridend/kernel.so
 CPP 		= g++ --std=c++20
 CFLAGS		= -O3 -Wall
-SRC_OBJ 	= schroeder_tree schroeder_forest quasi_shuffle tridend_schroeder_algebra
+SRC_OBJ 	= schroeder_tree schroeder_forest quasi_shuffle ordered_partition primitives 
 PYTHON_SRC 	= setup.py module.cpp schroeder_tree.hpp schroeder_tree.cpp schroeder_forest.hpp schroeder_forest.cpp
 
 KER_OBJ 	= $(addprefix obj/kernel/,$(addsuffix .o,$(SRC_OBJ)))
 PYTHON_FILES 	= $(addprefix cpp/python/, $(PYTHONSRC_FILES))
 
-all: $(EXE) $(PYTHON)
+all: $(EXE) # $(PYTHON)
 
 obj/kernel/%.o: cpp/kernel/%.cpp cpp/kernel/%.hpp
 	$(CPP) $(CFLAGS) -c $< -o $@
