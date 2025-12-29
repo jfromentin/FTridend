@@ -16,6 +16,7 @@
 \usepackage{tabularray}
 \usepackage{shuffle}
 \usepackage[english]{babel}
+\usepackage{nth}
 \usepackage{hyperref}
 
 \usetikzlibrary{arrows}
@@ -52,6 +53,7 @@
 \DeclareMathOperator{\Br}{Br}
 \DeclareMathOperator{\K}{\mathbb{K}}
 \DeclareMathOperator{\Inner}{Inn}
+\DeclareMathOperator{\ew}{\varepsilon} %the empty word
 
 \newcommand\Sch{\mathsf{Sch}}
 \newcommand\SchF{\mathsf{FSch}}
@@ -145,6 +147,7 @@
 \newcommand{\unit}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
 		\draw (0,0)--(0,2);
 		\filldraw[color=black,fill=white] (0,2) circle (0.15);
+		\filldraw[color=black,fill=black] (0,0) circle (0.15);		
 \end{tikzpicture}}}
 
 \newcommand{\balais}{\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
@@ -228,29 +231,26 @@
 
 \section{Introduction}
 
-\subsection{About the paper}
+\subsection{Aim and structure of the paper}
 
-\paragraph{Its aim}
-
-The objective of this work  is to implement the objects and operations in a Hopf algebra involving \Schw{} trees. Those trees introduced in definition~\ref{defi:Sch_tree} can be endowed with three linear maps $\prec, \succ$ and $\cdot$ making it a free tridendriform algebra structure~\cite{} where the products can be described with quasi-shuffles (theorem~\ref{thm:produit}) . 
-Tridendriform algebras arise in different topics in mathematics like free probability~\cite{}, the study of Rota-Baxter algebras~\cite{} or in other topics like number theory~\cite{}.
+The objective of this work  is to implement the objects and operations in a Hopf algebra involving \Schw{} trees. Those trees introduced in definition~\ref{defi:Sch_tree} can be endowed with three linear maps $\prec, \succ$ and $\cdot$ making it a free tridendriform algebra structure~\cite{LodayRonco_98,Catoire_2023, Manchon_2020} where the products can be described with quasi-shuffles (theorem~\ref{thm:produit}) . 
+Tridendriform algebras arise in different topics in mathematics like free probability~\cite{Celestino_2022, Ebrahimi-Fard_Patras_2018}, the study of Rota-Baxter algebras~\cite{Manchon_RB_2020, Gao_2019} or in other topics like number theory~\cite{Ho00, Catoire_2025}.
 Some computation tools already exist for some algebras on \Sage{}~\cite{Sage_book,Sage_doc} but not for all. 
-Hence, implementing the free tridendriform algebra~\cite{} (over one generator) allows us to implement any tridendriform algebras coding a quotient map by a tridendriform ideal from \Schw{} trees to the desired objects.
+Hence, implementing the free tridendriform algebra~\cite{Catoire_2023} (over one generator) allows us to implement any tridendriform algebras coding a quotient map by a tridendriform ideal from \Schw{} trees to the desired objects.
 
-This algebra turns out to be a Hopf algebra with its coproduct given in theorem~\ref{thm:coproduit}. Computing the space of primitive elements of this algebra, we describe at least the largest cocommutative algebra inside it thanks to the Cartier-Quillen-Milnor-Moore theorem~\cite{}. An inductive algorithm is given in the article~\cite{2023_Cat} (shown in figure~\ref{fig:algo_idea}) to compute those elements using only $\prec, \succ$ and $\cdot$ operations.  
+This algebra turns out to be a Hopf algebra with its coproduct given in theorem~\ref{thm:coproduit}. Computing the space of primitive elements of this algebra, we describe at least the largest cocommutative algebra inside it thanks to the Cartier-Quillen-Milnor-Moore theorem~\cite{May_69,MilnorMoore_65, CartierPatras_2021}. An inductive algorithm is given in the article~\cite{Catoire_2023} (shown in figure~\ref{fig:algo_idea}) to compute those elements using only $\prec, \succ$ and $\cdot$ operations.  
 
 Initially, we wanted to implement efficiently (i.e  with low complexity) this algorithm to compute all primitive elements in any degree.
 But to our surprise, using some naive approaches, this task is really difficult. Hence, we need to choose a point of view of the problem to get a clear and efficient implementation of this algorithm. 
 
-To solve this problem, we used a particular representations of \Schw{} trees as initial chains (definition~\ref{def:init_chain}) or specific sequences over the alphabet $\{0,1\}$ (definition~\ref{defi:lifetime}). Those representations are called \emph{codes} of the tree. Thanks to this point of view, we are able to describe the action of quasi-shuffles on a pair of codes in definition~\ref{defi:quasishuffle_code} such that it describes the initial action of these elements onto a pair of \Schw{} trees (theorem~\ref{Cor:iso_codes_trees}). We present the implementation in $C++$ of the trees as codes and of the three basics operations $\prec, \succ$ and $\cdot$ on codes that are equivalent to the original ones on \Schw{} trees. We evaluate its time and memory complexity.
+To solve this problem, we used a particular representations of \Schw{} trees as initial chains (definition~\ref{def:init_chain}) or specific sequences over the alphabet $\{0,1\}$ (definition~\ref{defi:lifetime}). Those representations are called \emph{codes} of the tree. Thanks to this point of view, we are able to describe the action of quasi-shuffles on a pair of codes in definition~\ref{defi:quasishuffle_code} such that it describes the initial action of these elements onto a pair of \Schw{} trees (theorem~\ref{Cor:iso_codes_trees}). We present the implementation in {\ttfamily  C++} of the trees as codes and of the three basics operations $\prec, \succ$ and $\cdot$ on codes that are equivalent to the original ones on \Schw{} trees. We evaluate its time and memory complexity.
 
-\paragraph{Its structure}
 
 The paper is divided in the following way:
 \begin{itemize}
 	\item Section~\ref{sec:the_problem} describes and gives the minimum piece of information needed to understand the general mathematical setting in which we are working. We introduce the main objects of this work, \Schw{} trees in definition~\ref{defi:Sch_tree} and quasi-shuffles in definition~\ref{def:quasi_shuffles}. Then, we detail the Hopf algebra structure on $(\K\Sch,\prec, \succ, \cdot)$ (figure~\ref{fig:algo_idea}) and we introduce the algorithm which computes its space of primitive elements.
 	\item Section~\ref{sec:pov} is a mathematical description of the encoding used to implement our problem. We introduce the concept of \Schw{} levelled trees (definition~\ref{defi:levelled_trees}), initial chains and the map associating to any initial chain a $0$'s  and $1$'s sequence (definition~\ref{def:init_chain}). Then, we choose a way to map any \Schw{} tree to a levelled \Schw{} tree (proposition~\ref{prop:trees_to_levels}) which gives a way to get a $0$'s and $1$'s	sequence from any \Schw{} tree. A sequence obtained by this transformation will be called a \emph{tree code}. Finally, we present a tridendriform structure on tree codes (definition~\ref{defi:quasishuffle_code}) that turns out to be isomorphic to the one on \Schw{} trees (corollary~\ref{Cor:iso_codes_trees}).
-	\item The last section~\ref{sec:coding} explains the implementation we made in $C++$ to solve this problem and the results it produces. 
+	\item The last section~\ref{sec:coding} explains the implementation we made in {\ttfamily C++} to perform some computations and the results it produces. 
 \end{itemize}
 
 
@@ -259,9 +259,11 @@ The paper is divided in the following way:
 In this list, we put a table of contents of notations used here :
 \begin{itemize} %TODO To update
 	\item for any $n\in\NN^*, \IEM{1}{n}$ is the set $\{1,\dots, n\}$;
+	\item for any set $X$, we denote by $\K X$ the vector space over $\K$ whose basis is $X$;
 	\item for any set $X$, we denote $\Par(X)$ the set of its subsets. It is endowed with the refinement order $\leq_{\pi}$;
-	\item for any set $X, X^{\star}$ denotes the set of finite words over the alphabet $X$;
-	\item $(\Sch, \pleft, \pmid, \pright)$ the graded tridendriform algebra on Schroeder tree;
+	\item for any set $X, X^{\star}$ denotes the set of finite words over the alphabet $X$. We denote by $T(\K X)$ the $\K$-vector space whose basis is $X^{\star}$;
+	\item for any graded set $X=\bigoplus_{n=0}^{+\infty} X_n,$ for any $n\in\NN$, we define $T(\K X)(n)$ the subspace whose basis is the set $X^{\star}$ where the sum of the degree's of its letters is $n$; 
+	\item $(\K\Sch, \pleft, \pmid, \pright)$ the graded tridendriform algebra on Schroeder tree;
 	\item $\Sch(\nn)$ the set of Schroeder tree with $\nn$ leaves;
 	\item $\SchF$ the set of forest of Schroeder tree;
 	\item $\vee$ is the grafting operator of many trees onto a common root;
@@ -271,22 +273,24 @@ In this list, we put a table of contents of notations used here :
 
 \subsection{Acknowledgments}
 
+The authors would like to thank LMPA of ULCO for welcoming me during this collaboration.
+
 \section{About the original problem} \label{sec:the_problem}
 
 \subsection{\Schw{} trees and comb representations}
 
 Let us remind the following definition:
 \begin{defi}\label{defi:Sch_tree}
-	A \emph{\Schw{} tree} is a rooted planar tree such that any vertices which is not a leaf has at least $2$ children.
+	A \emph{\Schw{} tree} is a planar rooted tree such that any vertices which is not a leaf has at least $2$ children.
 	This set can be graded with the number of leaves minus $1$. For any $n\in\NN\setminus\{0\}$, we define $\Sch(\nn)$ the set of \Schw{} trees with $n+1$ leaves.
-	We also put:
+	We also put $\Sch(0)=\left\{\unit\right\}$ and define: 
 	\[
-	\Sch\coloneqq \bigcup_{n=0}^{+\infty} \Sch(\nn).
+	\Sch\coloneqq \bigcup_{n=0}^{+\infty} \Sch(\nn) \text{ and } \overline{\Sch}=\bigcup_{n=1}^{+\infty} \Sch(\nn).
 	\]
-	with $\Sch(0)=\{\unit\}.$
+	Given any $t\in\Sch,$ we will denote $V(t)$ the set of vertices which are not leaves and $E(t)$ its set of edges. We call them \emph{internal vertices} of $t$. In the sequel, they are drawn as black disks.
 \end{defi}
-\begin{exam}\label{exam:Sch4}
-	The elements of $\Sch(4)$ are
+\begin{exam}\label{exam:Sch3} %Attention, c'est 3 ici, \Sch(n) c'est les arbres à n+1 feuilles.
+	The elements of $\Sch(3)$ are
 	\vspace{0.5em}
 	\begin{center}
 		\begin{tikzpicture}[x=1em,y=1em]
@@ -417,7 +421,6 @@ Let us remind the following definition:
 			\draw[color=black, fill=white](1,1) circle(0.15);
 			\draw[color=black, fill=white](-1.75,0) circle(0.15);
 			\fill(-0.75,-1) circle(0.15) node[below]{$t_9$};
-			\fill (-1.75,0) circle(0.15);
 			\fill (-0.5,1) circle(0.15);
 		\end{tikzpicture}
 		\hspace{1em}
@@ -434,7 +437,6 @@ Let us remind the following definition:
 			\draw[color=black, fill=white](1.75,0) circle(0.15);
 			\fill(0.75,-1) circle(0.15) node[below]{$t_{10}$};
 			\fill (-0.25,0) circle(0.15);
-			\fill (1.75,0) circle(0.15);
 		\end{tikzpicture}
 		\hspace{1em}
 		\begin{tikzpicture}[x=1em,y=1em]
@@ -451,7 +453,7 @@ Let us remind the following definition:
 			\fill(-1.125,-1) circle(0.15) node[below]{$t_{11}$};
 			\fill (-0.25,0) circle(0.15);
 			\fill (0.5,1) circle(0.15);
-		\end{tikzpicture}
+		\end{tikzpicture}.
 	\end{center}
 \end{exam}
 
@@ -461,7 +463,7 @@ Let us remind the following definition:
 %	For theses trees, as every node which is not a leaf has at least $2$ children we will not draw the nodes of a tree any more.
 %\end{Rq}
 
-Let $t$ be a tree. It $t$ can always be seen as a comb:
+Let $t$ be a tree. It can always be seen as a comb:
 \begin{center}
 	\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,x=1em,y=1 em]
 			% Etage 1
@@ -492,7 +494,16 @@ Let $t$ be a tree. It $t$ can always be seen as a comb:
 where $k$ is the number of nodes on the right-most branch of $t$ and for $i\in\IEM{1}{k}, n_i+1$ is the number of sons of the $i$-th node of this branch.
 
 \begin{Not}
-	Let $F=t_1\dots t_n$ be a forest composed of $n$ trees. Instead of writing:
+	Let $F=t_1\dots t_n$ be a forest composed of $n$ trees. For simplicity, we write 
+	\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
+			% Etage 1
+			\draw (0,0)--(0,1);
+			%Etage 2
+			\draw (0,1)--(-1,2) node[left]{$F$};
+			\draw (0,1)--(1,2);
+			\draw[color=black, fill=white] (1,2) circle (0.15);
+			\fill (0,1) circle(0.15);
+	\end{tikzpicture}} instead of:
 	\begin{center}
 		\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.5cm,y=0.5cm]
 				% Etage 1
@@ -504,36 +515,28 @@ where $k$ is the number of nodes on the right-most branch of $t$ and for $i\in\I
 				\draw (0,1)--(2,2);
 				\draw[color=black, fill=white] (2,2) circle (0.15);
 				\fill (0,1) circle(0.15);
-		\end{tikzpicture}},
+		\end{tikzpicture}}.
 	\end{center}
-	we will write:
-	\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,x=0.3cm,y=0.3cm]
-			% Etage 1
-			\draw (0,0)--(0,1);
-			%Etage 2
-			\draw (0,1)--(-1,2) node[left]{$F$};
-			\draw (0,1)--(1,2);
-			\draw[color=black, fill=white] (1,2) circle (0.15);
-			\fill (0,1) circle(0.15);
-	\end{tikzpicture}}.
 \end{Not}
 
-With these notations, we notice that all tree $t$ can be seen either  respectively like a \emph{right comb} or a \emph{left comb}:
+With these notations, we notice that all tree $t$ can be seen either respectively like a \emph{right comb} or a \emph{left comb}:
 \begin{align}\label{eq:tree_combs}
 	t&=\peignedroit{F_1}{F_2}{F_k}
-	& \text{ and } &&  s=\peignegauche{F_{k+1}}{F_{k+2}}{F_{k+l}},
+	& \text{ and } &&  t=\peignegauche{F_{k+1}}{F_{k+2}}{F_{k+l}},
 \end{align}
 where $F_1,\dots,F_k$ and $F_{k+1},\dots, F_{k+l}$ are non-empty forests.
 \begin{defi}
-	The writing defined above is the writing of $t$ as a \emph{right comb}.
+	The writing defined above at the right	 is the writing of $t$ as a \emph{right comb}.
 	Proceeding the same way, looking at the left branch of the root of $t$, we get the writing of $t$ as a \emph{left comb}.
 \end{defi}
 
 
 \subsection{Our objective}
 
+We describe the structure of bialgebra onto $\K\Sch$ and we explain how to compute its primitive elements thanks to some results~\cite{Catoire_2023,euleridem}.
+
 \begin{defi}\label{def:tridend}
-	Let $\K$ be a field and $A$ be vector space of $\K$. We say $(A,\prec,\cdot,\succ)$ is a \emph{tridendriform algebra} if $\prec,\cdot$ and $\succ$ are all linear maps from $A\otimes A$ to $A$ such that for any $a,b,c\in A$:
+	Let $\K$ be a field and $A$ be vector space of $\K$. We say $(A,\prec,\cdot,\succ)$ is a \emph{tridendriform algebra} if $\prec,\cdot$ and $\succ$ are three linear maps from $A\otimes A$ to $A$ such that for any $a,b,c\in A$:
 	\begin{align}
 		(a\prec b)\prec c&=a\prec(b*c), \label{eq:tri1}\\
 		(a\succ b)\prec c&=a\succ(b\prec c), \label{eq:tri2} \\
@@ -547,9 +550,9 @@ where $F_1,\dots,F_k$ and $F_{k+1},\dots, F_{k+l}$ are non-empty forests.
 	We call the products $\succ,\prec,\cdot$ respectively right, left and middle.
 \end{defi} 
 
-The free tridendriform algebra is built on the vector space $\K\Sch \oplus \K\cdot |$ where $|$ is the unit of the product $*$. We will denote it by $(\Sch{},\prec,\cdot,\succ)$. We have a combinatorial interpretation of the product $*$. For this let us introduce:
+The free tridendriform algebra is built on the vector space $\K\overline{\Sch}.$ We then add a unit $\unit$ to the product $*$ by hand to get an algebra over $\K\Sch\oplus \K\cdot \unit=\K\Sch$. We will denote it by $(\Sch{},\prec,\cdot,\succ)$. We have a combinatorial interpretation of the product $*$. For this let us introduce:
 \begin{defi}[Quasi-shuffle]\label{def:quasi_shuffles}
-	Let $k,l\in\NN\setminus \{0\}$. A \emph{$(k,l)$-quasi-shuffle} is a surjective map $\sigma:\IEM{1}{k+l}\twoheadrightarrow\IEM{1}{n}$ surjective for some positive integer $n$
+	Let $k,l\in\NN\setminus \{0\}$. A \emph{$(k,l)$-quasi-shuffle} is a surjective map $\sigma:\IEM{1}{k+l}\twoheadrightarrow\IEM{1}{n}$ for some positive integer $n$
 	such that:
 	\[
 	\sigma(1)<\cdots<\sigma(k) \text{  and  } \sigma(k+1)<\cdots<\sigma(k+l).
@@ -603,16 +606,16 @@ We can easily prove that: %TODO ON ajoute une référence ou on le démontre ? P
 \end{proof}
 
 
-Let $t,s$ two trees different from $|$. We look $t$ as a right comb and $s$ as a left comb. In other words, we put:
-\begin{align*}
+Let $t,s$ two trees different from $\unit$. We look $t$ as a right comb and $s$ as a left comb. In other words, we put:
+\begin{align}\label{eq:comb_ts}
 	t&=\peignedroit{F_1}{F_2}{F_k}
 	& \text{ and } &&  s=\peignegauche{F_{k+1}}{F_{k+2}}{F_{k+l}},
-\end{align*}
+\end{align}
 where for all $i\in\IEM{1}{k+l}, F_i$ is a non-empty forest. Here, $k$ represents the number of nodes on the right-most branch of $t$ and $l$ is the number of nodes on the left-most branch of $s$.
 
 \begin{defi}\label{def:quasiaction}
-	Let $t$ and $s$ be two trees which respective right comb representation and left comb representation are given above.
-	We denote by $k$ (respectively $l$) the number of nodes on the right-most (respectively left-most) branch of $t$ (respectively $s$). Let $\sigma$ be a $(k,l)$-quasi-shuffle which has for image $\IEM{1}{n}$ with $n$ a positive integer. We denote $\sigma(t,s)$ the tree obtained this way:
+	Let $t$ and $s$ be two trees which respective right comb representation and left comb representation are given above (equation~\eqref{eq:comb_ts}).
+	We denote by $k$ (respectively $l$) the number of nodes on the right-most (respectively left-most) branch of $t$ (respectively $s$). Let $\sigma$ be a $(k,l)$-quasi-shuffle which has for image $\IEM{1}{n}$ with $n$ a non-negative integer. We denote $\sigma(t,s)$ the tree obtained this way:
 	\begin{enumerate}
 		\item  We first consider the ladder with $n$ nodes:
 		\begin{center}
@@ -678,8 +681,8 @@ where for all $i\in\IEM{1}{k+l}, F_i$ is a non-empty forest. Here, $k$ represent
 	\end{tikzpicture}}.
 \end{exam} 
 
-\begin{thm}\label{thm:produit}
-	Let $t,s$ be two trees different from $|$ as described above. Then: 
+\begin{thm}[\cite{Catoire_2023}]\label{thm:produit}
+	Let $t,s$ be two trees different from $\unit$ as described above. Then: 
 	\[
 	t*s=\sum_{\sigma\in \batc(k,l)}\sigma(t,s).
 	\]
@@ -690,17 +693,18 @@ where for all $i\in\IEM{1}{k+l}, F_i$ is a non-empty forest. Here, $k$ represent
 		t\cdot s=\sum_{\substack{\sigma\in\batc(k,l) \\ \sigma^{-1}(\{1\})=\{1,k+1\}}} \sigma(t,s).
 	\end{gather*}
 \end{thm}
-Surprisingly,  $(\Sch,\prec,\cdot,\succ)$ can be endowed with a codendriform coproduct:
+This result is a combinatorial description of an inductive formula given in the previous work of J.L.~Loday and M.~Ronco~\cite{LodayRonco_98}.
+Surprisingly,  $(\K\Sch,\prec,\cdot,\succ)$ can be endowed with a codendriform coproduct~\cite{Catoire_2023,LodayRonco_98}:
 \begin{thm}\label{thm:coproduit}
 	We define a map $\Delta:\K\Sch\rightarrow \K\Sch\otimes \K\Sch$ by:
 	\begin{align*}
 		\Delta(t)=\sum_{c \text{ \normalfont admissible cut of }t} P^c(t)\otimes R^c(t),
 	\end{align*}
-	where $R^c(t)$ is the component of $t$ containing its root and $P^c(t)=P^c_1(t)*\cdots *P^c_k(t)$, where $P^c_i(t)$ are the cut trees naturally ordered from left to right. Moreover one can write $\Delta=\Delta_{\leftarrow}+\Delta_{\rightarrow}$ in such a way so $(\Sch,\prec,\cdot,\succ,\Delta_{\leftarrow},\Delta_{\rightarrow})$ is a $(3,2)$-dendriform bialgebra detailled in~\cite{2023_Cat}.
+	where $R^c(t)$ is the component of $t$ containing its root and $P^c(t)=P^c_1(t)*\cdots *P^c_k(t)$, where $P^c_i(t)$ are the cut trees naturally ordered from left to right. Moreover one can write $\Delta=\Delta_{\leftarrow}+\Delta_{\rightarrow}$ in such a way so $(\K\Sch,\prec,\cdot,\succ,\Delta_{\leftarrow},\Delta_{\rightarrow})$ is a $(3,2)$-dendriform bialgebra detailled in~\cite{Catoire_2023}.
 \end{thm}
 
-From the Cartier-Quillen-Milnor-Moore theorem, we can understand better the cocommutative part of this Hopf algebra from its primitives.
-Hence, a natural question is to compute the primitives of $\Sch$. Let us introduce the notations to reach the theorems for this purpose:
+From the Cartier-Quillen-Milnor-Moore theorem~\cite{CartierPatras_2021}, we can understand better the cocommutative part of this Hopf algebra from its primitives.
+Hence, a natural question is to compute the primitive elements of $\K\Sch$. Let us introduce the notations to reach the theorems for this purpose:
 \begin{defi}
 	Let $(C,\Delta_{\leftarrow},\Delta_{\rightarrow})$ be a dendriform coalgebra. We define:
 	\begin{gather*}
@@ -711,54 +715,79 @@ Hence, a natural question is to compute the primitives of $\Sch$. Let us introdu
 	\end{gather*}
 \end{defi}
 
-\begin{thm}\label{thm:coassincodend}
+In particular, with respect to the grading of $\Sch$, we have:
+\begin{align*}
+	& \Prim_{\Coass}(\K\Sch(1))=\left\langle\Y\right\rangle, &\Prim_{\Codend}(\K\Sch(1))=\left\langle\Y\right\rangle, \\
+	& \Prim_{\Coass}(\K\Sch(2))=\left\langle \balais, \balaisd - \balaisg \ \right\rangle, & \Prim_{\Codend}(\K\Sch(2))=\left\langle \balais \right\rangle.
+\end{align*}
+\begin{thm}[\cite{Catoire_2023}]\label{thm:coassincodend}
 	For all $n\in\NN$, we define:
 	\begin{equation*}
 		\theta_n:\left\lbrace \begin{array}{rcl}
-			\Prim_{\Coass}(\Sch(n))& \rightarrow & \Prim_{\Codend}(\Sch(n+1)), \\
+			\Prim_{\Coass}(\K\Sch(n))& \rightarrow & \Prim_{\Codend}(\K\Sch(n+1)), \\
 			a\otimes \Y & \mapsto & a\cdot \Y.
 		\end{array}\right.
 	\end{equation*}
 	Then, for all $n\in\NN, \theta_n$ is an isomorphism of vector spaces.
 \end{thm}
 
-From the article~\cite{euleridem} of M.Ronco, we recall the main result:
+From the article~\cite{euleridem} of M.~Ronco, we recall the main result:
 \begin{thm}\label{thm:génération2}
 	 One can define  a map $\omega$ using $\pright,\pmid$ and $\pleft$ giving rise for all $n\in\NN$ to:
 	\begin{equation}\label{eq:Omega}
 		\Omega_n:\left\lbrace\begin{array}{rcl}
-			T(\Prim_{\Codend}(\Sch(n))) & \twoheadrightarrow & \Prim_{\Coass}(\Sch(n)), \\
+			T(\Prim_{\Codend}(\K\Sch))(n) & \twoheadrightarrow & \Prim_{\Coass}(\K\Sch(n)), \\
 			x_1\otimes\dots\otimes x_k & \mapsto & \omega(x_1\otimes \dots \otimes x_k).
 		\end{array}\right.
 	\end{equation}
-	This raise to a map $\Omega$ defined over $\Sch$ such that $\Omega|_{T(\Prim_{\Codend}(\Sch(n)))}=\Omega_n$.
+	This raise to a map $\Omega$ defined over $\Sch$ such that $\Omega|_{T(\Prim_{\Codend}(\K\Sch(n)))}=\Omega_n$. The map $\omega$ is defined for any $k\geq 2, x,y,x_1,\dots, x_k\in\K\Sch$ by:
+	\begin{align*}
+		&\omega(x)\coloneqq x, \\ 
+		&\omega(x_1\otimes \ldots \otimes x_k \otimes y)= \sum_{i=0}^k (-1)^{k-i} \omega_{\prec}(x_1\otimes\ldots \otimes x_i) \succeq y \prec \omega_{\succeq}(x_{i+1}\otimes \ldots \otimes x_k),
+	\end{align*}
+	where:
+	\begin{align*}
+		&\omega_{\prec}(\ew)=\unit = \omega_{\succ}(\ew), \\
+		&\omega_{\prec}(x_1\otimes \ldots \otimes x_k)= x_1\prec \omega_{\prec}(x_2\otimes \ldots \otimes x_k), \\
+		&\omega_{\succeq}(x_1\otimes \ldots \otimes x_k)= \omega_{\succeq}(x_1\otimes \ldots \otimes x_{k-1})\succeq x_k.
+	\end{align*}
 \end{thm}
 
-As a consequence, we have a recipe to produce the primitives of this algebra by induction as shown in figure~\ref{fig:algo_idea}:
+\begin{exam}
+	To compute an element of $\Prim_{\Coass}(\K\Sch(3))$, we can choose $\Y\otimes \Y \otimes \Y$ or $\left(\balaisd - \balaisg\right) \otimes \Y$ which are both elements of $T(\K\Prim_{\Codend})(3).$ Hence:
+\begin{align*}
+	\Omega_3\left(\Y\otimes \Y \otimes \Y\right)&= \Y \prec \left( \Y \succeq \Y\right) - \Y \succeq \Y \prec \Y + \left(\Y \prec \Y\right)\succeq \Y,\\
+	\Omega_3\left( \left(\balaisd - \balaisg\right) \otimes \Y\right) &= - \Y\prec \left(\balaisd - \balaisg\right) + \left(\balaisd - \balaisg\right)\succeq \Y.
+\end{align*} 	
+\end{exam}
+
+So, we have a recipe to produce the primitives of this algebra by induction as shown in figure~\ref{fig:algo_idea}:
 \begin{figure}[h]
 	\centering
-	\begin{tikzcd} %TODO à recadrer
-		\Prim_{\Codend}(\Sch(1)) \arrow[r,"\theta_1"] &\Prim_{\Coass}(\Sch(2)) \arrow[r,"\Omega_1"] & \Prim_{\Codend}(\Sch(2)) \arrow[r,"\theta_1"] & \Prim_{\Codend}(\Sch(3)) \arrow[r,"\Omega_2"]& \dots
+	\begin{tikzcd}
+														& \Prim_{\Codend}(\K\Sch(1)) \ar[out=-20, in=160, "\theta_1", swap]{dl} \\ 
+		 \Prim_{\Coass}(\K\Sch(2)) \arrow[r,"\Omega_1"] & \Prim_{\Codend}(\K\Sch(2)) \ar[out=-20, in=160, swap, "\theta_2"]{dl} \\
+		\Prim_{\Codend}(\K\Sch(3)) \arrow[r,"\Omega_2"] & \dots 
 	\end{tikzcd}
 	\caption{Diagram of the induction}
 	\label{fig:algo_idea}
 \end{figure}
 
-This figure~\ref{fig:algo_idea} enables us to compute $\Prim_{\Coass}(\Sch)$ by induction over the degree of its elements starting with $\Prim_{\Codend}(\Sch(1))=\left\{\Y\right\}$. We will now look at the practical aspects to implement an algorithm on a computer. 
+The process of figure~\ref{fig:algo_idea} enables us to compute $\Prim_{\Coass}(\Sch)$ by induction starting with ${\Prim_{\Codend}(\Sch(1))=\left\{\Y\right\}}$. To implement this, we find another interpretation of this problem. 
 
 \section{Our point of view of Schroeder trees and their operations}\label{sec:pov}
 
-Our motivation is to compute the process detailed in figure~\ref{fig:algo_idea}. It may give hints to describe some primitives elements or at least make guesses to get an explicit combinatorial formula describing this process.
+Our motivation is to compute the algorithm detailed in figure~\ref{fig:algo_idea}. It may give hints to describe some primitives elements or at least make guesses to get an explicit combinatorial formula describing this process.
 But a question arise from this: \textquote{How shall we implement trees to get efficiency and an easy coding ?} 
 
 \subsection{Encoding \Schw{} trees}
 
-The idea to represent \Schw{} trees into a computer is to add \emph{levels} giving rise to \emph{levelled \Schw{} trees}. From this intermediate representation, we can interpret a \Schw{} tree as a sequence of integers whose binary code represents the levels of the tree.
+The idea to represent \Schw{} trees into a computer is to add \emph{levels} giving rise to \emph{levelled \Schw{} trees}. From this intermediate representation, we can interpret a \Schw{} tree as a binary increasing sequence which represents the levels of the tree.
 
 \subsubsection{Levelled Schroeder Tree}
 
-%TODO Attention, la graduation donnée plus haut est sur le nombre de feuilles -1.
 \begin{defi} \label{defi:levelled_trees}
+	A \emph{leveled \Schw{} tree} is pair $(t,l)$ where $t$ is a \Schw{} tree and for one $n\in\NN,l:V(t)\twoheadrightarrow \IEM{1}{n}$ is a map such that for any $(u,v)\in V(t)$ where $u$ is a descendant of $v$, we have $l(u)>l(v)$. For any $v\in V(t), l(v)$ is called the \emph{level} of $v$. 
 	
 	Let $n\in\NN.$
 	The set of levelled \Schw{} tree is denoted $\Schl$ and the subset levelled \Schw{} trees with $n$ leaves is denoted $\Schl(\nn)$.
@@ -767,15 +796,15 @@ To each levelled \Schw{} tree corresponds a unique Schroeder tree with a trivial
 \begin{equation}
 	\pi_\nn:\Schl(\nn)\twoheadrightarrow\Sch(\nn).
 \end{equation}
-Maps $\pi_0$, $\pi_1$, $\pi_2$ and $\pi_3$ are bijective while $\pi_\nn$ is not injective for $n\geq 4$.
+Maps $\pi_0$, $\pi_1$ and $\pi_2$ are bijective whereas $\pi_\nn$ is not injective for $n\geq 3$.
 
 \begin{defi}
 	Two levelled tree $t$ and $t'$ of $\Schl(\nn)$ are said \emph{equivalent}, denoted $t\equiv t'$, if it represents the same Schroeder tree, that is, $\pi_\nn(t)=\pi_\nn(t')$.
 \end{defi}
 
 \begin{exam}\label{exam:Sch}
-	Referring to the example~\ref{exam:Sch4}, except for $i=7$, the set $\pi_4^{-1}(t_i)$ has only one element.
-For example $\pi_4^{-1}(t_8)$ consists of the unique levelled tree:
+	Referring to the example~\ref{exam:Sch3}, except for $i=7$, the set $\pi_3^{-1}(\{t_i\})$ has only one element.
+For example $\pi_3^{-1}(\{t_8\})$ consists of the unique levelled tree:
 \begin{center}
 	\begin{tikzpicture}[x=1em,y=1em]
 		\draw(0,3) -- (0.5,2);
@@ -795,7 +824,7 @@ For example $\pi_4^{-1}(t_8)$ consists of the unique levelled tree:
 		\fill (0.5,2) circle(0.15);
 	\end{tikzpicture}
 \end{center}
-Labelled trees in $\pi_4^{-1}(t_7)$ consists of the following two levelled trees:
+Labelled trees in $\pi_4^{-1}(\{t_7\})$ consists of the following two levelled trees:
 \begin{center}
 	\begin{tikzpicture}[x=1em,y=1em]
 		\draw(0,3) -- (0.5,2);
@@ -844,63 +873,66 @@ We want to code \Schw{} trees as levelled Schroeder trees. For this purpose, we 
 	Let $\mathcal{P}=(P,\leq)$ be a lattice with a minimum and a maximum element.
 	Let $C$ be a chain in this poset, we say it is \emph{initial} if $\min(\mathcal{P})$ and $\max(\mathcal{P})$ are in the chain $C$.
 \end{defi}
-
-\PC{C'est pour l'inclusion non ?}
 \begin{defi}
 	Let $n\in\NN\setminus \{0\}$.
-	We define $\IC(\nn)$ the set of strictly increasing \emph{initial chain} of the poset $(\Par(\IEM{1}{n}),\leqslant_{\pi})$ where $\leqslant_\pi$ is the \emph{refinement order} of partitions. A partition $P$ is smaller than a partition $Q$, denoted $P\leq_{\pi} Q$, if any block of $Q$ is the union of some blocks of $P$. 
+	We define $\IC(\nn)$ the set of strictly increasing \emph{initial chain} of the poset $(\mathcal{P}(\IEM{1}{n}),\subseteq)$. 
 \end{defi}
 \begin{exam}
-	For instance, in the poset $(\Par(\IEM{1}{4}),\supseteq)$ shown in figure~\ref{fig:labelled_IP4}, we have the following elements of $\IC(4)$:
-	\begin{gather*}
-		\{1\}\{2\}\{3\}\{4\}\leqslant_{\pi} \{1,2,3,4\}, \\
-		\{1\}\{2\}\{3\}\{4\}\leqslant_{\pi} \{1,2,3\}\{4\} \leqslant_{\pi} \{1,2,3,4\}.
-	\end{gather*}
+	For instance, in the poset $(\mathcal{P}(\IEM{1}{4}),\subseteq)$, we have the following elements of $\IC(4)$:
+	\begin{align*}
+		\emptyset \subseteq \{1,2,3,4\}, &&
+		\emptyset \subseteq \{1,2,3\} \subseteq \{1,2,3,4\}.
+	\end{align*}
+%	\begin{gather*}
+%		\{1\}\{2\}\{3\}\{4\}\leqslant_{\pi} \{1,2,3,4\}, \\
+%		\{1\}\{2\}\{3\}\{4\}\leqslant_{\pi} \{1,2,3\}\{4\} \leqslant_{\pi} \{1,2,3,4\}.
+%	\end{gather*}
 \end{exam}
-\begin{figure}[h]
-	\centering
-	\caption{The $\mathcal{P}(\IEM{1}{4})$ poset with labels on edges}
-	\label{fig:labelled_IP4}
-	\begin{tikzpicture}[rotate =180 ]
-		%Noeud du diagramme
-		\node (P0) at (0,0) {$\{1,2,3,4\}$};
-		\node (P11) at (-2,1) {$\{1,2,3\}\{4\}$};
-		\node (P12) at (0,1) {$\{1,2\}\{3,4\})$};
-		\node (P13) at (2,1) {$\{1\}\{2,3,4\}$};
-		\node(P21) at (-2,2) {$\{1,2\}\{3,4\}$};
-		\node(P22) at (0,2) {$\{1\}\{2,3\}\{4\}$};
-		\node(P23) at (2,2) {$\{1\}\{2\}\{3,4\}$};
-		\node(P31) at (0,3) {$\{1\}\{2\}\{3\}\{4\}$};
-		%Arêtes du poset
-		\draw (P0) -- (P11);
-		\draw (P0) -- (P12);
-		\draw (P0) -- (P13);
-		\draw (P11) -- (P21);
-		\draw (P11) -- (P22);
-		\draw (P12) -- (P21);
-		\draw (P12) -- (P23);
-		\draw (P13) -- (P22);
-		\draw (P13) -- (P23);
-		\draw (P21) -- (P31);
-		\draw (P22) -- (P31);
-		\draw (P23) -- (P31);
-	\end{tikzpicture}
-\end{figure}
 
-But as said previously many levelled \Schw{} trees give a same \Schw{} tree. Hence, for each $n\in \NN$ we want to build a section of $\pi_n$ so that a \emph{unique} levelled \Schw{} tree corresponds to a \Schw{} tree.
+%\begin{figure}[h]
+%	\centering
+%	\caption{The $\mathcal{P}(\IEM{1}{4})$ poset with labels on edges}
+%	\label{fig:labelled_IP4}
+%	\begin{tikzpicture}[rotate =180 ]
+%		%Noeud du diagramme
+%		\node (P0) at (0,0) {$\{1,2,3,4\}$};
+%		\node (P11) at (-2,1) {$\{1,2,3\}\{4\}$};
+%		\node (P12) at (0,1) {$\{1,2\}\{3,4\}$};
+%		\node (P13) at (2,1) {$\{1\}\{2,3,4\}$};
+%		\node(P21) at (-2,2) {$\{1,2\}\{3\}\{4\}$};
+%		\node(P22) at (0,2) {$\{1\}\{2,3\}\{4\}$};
+%		\node(P23) at (2,2) {$\{1\}\{2\}\{3,4\}$};
+%		\node(P31) at (0,3) {$\{1\}\{2\}\{3\}\{4\}$};
+%		%Arêtes du poset
+%		\draw (P0) -- (P11);
+%		\draw (P0) -- (P12);
+%		\draw (P0) -- (P13);
+%		\draw (P11) -- (P21);
+%		\draw (P11) -- (P22);
+%		\draw (P12) -- (P21);
+%		\draw (P12) -- (P23);
+%		\draw (P13) -- (P22);
+%		\draw (P13) -- (P23);
+%		\draw (P21) -- (P31);
+%		\draw (P22) -- (P31);
+%		\draw (P23) -- (P31);
+%	\end{tikzpicture}
+%\end{figure}
+
+But as said previously many levelled \Schw{} trees give a same \Schw{} tree. Hence, for each $n\in \NN$ we want to build a section of $\pi_n$ so that to a \Schw{} tree corresponds a \emph{unique} levelled \Schw{}.
 
 \subsubsection{Our choice of section}
 
 For our use, we introduce the following map:
 \begin{prop}\label{prop:trees_to_levels}
-	We denote $s:\Sch \rightarrow \Schl$ the unique map such that for any $t\in\Sch(n)$, $s(t)$ is the \emph{unique} levelled \Schw{} tree such that for any internal vertices $t$, its level is strictly greater than all the internal vertices to its right.
+	We denote $s:\Sch \rightarrow \Schl$ the unique map such that for any $t\in\Sch$, $s(t)$ is the \emph{unique} levelled \Schw{} tree such that for any internal vertex of $t$, its level is strictly greater than all the internal vertices to its right.
 	Then, $s$ is well-defined and this is a section of the map $\pi\coloneqq \displaystyle\bigoplus_{n=0}^{+\infty} \pi_n$.
 \end{prop}
 \begin{proof}
 	To prove $s$ is well-defined, we detail a construction $s(t)$ by induction over the number of leaves of the tree of $t$. Let $t\in\Sch(n)$ with $n\in\NN^*$.
 	\begin{description}
 		\item[Initialization] for $n=2$, this is obvious as there exists only one representation of $\Y$ as a levelled \Schw{} tree.  
-		\item[Heredity] now let us suppose that there exists $n$ such that for any $t\in\Sch(n), s(t)$ is well defined. We consider $t\in\Sch(n+1)$ and let us build $s(t)$. One can see:
+		\item[Heredity] now let us suppose that there exists $n$ such that for any $n'<n, t\in\Sch(n'), s(t)$ is well defined. We consider $t\in\Sch(n+1)$ and let us build $s(t)$. One can see:
 		\[
 		t=t^{(1)}\vee \dots \vee t^{(k)}
 		\]
@@ -957,28 +989,19 @@ For our use, we introduce the following map:
 
 \subsubsection{The encoding}
 
-For the sequel let us introduce some definitions
-
-\begin{defi}
-	Let $t$ be a tree. Let $v$ be a vertex in $t$. We say that $v$ is an \emph{internal vertex} if it is not a leaf.
-	We will denote $\Inner(t)$ the number of internal vertices of $t$. Note that for all \Schw{} trees this quantity is always non-negative.
-\end{defi}
-
 Using the section $s$, we can identify any \Schw{} tree with a finite list of binary words thanks to the map defined below
 
-%TODO What is an angle ?
+\begin{defi}
+	Let $t$ be a planar tree and let $v\in V(t)$. An \emph{angle} of $t$ on $v$ is a pair $(x,y)\in V(t), x\neq y$ of adjacent vertices to $v$ such that the path from the root to $v$ does not contain $x$ or $y$ and the segment for $x$ to $y$ does not cross the tree.
+\end{defi}
+
 \begin{defi}\label{defi:lifetime}
-	For any $n\in\NN,$ we introduce a map $\varphi_n: \Schl(n)\rightarrow \IC(\IEM{1}{n})$ defined for any $t\in\Schl(n)$ by the \emph{unique} initial chain describing the life time of the angles of $t$ in function of the levels of the tree.
+	For any $n\in\NN,$ we introduce a map $\varphi_n: \Schl(n)\rightarrow \IC(\IEM{1}{n})$ defined for any $t\in\Schl(n)$ by the \emph{unique} initial chain describing the lifetime of the angles of $t$ in function of the levels of the tree.
 	
 	We also define $\Set_n$, the map sending any element of $\IC(\IEM{1}{n})$ onto a list of length $n$ with $0$'s and $1$'s encoding the element of $\mathcal{P}(\IEM{1}{n})$ considered. More precisely, for any ${X\in\mathcal{P}(\IEM{1}{n})}$:
 	\[
 	\Set_n(X)\coloneq (\mathbbm{1}_X(i))_{i\in\IEM{1}{n}}.
 	\]
-	
-	Finally, we introduce the binary map, denoted $B$, that sends any sequence with $0$'s and $1$'s onto an integer the following way:
-	\[ %TODO Notation à introduire
-	\forall s\in \{0,1\}^{\star}, B(s)=\sum^{|s|}_{i=0} s_i\cdot 2^i.
-	\] 
 \end{defi}
 \begin{exam}\label{Eg:tree_code}
 	For instance, reading sequences from top to bottom:
@@ -1019,9 +1042,10 @@ Using the section $s$, we can identify any \Schw{} tree with a finite list of bi
 			0 & 0 & 1 & 1 & 1 \\
 			0 & 0 & 1 & 0 & 1 \\
 			0 & 0 & 0 & 0 & 0
-		\end{array} && \overset{B}{\longrightarrow} && \begin{array}{c}
-			31 \\ 28 \\ 20 \\ 0
-		\end{array}
+		\end{array} 
+		%&& \overset{B}{\longrightarrow} && \begin{array}{c}
+%			31 \\ 28 \\ 20 \\ 0
+%		\end{array}
 	\end{align}
 \end{exam}
 
@@ -1031,47 +1055,46 @@ Using the section $s$, we can identify any \Schw{} tree with a finite list of bi
 	\IC \coloneqq \bigoplus_{n=0}^{+\infty} \IC(\IEM{1}{n}).
 	\]
 \end{Not}
-Thanks to this result we can now encode one \Schw{} tree as a list of integers into a computer. Now, we can look at the action of quasi-shuffles on our encoding of trees for an easy computation in the free tridendriform algebra with one generator.
+Thanks to this result we can now encode one \Schw{} tree as a list of integers/sequences over $\{0,1\}$ into a computer. Now, we can look at the action of quasi-shuffles on our encoding of trees for an easy computation in the free tridendriform algebra with one generator.
 
-\PCt{Je mets une partie pour décrire l'image des $\varphi_n$ que l'on ne conservera peut-être pas.}
+%\PCt{Je mets une partie pour décrire l'image des $\varphi_n$ que l'on ne conservera peut-être pas.}
+%
+%\subsubsection{Description of the image of \Schw{} trees}
+%
+%We can notice that the image of $\varphi\circ s$, where $\varphi=\displaystyle\bigoplus_{n=0}^{+\infty} \varphi_n$, is strictly included inside $\displaystyle \bigoplus_{n=0}^{+\infty} \IC(\IEM{1}{n})$. We give here a description of the image of $\varphi$. For this purpose we need to introduce some definitions:
+%\begin{defi}
+%	Let $n\in\NN$ and $x\in\mathcal{P}(\IEM{1}{n})$. An \emph{interval} in $x$ is a subset of $x$ of the shape $\IEM{i}{j}$ with $i<j.$
+%	We will denote $\Con(x)$ the set of maximal intervals in $x$.
+%\end{defi}
+%With this connectivity concept, we have:
+%\[
+%x=\bigcup_{c\in\Con(x)} c.
+%\]
+%\begin{Rq}
+%	Let $n\in\NN$ et $x\in\mathcal{P}(\IEM{1}{n})$.
+%	Note that $\Con(x)$ has a total order induced by the order of the minimum of each block. More precisely, for $(c_1,c_2)\in\Con(x)$:
+%	\[
+%	c_1<c_2 \iff \min(c_1)<\min(c_2).
+%	\]
+%\end{Rq}
+%\begin{defi}
+%	Let $n\in\NN$ and consider $C\in\IC(\IEM{1}{n})$. Let $x\in C$ which is not an extrema of $C$. We denote by $\prev{x}$ the previous element in the chain $C$.  We denote by $\suiv{x}$ the next element in the chain $C$. 
+%\end{defi}
+% 
+% \begin{prop}
+% 	We have $C\in\ima(\varphi\circ s)$ if and only if:
+% 	\[
+% 	\forall x\in C\setminus\{\max(C)\}, \forall c\in\Con(x), \forall c'\in \Con(x), c'>c \implies c'\in \suiv{x}.
+% 	\]
+% \end{prop}
+%\begin{proof}
+%	Todo
+%\end{proof}
+%\PCt{Est-ce qu'on parle des suites croissantes pour le poids de Hamming ?} 
 
-\subsubsection{Description of the image of \Schw{} trees}
-
-We can notice that the image of $\varphi\circ s$, where $\varphi=\displaystyle\bigoplus_{n=0}^{+\infty} \varphi_n$, is strictly included inside $\displaystyle \bigoplus_{n=0}^{+\infty} \IC(\IEM{1}{n})$. We give here a description of the image of $\varphi$. For this purpose we need to introduce some definitions:
-\begin{defi}
-	Let $n\in\NN$ and $x\in\mathcal{P}(\IEM{1}{n})$. An \emph{interval} in $x$ is a subset of $x$ of the shape $\IEM{i}{j}$ with $i<j.$
-	We will denote $\Con(x)$ the set of maximal intervals in $x$.
-\end{defi}
-With this connectivity concept, we have:
-\[
-x=\bigcup_{c\in\Con(x)} c.
-\]
-\begin{Rq}
-	Let $n\in\NN$ et $x\in\mathcal{P}(\IEM{1}{n})$.
-	Note that $\Con(x)$ has a total order induced by the order of the minimum of each block. More precisely, for $(c_1,c_2)\in\Con(x)$:
-	\[
-	c_1<c_2 \iff \min(c_1)<\min(c_2).
-	\]
-\end{Rq}
-\begin{defi}
-	Let $n\in\NN$ and consider $C\in\IC(\IEM{1}{n})$. Let $x\in C$ which is not an extrema of $C$. We denote by $\prev{x}$ the previous element in the chain $C$.  We denote by $\suiv{x}$ the next element in the chain $C$. 
-\end{defi}
- 
- \begin{prop}
- 	We have $C\in\ima(\varphi\circ s)$ if and only if:
- 	\[
- 	\forall x\in C\setminus\{\max(C)\}, \forall c\in\Con(x), \forall c'\in \Con(x), c'>c \implies c'\in \suiv{x}.
- 	\]
- \end{prop}
-\begin{proof}
-	Todo
-\end{proof}
-\PCt{Est-ce qu'on parle des suites croissantes pour le poids de Hamming ?} 
-
-\subsection{The tridendriform structure for 0 and 1 sequences}
+\subsection{The tridendriform structure on $\ima(\Code)$}
 
 One usual operation we can perform on words is the concatenation. In our particular case, the tridendriform operations over $\IC{}$ are more complicated. In fact, we could multiply two initial chains with partition set of different lengths.
-
 \begin{Rq}
 	For now on, for any $n\in\NN$ we will no longer distinguish element of $\IC(\IEM{1}{n})$ and its image by the map $\Set$. We also allow ourselves to mix the notations.
 \end{Rq}
@@ -1089,7 +1112,7 @@ In order to describe properly to the computer what we want to do, we have to ide
 \end{defi}
 \begin{Rq}
 	The forest code associated to the empty chain, denoted $\varepsilon$, is $\unit$. 
-	Note that if $C$ is a forest code that is not an initial chain, then there exists a unique forest $F$ such that $\Code(T)=C'$ with $T$ is the grafting of all the element of the forest $F$ in this order to a common root. Hence, we extend the definition of the map $\Code$ to forests codes in such a way that $\Code(F)=C.$ 
+	Note that if $C$ is a forest code that is not an initial chain, then there exists a unique forest $F$ such that $\Code(T)=C'$ where $T$ is the grafting of all the element of the forest $F$ in this order to a common root. Hence, we extend the definition of the map $\Code$ to forests codes in such a way that $\Code(F)=C.$ 
 \end{Rq}
 \begin{exam}
 	For instance, the forest code $\Code\left(\balaisd~\Y~\unit\right)$ is:
@@ -1125,7 +1148,7 @@ In order to describe properly to the computer what we want to do, we have to ide
 	\tilde{C_1} & 1  & \tilde{F_1} \\
 	C_1 & \vdots & F_1 \\
 	C_1 & 1  & F_1 
-	\end{tblr} \text{ is a forest code.}
+	\end{tblr} \text{ if it is a forest code.}
 	\]
 	such that $F_1$ and $C_1$ are respectively $\tilde{F_1}$ and $\tilde{C_1}$ keeping only once any instance of a integer sequence. Moreover, the red line spotted is the \emph{leftmost} column with this property in $C$. 
 \end{defi}
@@ -1417,17 +1440,17 @@ With this definition, we are now able to define three operators in $\ima(\Code)$
 
 In the sequel, we show that this structure is a tridendriform structure on $\ima(\Code)$ showing it is isomorphic to the free tridendriform algebra of \Schw{} trees. Hence it gives us a mathematical background to implement programs in section~\ref{sec:coding}.
 
-\begin{thm} %TODO Le plus malin serait de définir une right comb length et une left comb length je pense
+\begin{thm} 
 	Let $t,s$ be two \Schw{} trees with shapes given in equation~\eqref{eq:tree_combs}. Hence, $k$ is the right comb length of $t$ and $l$ the left comb length of $s$. Let $\sigma\in\batc(k,l)$. Then:
 	\[
 	\Code(\sigma(t,s))= \sigma(\Code(t),\Code(s)).
 	\]
 \end{thm}
 \begin{proof}
-In order to prove this theorem, we will proceed by induction over the sum $\max(k,l)$. If $l=0$ or $k=0$, this means that $s=\unit$ or $t=\unit$.
+In order to prove this theorem, we will proceed by induction over the sum of $k$ and $l$. If $l=0$ or $k=0$, this means that $s=\unit$ or $t=\unit$. We initialize the induction $0,1$ and $2$.
 \begin{description}
 	\item[Initialization] if $\max(k,l)=1$ and $k+l=1$, then the identity shuffle is acting on this pair of tree and one of them is $\unit$. By definition~\ref{defi:quasishuffle_code}, we get back the tree code of the non-unit element.
-	Otherwise, if $k+l=2$ hence $\sigma=(1,1)$, then:
+	Otherwise, if $k+l=2$ and $k,l\neq 0$ hence $\sigma=(1,1)$, then:
 	\[
 	t=\raisebox{-0.3\height}{\begin{tikzpicture}[x=0.25cm,y=0.25cm]
 		\draw (0,0) -- (0,1);
@@ -1480,12 +1503,12 @@ In order to prove this theorem, we will proceed by induction over the sum $\max(
 	0 & \cdots & 0 & 0 & 0 & 0 & \cdots & 0\\
 	\end{tblr}
 	\]
-	Note that the code of $\sigma(T,S)$ has for associated tree $\sigma(t,s)$.
-	\item[Heredity] Suppose that there exists $r \geq 1\in\NN^*$ such that for all couple $(k,l)$ with $\max(k,l)\leq r$, we have:
+	Note that the code of $\sigma(T,S)$ has for associated tree $\sigma(t,s)$. If $k=0$ or $l=0$, then the result is obvious.
+	\item[Heredity] Suppose that there exists $r \geq 1\in\NN^*$ such that for all couple $(k,l)$ with $k+l\leq r$, we have for any $t,s$ whose tree length are respectively $k$ and $l$:
 	\[
 	\sigma(\Code(t),\Code(s))=\Code(\sigma(t,s)).
 	\]
-	Let us prove that this property is true for $r+1$. Let $t,s$ be two trees with right comb length $k$ and left comb length $l$, let $\sigma\in\bat(k,l)$ such that $\max(k,l)=r+1$. Note that if $k=0$ or $l=0$, the result is obvious by definition~\ref{defi:operations_codes}. There are three possible cases left, in those cases, we use the notations of the proof of lemma~\ref{lem:Indution_batc}:
+	Let us prove that this property is true for the next rank. Let $t,s$ be two trees with right comb length $k$ and left comb length $l$, let $\sigma\in\bat(k,l)$ such that $k+l=r+1$. Note that if $k=0$ or $l=0$, the result is obvious by definition~\ref{defi:operations_codes}. There are three possible cases left, in those cases, we use the notations of the proof of lemma~\ref{lem:Indution_batc}:
 	\begin{description} 
 		\item[First case] $\sigma^{-1}(\{1\})=\{1\}$:
 		Then:
@@ -1517,7 +1540,7 @@ In order to prove this theorem, we will proceed by induction over the sum $\max(
 			0 & \cdots & 0 & 0 & \cdots & 0
 		\end{tblr}
 		\end{align*}
-		Applying the induction hypothesis, we have:
+		Applying the induction hypothesis because $\RTL(t')+\LTL(s)\leq r$, we have:
 		\begin{align*}
 			\Code(\sigma(t,s))&=\begin{tblr}{colspec={cccccc},
 					cell{2}{1}={r=3,c=2}{c},
@@ -1580,7 +1603,7 @@ In order to prove this theorem, we will proceed by induction over the sum $\max(
 				0 	& \cdots &  0  & 0 & 0			  & \cdots   &  0  & 0 & 0 & \cdots & 0 \\
 			\end{tblr}
 		\end{align*}
-		Applying the induction hypothesis, we have $\Code(\sigma'(t',s'))=\sigma(\Code(t'),\Code(s')).$ Then applying the construction case number $3$ in definition~\ref{defi:quasishuffle_code}, one has:
+		Applying the induction hypothesis as $\RTL(t')+\LTL(s')\leq r$, we have $\Code(\sigma'(t',s'))=\sigma(\Code(t'),\Code(s')).$ Then applying the construction case number $3$ in definition~\ref{defi:quasishuffle_code}, one has:
 		\[
 		\Code(\sigma(t,s))=\sigma(\Code(t),\Code(s)).
 		\]
@@ -1604,55 +1627,69 @@ Finally, the map $\Code$ is also linear hence:
 Now that we are sure the two descriptions are isomorphic, we can get into coding.
 
 \section{Implementing the problem} \label{sec:coding}
-
-A seen in last corollary, we will represent \Schw{} trees as an element of $\ima(\Code).$ As a consequence, we have to build enumerations and structures needed to perform computations:
+Thanks to the map denoted $B$, any sequence with $0$'s and $1$'s is identified to an integer the following way:
+\[
+\forall s\in \{0,1\}^{\star}, B(s)=\sum^{|s|}_{i=0} s_i\cdot 2^i.
+\]
+Hence, in our code, we will manipulate such sequences as integers. Then, we have to build enumerations and structures needed to perform computations:
 \begin{itemize}
 	\item enumeration of quasi-shuffles;
 	\item class describing \Schw{} trees as sequences of $0$'s and $1$'s;
-	\item computation of complexity and comparison with the naive algorithm.
+	\item the $\Omega$ map.
 \end{itemize}
 
-But first, let us look at the efficiency of a naive approach.
+We do briefs comments about how this code is made. For our objective, we only implemented \Schw{} trees with at most $16$ leaves as they are at this point too much elements ($10463578353$ trees and $745387038$ codendriform primitives)  to see anything. We have made the choice to implement this in {\ttfamily C++} to get a faster execution code than one done with {\ttfamily Python} or {\ttfamily \Sage{}}.
 
-\subsection{The naive implementation}
-
-One naive way to implement this is to use a recursive description given by~\cite{Loday-Ronco} using the grafting operator:
-		\begin{align*}
-	t\prec s&=t^{(1)}\vee \dots \vee \left(t^{(k)}*s\right), \\
-	t\cdot s&=t^{(1)}\vee \dots \vee \left(t^{(k)}* s^{(1)}\right)\vee \dots \vee s^{(l)}, \\
-	t\succ s&=\left(t*s^{(1)}\right)\vee \dots \vee s^{(l)}   ,
-\end{align*}
-where $t=t^{(1)}\vee \dots \vee t^{(k)}$ and $s=s^{(1)}\vee\dots \vee s^{(l)}$, such that $|*t=t=t*|$ for all $t$.
-
-The intuitive algorithm associated to this approach is:
-\begin{lstlisting}[language=Python]
-	def Prod_rec(t1,t2):
-	L1 = Get_subtrees(t1)
-	L2 = Get_subtrees(t2)
-	Left_prod = Graft(L1[0:-1], Prod_rec(L1[-1], L2))
-	Right_prod = Graft( Prod_rec(L1, L2[-1]), L2[0:-1])
-	Middle_prod = Graft(L1[0:-1], Prod_rec(L1[-1],L2[0]) , L2[0:-1])
-	return (Left_prod + Right_prod + Middle_prod)
-\end{lstlisting}
-
-Denote $T(n,m)$ the complexity this algorithm where $n$ and $m$ are respectively the number of leaves of $t_1$ and $t_2.$ Hence, denoting the depth $p_1$ of $t_1$ and $p_2$ of $t_2$, one has:
-\[
-T(n,m) = T\left(\frac{n}{2},m\right) + T\left(n, \frac{m}{2}\right) + T\left(\frac{n}{2},\frac{m}{2}\right) + np_1 +mp_2.
-\]
-Actually, with our encoding, \lstinline[language=Python]|Get_subtrees| needs to read each $n$ column on $p_1$ lines to find subtrees. Let us approximate the complexity where $t_1$ and $t_2$ are both binary trees, have the same number of leaves and at each step the decomposition splits the leaves in two sets of same cardinality. Then denoting $\tilde{T}(n+m)=T(n,m)$, one has:
-\begin{align*}
-	 2 \tilde{T}\left(\frac{3}{4}n\right) + (n-1)\ln_2(n) \leq
-	\tilde{T}(n)\leq 3 \tilde{T}\left(\frac{3}{4}n\right) + (n-1)\ln_2(n).
-\end{align*}
-
-Hence applying the master theorem to compute bounds gives $\left(\ln_{\frac{4}{3}}(2)\approx 2.40, \ln_{\frac{4}{3}}(3)\approx 3.80\right)$ :
-\[
-O(n^{2.40})\leq\tilde{T}(n)\leq O(n^{3.80}).
-\]
+%\subsection{The naive implementation}
+%
+%One naive way to implement this is to use a recursive description given by~\cite{Loday-Ronco} using the grafting operator:
+%		\begin{align*}
+%	t\prec s&=t^{(1)}\vee \dots \vee \left(t^{(k)}*s\right), \\
+%	t\cdot s&=t^{(1)}\vee \dots \vee \left(t^{(k)}* s^{(1)}\right)\vee \dots \vee s^{(l)}, \\
+%	t\succ s&=\left(t*s^{(1)}\right)\vee \dots \vee s^{(l)}   ,
+%\end{align*}
+%where $t=t^{(1)}\vee \dots \vee t^{(k)}$ and $s=s^{(1)}\vee\dots \vee s^{(l)}$, such that $|*t=t=t*|$ for all $t$.
+%
+%The intuitive algorithm associated to this approach is:
+%\begin{lstlisting}[language=Python]
+%	def Prod_rec(t1,t2):
+%	L1 = Get_subtrees(t1)
+%	L2 = Get_subtrees(t2)
+%	Left_prod = Graft(L1[0:-1], Prod_rec(L1[-1], L2))
+%	Right_prod = Graft( Prod_rec(L1, L2[-1]), L2[0:-1])
+%	Middle_prod = Graft(L1[0:-1], Prod_rec(L1[-1],L2[0]) , L2[0:-1])
+%	return (Left_prod + Right_prod + Middle_prod)
+%\end{lstlisting}
+%
+%Denote $T(n,m)$ the complexity this algorithm where $n$ and $m$ are respectively the number of leaves of $t_1$ and $t_2.$ Hence, denoting the depth $p_1$ of $t_1$ and $p_2$ of $t_2$, one has:
+%\[
+%T(n,m) = T\left(\frac{n}{2},m\right) + T\left(n, \frac{m}{2}\right) + T\left(\frac{n}{2},\frac{m}{2}\right) + np_1 +mp_2.
+%\]
+%Actually, with our encoding, \lstinline[language=Python]|Get_subtrees| needs to read each $n$ column on $p_1$ lines to find subtrees. Let us approximate the complexity where $t_1$ and $t_2$ are both binary trees, have the same number of leaves and at each step the decomposition splits the leaves in two sets of same cardinality. Then denoting $\tilde{T}(n+m)=T(n,m)$, one has:
+%\begin{align*}
+%	 2 \tilde{T}\left(\frac{3}{4}n\right) + (n-1)\ln_2(n) \leq
+%	\tilde{T}(n)\leq 3 \tilde{T}\left(\frac{3}{4}n\right) + (n-1)\ln_2(n).
+%\end{align*}
+%
+%Hence applying the master theorem to compute bounds gives $\left(\ln_{\frac{4}{3}}(2)\approx 2.40, \ln_{\frac{4}{3}}(3)\approx 3.80\right)$ :
+%\[
+%O(n^{2.40})\leq\tilde{T}(n)\leq O(n^{3.80}).
+%\]
 
 \subsection{Quasi-shuffle enumeration}
 
-In the code available on GitHub~\cite{Code}, one can find a procedure \lstinline[language=C++]|Quasishuffle| that returns the list of all quasi-shuffle of a given type $(n,m)$. For this, we use the result from lemma~\ref{lem:Indution_batc}.
+In the code available on GitHub~\cite{Code}, one can find a procedure \lstinline[language=C++]|Quasishuffle| that returns the list of all quasi-shuffle of a given type $(n,m)$. For this, we use the result from lemma~\ref{lem:Indution_batc} to get an inductive algorithm computing all quasi-shuffles of a given type.
+
+\subsection{The class \Schw{} tree}
+
+We define two classes {\ttfamily \Schw{}Tree} and {\ttfamily \Schw{}Forest} where:
+\begin{enumerate}
+	\item a tree is list of $16$ integers between $0$ and $2^16$. An integer of this lists represents a sequence of zeros and ones needed to build a \Schw{} tree as explained. Hence, its first element is $2^{l+1}-1$ where $l$ is the number of angles of the tree and the last one is $0$. 
+	\item a forest is...
+\end{enumerate}
+
+\subsection{The $\Omega$ map}
+
 
 
 
