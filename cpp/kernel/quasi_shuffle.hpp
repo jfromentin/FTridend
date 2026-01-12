@@ -21,7 +21,7 @@
 #define QUASI_SHUFFLE_HPP
 
 #include "common.hpp"
-enum PType {PLeft, PMiddle, PRight, PAll};
+enum PType {PLeft, PLeftMiddle, PMiddle, PRight, PRightMiddle, PAll};
 enum QSType {QSBase, QSLeft, QSMiddle, QSRight};
 enum GType {GLeft = 1, GRight = 2, GBoth = 3};
 

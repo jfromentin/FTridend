@@ -43,10 +43,21 @@ void Primitives::next() {
   OrderedPartition p(n + 1);
   p.next();
   do{
+    cout << "-----------" << endl;
     cout << "p = " << p << endl;
+    cout << "-----------" << endl;
     int l = p.length();
-     for (int i = 0; i < l; ++ i) tuple[i] = sets[p[i] - 1].begin();
+    for (int i = 0; i < l; ++ i) {
+      tuple[i] = sets[p[i] - 1].begin();
+    }
+
     while (true) {
+      cout << "* Tuple : " << endl;
+      for (int i = 0; i < l; ++i ){
+	cout << "  " << i << " -> ";
+	tuple[i] -> display();
+	cout << endl;
+      }
       // Compute term of the tuple
       SchroederVector<int> u = omega(l);
       
@@ -68,35 +79,43 @@ void Primitives::next() {
 SchroederVector<int> Primitives::omega_left(int l) {
   SchroederVector temp = *tuple[l - 1];
   for (int i = l - 2; i >= 0; -- i) {
-    temp = SchroederModule<int>.product(*tuple[i], temp, Pleft);
+    temp = SchroederModule<int>::product(*tuple[i], temp, PLeft);
   }
   return temp;
 }
 
-SchroederVector<int> Primitives::omega_left(int l) {
+SchroederVector<int> Primitives::omega_right(int l) {
   SchroederVector temp = *tuple[0];
   for (int i = 1; i < l ; ++ i) {
-    temp = SchroederModule<int>.product(temp, *tuple[i], Pright);
+    temp = SchroederModule<int>::product(temp, *tuple[i], PRight);
   }
   return temp;
 }
 
 SchroederVector<int> Primitives::omega(int l) {
   SchroederVector<int> u;
-  SchroederVector temp;
-  int c = 1
+  SchroederVector<int> temp;
+  int c = 1;
   // i = 0
   // To finisj
-  
+  cout << "l =" << l << endl;
   for (int i = 1; i < l - 1; ++ i) {
+    cout << "i = " << i << endl;
     c *= -1;
     SchroederVector<int> ul = omega_left(i);
     SchroederVector<int> ur = omega_right(i + 1);
-    temp = SchroederModule<int>.product(ul, tuple[l - 1], Pright);
-    temp = SchroederModule<int>.product(temp, ur, Pleft);
-    u.add(temp, c);
+    cout << "ul = ";
+    ul.display();
+    cout << endl << "ur = ";
+    ur.display();
+    cout << endl;
+    /*temp = SchroederModule<int>::product(ul, *tuple[l - 1], PRight);
+    temp = SchroederModule<int>::product(temp, ur, PLeft);
+    u.add(temp, c);*/
     // To finish
-  }
+    }
+  exit(0);
+
   // i = l - 1
   // To finish
 }

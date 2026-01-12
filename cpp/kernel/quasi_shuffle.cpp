@@ -55,7 +55,6 @@ void QuasiShuffle::initialize() {
   }
 }
 
-
 void QuasiShuffle::compute_sigma() {
   switch(type) {
   case QSBase:
