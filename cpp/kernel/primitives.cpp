@@ -10,14 +10,26 @@ SchroederVector<int> Primitives::theta(const SchroederVector<int>& u) {
 void Primitives::init() {
   SchroederTree t = {1};
   SchroederVector<int> u(t);
-  sets[0].insert(u);
+  co_dendriform[0].insert(u);
+  co_associative[0].insert(u);
   n = 1;
 }
 
-void Primitives::display(int i) const{
+void Primitives::display_co_dendriform(int i) const{
   cout << "==== BEGIN ====" << endl;
   int k = 0;
-  for (auto it = sets[i].begin(); it != sets[i].end(); ++ it) {
+  for (auto it = co_dendriform[i].begin(); it != co_dendriform[i].end(); ++ it) {
+    cout << "> Element " << k << " : " << endl;
+    it -> display();
+    ++ k;
+  }
+  cout << "==== END ====" << endl;
+}
+
+void Primitives::display_co_associative(int i) const{
+  cout << "==== BEGIN ====" << endl;
+  int k = 0;
+  for (auto it = co_associative[i].begin(); it != co_associative[i].end(); ++ it) {
     cout << "> Element " << k << " : " << endl;
     it -> display();
     ++ k;
@@ -27,52 +39,67 @@ void Primitives::display(int i) const{
 
 void Primitives::next() {
   // Apply theta
-  unordered_set<SchroederVector<int>>& cur = sets[n];
-  unordered_set<SchroederVector<int>>& prev = sets[n - 1];
-  for (auto it = prev.begin(); it != prev.end(); ++ it) {
-     cur.insert(theta(*it));
+  unordered_set<SchroederVector<int>>& theta_src = co_associative[n - 1];
+  unordered_set<SchroederVector<int>>& theta_dst = co_dendriform[n];
+  for (auto it = theta_src.begin(); it != theta_src.end(); ++ it) {
+     theta_dst.insert(theta(*it));
   }
-  cout << "==== BEGIN CUR ====" << endl;
+  /*cout << "==== BEGIN CUR ====" << endl;
   int k = 0;
   for (auto it = cur.begin(); it !=  cur.end(); ++ it) {
     cout << "> Element " << k << " : " << endl;
     it -> display();
     ++ k;
   }
-  cout << "==== END CUR ====" << endl;
-  OrderedPartition p(n + 1);
-  p.next();
+  cout << "==== END CUR ====" << endl;*/
+
+  //Apply Omega
+  
+  unordered_set<SchroederVector<int>>& omega_dst = co_associative[n];
+
+  OrderedPartition p(++ n);
+
   do{
-    cout << "-----------" << endl;
+    /*cout << "-----------" << endl;
     cout << "p = " << p << endl;
-    cout << "-----------" << endl;
+    cout << "-----------" << endl;*/
     int l = p.length();
     for (int i = 0; i < l; ++ i) {
-      tuple[i] = sets[p[i] - 1].begin();
+      //cout << "Invode degree " << p[i] - 1 << endl;
+      tuple[i] = co_dendriform[p[i] - 1].begin();
     }
 
     while (true) {
-      cout << "* Tuple : " << endl;
+      /*cout << "* Tuple : " << endl;
       for (int i = 0; i < l; ++i ){
 	cout << "  " << i << " -> ";
 	tuple[i] -> display();
 	cout << endl;
-      }
+	}*/
+
       // Compute term of the tuple
-      SchroederVector<int> u = omega(l);
-      
+      if (l == 1) {
+	cout << "Ici" << endl;
+	tuple[0] -> display();
+	omega_dst.insert(*tuple[0]);
+      }
+      else{
+	cout << "La" << endl;
+	omega_dst.insert(omega(l));
+      }
       // Go to next tuple
       int i = 0;
       for (; i < l; ++ i) {
 	++ tuple[i];
-	if (tuple[i] != sets[p[i] - 1].end()) break;
-	tuple[i] = sets[p[i] - 1].begin();
+	if (tuple[i] != co_dendriform[p[i] - 1].end()) break;
+	tuple[i] = co_dendriform[p[i] - 1].begin();
       }
       if (i == l) break;
     }
       
     
   }while(p.next());
+
   
 }
 

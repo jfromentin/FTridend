@@ -35,8 +35,14 @@ int main() {
   exit(0);*/
   Primitives P;
   P.init();
-  P.display(0);
+  cout << "*******************" << endl;
+  cout << "* CoAssociative 1 *" << endl;
+  P.display_co_associative(0);
+  cout << "CoDendriform 1" << endl;
+  P.display_co_dendriform(0);
   P.next();
+  cout << "CoAssociative 2" << endl;
+  P.display_co_associative(1);
   /*  SchroederTree T1 = {3,1};
   SchroederTree T2 = {3,2};
   T1.display();
