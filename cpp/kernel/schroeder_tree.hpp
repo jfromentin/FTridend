@@ -67,6 +67,7 @@ public:
   Array<SchroederForest> right_comb_splitting() const;
 
   void display(ostream& os = cout) const;
+  string to_latex() const;
   
   // Sage functions
   void sage_init(Int h, Int n);

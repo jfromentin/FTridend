@@ -237,3 +237,58 @@ SchroederTree::SchroederTree(const SchroederTree& Tl, const SchroederTree& Tr, c
   initialize();
 }
 
+string SchroederTree::to_latex() const {
+  cout << "to_latex" << endl;
+  string str = "\\begin{tikzpicture}\n";
+  float x[N][N];
+  
+  for (int i = 0; i < n; ++ i) {
+    x[0][i] = i;
+  }
+  //cout << "h = " << h << endl;
+  //cout << "n = " << n << endl;
+  for (int y = 0; y < h; ++ y) {
+    //cout << "Level " << n - y  << endl;
+    int f = 1;
+    int left = -1;
+    for (int i = 0; i < n; ++ i) x[y + 1][i] = x[y][i];
+    for (int i = 0; i < n - 1; ++ i) {
+      //cout << i << ": " << f << " -> " << (f & p[y]) << endl;
+      if (not (f & p[y])) {
+	if (left == -1) left = i;
+      }
+      else if(left != -1) {
+	//cout << "Fusion from " << left << " to " << i  << endl;
+	float x_avg = (x[y][left] + x[y][i]) / 2;
+	for (int j = left; j <= i; ++ j) x[y + 1][j] = x_avg;
+	left = -1;
+      }
+   
+      f *= 2;
+    }
+    if (left != -1) {
+      //cout << "Fusion from " << left << " to " << n  - 1 << endl;
+      float x_avg = (x[y][left] + x[y][n - 1]) / 2;
+      for (int j = left; j <= n - 1; ++ j) x[y + 1][j] = x_avg;
+    }
+  }
+   for (int y = 1; y <= h; ++ y) {
+    cout << "y = " << y << " : ";
+    for (int i = 0; i < n; ++ i) {
+      cout << x[y][i] << '\t';
+    }
+    cout << endl;
+    }
+  for (int y = 1; y < h; ++ y) {
+    cout << "y = " << y << endl;
+    for (int i = 0; i < n; ++ i) {
+      str += "\\draw (" + to_string(x[y][i]) + "," + to_string(h - y) + ") -- ("  + to_string(x[y + 1][i]) + "," + to_string(h - y - 1) + "); \n";
+      //cout << x[y][i] << '\t';
+    }
+    //cout << endl;
+  }
+
+  str += "\\end{tikzpicture}\n";
+  cout << str << endl;
+  return str;
+}

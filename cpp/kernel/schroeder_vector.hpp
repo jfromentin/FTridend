@@ -79,7 +79,7 @@ void SchroederVector<R>::display() const {
     return;
   }
   for (auto it = coeffs.begin(); it != coeffs.end(); ++ it) {
-    if (it != coeffs.begin()) cout << endl;
+    //if (it != coeffs.begin()) cout << endl;
     cout << "Coefficient : " << it -> second << endl;
     it -> first.display();
   }

@@ -33,25 +33,40 @@ int main() {
   SchroederVector<int> u = SchroederModule<int>::product(T1, T1, PMiddle);
   u.display();
   exit(0);*/
-  Primitives P;
+
+  /*Primitives P;
   P.init();
-  cout << "*******************" << endl;
-  cout << "* CoAssociative 1 *" << endl;
-  P.display_co_associative(0);
-  cout << "CoDendriform 1" << endl;
-  P.display_co_dendriform(0);
-  P.next();
-  cout << "CoAssociative 2" << endl;
-  P.display_co_associative(1);
+
+  int deg = 4;
+
+  string line = "*******************";
+  for (int i = 0; i < deg; ++ i) {
+    cout << line << endl;
+    cout << "* CoDendriform" << i + 1 << " *" << endl;
+    cout << line << endl << endl;;
+    cout << "- There is " << P.size_co_dendriform(i) << " elements" << endl << endl;
+  
+    //P.display_co_dendriform(i);
+    cout << endl;
+    cout << line << endl;
+    cout << "* CoAssociative  " << i + 1 << " *" << endl;
+    cout << line << endl << endl;
+    cout << "- There is " << P.size_co_associative(i) << " elements" << endl << endl;
+    //P.display_co_associative(i);
+    if (i < deg - 1) P.next();
+    cout << endl;
+    }*/
   /*  SchroederTree T1 = {3,1};
   SchroederTree T2 = {3,2};
   T1.display();
   T2.display();
-  //SchroederTree T1 = {31, 30, 14, 2};
-  //SchroederTree T2 = {127, 123, 121, 120, 104, 40};
-
+  //SchroederTree T1 = {31, 30, 14, 2};*/
+  
+  SchroederTree T2 = {127, 123, 121, 120, 104, 40};
+  T2.display();
+  T2.to_latex();
   //  SchroederModule<int> M;
-  SchroederVector<int> u = SchroederModule<int>::product(T1, T2);
+  /*SchroederVector<int> u = SchroederModule<int>::product(T1, T2);
   u.display();
 
   cout << "------" << endl;

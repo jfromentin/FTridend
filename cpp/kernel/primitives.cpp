@@ -19,7 +19,7 @@ void Primitives::display_co_dendriform(int i) const{
   cout << "==== BEGIN ====" << endl;
   int k = 0;
   for (auto it = co_dendriform[i].begin(); it != co_dendriform[i].end(); ++ it) {
-    cout << "> Element " << k << " : " << endl;
+    cout << endl << "> Element " << k << " : " << endl << endl;
     it -> display();
     ++ k;
   }
@@ -30,7 +30,7 @@ void Primitives::display_co_associative(int i) const{
   cout << "==== BEGIN ====" << endl;
   int k = 0;
   for (auto it = co_associative[i].begin(); it != co_associative[i].end(); ++ it) {
-    cout << "> Element " << k << " : " << endl;
+    cout << endl << "> Element " << k << " : " << endl << endl;
     it -> display();
     ++ k;
   }
@@ -60,9 +60,9 @@ void Primitives::next() {
   OrderedPartition p(++ n);
 
   do{
-    /*cout << "-----------" << endl;
+    cout << "-----------" << endl;
     cout << "p = " << p << endl;
-    cout << "-----------" << endl;*/
+    cout << "-----------" << endl;
     int l = p.length();
     for (int i = 0; i < l; ++ i) {
       //cout << "Invode degree " << p[i] - 1 << endl;
@@ -70,21 +70,21 @@ void Primitives::next() {
     }
 
     while (true) {
-      /*cout << "* Tuple : " << endl;
+      cout << "* Tuple : " << endl;
       for (int i = 0; i < l; ++i ){
 	cout << "  " << i << " -> ";
 	tuple[i] -> display();
 	cout << endl;
-	}*/
+	}
 
       // Compute term of the tuple
       if (l == 1) {
-	cout << "Ici" << endl;
-	tuple[0] -> display();
+	//	cout << "Ici" << endl;
+	//tuple[0] -> display();
 	omega_dst.insert(*tuple[0]);
       }
       else{
-	cout << "La" << endl;
+	//cout << "La" << endl;
 	omega_dst.insert(omega(l));
       }
       // Go to next tuple
@@ -143,8 +143,8 @@ SchroederVector<int> Primitives::omega(int l) {
   temp_left = omega_left(l - 1);
   temp = SchroederModule<int>::product(temp_left, *tuple[l - 1], PRightMiddle);
   u.add(temp, c);
-  cout << "u =" << endl;
-  u.display();
+  //cout << "u =" << endl;
+  //u.display();
   return u;
   //  exit(0);
 
