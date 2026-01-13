@@ -34,12 +34,14 @@ void QuasiShuffle::initialize() {
   else {
     switch(p) {
     case PLeft:
+    case PLeftMiddle:
     case PAll:
       type = QSLeft;
       tau = new QuasiShuffle(l - 1, r);
       compute_left_sigma();
       break;
     case PMiddle:
+    case PRightMiddle:
       type = QSMiddle;
       tau = new QuasiShuffle(l - 1, r - 1);
       compute_middle_sigma();
@@ -77,7 +79,7 @@ void QuasiShuffle::compute_left_sigma() {
   tab[0] = 0;
   int ntau = l + r - 1; // n of tau 
   for (int i = 0; i < ntau; ++ i) {
-    tab[i + 1] = tau->tab[i] + 1;
+    tab[i + 1] = tau -> tab[i] + 1;
   }
 }
 
@@ -91,7 +93,7 @@ void QuasiShuffle::compute_middle_sigma() {
   int k = 1;
   for (int i = 0; i < ntau; ++ i) {
     if (k == l) ++k;
-    tab[k] = tau->tab[i] + 1;
+    tab[k] = tau -> tab[i] + 1;
     ++ k;
   }
 }
@@ -123,7 +125,7 @@ bool QuasiShuffle::next() {
     return true;
     break;
   case QSMiddle:
-    if (p == PMiddle) return false;
+    if (p == PMiddle or p == PLeftMiddle) return false;
     type = QSRight;
     delete tau;
     tau = new QuasiShuffle(l, r - 1);

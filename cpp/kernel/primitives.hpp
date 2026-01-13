@@ -15,7 +15,7 @@ private:
   SchroederVector<int> theta(const SchroederVector<int>&);
   SchroederVector<int> omega(int l);
   SchroederVector<int> omega_left(int i);
-  SchroederVector<int> omega_right(int i);
+  SchroederVector<int> omega_right_middle(int i);
 public:
   Primitives();
   void init();

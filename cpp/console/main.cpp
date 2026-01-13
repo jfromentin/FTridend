@@ -28,8 +28,11 @@
 using namespace std;
 
 int main() {
-  
-  
+  /* SchroederTree T1 = {1};
+  T1.display();
+  SchroederVector<int> u = SchroederModule<int>::product(T1, T1, PMiddle);
+  u.display();
+  exit(0);*/
   Primitives P;
   P.init();
   P.display(0);

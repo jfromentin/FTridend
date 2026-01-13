@@ -84,37 +84,42 @@ SchroederVector<int> Primitives::omega_left(int l) {
   return temp;
 }
 
-SchroederVector<int> Primitives::omega_right(int l) {
+SchroederVector<int> Primitives::omega_right_middle(int l) {
   SchroederVector temp = *tuple[0];
   for (int i = 1; i < l ; ++ i) {
-    temp = SchroederModule<int>::product(temp, *tuple[i], PRight);
+    temp = SchroederModule<int>::product(temp, *tuple[i], PRightMiddle);
   }
   return temp;
 }
 
 SchroederVector<int> Primitives::omega(int l) {
+  // k = l - 1
   SchroederVector<int> u;
-  SchroederVector<int> temp;
-  int c = 1;
+  SchroederVector<int> temp, temp_left, temp_right;
+  int c = (l % 2 == 0) ? -1 : 1;
   // i = 0
-  // To finisj
-  cout << "l =" << l << endl;
+  temp_right = omega_right_middle(1);
+  temp = SchroederModule<int>::product(*tuple[l - 1], temp_right, PLeft);
+  u.add(temp, c);
+  // i in [1, k - 1]
   for (int i = 1; i < l - 1; ++ i) {
-    cout << "i = " << i << endl;
     c *= -1;
-    SchroederVector<int> ul = omega_left(i);
-    SchroederVector<int> ur = omega_right(i + 1);
-    cout << "ul = ";
-    ul.display();
-    cout << endl << "ur = ";
-    ur.display();
-    cout << endl;
-    /*temp = SchroederModule<int>::product(ul, *tuple[l - 1], PRight);
-    temp = SchroederModule<int>::product(temp, ur, PLeft);
-    u.add(temp, c);*/
+    SchroederVector<int> temp_left = omega_left(i);
+    SchroederVector<int> temp_right = omega_right_middle(i + 1);
+    temp = SchroederModule<int>::product(temp_left, *tuple[l - 1], PRightMiddle);
+    temp = SchroederModule<int>::product(temp, temp_right, PLeft);
+    u.add(temp, c);
     // To finish
-    }
-  exit(0);
+  }
+  // i = k
+  c *= -1;
+  temp_left = omega_left(l - 1);
+  temp = SchroederModule<int>::product(temp_left, *tuple[l - 1], PRightMiddle);
+  u.add(temp, c);
+  cout << "u =" << endl;
+  u.display();
+  return u;
+  //  exit(0);
 
   // i = l - 1
   // To finish
