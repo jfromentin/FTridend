@@ -58,7 +58,7 @@ int main() {
   latex_details_file << "\\begin{document}" << endl;
   Primitives P;
   P.init();
-  int deg = 7;
+  int deg = 4;
   for (int i = 0; i < deg; ++ i) {
     cout << endl;
     cout << "**************" << endl;

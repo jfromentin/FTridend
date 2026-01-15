@@ -217,10 +217,10 @@ void to_matrix(const unordered_set<SchroederVector<int>>& F) {
     //cout << endl;
     ++ k;
   }
-  //fmpq_mat_print(A);
+  fmpq_mat_print(A);
   int rank =  fmpq_mat_rref_fraction_free(A, A);
   cout << "Rank = " << rank << endl;
-  //fmpq_mat_print(A);
+  fmpq_mat_print(A);
   fmpq_mat_clear(A);
  
 }
