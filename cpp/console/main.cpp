@@ -41,25 +41,37 @@ void latex_primitives_output(fstream& file, const unordered_set<SchroederVector<
 }
 int main() {
   string filename = "output.tex";
-  fstream latex_file;
+  string filename_details = "details.tex";
+  fstream latex_file, latex_details_file;
   latex_file.open(filename.c_str(), fstream::out | fstream::trunc);
   latex_file << "\\documentclass{amsart}" << endl;
   latex_file << "\\usepackage{fullpage}" << endl;
   latex_file << "\\usepackage{tikz}" << endl;
   latex_file << "\\tikzset{x=0.20cm,y=0.20cm}" << endl;
-
   latex_file << "\\begin{document}" << endl;
+
+  latex_details_file.open(filename_details.c_str(), fstream::out | fstream::trunc);
+  latex_details_file << "\\documentclass{amsart}" << endl;
+  latex_details_file << "\\usepackage{fullpage}" << endl;
+  latex_details_file << "\\usepackage{tikz}" << endl;
+  latex_details_file << "\\tikzset{x=0.20cm,y=0.20cm}" << endl;
+  latex_details_file << "\\begin{document}" << endl;
   Primitives P;
   P.init();
-  int deg = 3;
+  int deg = 4;
   for (int i = 0; i < deg; ++ i) {
     latex_file << "\\section{Degree " << i + 1 << "}" << endl;
+    latex_details_file << "\\section{Degree " << i + 1 << "}" << endl;
     const unordered_set<SchroederVector<int>>* tab = &P.co_dendriform[i];
     latex_file << "\\subsection{Co dendriform} " << endl;
     latex_primitives_output(latex_file, *tab);
+    latex_details_file << "\\subsection{Co dendriform} " << endl;
+    latex_primitives_output(latex_details_file, *tab);
     tab = &P.co_associative[i];
     latex_file << "\\subsection{Co associative} " << endl;
     latex_primitives_output(latex_file, *tab);
+    latex_details_file << "\\subsection{Co associative} " << endl;
+    latex_primitives_output(latex_details_file, *tab);
 
     
     //cout << line << endl;
@@ -74,14 +86,15 @@ int main() {
     //cout << line << endl << endl;
     //cout << "- There is " << P.size_co_associative(i) << " elements" << endl << endl;
     //P.display_co_associative(i);
-    if (i < deg - 1) P.next(latex_file);
+    if (i < deg - 1) P.next(latex_details_file);
     //cout << endl;
   }
   //SchroederTree T = {127, 123, 121, 120, 104, 40};
   //latex_file << T.to_latex();
   latex_file << "\\end{document}" << endl;
-  
+  latex_details_file << "\\end{document}" << endl;
   latex_file.close();
+  latex_details_file.close();
   /* SchroederTree T1 = {1};
   T1.display();
   SchroederVector<int> u = SchroederModule<int>::product(T1, T1, PMiddle);

@@ -65,9 +65,13 @@ void Primitives::next(fstream& file) {
   
   unordered_set<SchroederVector<int>>& omega_dst = co_associative[n];
 
-  OrderedPartition p(++ n);
-
-  do{
+  OrderedPartition p(n + 1);
+  // Case p = (n + 1)
+  // Add co_endriform[n] to co_associative[n]
+  for (auto it = theta_dst.begin(); it != theta_dst.end(); ++ it) {
+    omega_dst.insert(* it);
+  }
+  while(p.next()) {
     file << "\\subsection{Apply $\\Omega$ for partition [" << p << "]}" << endl << endl;
     /*   cout << "-----------" << endl;
     cout << "p = " << p << endl;
@@ -76,7 +80,7 @@ void Primitives::next(fstream& file) {
     file << "Length is " << l << " and so k = $" << l - 1 << "$." << endl << endl;
     for (int i = 0; i < l; ++ i) {
       //cout << "Invode degree " << p[i] - 1 << endl;
-      tuple[i] = co_dendriform[p[i] - 1].begin();
+      tuple[i] = co_associative[p[i] - 1].begin();
     }
     
     while (true) {
@@ -88,34 +92,24 @@ void Primitives::next(fstream& file) {
       }
       file << "\\]" << endl;
 
-      // Compute term of the tuple
-      if (l == 1) {
-	//	cout << "Ici" << endl;
-	//tuple[0] -> display();
-	file << "\\noindent Direct copy" << endl;
-	omega_dst.insert(*tuple[0]);
-      }
-      else{
-	//cout << "La" << endl;
-	SchroederVector<int>temp = omega(l, file);
+      SchroederVector<int>temp = omega(l, file);
+      
+      file << "We obtain \\(" << temp.to_latex() << "\\)." << endl;
+      omega_dst.insert(temp);
+      
 
-	file << "We obtain \\(" << temp.to_latex() << "\\)." << endl;
-	omega_dst.insert(temp);
-       
-      }
       // Go to next tuple
       int i = 0;
       for (; i < l; ++ i) {
 	++ tuple[i];
-	if (tuple[i] != co_dendriform[p[i] - 1].end()) break;
-	tuple[i] = co_dendriform[p[i] - 1].begin();
+	if (tuple[i] != co_associative[p[i] - 1].end()) break;
+	tuple[i] = co_associative[p[i] - 1].begin();
       }
       if (i == l) break;
     }
-      
-    
-  }while(p.next());
-
+       
+  }
+  ++ n;
   file << "}" << endl;
 }
 
