@@ -2,21 +2,22 @@
 #define PRIMITIVES_HPP
 
 #include <unordered_set>
+#include <fstream>
 #include "schroeder_module.hpp"
 
 using namespace std;
 
 
 class Primitives{
-private:
+public:
   unordered_set<SchroederVector<int>> co_dendriform[N];
   unordered_set<SchroederVector<int>> co_associative[N];
   size_t n;
   unordered_set<SchroederVector<int>>::const_iterator tuple[N];
   SchroederVector<int> theta(const SchroederVector<int>&);
-  SchroederVector<int> omega(int l);
-  SchroederVector<int> omega_left(int i);
-  SchroederVector<int> omega_right_middle(int i);
+  SchroederVector<int> omega(int l,fstream& file);
+  SchroederVector<int> omega_left(int first, int last); //
+  SchroederVector<int> omega_right_middle(int first, int last); 
 public:
   Primitives();
   void init();
@@ -25,7 +26,7 @@ public:
   int size_co_dendriform(int i) const;
   void display_co_dendriform(int i) const;
   void display_co_associative(int i) const;
-  void next();
+  void next(fstream& file);
 };
 
 inline Primitives::Primitives() {

@@ -48,6 +48,7 @@ public:
   void add(const SchroederTree& t, const R& r = 1);
   void add(const SchroederVector& u, const R& r = 1);
   void display() const;
+  string to_latex() const;
   unordered_map<SchroederTree, R>::const_iterator begin() const;
   unordered_map<SchroederTree, R>::const_iterator end() const;
   size_t hash() const;
@@ -84,6 +85,30 @@ void SchroederVector<R>::display() const {
     it -> first.display();
   }
 }
+
+template<class R>
+string SchroederVector<R>::to_latex() const {
+  if (coeffs.empty()) return "0";
+  bool first = true;
+  string str = "";
+  for (auto it = coeffs.begin(); it != coeffs.end(); ++ it) {
+    R c = it -> second;
+    if (first) {
+      if (c == -1) str += "-\\,";
+      else if (c != 1) str += to_string(c) + "\\,";
+    }
+    else {
+      if (c == -1) str += "\\,-\\,";
+      else if (c == 1) str += "\\,+\\,";
+      else if (c > 0) str += "\\, +\\," + to_string(c) + "\\,";
+      else str += "\\,-\\," + to_string(-c) + "\\,";
+    }
+    str += it->first.to_latex();
+    first = false;
+  }
+  return str;
+}
+
 
 template<class R>
 void SchroederVector<R>::add(const SchroederTree& t, const R& r) {

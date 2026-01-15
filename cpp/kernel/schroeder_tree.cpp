@@ -238,7 +238,6 @@ SchroederTree::SchroederTree(const SchroederTree& Tl, const SchroederTree& Tr, c
 }
 
 string SchroederTree::to_latex() const {
-  cout << "to_latex" << endl;
   string str = "\\begin{tikzpicture}\n";
   float x[N][N];
   
@@ -272,15 +271,15 @@ string SchroederTree::to_latex() const {
       for (int j = left; j <= n - 1; ++ j) x[y + 1][j] = x_avg;
     }
   }
-   for (int y = 1; y <= h; ++ y) {
+  /*for (int y = 1; y <= h; ++ y) {
     cout << "y = " << y << " : ";
     for (int i = 0; i < n; ++ i) {
       cout << x[y][i] << '\t';
     }
     cout << endl;
-    }
+    }*/
   for (int y = 1; y < h; ++ y) {
-    cout << "y = " << y << endl;
+    //cout << "y = " << y << endl;
     for (int i = 0; i < n; ++ i) {
       str += "\\draw (" + to_string(x[y][i]) + "," + to_string(h - y) + ") -- ("  + to_string(x[y + 1][i]) + "," + to_string(h - y - 1) + "); \n";
       //cout << x[y][i] << '\t';
@@ -289,6 +288,6 @@ string SchroederTree::to_latex() const {
   }
 
   str += "\\end{tikzpicture}\n";
-  cout << str << endl;
+  //cout << str << endl;
   return str;
 }

@@ -37,13 +37,21 @@ void Primitives::display_co_associative(int i) const{
   cout << "==== END ====" << endl;
 }
 
-void Primitives::next() {
+void Primitives::next(fstream& file) {
+  file << "{\\color{blue}" << endl;
+  file << "\\section{Compute next primitives elements.}" << endl;
   // Apply theta
   unordered_set<SchroederVector<int>>& theta_src = co_associative[n - 1];
   unordered_set<SchroederVector<int>>& theta_dst = co_dendriform[n];
+  file << "\\subsection{Apply $\\Theta$}" << endl;
+  file << "\\begin{align*}" << endl;
   for (auto it = theta_src.begin(); it != theta_src.end(); ++ it) {
-     theta_dst.insert(theta(*it));
+    SchroederVector<int> in = *it;
+    SchroederVector<int> out = theta(in);
+    file << in.to_latex() << " &\\mapsto " << out.to_latex() << "\\\\" << endl;
+    theta_dst.insert(out);
   }
+  file << "\\end{align*} " << endl;
   /*cout << "==== BEGIN CUR ====" << endl;
   int k = 0;
   for (auto it = cur.begin(); it !=  cur.end(); ++ it) {
@@ -60,32 +68,40 @@ void Primitives::next() {
   OrderedPartition p(++ n);
 
   do{
-    cout << "-----------" << endl;
+    file << "\\subsection{Apply $\\Omega$ for partition [" << p << "]}" << endl << endl;
+    /*   cout << "-----------" << endl;
     cout << "p = " << p << endl;
-    cout << "-----------" << endl;
+    cout << "-----------" << endl;*/
     int l = p.length();
+    file << "Length is " << l << " and so k = $" << l - 1 << "$." << endl << endl;
     for (int i = 0; i < l; ++ i) {
       //cout << "Invode degree " << p[i] - 1 << endl;
       tuple[i] = co_dendriform[p[i] - 1].begin();
     }
-
+    
     while (true) {
-      cout << "* Tuple : " << endl;
+      file << endl << "\\subsubsection{Work on} " << endl << "\\[";
       for (int i = 0; i < l; ++i ){
-	cout << "  " << i << " -> ";
-	tuple[i] -> display();
-	cout << endl;
-	}
+	if (i > 0) file << "\\, \\otimes\\, ";
+	file << tuple[i] -> to_latex();
+
+      }
+      file << "\\]" << endl;
 
       // Compute term of the tuple
       if (l == 1) {
 	//	cout << "Ici" << endl;
 	//tuple[0] -> display();
+	file << "\\noindent Direct copy" << endl;
 	omega_dst.insert(*tuple[0]);
       }
       else{
 	//cout << "La" << endl;
-	omega_dst.insert(omega(l));
+	SchroederVector<int>temp = omega(l, file);
+
+	file << "We obtain \\(" << temp.to_latex() << "\\)." << endl;
+	omega_dst.insert(temp);
+       
       }
       // Go to next tuple
       int i = 0;
@@ -100,51 +116,65 @@ void Primitives::next() {
     
   }while(p.next());
 
-  
+  file << "}" << endl;
 }
 
-SchroederVector<int> Primitives::omega_left(int l) {
-  SchroederVector temp = *tuple[l - 1];
-  for (int i = l - 2; i >= 0; -- i) {
+SchroederVector<int> Primitives::omega_left(int first, int last) {
+  SchroederVector temp = *tuple[last];
+  for (int i = last - 1; i >= first; -- i) {
     temp = SchroederModule<int>::product(*tuple[i], temp, PLeft);
   }
   return temp;
 }
 
-SchroederVector<int> Primitives::omega_right_middle(int l) {
-  SchroederVector temp = *tuple[0];
-  for (int i = 1; i < l ; ++ i) {
+SchroederVector<int> Primitives::omega_right_middle(int first, int last) {
+  SchroederVector temp = *tuple[first];
+  for (int i = first + 1; i <= last ; ++ i) {
     temp = SchroederModule<int>::product(temp, *tuple[i], PRightMiddle);
   }
   return temp;
 }
 
-SchroederVector<int> Primitives::omega(int l) {
+SchroederVector<int> Primitives::omega(int l, fstream& file) {
+  file << "\\( y = " << tuple[l - 1] -> to_latex()<< "\\)" << endl;
   // k = l - 1
   SchroederVector<int> u;
   SchroederVector<int> temp, temp_left, temp_right;
   int c = (l % 2 == 0) ? -1 : 1;
   // i = 0
-  temp_right = omega_right_middle(1);
+  temp_right = omega_right_middle(0, l - 2);
   temp = SchroederModule<int>::product(*tuple[l - 1], temp_right, PLeft);
+  file << "\\[" << endl;
+  file << "y < \\left(" << temp_right.to_latex() << "\\right) = " << temp.to_latex();
+  file << "\\]" << endl;
+  
   u.add(temp, c);
   // i in [1, k - 1]
   for (int i = 1; i < l - 1; ++ i) {
     c *= -1;
-    SchroederVector<int> temp_left = omega_left(i);
-    SchroederVector<int> temp_right = omega_right_middle(i + 1);
+    SchroederVector<int> temp_left = omega_left(0, i - 1);
+    SchroederVector<int> temp_right = omega_right_middle(i, l - 2);
     temp = SchroederModule<int>::product(temp_left, *tuple[l - 1], PRightMiddle);
     temp = SchroederModule<int>::product(temp, temp_right, PLeft);
+    file << "\\[" << endl;
+    file << "\\left(" << temp_left.to_latex() << "\\right) \\geq y < \\left( " << temp_right.to_latex() << "\\right) = " << temp.to_latex();
+    file << "\\]" << endl;
+  
     u.add(temp, c);
     // To finish
   }
   // i = k
   c *= -1;
-  temp_left = omega_left(l - 1);
+  temp_left = omega_left(0, l - 2);
   temp = SchroederModule<int>::product(temp_left, *tuple[l - 1], PRightMiddle);
+      file << "\\[" << endl;
+      file << "\\left(" << temp_left.to_latex() << " \\right) \\geq y = " << temp.to_latex();
+    file << "\\]" << endl;
   u.add(temp, c);
+  
   //cout << "u =" << endl;
   //u.display();
+
   return u;
   //  exit(0);
 
