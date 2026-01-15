@@ -58,20 +58,25 @@ int main() {
   latex_details_file << "\\begin{document}" << endl;
   Primitives P;
   P.init();
-  int deg = 4;
+  int deg = 7;
   for (int i = 0; i < deg; ++ i) {
-    latex_file << "\\section{Degree " << i + 1 << "}" << endl;
-    latex_details_file << "\\section{Degree " << i + 1 << "}" << endl;
+    cout << endl;
+    cout << "**************" << endl;
+    cout << "* Degree = " << i + 1 << " *" << endl;
+    cout << "**************" << endl;
+    //latex_file << "\\section{Degree " << i + 1 << "}" << endl;
+    //latex_details_file << "\\section{Degree " << i + 1 << "}" << endl;
     const unordered_set<SchroederVector<int>>* tab = &P.co_dendriform[i];
-    latex_file << "\\subsection{Co dendriform} " << endl;
-    latex_primitives_output(latex_file, *tab);
-    latex_details_file << "\\subsection{Co dendriform} " << endl;
-    latex_primitives_output(latex_details_file, *tab);
+    //latex_file << "\\subsection{Co dendriform} " << endl;
+    //latex_primitives_output(latex_file, *tab);
+    //latex_details_file << "\\subsection{Co dendriform} " << endl;
+    //latex_primitives_output(latex_details_file, *tab);
     tab = &P.co_associative[i];
-    latex_file << "\\subsection{Co associative} " << endl;
-    latex_primitives_output(latex_file, *tab);
-    latex_details_file << "\\subsection{Co associative} " << endl;
-    latex_primitives_output(latex_details_file, *tab);
+    to_matrix(*tab);
+    //latex_file << "\\subsection{Co associative} " << endl;
+    //latex_primitives_output(latex_file, *tab);
+    //latex_details_file << "\\subsection{Co associative} " << endl;
+    //latex_primitives_output(latex_details_file, *tab);
 
     
     //cout << line << endl;

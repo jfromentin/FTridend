@@ -29,6 +29,8 @@ public:
   void next(fstream& file);
 };
 
+void to_matrix(const unordered_set<SchroederVector<int>>& F);
+
 inline Primitives::Primitives() {
   n = 0;
   for (int i = 0; i < (int)N; ++ i) {
