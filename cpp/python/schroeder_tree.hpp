@@ -23,13 +23,27 @@
 #include <Python.h>
 #include <sstream>
 #include "../kernel/schroeder_tree.hpp"
+#include "doc/schroeder_tree.hpp"
+
+//************************
+//* SchroederTree object *
+//************************
 
 typedef struct {
   PyObject_HEAD
   SchroederTree data;
 } SchroederTreeObject;
 
+//-----------------
+// Python operator
+//-----------------
+
 int SchroederTreeInit(SchroederTreeObject*, PyObject*, PyObject*);
+
+//------------------
+// Member functions
+//------------------
+
 PyObject* SchroederTree_height(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_leaves(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_layer(SchroederTreeObject*, PyObject*);
@@ -42,34 +56,34 @@ PyObject* SchroederTree_right_forest_info(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_display(SchroederTreeObject*, PyObject*);
 
 static PyMethodDef SchroederTreeMethods[] = {
-  {"height", (PyCFunction)SchroederTree_height, METH_NOARGS, "Return the height of the tree"},
+  {"height", (PyCFunction)SchroederTree_height, METH_NOARGS, SchroederTree_height_doc},
   {"leaves", (PyCFunction)SchroederTree_leaves, METH_NOARGS, "Return the number of leaves of the tree"},
   {"layer", (PyCFunction)SchroederTree_layer, METH_VARARGS, "Return the specified layer of the tree"},
-  {"left_forests_length", (PyCFunction)SchroederTree_left_forests_length, METH_VARARGS, "Return the number  of forests of the tree seen as left comb."},
+  {"left_forests_length", (PyCFunction)SchroederTree_left_forests_length, METH_VARARGS, "Return the number of forests of the tree seen as left comb."},
   {"right_forests_length", (PyCFunction)SchroederTree_right_forests_length, METH_VARARGS, "Return the number  of forests of the tree seen as right comb."},
-  {"left_forest", (PyCFunction)SchroederTree_left_forest, METH_VARARGS, "Set the ith forest of the tree seen as left comb."},
-  {"right_forest", (PyCFunction)SchroederTree_right_forest, METH_VARARGS, "Set the ith forest of the tree seen as right comb."},
-  {"left_forest_info", (PyCFunction)SchroederTree_left_forest_info, METH_VARARGS, "Return information of the ith forest of the tree seen as left comb."},
-  {"right_forest_info", (PyCFunction)SchroederTree_right_forest_info, METH_VARARGS, "Return information of the ith forest of the tree seen as right comb."},
+  //{"left_forest", (PyCFunction)SchroederTree_left_forest, METH_VARARGS, "Set the ith forest of the tree seen as left comb."},
+  //{"right_forest", (PyCFunction)SchroederTree_right_forest, METH_VARARGS, "Set the ith forest of the tree seen as right comb."},
+  //{"left_forest_info", (PyCFunction)SchroederTree_left_forest_info, METH_VARARGS, "Return information of the ith forest of the tree seen as left comb."},
+  //{"right_forest_info", (PyCFunction)SchroederTree_right_forest_info, METH_VARARGS, "Return information of the ith forest of the tree seen as right comb."},
   {"display", (PyCFunction)SchroederTree_display, METH_NOARGS, "Display the tree"},
   {NULL}
 };
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wunused-variable"
+//--------------------
+// Object declaration
+//--------------------
 
-static PyTypeObject SchroederTreeType = {
-  .ob_base = PyVarObject_HEAD_INIT(NULL, 0)
-  .tp_name = "ftridend.kernel.SchroederTree",
-  .tp_basicsize = sizeof(SchroederTreeObject),
-  .tp_itemsize = 0,
-  .tp_flags = Py_TPFLAGS_DEFAULT,
-  .tp_doc = PyDoc_STR("ftridend kernel SchroederTree"),
-  .tp_methods = SchroederTreeMethods,
-  .tp_init = (initproc)SchroederTreeInit,
-  .tp_new = PyType_GenericNew,
-};
-#pragma GCC diagnostic pop
+extern PyTypeObject SchroederTreeType;
+
+//**************************
+//* Inline Python operator *
+//**************************
+
+
+
+//***************************
+//* Inline member functions *
+//***************************
 
 inline PyObject* SchroederTree_height(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
   return PyLong_FromLong(self -> data.height());

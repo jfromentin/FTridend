@@ -1,5 +1,5 @@
 #****************************************************************************#
-#    Copyright (C) 2025 Jean Fromentin <jean.fromentin@univ-littoral.fr>     #
+#    Copyright (C) 2026 Jean Fromentin <jean.fromentin@univ-littoral.fr>     #
 #                                                                            #
 #  This file is part of FTridend <https://github.com/jfromentin/FTridend>    #
 #                                                                            #
@@ -19,22 +19,16 @@
 
 import os
 from distutils.core import setup, Extension
-#from sage.env import *
 
-#SAGE_EXT = os.path.join(SAGE_SRC, 'sage', 'ext')
-#SAGE_INC = os.path.join(SAGE_SRC, 'c_lib', 'include')
-#SAGE_MOD = os.path.join(SAGE_SRC, 'sage')
+module_ftridend = Extension('ftridend',
+    extra_compile_args = ['-std=c++20', '-O3', '-g'],
+    include_dirs = [],
+    sources = ['cpp/kernel/schroeder_tree.cpp',
+               'cpp/kernel/schroeder_forest.cpp',
+               #
+               'cpp/python/schroeder_tree.cpp',
+               'cpp/python/schroeder_forest.cpp',
+               #
+               'cpp/python/module.cpp'])
 
-# the option -Wp,-w remove all preprocessor warnings
-module_ftridend = Extension('ftridend.kernel',
-                    extra_compile_args = ['-std=c++20', '-O3', '-g'],
-                    include_dirs = [],#SAGE_EXT,SAGE_INC,SAGE_MOD],
-                    sources = ['cpp/kernel/schroeder_tree.cpp',
-                               'cpp/kernel/schroeder_forest.cpp',
-                               #
-                               'cpp/python/schroeder_tree.cpp',
-                               'cpp/python/schroeder_forest.cpp',
-                               #
-                               'cpp/python/module.cpp'])
-
-setup(name = 'ftridend.kernel', ext_modules = [module_ftridend])
+setup(name = 'ftridend', ext_modules = [module_ftridend])

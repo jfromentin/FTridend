@@ -50,11 +50,11 @@ static PyMethodDef SchroederForestMethods[] = {
 
 static PyTypeObject SchroederForestType = {
   .ob_base = PyVarObject_HEAD_INIT(NULL, 0)
-  .tp_name = "ftridend.kernel.SchroederForest",
+  .tp_name = "ftridend.SchroederForest",
   .tp_basicsize = sizeof(SchroederForestObject),
   .tp_itemsize = 0,
   .tp_flags = Py_TPFLAGS_DEFAULT,
-  .tp_doc = PyDoc_STR("ftridend kernel SchroederForest"),
+  .tp_doc = PyDoc_STR("SchroederForest"),
   .tp_methods = SchroederForestMethods,
   .tp_init = (initproc)SchroederForestInit,
   .tp_new = PyType_GenericNew,

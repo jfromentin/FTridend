@@ -1,24 +1,49 @@
 //****************************************************************************//
-//    Copyright (C) 2025 Jean Fromentin <jean.fromentin@univ-littoral.fr>     //
+//    Copyright (C) 2026 Jean Fromentin <jean.fromentin@univ-littoral.fr>     //
+//                       Pierre Catoire <catoire_research@proton.me>          //
 //                                                                            //
-//  This file is part of CombO <https://gitlab.com/jfroment/combo>            //
+//  This file is part of FTridend <https://github.com/jfromentin/FTridend>    //
 //                                                                            //
-//  CombO is free software: you can redistribute it and/or modify it          //
-//  under ethe terms of the GNU General Public License as published by the     //
+//  FTridend is free software: you can redistribute it and/or modify it       //
+//  under ethe terms of the GNU General Public License as published by the    //
 //  Free Software Foundation, either version 3 of the License, or             //
 //  (at your option) any later version.                                       //
 //                                                                            //
-//  CombO is distributed in the hope that it will be useful, but WITHOUT      //
+//  FTridend is distributed in the hope that it will be useful, but WITHOUT   //
 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or     //
 //  FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License      //
 //  for more details.                                                         //
 //                                                                            //
 //  You should have received a copy of the GNU General Public License along   //
-//  with CombO. If not, see <https://www.gnu.org/licenses/>.                  //
+//  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
 #include "schroeder_tree.hpp"
 #include "schroeder_forest.hpp"
+
+//***************
+//* Python type *
+//***************
+
+PyTypeObject SchroederTreeType = {
+  .ob_base = PyVarObject_HEAD_INIT(NULL, 0)
+  .tp_name = "ftridend.SchroederTree",
+  .tp_basicsize = sizeof(SchroederTreeObject),
+  .tp_itemsize = 0,
+  .tp_flags = Py_TPFLAGS_DEFAULT,
+  .tp_doc = PyDoc_STR("SchroederTree"),
+  .tp_methods = SchroederTreeMethods,
+  .tp_init = (initproc)SchroederTreeInit,
+  .tp_new = PyType_GenericNew,
+};
+
+//********************
+//* Python operators *
+//********************
+
+//----------------
+// Initialisation
+//----------------
 
 int SchroederTreeInit(SchroederTreeObject* self, PyObject* args, PyObject* Py_UNUSED(ignored)) {
   PyObject* ob = NULL;
@@ -52,6 +77,10 @@ int SchroederTreeInit(SchroederTreeObject* self, PyObject* args, PyObject* Py_UN
   PyErr_SetString(PyExc_AttributeError, "At most one argument is required");
   return -1;
 }
+
+//********************
+//* Member functions *
+//********************
 
 PyObject* SchroederTree_layer(SchroederTreeObject* self, PyObject* args) {
   PyObject* ob = NULL;

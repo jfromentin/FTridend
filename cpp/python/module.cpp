@@ -22,21 +22,21 @@
 #include "schroeder_tree.hpp"
 #include "schroeder_forest.hpp"
 
-static PyModuleDef ftridend_kernel_module = {
+static PyModuleDef ftridend_module = {
   .m_base = PyModuleDef_HEAD_INIT,
-  .m_name = "ftridend.kernel",
-  .m_doc = "Kernel part of the ftridend module.",
+  .m_name = "ftridend",
+  .m_doc = "Module for the free tridendriform algebra.",
   .m_size = -1,
 };
 
 PyMODINIT_FUNC
-PyInit_kernel(void)
+PyInit_ftridend(void)
 {
   PyObject *m;
   if (PyType_Ready(&SchroederTreeType) < 0) return NULL;
   if (PyType_Ready(&SchroederForestType) < 0) return NULL;
   
-  m = PyModule_Create(&ftridend_kernel_module);
+  m = PyModule_Create(&ftridend_module);
   if (m == NULL) return NULL;
   
   if (PyModule_AddObjectRef(m, "SchroederTree", (PyObject *)&SchroederTreeType) < 0) {
