@@ -291,3 +291,16 @@ string SchroederTree::to_latex() const {
   //cout << str << endl;
   return str;
 }
+
+//***********************
+//* Auxiliary functions *
+//***********************
+
+string to_string(const SchroederTree& T) {
+  string res = "[";
+  for (int i = 0; i < T.height(); ++ i) {
+    if (i> 0) res += ", ";
+    res += to_string(T.layer(i));
+  }
+  return res + ']';
+}

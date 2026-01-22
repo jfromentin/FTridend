@@ -18,45 +18,27 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-#ifndef SCHROEDER_TREE_DOC_HPP
-#define SCHROEDER_TREE_DOC_HPP
+#ifndef SCHROEDER_FOREST_DOC_HPP
+#define SCHROEDER_FOREST_DOC_HPP
 
-static const char* SchroederTree_height_doc = R"'''(
-Return the height of the current SchroederTree.
-
-EXAMPLES::
-
-  >>> T = SchroederTree([511, 510,  494, 302, 14, 2])
-  >>> T.height()
-      7
+static const char* SchroederForest_size_doc = R"'''(
+Return the size of the current SchroederForest.
 )'''";
 
-static const char* SchroederTree_leaves_doc = R"'''(
-Return the number of leaves of the current SchroederTree.
+static const char* SchroederForest_height_doc = R"'''(
+Return the height of the current SchroederForest.
 )'''";
 
-static const char* SchroederTree_layer_doc = R"'''(
-Return the specified layer of the current SchroederTree.
+static const char* SchroederForest_leaves_doc = R"'''(
+Return the number of leaves of the current SchroederForest.
 )'''";
 
-static const char* SchroederTree_left_forests_length_doc = R"'''(
-Return the number of forests of the tree seen as left comb.
+static const char* SchroederForest_layer_doc = R"'''(
+Return the specified layer of the current SchroederForest.
 )'''";
 
-static const char* SchroederTree_right_forests_length_doc = R"'''(
-Return the number  of forests of the tree seen as right comb.
-)'''";
-
-static const char* SchroederTree_left_forest_doc = R"'''(
-Return the ith forest of the tree seen as left comb.
-)'''";
-
-static const char* SchroederTree_right_forest_doc = R"'''(
-Return the ith forest of the tree seen as right comb.
-)'''"; 
-
-static const char* SchroederTree_pretty_print_doc = R"'''(
-Pretty print of the current SchroederTree.
+static const char* SchroederForest_pretty_print_doc = R"'''(
+Pretty print of the current SchroederForest.
 )'''"; 
 
 #endif

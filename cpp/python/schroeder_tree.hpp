@@ -1,17 +1,18 @@
 //****************************************************************************//
-//    Copyright (C) 2025 Jean Fromentin <jean.fromentin@univ-littoral.fr>     //
+//    Copyright (C) 2026 Jean Fromentin <jean.fromentin@univ-littoral.fr>     //
+//                       Pierre Catoire <catoire_research@proton.me>          //
 //                                                                            //
 //  This file is part of FTridend <https://github.com/jfromentin/FTridend>    //
 //                                                                            //
-//  FTridend is a free software: you can redistribute it and/or modify it     //
-//  under the terms of the GNU General Public License as published by the     //
-//  Free Software Foundation, either version 3 of the License, or (at your    //
-//  option) any later version.                                                //
+//  FTridend is free software: you can redistribute it and/or modify it       //
+//  under ethe terms of the GNU General Public License as published by the    //
+//  Free Software Foundation, either version 3 of the License, or             //
+//  (at your option) any later version.                                       //
 //                                                                            //
 //  FTridend is distributed in the hope that it will be useful, but WITHOUT   //
 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or     //
-//  FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for  //
-//  more details.                                                             //
+//  FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License      //
+//  for more details.                                                         //
 //                                                                            //
 //  You should have received a copy of the GNU General Public License along   //
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
@@ -39,6 +40,10 @@ typedef struct {
 //-----------------
 
 int SchroederTreeInit(SchroederTreeObject*, PyObject*, PyObject*);
+PyObject* PyObjectFromCpp(const SchroederTree& p);
+Py_hash_t SchroederTreeHash(SchroederTreeObject*);
+PyObject* SchroederTreeRepr(SchroederTreeObject*);
+
 
 //------------------
 // Member functions
@@ -51,21 +56,17 @@ PyObject* SchroederTree_left_forests_length(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_right_forests_length(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_left_forest(SchroederTreeObject*, PyObject*);
 PyObject* SchroederTree_right_forest(SchroederTreeObject*, PyObject*);
-PyObject* SchroederTree_left_forest_info(SchroederTreeObject*, PyObject*);
-PyObject* SchroederTree_right_forest_info(SchroederTreeObject*, PyObject*);
-PyObject* SchroederTree_display(SchroederTreeObject*, PyObject*);
+PyObject* SchroederTree_pretty_print(SchroederTreeObject*, PyObject*);
 
 static PyMethodDef SchroederTreeMethods[] = {
   {"height", (PyCFunction)SchroederTree_height, METH_NOARGS, SchroederTree_height_doc},
-  {"leaves", (PyCFunction)SchroederTree_leaves, METH_NOARGS, "Return the number of leaves of the tree"},
-  {"layer", (PyCFunction)SchroederTree_layer, METH_VARARGS, "Return the specified layer of the tree"},
-  {"left_forests_length", (PyCFunction)SchroederTree_left_forests_length, METH_VARARGS, "Return the number of forests of the tree seen as left comb."},
-  {"right_forests_length", (PyCFunction)SchroederTree_right_forests_length, METH_VARARGS, "Return the number  of forests of the tree seen as right comb."},
-  //{"left_forest", (PyCFunction)SchroederTree_left_forest, METH_VARARGS, "Set the ith forest of the tree seen as left comb."},
-  //{"right_forest", (PyCFunction)SchroederTree_right_forest, METH_VARARGS, "Set the ith forest of the tree seen as right comb."},
-  //{"left_forest_info", (PyCFunction)SchroederTree_left_forest_info, METH_VARARGS, "Return information of the ith forest of the tree seen as left comb."},
-  //{"right_forest_info", (PyCFunction)SchroederTree_right_forest_info, METH_VARARGS, "Return information of the ith forest of the tree seen as right comb."},
-  {"display", (PyCFunction)SchroederTree_display, METH_NOARGS, "Display the tree"},
+  {"leaves", (PyCFunction)SchroederTree_leaves, METH_NOARGS, SchroederTree_leaves_doc},
+  {"layer", (PyCFunction)SchroederTree_layer, METH_VARARGS, SchroederTree_layer_doc},
+  {"left_forests_length", (PyCFunction)SchroederTree_left_forests_length, METH_VARARGS, SchroederTree_left_forests_length_doc},
+  {"right_forests_length", (PyCFunction)SchroederTree_right_forests_length, METH_VARARGS, SchroederTree_right_forests_length_doc},
+  {"left_forest", (PyCFunction)SchroederTree_left_forest, METH_VARARGS, SchroederTree_left_forest_doc},
+  {"right_forest", (PyCFunction)SchroederTree_right_forest, METH_VARARGS, SchroederTree_right_forest_doc},
+  {"pretty_print", (PyCFunction)SchroederTree_pretty_print, METH_NOARGS, SchroederTree_pretty_print_doc},
   {NULL}
 };
 
@@ -79,7 +80,26 @@ extern PyTypeObject SchroederTreeType;
 //* Inline Python operator *
 //**************************
 
+// Hash operator
+inline
+Py_hash_t SchroederTreeHash(SchroederTreeObject* self) {
+  return self -> data.hash();
+}
 
+// Repr operator
+inline
+PyObject* SchroederTreeRepr(SchroederTreeObject* self) {
+  string res = to_string(self -> data);
+  return PyUnicode_FromString(res.c_str());
+}
+
+// FromCpp operator
+inline
+PyObject* PyObjectFromCpp(const SchroederTree& cpp) {
+  SchroederTreeObject* res = (SchroederTreeObject*)SchroederTreeType.tp_alloc(&SchroederTreeType, 1);
+  res -> data = cpp;
+  return (PyObject*)res;
+}
 
 //***************************
 //* Inline member functions *
@@ -101,12 +121,10 @@ inline PyObject* SchroederTree_right_forests_length(SchroederTreeObject* self, P
   return PyLong_FromLong(self -> data.right_forests_length());
 }
 
-inline PyObject* SchroederTree_display(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
+inline PyObject* SchroederTree_pretty_print(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
   ostringstream os;
   self -> data.display(os);
   return PyUnicode_FromString(os.str().c_str());
 }
-
-
 
 #endif

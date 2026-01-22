@@ -67,6 +67,7 @@ public:
   Array<SchroederForest> right_comb_splitting() const;
 
   void display(ostream& os = cout) const;
+
   string to_latex() const;
   
   // Sage functions
@@ -78,6 +79,11 @@ public:
   bool operator==(const SchroederTree&) const;
 };
 
+//***********************
+//* Auxiliary functions *
+//***********************
+
+string to_string(const SchroederTree& T);
 
 inline
 SchroederTree::SchroederTree() {
