@@ -36,6 +36,7 @@ PyInit_ftridend(void)
   PyObject *m;
   if (PyType_Ready(&SchroederTreeType) < 0) return NULL;
   if (PyType_Ready(&SchroederForestType) < 0) return NULL;
+  if (PyType_Ready(&SchroederVectorType) < 0) return NULL;
   
   m = PyModule_Create(&ftridend_module);
   if (m == NULL) return NULL;
