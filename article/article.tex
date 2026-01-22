@@ -105,6 +105,14 @@
 			\draw (-1.25,2.25)--(-0.5,3);
 			\draw (1.25,2.25)--(0.5,3);
 			\draw (0,1)--(2,3);
+			%marquage sommets
+			\draw[color=black, fill=white] (-2,3) circle (0.15);
+			\draw[color=black, fill=white] (2,3) circle (0.15);
+			\draw[color=black, fill=white] (-0.5,3) circle (0.15);
+			\draw[color=black, fill=white] (0.5,3) circle (0.15);
+			\filldraw (0,1) circle(0.15);
+			\filldraw (1.25,2.25) circle(0.15);
+			\filldraw (-1.25,2.25) circle(0.15);
 \end{tikzpicture}}}
 
 \newcommand{\peignedroit}[3]{\raisebox{-0.5\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.25cm,y=0.25cm]
@@ -759,7 +767,7 @@ From the article~\cite{euleridem} of M.~Ronco, we find an analogous of the follo
 \end{thm}
 
 \begin{exam}
-	To compute an element of $\Prim_{\Coass}(\K\Sch(3))$, we can choose $\Y\otimes \Y \otimes \Y$ or $\left(\balaisd - \balaisg\right) \otimes \Y$ which are both elements of $T^{\geq 2}(\K\Prim_{\Coass})(3).$ Hence:
+	To compute an element of $\Prim_{\Coass}(\K\Sch(3))$, we can choose $\Y\otimes \Y \otimes \Y$ or $\left(\balaisd - \balaisg\right) \otimes \Y$ which are both elements of $T^{\leq 2}(\K\Prim_{\Coass})(3).$ Hence:
 \begin{align*}
 	\Omega_3\left(\Y\otimes \Y \otimes \Y\right)&= \Y \prec \left( \Y \succeq \Y\right) - \Y \succeq \Y \prec \Y + \left(\Y \prec \Y\right)\succeq \Y,\\
 	\Omega_3\left( \left(\balaisd - \balaisg\right) \otimes \Y\right) &= - \Y\prec \left(\balaisd - \balaisg\right) + \left(\balaisd - \balaisg\right)\succeq \Y.
@@ -767,17 +775,31 @@ From the article~\cite{euleridem} of M.~Ronco, we find an analogous of the follo
 \end{exam}
 
 So, we have a recipe to produce the primitives of this algebra by induction as shown in figure~\ref{fig:algo_idea}:
+%\begin{figure}[h]
+%	\centering
+%	\begin{tikzcd}
+%		&
+%		\Prim_{\Codend}(\K\Sch(1)) \ar[out=-20, in=160, "\Omega_1", swap]{dl} \\ 
+%		 \Prim_{\Coass}(\K\Sch(2)) \arrow[r,"\theta_1"] & \Prim_{\Codend}(\K\Sch(2)) \ar[out=-20, in=160, swap, "\Omega_2"]{dl} \\
+%		\Prim_{\Codend}(\K\Sch(3)) \arrow[r,"\theta_2"] & \dots 
+%	\end{tikzcd}
+%	\caption{Diagram of the induction}
+%	\label{fig:algo_idea0}
+%\end{figure}
 \begin{figure}[h]
 	\centering
 	\begin{tikzcd}
-		&
-		\Prim_{\Codend}(\K\Sch(1)) \ar[out=-20, in=160, "\Omega_1", swap]{dl} \\ 
-		 \Prim_{\Coass}(\K\Sch(2)) \arrow[r,"\theta_1"] & \Prim_{\Codend}(\K\Sch(2)) \ar[out=-20, in=160, swap, "\Omega_2"]{dl} \\
-		\Prim_{\Codend}(\K\Sch(3)) \arrow[r,"\theta_2"] & \dots 
+		\Prim_{\Codend}(\K\Sch(1)) \ar[d,"\Omega_1"]{dl} & \Prim_{\Codend}(\K\Sch(2)) \ar[d,"\Omega_2"]{dl} & 
+		\Prim_{\Codend}(\K\Sch(3)) \ar[d,"\Omega_3"]{dl} &
+		\dots  \\
+		\Prim_{\Coass}(\K\Sch(1)) \ar[ur,"\theta_1"] &
+		\Prim_{\Coass}(\K\Sch(2)) \ar[ur,"\theta_2"] &
+		\Prim_{\Coass}(\K\Sch(3)) \ar[ur,"\theta_3"] & 
 	\end{tikzcd}
 	\caption{Diagram of the induction}
 	\label{fig:algo_idea}
 \end{figure}
+
 
 The process of figure~\ref{fig:algo_idea} enables us to compute $\Prim_{\Coass}(\Sch)$ by induction starting with ${\Prim_{\Codend}(\Sch(1))=\left\{\Y\right\}}$. To implement this, we find another interpretation of this problem. 
 
@@ -1632,6 +1654,109 @@ Finally, the map $\Code$ is also linear hence:
 \end{proof}
 Now that we are sure the two descriptions are isomorphic, we can get into coding.
 
+\subsection{Short description of the coproduct}\label{sec:coproduct_tree_codes}
+
+We now describe without much details how to interpret the coproduct operation of theorem~\ref{thm:coproduit} for tree codes. Let us remind what is an admissible cut:
+\begin{defi}
+	Let $t$ be a \Schw{} tree. An \emph{admissible cut} of $t$ is a choice of internal edges in $t$ such that any path from a leaf of the tree to its root meets at most one cut edge. 
+	Given a admissible cut $c$, it splits the tree into many connected components removing cut edges. The component with the root of the starting tree is denoted $R^c(t)$ and the other components are denoted $P^c_1(t),\dots, P^c_k(t)$.
+	We also consider both elements as admissible cuts:
+	\begin{itemize}
+		\item the \emph{empty cut} giving $R^c(t)=t$ and $P^c(t)=\unitree$;
+		\item the \emph{total cut} giving $R^c(t)=\unitree$ and $P^c(t)=t$.
+	\end{itemize}    
+\end{defi}
+\begin{exam}\label{exam:cut_tree}
+	For instance, symbolizing a cut edge by an horizontal line, one has:
+	\[
+	\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)--(0,1);
+			% bords de l'arbre
+			\draw (0,1)--(-4,5);
+			\draw (0,1)--(4,5);
+			% bras droit
+			\draw (2,3) -- (0,5);
+			\draw (3,4) -- (2,5);
+			\draw (3,4) -- (3,5);
+			\draw (3,4) -- (4,5);
+			%bras gauche
+			\draw (-3.5,4.5) -- (-3,5);
+			\draw (-2.5,3.5) -- (-1,5);
+			\draw (-1.5,4.5) -- (-2,5);
+			%coupe
+			\draw (-2.5,3) -- (-1.5,3);
+			\draw (2,3.5) -- (3,3.5);
+			% marquages des sommets
+			\draw[color=black, fill=white] (-4,5) circle (0.15);
+			\draw[color=black, fill=white] (-2,5) circle (0.15);
+			\draw[color=black, fill=white] (0,5) circle (0.15);
+			\draw[color=black, fill=white] (2,5) circle (0.15);
+			\draw[color=black, fill=white] (3,5) circle (0.15);
+			\draw[color=black, fill=white] (4,5) circle (0.15);
+			\draw[color=black, fill=white] (-3,5) circle (0.15);
+			\draw[color=black, fill=white] (-1,5) circle (0.15);
+			\filldraw (0,1) circle(0.15);
+			\filldraw (-3.5,4.5) circle(0.15);
+			\filldraw (-2.5,3.5) circle(0.15);
+			\filldraw (-1.5,4.5) circle(0.15);
+			\filldraw (3,4) circle(0.15);
+			\filldraw (2,3) circle(0.15);
+	\end{tikzpicture}} \longrightarrow R^c(t)= \balaisd{} \text{ and } P^c_1(t)=\YY{}, P^c_2(t)=\balais{}.
+	\]
+\end{exam}
+
+In other words, a cut consists of withdrawing an interval of angles such that both adjacent angles (if they exist) are still living, otherwise the cut is not admissible.
+Translating this in term of tree codes, doing a cut of a tree $t$ with $l$ angles is choosing a subset of $\IEM{1}{l}$ where for each integer interval of this subset, when the tree code restricted to this subset is $0$ for the first time at line $i$, the two adjacent columns has a one at line $i$.
+
+\begin{exam}
+	For instance, let us consider the tree code of the tree in example~\ref{exam:cut_tree}, the subset of angles corresponds to the cut:
+	\[
+	\begin{tblr}{colspec={ccccccc},column{1-3}={bg=red!25}, column{6-7}={bg=red!25}
+		}
+		1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+		0 & 1 & 1 & 1 & 1 & 1 & 1 \\
+		0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+		0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+		0 & 0 & 0 & 1 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 0
+	\end{tblr}  \longleftrightarrow  
+	\raisebox{-0.3\height}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+		\draw (0,0)--(0,1);
+		% bords de l'arbre
+		\draw (0,1)--(-4,5);
+		\draw (0,1)--(4,5);
+		% bras droit
+		\draw (2,3) -- (0,5);
+		\draw (3,4) -- (2,5);
+		\draw (3,4) -- (3,5);
+		\draw (3,4) -- (4,5);
+		%bras gauche
+		\draw (-3.5,4.5) -- (-3,5);
+		\draw (-2.5,3.5) -- (-1,5);
+		\draw (-1.5,4.5) -- (-2,5);
+		%coupe
+		\draw (-2.5,3) -- (-1.5,3);
+		\draw (2,3.5) -- (3,3.5);
+		% marquages des sommets
+		\draw[color=black, fill=white] (-4,5) circle (0.15);
+		\draw[color=black, fill=white] (-2,5) circle (0.15);
+		\draw[color=black, fill=white] (0,5) circle (0.15);
+		\draw[color=black, fill=white] (2,5) circle (0.15);
+		\draw[color=black, fill=white] (3,5) circle (0.15);
+		\draw[color=black, fill=white] (4,5) circle (0.15);
+		\draw[color=black, fill=white] (-3,5) circle (0.15);
+		\draw[color=black, fill=white] (-1,5) circle (0.15);
+		\filldraw (0,1) circle(0.15);
+		\filldraw (-3.5,4.5) circle(0.15);
+		\filldraw (-2.5,3.5) circle(0.15);
+		\filldraw (-1.5,4.5) circle(0.15);
+		\filldraw (3,4) circle(0.15);
+		\filldraw (2,3) circle(0.15);
+		\end{tikzpicture}}
+	\]
+\end{exam} 
+
 \section{Implementing the problem} \label{sec:coding}
 Thanks to the map denoted $B$, any sequence with $0$'s and $1$'s is identified to an integer the following way:
 \[
@@ -1641,7 +1766,9 @@ Hence, in our code, we will manipulate such sequences as integers. Then, we have
 \begin{itemize}
 	\item enumeration of quasi-shuffles;
 	\item class describing \Schw{} trees as sequences of $0$'s and $1$'s;
-	\item the $\Omega$ map.
+	\item the $\Omega$ map;
+	\item \Schw{} trees enumeration;
+	\item the cut coproduct $\Delta$.
 \end{itemize}
 
 We do briefs comments about how this code is made. For our objective, we only implemented \Schw{} trees with at most $16$ leaves as they are at this point too much elements ($\num{10463578353}$ trees and $\num{745387038}$ codendriform primitives)  to see anything. We have made the choice to implement this in {\ttfamily C++} to get a faster execution code than one done with {\ttfamily Python} or {\ttfamily \Sage{}}.
@@ -1696,7 +1823,30 @@ We define two classes {\ttfamily \Schw{}Tree} and {\ttfamily \Schw{}Forest} wher
 
 \subsection{The $\Omega$ map}
 
+The map $\Omega$ detailed in theorem~\ref{thm:génération2} is simplified compared to the one given by M.~Ronco~\cite{euleridem} to the price of non-injectivity to get an easier coding.
 
+Let $n\in\NN$ and suppose we know $\Prim_{\Coass}(k)$ for all $n<k$ and $\Prim_{\Codend}(n)$. In order to compute $\Prim_{\Coass}(n)$, we proceed the following way:
+\begin{itemize}
+	\item we generate an ordered partition of $n=a_1+\dots +a_l$ of length $l$ , denoted $\mathbf{a}$, for all $l\in\IEM{1}{n}$;
+	\item if $\mathbf{a}=(n)$, then we apply the identity map;
+	\item else according to this partition $\mathbf{a}=(a_1,\dots, a_l)$ with $l\geq 2$, we choose one element $e_i$ in each space $\Prim_{\Coass}(a_i)$ exhaustively and compute $\Omega(a_1\otimes a_2 \otimes \ldots \otimes a_l)$;
+	\item we put in memory the results in a matrix, fixing an enumeration of \Schw trees of degree $n$. Columns are indexed by this enumeration and the $i$th row is the $i$th result obtained by this algorithm;
+	\item Once the enumeration of ordered partitions is finished, we compute a generating family of the image space of this matrix that we can display.
+\end{itemize}
+Some computations following this process are given as appendices.
+
+\subsection{\Schw{} enumeration}
+
+Given $n\in\NN$, we provide an enumeration of $\Sch(n)$ thanks to the \emph{snake walk} of a tree since doing this walk tree maps it to a packed word in a bijective way which is easily enumerable the following way
+
+\subsection{The cut coproduct}
+
+The map $\Delta:\K\Sch\rightarrow \K\Sch\otimes \K\Sch$ detailed in theorem~\ref{thm:coproduit} is coded the following way:
+\begin{itemize}
+	\item for a given tree code $C$
+	\item 
+	\item 
+\end{itemize}
 
 
 
