@@ -55,8 +55,8 @@ static const char* SchroederTree_right_forest_doc = R"'''(
 Return the ith forest of the tree seen as right comb.
 )'''"; 
 
-static const char* SchroederTree_pretty_print_doc = R"'''(
-Pretty print of the current SchroederTree.
+static const char* SchroederTree_display_doc = R"'''(
+Return a string to display the current SchroederTree.
 )'''"; 
 
 #endif

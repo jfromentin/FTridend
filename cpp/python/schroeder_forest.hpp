@@ -52,14 +52,14 @@ PyObject* SchroederForest_size(SchroederForestObject*, PyObject*);
 PyObject* SchroederForest_height(SchroederForestObject*, PyObject*);
 PyObject* SchroederForest_leaves(SchroederForestObject*, PyObject*);
 PyObject* SchroederForest_layer(SchroederForestObject*, PyObject*);
-PyObject* SchroederForest_pretty_print(SchroederForestObject*, PyObject*);
+PyObject* SchroederForest_display(SchroederForestObject*, PyObject*);
 
 static PyMethodDef SchroederForestMethods[] = {
   {"size", (PyCFunction)SchroederForest_size, METH_NOARGS, SchroederForest_size_doc},
   {"height", (PyCFunction)SchroederForest_height, METH_NOARGS, SchroederForest_height_doc},
   {"leaves", (PyCFunction)SchroederForest_leaves, METH_NOARGS, SchroederForest_leaves_doc},
   {"layer", (PyCFunction)SchroederForest_layer, METH_VARARGS, SchroederForest_layer_doc},
-  {"pretty_print", (PyCFunction)SchroederForest_pretty_print, METH_NOARGS, SchroederForest_pretty_print_doc},
+  {"display", (PyCFunction)SchroederForest_display, METH_NOARGS, SchroederForest_display_doc},
   {NULL}
 };
 
@@ -110,7 +110,7 @@ inline PyObject* SchroederForest_leaves(SchroederForestObject* self, PyObject *P
   return PyLong_FromLong(self -> data.leaves());
 }
 
-inline PyObject* SchroederForest_pretty_print(SchroederForestObject* self, PyObject *Py_UNUSED(ignored)) {
+inline PyObject* SchroederForest_display(SchroederForestObject* self, PyObject *Py_UNUSED(ignored)) {
   ostringstream os;
   self -> data.display(os);
   return PyUnicode_FromString(os.str().c_str());

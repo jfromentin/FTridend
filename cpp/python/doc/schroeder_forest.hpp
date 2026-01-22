@@ -37,8 +37,8 @@ static const char* SchroederForest_layer_doc = R"'''(
 Return the specified layer of the current SchroederForest.
 )'''";
 
-static const char* SchroederForest_pretty_print_doc = R"'''(
-Pretty print of the current SchroederForest.
+static const char* SchroederForest_display_doc = R"'''(
+Return a string to display the current SchroederForest.
 )'''"; 
 
 #endif
