@@ -1,7 +1,0 @@
-import ftridend.kernel
-
-class SchroedrerTree:
-    def __init__(self, args):
-        self.cpp = ftridend.kernel.SchroederTree(args)
-
-    
