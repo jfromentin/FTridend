@@ -242,7 +242,7 @@ string SchroederTree::to_latex() const {
   float x[N][N];
   
   for (int i = 0; i < n; ++ i) {
-    x[0][i] = i;
+    x[0][i] = i / 4.0;
   }
   //cout << "h = " << h << endl;
   //cout << "n = " << n << endl;
@@ -281,7 +281,7 @@ string SchroederTree::to_latex() const {
   for (int y = 1; y < h; ++ y) {
     //cout << "y = " << y << endl;
     for (int i = 0; i < n; ++ i) {
-      str += "\\draw (" + to_string(x[y][i]) + "," + to_string(h - y) + ") -- ("  + to_string(x[y + 1][i]) + "," + to_string(h - y - 1) + "); \n";
+      str += "\\draw (" + to_string(x[y][i]) + "," + to_string((h - y) / 4.0) + ") -- ("  + to_string(x[y + 1][i]) + "," + to_string((h - y - 1) / 4.0) + "); \n";
       //cout << x[y][i] << '\t';
     }
     //cout << endl;

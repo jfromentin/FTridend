@@ -53,8 +53,11 @@ public:
   unordered_map<SchroederTree, R>::const_iterator end() const;
   size_t hash() const;
   bool operator==(const SchroederVector<R>& u) const;
+  bool is_zero() const;
 };
 
+
+template<class R> string to_string(const SchroederVector<R>& U);
 
 template<class R> struct std::hash<SchroederVector<R>>{
   size_t operator()(const SchroederVector<R>& u) const{
@@ -142,6 +145,12 @@ SchroederVector<R>::end() const {
 }
 
 template<class R>
+inline bool
+SchroederVector<R>::is_zero() const {
+  return coeffs.empty();
+}
+
+template<class R>
 inline size_t
 SchroederVector<R>::hash() const {
   size_t res = 0;
@@ -156,5 +165,30 @@ inline bool
 SchroederVector<R>::operator==(const SchroederVector<R>& u) const {
   return coeffs == u.coeffs;
 }
+
+
+template<class R>
+string to_string(const SchroederVector<R>& u) {
+  if(u.is_zero()) return "0";
+  bool first = true;
+  string str = "";
+  for (auto it = u.begin(); it != u.end(); ++ it) {
+    R c = it -> second;
+    if (first) {
+      if (c == -1) str += "- ";
+      else if (c != 1) str += to_string(c) + " * ";
+    }
+    else {
+      if (c == -1) str += " - ";
+      else if (c == 1) str += " + ";
+      else if (c > 0) str += " + " + to_string(c) + " * ";
+      else str += " -" + to_string(-c) + " * ";
+    }
+    str += to_string(it -> first);
+    first = false;
+  }
+  return str;
+}
+
 
 #endif

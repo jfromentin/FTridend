@@ -15,7 +15,7 @@
 #  for more details.                                                         #
 #                                                                            #
 #  You should have received a copy of the GNU General Public License along   #
-#  with FTridend. If not, see <https:#www.gnu.org/licenses/>.               #
+#  with FTridend. If not, see <https://www.gnu.org/licenses/>.               #
 #****************************************************************************#
 
 import os
@@ -26,7 +26,6 @@ module_ftridend = Extension('ftridend',
     include_dirs = [],
     sources = ['cpp/kernel/schroeder_tree.cpp',
                'cpp/kernel/schroeder_forest.cpp',
-               'cpp/kernel/schroeder_vectror.cpp',
                #
                'cpp/python/schroeder_tree.cpp',
                'cpp/python/schroeder_forest.cpp',

@@ -49,7 +49,7 @@ PyTypeObject SchroederTreeType = {
 
 int SchroederTreeInit(SchroederTreeObject* self, PyObject* args, PyObject* Py_UNUSED(ignored)) {
   PyObject* ob = NULL;
-  if (PyArg_UnpackTuple(args, "SchroederTreenInit", 0, 1, &ob)) {
+  if (PyArg_UnpackTuple(args, "SchroederTreeInit", 0, 1, &ob)) {
     if (ob == NULL) {
       // Call empty constructor
       return 0;

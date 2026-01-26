@@ -18,42 +18,14 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-#define PY_SSIZE_T_CLEAN
-#include <Python.h>
-#include "schroeder_tree.hpp"
-#include "schroeder_forest.hpp"
-#include "schroeder_vector.hpp"
+#ifndef SCHROEDER_VECTOR_DOC_HPP
+#define SCHROEDER_VECTOR_DOC_HPP
 
-static PyModuleDef ftridend_module = {
-  .m_base = PyModuleDef_HEAD_INIT,
-  .m_name = "ftridend",
-  .m_doc = "Module for the free tridendriform algebra.",
-  .m_size = -1,
-};
+static const char* SchroederVector_add_doc = R"'''(
+Add a SchroederTree or a SchroederVector to the current one.
+The function takes 1 or 2 arguments.
+First one is the SchroederTree or the SchroederVector to add.
+The second, which is optionnal, is the associated coefficient (equal to 1 if omitted).
+)'''";
 
-PyMODINIT_FUNC
-PyInit_ftridend(void)
-{
-  PyObject *m;
-  if (PyType_Ready(&SchroederTreeType) < 0) return NULL;
-  if (PyType_Ready(&SchroederForestType) < 0) return NULL;
-  if (PyType_Ready(&SchroederVectorType) < 0) return NULL;
-  
-  m = PyModule_Create(&ftridend_module);
-  if (m == NULL) return NULL;
-  
-  if (PyModule_AddObjectRef(m, "SchroederTree", (PyObject *)&SchroederTreeType) < 0) {
-    Py_DECREF(m);
-    return NULL;
-  }
-  if (PyModule_AddObjectRef(m, "SchroederForest", (PyObject *)&SchroederForestType) < 0) {
-    Py_DECREF(m);
-    return NULL;
-  }
-  if (PyModule_AddObjectRef(m, "SchroederVector", (PyObject *)&SchroederVectorType) < 0) {
-    Py_DECREF(m);
-    return NULL;
-  }
-
-  return m;
-}
+#endif

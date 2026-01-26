@@ -65,6 +65,7 @@ static PyMethodDef SchroederTreeMethods[] = {
   {"layer", (PyCFunction)SchroederTree_layer, METH_VARARGS, SchroederTree_layer_doc},
   {"left_forests_length", (PyCFunction)SchroederTree_left_forests_length, METH_VARARGS, SchroederTree_left_forests_length_doc},
   {"right_forests_length", (PyCFunction)SchroederTree_right_forests_length, METH_VARARGS, SchroederTree_right_forests_length_doc},
+  
   {"left_forest", (PyCFunction)SchroederTree_left_forest, METH_VARARGS, SchroederTree_left_forest_doc},
   {"right_forest", (PyCFunction)SchroederTree_right_forest, METH_VARARGS, SchroederTree_right_forest_doc},
   {"display", (PyCFunction)SchroederTree_display, METH_NOARGS, SchroederTree_display_doc},
