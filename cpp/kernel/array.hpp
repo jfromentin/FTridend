@@ -36,14 +36,15 @@ using namespace std;
 //! Class for array
 template <class T>
 class Array {
-public:
+protected:
 
   //! Size of the array
   size_t s;
 
   //! Internal data of the array
   T* array;
-  
+
+public:
   //! Construct an array from a c++ array a of size s and own it
   Array(T* a, size_t s);
 

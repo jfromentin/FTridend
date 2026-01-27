@@ -27,6 +27,7 @@
 #include "common.hpp"
 #include "array.hpp"
 #include "quasi_shuffle.hpp"
+#include "packed_word.hpp"
 
 class SchroederForest;
 
@@ -77,6 +78,7 @@ public:
   //
   size_t hash() const;
   bool operator==(const SchroederTree&) const;
+  PackedWord packed_word() const;
 };
 
 //***********************

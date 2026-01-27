@@ -27,6 +27,8 @@
 
 #include "../kernel/ordered_partition.hpp"
 
+#include "../kernel/packed_word.hpp"
+
 #include <fstream>
 using namespace std;
 
@@ -41,6 +43,14 @@ void latex_primitives_output(fstream& file, const unordered_set<SchroederVector<
   
 }
 int main() {
+  Array<int> tab = {1,5,4,3,8,3,1};
+  PackedWord w(tab);
+  cout << to_string(w) << endl;
+  SchroederTree T = {127,126,122,120,24,8};//511, 510,  494, 302, 14, 2}; //127, 123, 121, 120, 104, 40};
+  T.display();
+  w = T.packed_word();
+  cout << w << endl;
+  exit(0);
   string filename = "output.tex";
   string filename_details = "details.tex";
   fstream latex_file, latex_details_file;

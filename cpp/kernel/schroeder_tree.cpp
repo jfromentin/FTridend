@@ -292,6 +292,21 @@ string SchroederTree::to_latex() const {
   return str;
 }
 
+
+PackedWord
+SchroederTree::packed_word() const {
+  Array<int> res(n - 1);
+  for (int i = 1; i < h; ++ i) {
+    int dead = p[i-1] - p[i];
+    while (dead != 0) {
+      int dead_angle = __builtin_ctz(dead);
+      res[dead_angle] = i;
+      dead -= (1 << dead_angle);
+    }
+  }
+  return res;
+}
+  
 //***********************
 //* Auxiliary functions *
 //***********************
