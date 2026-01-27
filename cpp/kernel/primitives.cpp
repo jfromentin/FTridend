@@ -241,6 +241,6 @@ void to_matrix(const unordered_set<SchroederVector<int>>& F) {
   int rank =  fmpq_mat_rref_fraction_free(A, A);
   cout << "Rank = " << rank << endl;
   fmpq_mat_print(A);
-  fmpq_mat_clear(A);*/
+  fmpq_mat_clear(A);*/o
  
 }

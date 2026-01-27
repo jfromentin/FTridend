@@ -1849,8 +1849,225 @@ The map $\Delta:\K\Sch\rightarrow \K\Sch\otimes \K\Sch$ detailed in theorem~\ref
 \end{itemize}
 
 
+Let $T$ be a Schroeder tree with $n$ leaves.
+A \emph{simple cut} of $T$ is the choice of an internal edge of $T$.
+Denote by $(x_0,\ldots, x_h)$ the initial chain $\phi_n(T)$. The last set $x_h$ is then the interval $\IEM{1}{n-1}$.
+The a simple cut of $T$ is a maximal interval in $x'_i = x_h\setminus x_i$ for some $i=0,\ldots, h$.
 
-
+\begin{exam}
+Consider the Schroeder tree of  Example~\ref{exam:cut_tree}.
+We have $n = 8$ and 
+\[
+x_0 = \emptyset, \ x_1 = \{4\}, \ x_2 = \{4,5\}, \ x_3 = \{4,5,6,7\},\  x_4 = \{2,4,5,6,7\}, \ x_5 = \IEM{2}7, \ x_6=\IEM{1}7
+\]
+with complements 
+\[
+x'_0 = \IEM17, \ x'_1 = \IEM13\cup\IEM57, \ x'_2 = \IEM13\cup \IEM67,\ x'_3 = \IEM13, x'_= \{1,3\}\,\  x'_5 = \{1\},\ x_6=\emptyset
+\]
+The tree $T$ admits $7$ simple cuts given by  
+Simple cuts are then given by 
+\[
+\{1\},\ \IEM13,\ \IEM17,\ \{3\},\ \IEM67,\ \IEM57
+\]
+which correspond to the seven following internal edges :
+\[
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)--(0,1);
+			% bords de l'arbre
+			\draw (0,1)--(-4,5);
+			\draw (0,1)--(4,5);
+			% bras droit
+			\draw (2,3) -- (0,5);
+			\draw (3,4) -- (2,5);
+			\draw (3,4) -- (3,5);
+			\draw (3,4) -- (4,5);
+			%bras gauche
+			\draw (-3.5,4.5) -- (-3,5);
+			\draw (-2.5,3.5) -- (-1,5);
+			\draw (-1.5,4.5) -- (-2,5);
+			%coupe
+			\draw (-3.5,4) -- (-2.5,4);
+			% marquages des sommets
+			\draw[color=black, fill=white] (-4,5) circle (0.15);
+			\draw[color=black, fill=white] (-2,5) circle (0.15);
+			\draw[color=black, fill=white] (0,5) circle (0.15);
+			\draw[color=black, fill=white] (2,5) circle (0.15);
+			\draw[color=black, fill=white] (3,5) circle (0.15);
+			\draw[color=black, fill=white] (4,5) circle (0.15);
+			\draw[color=black, fill=white] (-3,5) circle (0.15);
+			\draw[color=black, fill=white] (-1,5) circle (0.15);
+			\filldraw (0,1) circle(0.15);
+			\filldraw (-3.5,4.5) circle(0.15);
+			\filldraw (-2.5,3.5) circle(0.15);
+			\filldraw (-1.5,4.5) circle(0.15);
+			\filldraw (3,4) circle(0.15);
+			\filldraw (2,3) circle(0.15);
+	\end{tikzpicture}
+	\  \ 
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)--(0,1);
+			% bords de l'arbre
+			\draw (0,1)--(-4,5);
+			\draw (0,1)--(4,5);
+			% bras droit
+			\draw (2,3) -- (0,5);
+			\draw (3,4) -- (2,5);
+			\draw (3,4) -- (3,5);
+			\draw (3,4) -- (4,5);
+			%bras gauche
+			\draw (-3.5,4.5) -- (-3,5);
+			\draw (-2.5,3.5) -- (-1,5);
+			\draw (-1.5,4.5) -- (-2,5);
+			%coupe
+			\draw (-2.1,2.5) -- (-1.1,2.5);
+			% marquages des sommets
+			\draw[color=black, fill=white] (-4,5) circle (0.15);
+			\draw[color=black, fill=white] (-2,5) circle (0.15);
+			\draw[color=black, fill=white] (0,5) circle (0.15);
+			\draw[color=black, fill=white] (2,5) circle (0.15);
+			\draw[color=black, fill=white] (3,5) circle (0.15);
+			\draw[color=black, fill=white] (4,5) circle (0.15);
+			\draw[color=black, fill=white] (-3,5) circle (0.15);
+			\draw[color=black, fill=white] (-1,5) circle (0.15);
+			\filldraw (0,1) circle(0.15);
+			\filldraw (-3.5,4.5) circle(0.15);
+			\filldraw (-2.5,3.5) circle(0.15);
+			\filldraw (-1.5,4.5) circle(0.15);
+			\filldraw (3,4) circle(0.15);
+			\filldraw (2,3) circle(0.15);
+	\end{tikzpicture}	\  \ 
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)--(0,1);
+			% bords de l'arbre
+			\draw (0,1)--(-4,5);
+			\draw (0,1)--(4,5);
+			% bras droit
+			\draw (2,3) -- (0,5);
+			\draw (3,4) -- (2,5);
+			\draw (3,4) -- (3,5);
+			\draw (3,4) -- (4,5);
+			%bras gauche
+			\draw (-3.5,4.5) -- (-3,5);
+			\draw (-2.5,3.5) -- (-1,5);
+			\draw (-1.5,4.5) -- (-2,5);
+			%coupe
+			\draw (-0.5,0.5) -- (0.5,0.5);
+			% marquages des sommets
+			\draw[color=black, fill=white] (-4,5) circle (0.15);
+			\draw[color=black, fill=white] (-2,5) circle (0.15);
+			\draw[color=black, fill=white] (0,5) circle (0.15);
+			\draw[color=black, fill=white] (2,5) circle (0.15);
+			\draw[color=black, fill=white] (3,5) circle (0.15);
+			\draw[color=black, fill=white] (4,5) circle (0.15);
+			\draw[color=black, fill=white] (-3,5) circle (0.15);
+			\draw[color=black, fill=white] (-1,5) circle (0.15);
+			\filldraw (0,1) circle(0.15);
+			\filldraw (-3.5,4.5) circle(0.15);
+			\filldraw (-2.5,3.5) circle(0.15);
+			\filldraw (-1.5,4.5) circle(0.15);
+			\filldraw (3,4) circle(0.15);
+			\filldraw (2,3) circle(0.15);
+	\end{tikzpicture}	\  \ 
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)--(0,1);
+			% bords de l'arbre
+			\draw (0,1)--(-4,5);
+			\draw (0,1)--(4,5);
+			% bras droit
+			\draw (2,3) -- (0,5);
+			\draw (3,4) -- (2,5);
+			\draw (3,4) -- (3,5);
+			\draw (3,4) -- (4,5);
+			%bras gauche
+			\draw (-3.5,4.5) -- (-3,5);
+			\draw (-2.5,3.5) -- (-1,5);
+			\draw (-1.5,4.5) -- (-2,5);
+			%coupe
+			\draw (-2.5,4) -- (-1.5,4);
+			% marquages des sommets
+			\draw[color=black, fill=white] (-4,5) circle (0.15);
+			\draw[color=black, fill=white] (-2,5) circle (0.15);
+			\draw[color=black, fill=white] (0,5) circle (0.15);
+			\draw[color=black, fill=white] (2,5) circle (0.15);
+			\draw[color=black, fill=white] (3,5) circle (0.15);
+			\draw[color=black, fill=white] (4,5) circle (0.15);
+			\draw[color=black, fill=white] (-3,5) circle (0.15);
+			\draw[color=black, fill=white] (-1,5) circle (0.15);
+			\filldraw (0,1) circle(0.15);
+			\filldraw (-3.5,4.5) circle(0.15);
+			\filldraw (-2.5,3.5) circle(0.15);
+			\filldraw (-1.5,4.5) circle(0.15);
+			\filldraw (3,4) circle(0.15);
+			\filldraw (2,3) circle(0.15);
+	\end{tikzpicture}	\  \ 
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)--(0,1);
+			% bords de l'arbre
+			\draw (0,1)--(-4,5);
+			\draw (0,1)--(4,5);
+			% bras droit
+			\draw (2,3) -- (0,5);
+			\draw (3,4) -- (2,5);
+			\draw (3,4) -- (3,5);
+			\draw (3,4) -- (4,5);
+			%bras gauche
+			\draw (-3.5,4.5) -- (-3,5);
+			\draw (-2.5,3.5) -- (-1,5);
+			\draw (-1.5,4.5) -- (-2,5);
+			%coupe
+			\draw (2,3.5) -- (3,3.5);
+			% marquages des sommets
+			\draw[color=black, fill=white] (-4,5) circle (0.15);
+			\draw[color=black, fill=white] (-2,5) circle (0.15);
+			\draw[color=black, fill=white] (0,5) circle (0.15);
+			\draw[color=black, fill=white] (2,5) circle (0.15);
+			\draw[color=black, fill=white] (3,5) circle (0.15);
+			\draw[color=black, fill=white] (4,5) circle (0.15);
+			\draw[color=black, fill=white] (-3,5) circle (0.15);
+			\draw[color=black, fill=white] (-1,5) circle (0.15);
+			\filldraw (0,1) circle(0.15);
+			\filldraw (-3.5,4.5) circle(0.15);
+			\filldraw (-2.5,3.5) circle(0.15);
+			\filldraw (-1.5,4.5) circle(0.15);
+			\filldraw (3,4) circle(0.15);
+			\filldraw (2,3) circle(0.15);
+	\end{tikzpicture}	\ \ 
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.2cm,y=0.2cm]
+			\draw (0,0)--(0,1);
+			% bords de l'arbre
+			\draw (0,1)--(-4,5);
+			\draw (0,1)--(4,5);
+			% bras droit
+			\draw (2,3) -- (0,5);
+			\draw (3,4) -- (2,5);
+			\draw (3,4) -- (3,5);
+			\draw (3,4) -- (4,5);
+			%bras gauche
+			\draw (-3.5,4.5) -- (-3,5);
+			\draw (-2.5,3.5) -- (-1,5);
+			\draw (-1.5,4.5) -- (-2,5);
+			%coupe
+			\draw (0.5,2) -- (1.5,2);
+			% marquages des sommets
+			\draw[color=black, fill=white] (-4,5) circle (0.15);
+			\draw[color=black, fill=white] (-2,5) circle (0.15);
+			\draw[color=black, fill=white] (0,5) circle (0.15);
+			\draw[color=black, fill=white] (2,5) circle (0.15);
+			\draw[color=black, fill=white] (3,5) circle (0.15);
+			\draw[color=black, fill=white] (4,5) circle (0.15);
+			\draw[color=black, fill=white] (-3,5) circle (0.15);
+			\draw[color=black, fill=white] (-1,5) circle (0.15);
+			\filldraw (0,1) circle(0.15);
+			\filldraw (-3.5,4.5) circle(0.15);
+			\filldraw (-2.5,3.5) circle(0.15);
+			\filldraw (-1.5,4.5) circle(0.15);
+			\filldraw (3,4) circle(0.15);
+			\filldraw (2,3) circle(0.15);
+	\end{tikzpicture}
+\]
+\end{exam}
+An admissible cut of $T$ can be seen as a set $\{c_1,\ldots, c_k\}$ of single cuts of $T$ with $c_i\cap c_j=\emptyset$ for $i\not=j$.
+The cut of Example~\ref{exam:cut_tree}., is given by $\{\IEM13, \IEM67\}$.
 \bibliographystyle{plain}
 \bibliography{article.bib}
 
