@@ -20,8 +20,8 @@
 
 #include "primitives.hpp"
 #include "ordered_partition.hpp"
-#include <flint/fmpq.h>
-#include <flint/fmpq_mat.h>
+//#include <flint/fmpq.h>
+//#include <flint/fmpq_mat.h>
 
 
 SchroederVector<int> Primitives::theta(const SchroederVector<int>& u) {
@@ -201,7 +201,7 @@ SchroederVector<int> Primitives::omega(int l, fstream& file) {
 
 
 void to_matrix(const unordered_set<SchroederVector<int>>& F) {
-  unordered_map<SchroederTree, int> base;
+  /*unordered_map<SchroederTree, int> base;
   int n = 0;
   for (auto it = F.begin(); it != F.end(); ++ it) {
     const SchroederVector<int>& u = *it;
@@ -241,6 +241,6 @@ void to_matrix(const unordered_set<SchroederVector<int>>& F) {
   int rank =  fmpq_mat_rref_fraction_free(A, A);
   cout << "Rank = " << rank << endl;
   fmpq_mat_print(A);
-  fmpq_mat_clear(A);
+  fmpq_mat_clear(A);*/
  
 }

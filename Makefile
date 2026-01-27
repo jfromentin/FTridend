@@ -2,7 +2,7 @@ EXE 			= ftridend
 PYTHON 			= python/ftridend.so
 CPP 			= g++ --std=c++20 
 CFLAGS			= -O3 -Wall
-LIBS 			= -lflint 
+LIBS 			= #-lflint 
 SRC_OBJ 		= packed_word schroeder_tree schroeder_forest quasi_shuffle ordered_partition primitives
 PYTHON_SRC 		= setup.py module.cpp schroeder_tree.hpp schroeder_tree.cpp schroeder_forest.hpp schroeder_forest.cpp schroeder_vector.hpp schroeder_vector.cpp
 PYTHON_DOC		= schroeder_tree schroeder_forest schroeder_vector
@@ -19,7 +19,7 @@ $(EXE): $(KER_OBJ) cpp/console/main.cpp
 	$(CPP) $(CFLAGS) $^ -o $@ $(LIBS)
 
 $(PYTHON): $(PYTHON_FILES) $(PYTHON_DOC_FILES)
-	python cpp/python/setup.py build
+	python3 cpp/python/setup.py build
 	mv build/*/ftridend*.so $(PYTHON)
 	-$(RM) -r build
 
