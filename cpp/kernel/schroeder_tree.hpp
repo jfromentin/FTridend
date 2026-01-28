@@ -32,10 +32,9 @@
 class SchroederForest;
 
 struct SimpleCut{
-  Int h; // height of the interval
-  Int l; // left of the interval
-  Int r; // right ot the interval 
-}
+  Int left; // left of the interval
+  Int right; // right ot the interval 
+};
 
 struct ForestInfo{
   Int h;

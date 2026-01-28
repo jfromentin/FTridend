@@ -309,11 +309,22 @@ SchroederTree::packed_word() const {
 
 Array<SimpleCut>
 SchroederTree::simple_cuts() const {
-  list<SimpleCut> res;
-
-
+  PackedWord w = packed_word();
+  // There is exatclty h - 1 simple cuts
+  Array<SimpleCut> res(h - 1);
+  for (int i = 1; i < h; ++ i) {
+    int dead = p[i - 1] - p[i];
+    int dead_angle = __builtin_ctz(dead);
+    int left = dead_angle - 1;
+    while (left >= 0 and w[left] <= i) -- left;
+    ++ left;
+    int right = dead_angle + 1;
+    while (right < h  and w[right] <= i) ++ right;
+    -- right;
+    res[i - 1].left = left;
+    res[i - 1].right = right;
+  }
   return res;
-  
 }
   
 //***********************
