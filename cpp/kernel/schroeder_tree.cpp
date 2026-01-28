@@ -306,6 +306,15 @@ SchroederTree::packed_word() const {
   }
   return res;
 }
+
+Array<SimpleCut>
+SchroederTree::simple_cuts() const {
+  list<SimpleCut> res;
+
+
+  return res;
+  
+}
   
 //***********************
 //* Auxiliary functions *

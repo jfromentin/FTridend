@@ -31,6 +31,12 @@
 
 class SchroederForest;
 
+struct SimpleCut{
+  Int h; // height of the interval
+  Int l; // left of the interval
+  Int r; // right ot the interval 
+}
+
 struct ForestInfo{
   Int h;
   Int n;
@@ -79,6 +85,7 @@ public:
   size_t hash() const;
   bool operator==(const SchroederTree&) const;
   PackedWord packed_word() const;
+  Array<SimpleCut> simple_cuts() const;
 };
 
 //***********************
