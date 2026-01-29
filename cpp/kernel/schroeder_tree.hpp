@@ -61,7 +61,7 @@ protected:
   ForestInfo right_forest_infos[N];
   void compute_left_forest_infos();
   void compute_right_forest_infos();
- ublic:
+public:
   SchroederTree();
   SchroederTree(const initializer_list<Int>& l);
   SchroederTree(const SchroederTree&, const SchroederTree&, const QuasiShuffle &sigma);
@@ -94,9 +94,8 @@ protected:
   bool operator==(const SchroederTree&) const;
   PackedWord packed_word() const;
   Array<SimpleCut> simple_cuts() const;
-  void set_sub_tree(SchroederTree& t, int left, int right);
-
-  Array<SchroederTree> split(const Cut&, const Array<SimpleCut>&) const;
+  void set_sub_tree(SchroederTree& t, int left, int right) const;
+  void set_root(SchroederTree& t, const Cut&, const Array<SimpleCut>&) const;
 };
 
 //***********************
@@ -107,7 +106,7 @@ string to_string(const SchroederTree& T);
 
 inline
 SchroederTree::SchroederTree() {
-  n = 0;
+  n = 1;
   h = 0;
   number_left_forests = 0;
   number_right_forests = 0;

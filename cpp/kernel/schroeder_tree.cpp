@@ -323,13 +323,13 @@ SchroederTree::simple_cuts() const {
     -- right;
     res[i - 1].left = left;
     res[i - 1].right = right;
-    cout << i - 1 << " : " << left << " -> " << right << endl;
+    //cout << i - 1 << " : " << left << " -> " << right << endl;
   }
   return res;
 }
 
 void
-SchroederTree::set_sub_tree(SchroederTree& t, int left, int right) {
+SchroederTree::set_sub_tree(SchroederTree& t, int left, int right) const {
     int len = right - left + 1;
     int mask = ((1L << len) - 1) << left;
     t.n = len + 1;
@@ -337,16 +337,54 @@ SchroederTree::set_sub_tree(SchroederTree& t, int left, int right) {
     for (int l = 0; l <= h; ++l) {
       t.p[l] = (p[l] & mask) >> left;
     }
-    t.initialize();
     t.normalize();
-    t.display(cout);
+    t.initialize();
 }
 
-Array<SchroederTree>
-SchroederTree::split(const Cut& c, const Array<SimpleCut>& sc) const {
-  Array<SchroederTree> res(c.s + 1);
-  
-  return res;
+void
+SchroederTree::set_root(SchroederTree& t, const Cut& c, const Array<SimpleCut>& sc) const {
+  int s = c.s;
+  t.n = n;
+  t.h = h;
+  int left[N];
+  int right[N];
+
+  for (int i = 0; i < s; ++ i) {
+    left[i] = sc[c.sc[i]].left;
+    right[i] = sc[c.sc[i]].right;
+    t.n -= (right[i] - left[i] + 1);
+  }
+  char temp[N];
+  for (int l = 0; l < h; ++ l) {
+    Int f = 1;
+    for (int j = 0; j < n - 1; ++ j) {
+      temp[j] = (p[l] & f) ? '1' : '0';
+      f *= 2;
+    }
+    for (int j = 0; j < n - 1; ++ j) cout << temp[j] << ' ';
+    cout << " -> ";
+    for (int i = 0; i < s; ++ i) {
+      for (int k = left[i]; k <= right[i]; ++ k) temp[k] = 'x';
+    }
+    for (int j = 0; j < n - 1; ++ j) cout << temp[j] << ' ';
+    cout << endl;
+    f = 1;
+    Int rp = 0;
+    for (int j = 0; j < n - 1; ++ j) {
+      if (temp[j] == '1') {
+	rp += f;
+	f *=2;
+      }
+      else if (temp[j] == '0') {
+	f *= 2;
+      }			   
+    }
+    t.p[l] = rp;
+  }
+  t.normalize();
+  t.initialize();
+  cout << endl;
+  t.display(cout);
 }
 
 

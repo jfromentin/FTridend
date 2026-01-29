@@ -80,6 +80,16 @@ template<class R>
 SchroederVector<R> SchroederModule<R>::coproduct(const SchroederTree& t) {
   Array<SimpleCut> simple_cuts = t.simple_cuts();
   int nsc = simple_cuts.size();
+  Array<SchroederTree> trees(nsc);
+  // Compute falling SchroederTree
+  for (int i = 0; i < nsc; ++ i) {
+    cout << "Simple cut " << i << " : [" << simple_cuts[i].left << "," << simple_cuts[i].right << "]" << endl;
+    t.set_sub_tree(trees[i], simple_cuts[i].left, simple_cuts[i].right);
+    trees[i].display(cout);
+    cout << to_string(trees[i]);
+    cout << endl;
+  }
+  
   SchroederVector<R> res;
   stack<Cut> cuts;
   Cut c;
@@ -88,13 +98,41 @@ SchroederVector<R> SchroederModule<R>::coproduct(const SchroederTree& t) {
   while(not cuts.empty()) {
     c = cuts.top();
     cuts.pop();
+
     // Treat cut
+    cout << "******************************" << endl;
     cout << "Cut with [ ";
     for (int i = 0; i < c.s; ++ i) {
       cout <<  c.sc[i] << ' ';
     }
     cout << "]" << endl;
-    t.split(c, simple_cuts);
+    
+    // Compute left term
+    SchroederVector<R> P;
+    if (c.s == 0) {
+      SchroederTree temp;
+      P.add(temp);
+    }
+    else{
+      P.add(trees[c.sc[0]]);
+      //cout << "P0 = " << to_string(P) << endl;
+      for (int i = 1; i < c.s; ++i) {
+	//cout << " * with simple cut number " << c.sc[i] << " :" << to_string(trees[c.sc[i]]) << endl;
+	
+	P = product(P, trees[c.sc[i]]);
+	//cout << "P" << i << " = " << to_string(P) << endl;
+      }
+    }
+    cout << endl << "-------------- Left -----------------" << endl << endl;
+    cout << "P = " << to_string(P) << endl << endl;
+    P.display();
+    SchroederTree r;
+    cout << endl << "-------------- Right ----------------" << endl << endl;
+    t.set_root(r, c, simple_cuts); 
+    cout << "R = " << to_string(r) << endl;
+    
+    // Compute daughter cut
+    //t.split(c, simple_cuts);
     if (c.s == 0) {
       // The cut c is empty
       for (int i = 0; i < nsc; ++ i) {
