@@ -400,6 +400,7 @@ const T& Array<T>::operator[](size_t i) const {
 
 template<class T> inline
 T& Array<T>::operator[](size_t i) {
+  
   assert(i < s);
   return array[i];
 }

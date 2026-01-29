@@ -18,19 +18,17 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-#ifndef COMMON_HPP
-#define COMMON_HPP
+#ifndef TNSCHROEDER_MODULE_HPP
+#define SCHROEDER_MODULE_HPP
 
-#include <iostream>
-#include <cstdint>
-#include <cassert>
+#include "schroeder_module.hpp"
+#include "tensor_schroeder_vector.hpp"
 
-using namespace std;
+template<class R>
+class TensorSchroederModule {
+private:
+public:
+  
+}
 
-using Int = uint16_t;
-using Coeff = int;
-static const size_t N = 16;
-static const bool verbose_display = true;
-static const bool display_root = false;
-static const bool display_forest_size = false;
-#endif
+#eedif

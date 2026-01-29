@@ -18,19 +18,37 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-#ifndef COMMON_HPP
-#define COMMON_HPP
+#ifndef SCHROEDER_TENSOR_HPP
+#define SCHROEDER_TENSOR_HPP
 
-#include <iostream>
-#include <cstdint>
-#include <cassert>
+#include "schroeder_vector.hpp"
 
-using namespace std;
+struct ElementarySchroederTensor {
+  SchroederTree left;
+  SchroederTree right;
+};
 
-using Int = uint16_t;
-using Coeff = int;
-static const size_t N = 16;
-static const bool verbose_display = true;
-static const bool display_root = false;
-static const bool display_forest_size = false;
+string to_string(const ElementarySchroederTensor&);
+
+template<> struct std::hash<ElementarySchroederTensor>{
+  size_t operator()(const ElementarySchroederTensor& t) const{
+    return t.left.hash() ^ (~ t.right.hash());
+  }
+};
+
+template<class R>
+class SchroederTensor{
+private:
+  unordered_map<ElementarySchroederTreeTensor, R> coeffs;
+public:
+  SchroederTensor();
+  void add(const SchroederTree& tl, const SchroederTree& tr, const R& r = 1);
+  void add(const SchroederVector& ul, const SchroederTree& tr);
+  
+};
+
+
+string to_string(const ElementarySchroederTensor& t) {
+  return to_string(t.left) + "\u2297" + to_string(t.right);
+}
 #endif

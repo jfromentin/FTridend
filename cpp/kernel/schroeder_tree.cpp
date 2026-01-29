@@ -309,6 +309,7 @@ SchroederTree::packed_word() const {
 
 Array<SimpleCut>
 SchroederTree::simple_cuts() const {
+  display(cout);
   PackedWord w = packed_word();
   // There is exatclty h - 1 simple cuts
   Array<SimpleCut> res(h - 1);
@@ -316,10 +317,12 @@ SchroederTree::simple_cuts() const {
     int dead = p[i - 1] - p[i];
     int dead_angle = __builtin_ctz(dead);
     int left = dead_angle - 1;
-    while (left >= 0 and w[left] <= i) -- left;
+    if (left >= 0) {
+      while (left >= 0 and w[left] <= i) -- left;
+    }
     ++ left;
     int right = dead_angle + 1;
-    while (right < h  and w[right] <= i) ++ right;
+    while (right < h - 1  and w[right] <= i) ++ right;
     -- right;
     res[i - 1].left = left;
     res[i - 1].right = right;
@@ -361,13 +364,13 @@ SchroederTree::set_root(SchroederTree& t, const Cut& c, const Array<SimpleCut>& 
       temp[j] = (p[l] & f) ? '1' : '0';
       f *= 2;
     }
-    for (int j = 0; j < n - 1; ++ j) cout << temp[j] << ' ';
-    cout << " -> ";
+    //for (int j = 0; j < n - 1; ++ j) cout << temp[j] << ' ';
+    //cout << " -> ";
     for (int i = 0; i < s; ++ i) {
       for (int k = left[i]; k <= right[i]; ++ k) temp[k] = 'x';
     }
-    for (int j = 0; j < n - 1; ++ j) cout << temp[j] << ' ';
-    cout << endl;
+    //for (int j = 0; j < n - 1; ++ j) cout << temp[j] << ' ';
+    //cout << endl;
     f = 1;
     Int rp = 0;
     for (int j = 0; j < n - 1; ++ j) {
@@ -383,8 +386,8 @@ SchroederTree::set_root(SchroederTree& t, const Cut& c, const Array<SimpleCut>& 
   }
   t.normalize();
   t.initialize();
-  cout << endl;
-  t.display(cout);
+  //cout << endl;
+  //t.display(cout);
 }
 
 

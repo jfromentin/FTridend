@@ -43,14 +43,16 @@ void latex_primitives_output(fstream& file, const unordered_set<SchroederVector<
   
 }
 int main() {
-  SchroederTree T = {127,126,122,120,24,8};//511, 510,  494, 302, 14, 2}; //127, 123, 121, 120, 104, 40};
+
+  /*  SchroederTree T = {127,126,122,120,24,8};//511, 510,  494, 302, 14, 2}; //127, 123, 121, 120, 104, 40};
 
   T.display();
-  SchroederVector<int> u = SchroederModule<int>::coproduct(T);
+  SchroederTensor<int> u = SchroederModule<int>::coproduct(T);
+  cout << to_string(u) << endl;
   //PackedWord w = T.packed_word();
   //cout << w << endl;
   //T.simple_cuts();
-  exit(0);
+  exit(0);*/
 
   string filename = "output.tex";
   string filename_details = "details.tex";
@@ -70,7 +72,7 @@ int main() {
   latex_details_file << "\\begin{document}" << endl;
   Primitives P;
   P.init();
-  int deg = 4;
+  int deg = 2;
   for (int i = 0; i < deg; ++ i) {
     cout << endl;
     cout << "**************" << endl;
@@ -84,7 +86,18 @@ int main() {
     //latex_details_file << "\\subsection{Co dendriform} " << endl;
     //latex_primitives_output(latex_details_file, *tab);
     tab = &P.co_associative[i];
-    to_matrix(*tab);
+    for(auto it = tab -> begin(); it != tab -> end(); ++it){
+      cout << "------------" << endl;
+      cout << to_string(*it) << endl;
+      SchroederTensor<int> u = SchroederModule<int>::coproduct(*it);
+      SchroederTree empty;
+      u.add(*it, empty, -1);
+      u.add(empty, *it, -1);
+      cout << to_string(u) << endl;
+    }
+
+						      
+    //to_matrix(*tab);
     //latex_file << "\\subsection{Co associative} " << endl;
     //latex_primitives_output(latex_file, *tab);
     //latex_details_file << "\\subsection{Co associative} " << endl;

@@ -24,20 +24,22 @@
 #include <stack>
 #include "schroeder_vector.hpp"
 #include "quasi_shuffle.hpp"
+#include "schroeder_tensor.hpp"
 
 template<class R>
 class SchroederModule {
 private:
 public:
-  SchroederModule();
+  //SchroederModule();
   static SchroederVector<R> product(const SchroederTree& tl, const SchroederTree& tr, PType ptype = PAll);
   static SchroederVector<R> product(const SchroederVector<R>& ul, const SchroederVector<R>& tr, PType ptype = PAll);
-  static SchroederVector<R> coproduct(const SchroederTree& t);
+  static SchroederTensor<R> coproduct(const SchroederTree& t);
+  static SchroederTensor<R> coproduct(const SchroederVector<R>& u);
 };
 
-template<class R>
+/*template<class R>
 SchroederModule<R>::SchroederModule() {
-}
+}*/
 
 template<class R>
 SchroederVector<R> SchroederModule<R>::product(const SchroederTree& tl, const SchroederTree& tr, PType ptype) {
@@ -77,20 +79,21 @@ SchroederVector<R> SchroederModule<R>::product(const SchroederVector<R>& ul, con
 }
 
 template<class R>
-SchroederVector<R> SchroederModule<R>::coproduct(const SchroederTree& t) {
+SchroederTensor<R> SchroederModule<R>::coproduct(const SchroederTree& t) {
   Array<SimpleCut> simple_cuts = t.simple_cuts();
+  
   int nsc = simple_cuts.size();
   Array<SchroederTree> trees(nsc);
   // Compute falling SchroederTree
   for (int i = 0; i < nsc; ++ i) {
-    cout << "Simple cut " << i << " : [" << simple_cuts[i].left << "," << simple_cuts[i].right << "]" << endl;
+    //cout << "Simple cut " << i << " : [" << simple_cuts[i].left << "," << simple_cuts[i].right << "]" << endl;
     t.set_sub_tree(trees[i], simple_cuts[i].left, simple_cuts[i].right);
-    trees[i].display(cout);
-    cout << to_string(trees[i]);
-    cout << endl;
+    //trees[i].display(cout);
+    //cout << to_string(trees[i]);
+    //cout << endl;
   }
   
-  SchroederVector<R> res;
+  SchroederTensor<R> res;
   stack<Cut> cuts;
   Cut c;
   c.s = 0;
@@ -100,12 +103,12 @@ SchroederVector<R> SchroederModule<R>::coproduct(const SchroederTree& t) {
     cuts.pop();
 
     // Treat cut
-    cout << "******************************" << endl;
+    /*cout << "******************************" << endl;
     cout << "Cut with [ ";
     for (int i = 0; i < c.s; ++ i) {
       cout <<  c.sc[i] << ' ';
     }
-    cout << "]" << endl;
+    cout << "]" << endl;*/
     
     // Compute left term
     SchroederVector<R> P;
@@ -123,14 +126,14 @@ SchroederVector<R> SchroederModule<R>::coproduct(const SchroederTree& t) {
 	//cout << "P" << i << " = " << to_string(P) << endl;
       }
     }
-    cout << endl << "-------------- Left -----------------" << endl << endl;
-    cout << "P = " << to_string(P) << endl << endl;
-    P.display();
+    //    cout << endl << "-------------- Left -----------------" << endl << endl;
+    //cout << "P = " << to_string(P) << endl << endl;
+    //P.display();
     SchroederTree r;
-    cout << endl << "-------------- Right ----------------" << endl << endl;
+    //cout << endl << "-------------- Right ----------------" << endl << endl;
     t.set_root(r, c, simple_cuts); 
-    cout << "R = " << to_string(r) << endl;
-    
+    //cout << "R = " << to_string(r) << endl;
+    res.add(P,r);
     // Compute daughter cut
     //t.split(c, simple_cuts);
     if (c.s == 0) {
@@ -161,5 +164,18 @@ SchroederVector<R> SchroederModule<R>::coproduct(const SchroederTree& t) {
 
   
   return res;
+}
+
+
+template<class R>
+SchroederTensor<R> SchroederModule<R>::coproduct(const SchroederVector<R>& u) {
+  SchroederTensor<R> res;
+  for (auto it = u.begin(); it != u.end(); ++ it) {
+    const SchroederTree& t = it -> first;
+    SchroederTensor<R> v = coproduct(t);
+    res.add(v, it -> second);
+  }
+  return res;
+
 }
 #endif
