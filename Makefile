@@ -10,7 +10,7 @@ KER_OBJ 		= $(addprefix obj/kernel/,$(addsuffix .o,$(SRC_OBJ)))
 PYTHON_FILES 		= $(addprefix cpp/python/, $(PYTHON_SRC))
 PYHTON_DOC_FILES	= $(addprefix cpp/python/deoc, $(PYTHON_DOC))
 
-all: $(EXE) $(PYTHON)
+all: $(EXE) # $(PYTHON)
 
 obj/kernel/%.o: cpp/kernel/%.cpp cpp/kernel/%.hpp
 	$(CPP) $(CFLAGS) -c $< -o $@

@@ -323,8 +323,44 @@ SchroederTree::simple_cuts() const {
     -- right;
     res[i - 1].left = left;
     res[i - 1].right = right;
+    cout << i - 1 << " : " << left << " -> " << right << endl;
   }
   return res;
+}
+
+void
+SchroederTree::set_sub_tree(SchroederTree& t, int left, int right) {
+    int len = right - left + 1;
+    int mask = ((1L << len) - 1) << left;
+    t.n = len + 1;
+    t.h = h;
+    for (int l = 0; l <= h; ++l) {
+      t.p[l] = (p[l] & mask) >> left;
+    }
+    t.initialize();
+    t.normalize();
+    t.display(cout);
+}
+
+Array<SchroederTree>
+SchroederTree::split(const Cut& c, const Array<SimpleCut>& sc) const {
+  Array<SchroederTree> res(c.s + 1);
+  
+  return res;
+}
+
+
+void SchroederTree::normalize() {
+  int prev = p[0];
+  int dh = 0;
+  for (int l = 1; l < h; ++ l) {
+    if (p[l] == prev) ++ dh;
+    else {
+      p[l - dh] = p[l];
+      prev = p[l];
+    }
+  }
+  h -= dh;
 }
   
 //***********************

@@ -21,9 +21,9 @@
 #ifndef SCHROEDER_MODULE_HPP
 #define SCHROEDER_MODULE_HPP
 
+#include <stack>
 #include "schroeder_vector.hpp"
 #include "quasi_shuffle.hpp"
-
 
 template<class R>
 class SchroederModule {
@@ -32,6 +32,7 @@ public:
   SchroederModule();
   static SchroederVector<R> product(const SchroederTree& tl, const SchroederTree& tr, PType ptype = PAll);
   static SchroederVector<R> product(const SchroederVector<R>& ul, const SchroederVector<R>& tr, PType ptype = PAll);
+  static SchroederVector<R> coproduct(const SchroederTree& t);
 };
 
 template<class R>
@@ -75,4 +76,52 @@ SchroederVector<R> SchroederModule<R>::product(const SchroederVector<R>& ul, con
   return res;
 }
 
+template<class R>
+SchroederVector<R> SchroederModule<R>::coproduct(const SchroederTree& t) {
+  Array<SimpleCut> simple_cuts = t.simple_cuts();
+  int nsc = simple_cuts.size();
+  SchroederVector<R> res;
+  stack<Cut> cuts;
+  Cut c;
+  c.s = 0;
+  cuts.push(c);
+  while(not cuts.empty()) {
+    c = cuts.top();
+    cuts.pop();
+    // Treat cut
+    cout << "Cut with [ ";
+    for (int i = 0; i < c.s; ++ i) {
+      cout <<  c.sc[i] << ' ';
+    }
+    cout << "]" << endl;
+    t.split(c, simple_cuts);
+    if (c.s == 0) {
+      // The cut c is empty
+      for (int i = 0; i < nsc; ++ i) {
+	Cut d;
+	d.s = 1;
+	d.sc[0] = i;
+	d.m = simple_cuts[i].right;
+	cuts.push(d);
+      }
+    }
+    else {
+      // The cut c is not empty
+      int cs = c.s;
+      for (int i = 0; i < nsc; ++ i) { // All simple cuts with greater indices
+	SimpleCut sc = simple_cuts[i];
+	if (sc.left > c.m) {
+	  Cut d = c;
+	  d.s = cs + 1;
+	  d.sc[cs] = i;
+	  d.m = sc.right;
+	  cuts.push(d);
+	}
+      }
+    }
+  }
+
+  
+  return res;
+}
 #endif

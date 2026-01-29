@@ -44,10 +44,12 @@ void latex_primitives_output(fstream& file, const unordered_set<SchroederVector<
 }
 int main() {
   SchroederTree T = {127,126,122,120,24,8};//511, 510,  494, 302, 14, 2}; //127, 123, 121, 120, 104, 40};
+
   T.display();
-  PackedWord w = T.packed_word();
-  cout << w << endl;
-  T.simple_cuts();
+  SchroederVector<int> u = SchroederModule<int>::coproduct(T);
+  //PackedWord w = T.packed_word();
+  //cout << w << endl;
+  //T.simple_cuts();
   exit(0);
 
   string filename = "output.tex";

@@ -30,10 +30,18 @@
 #include "packed_word.hpp"
 
 class SchroederForest;
+class SchroederTree;
 
 struct SimpleCut{
   Int left; // left of the interval
-  Int right; // right ot the interval 
+  Int right; // right ot the interval
+};
+
+
+struct Cut{
+  int sc[N]; // indices of simple cuts to consider
+  int s; // number of simple cuts in the cuts
+  int m; // maximal angle in the cut
 };
 
 struct ForestInfo{
@@ -53,11 +61,12 @@ protected:
   ForestInfo right_forest_infos[N];
   void compute_left_forest_infos();
   void compute_right_forest_infos();
-public:
+ ublic:
   SchroederTree();
   SchroederTree(const initializer_list<Int>& l);
   SchroederTree(const SchroederTree&, const SchroederTree&, const QuasiShuffle &sigma);
   bool validate();
+  void normalize();
   void initialize();
 
   Int height() const;
@@ -85,6 +94,9 @@ public:
   bool operator==(const SchroederTree&) const;
   PackedWord packed_word() const;
   Array<SimpleCut> simple_cuts() const;
+  void set_sub_tree(SchroederTree& t, int left, int right);
+
+  Array<SchroederTree> split(const Cut&, const Array<SimpleCut>&) const;
 };
 
 //***********************
