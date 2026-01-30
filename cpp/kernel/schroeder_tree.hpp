@@ -107,7 +107,7 @@ string to_string(const SchroederTree& T);
 inline
 SchroederTree::SchroederTree() {
   n = 1;
-  h = 0;
+  h = 1;
   number_left_forests = 0;
   number_right_forests = 0;
 }

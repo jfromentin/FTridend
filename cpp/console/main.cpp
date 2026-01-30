@@ -72,7 +72,7 @@ int main() {
   latex_details_file << "\\begin{document}" << endl;
   Primitives P;
   P.init();
-  int deg = 2;
+  int deg = 8;
   for (int i = 0; i < deg; ++ i) {
     cout << endl;
     cout << "**************" << endl;
@@ -87,14 +87,18 @@ int main() {
     //latex_primitives_output(latex_details_file, *tab);
     tab = &P.co_associative[i];
     for(auto it = tab -> begin(); it != tab -> end(); ++it){
-      cout << "------------" << endl;
-      cout << to_string(*it) << endl;
+      //cout << "------------" << endl;
+      //cout << to_string(*it) << endl;
       SchroederTensor<int> u = SchroederModule<int>::coproduct(*it);
       SchroederTree empty;
       u.add(*it, empty, -1);
       u.add(empty, *it, -1);
-      cout << to_string(u) << endl;
+      if (not u.is_zero()) {
+	cout << to_string(*it) << endl;
+	cout << to_string(u) << endl;
+      }
     }
+    cout << endl;
 
 						      
     //to_matrix(*tab);

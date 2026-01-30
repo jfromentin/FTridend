@@ -80,8 +80,8 @@ SchroederVector<R> SchroederModule<R>::product(const SchroederVector<R>& ul, con
 
 template<class R>
 SchroederTensor<R> SchroederModule<R>::coproduct(const SchroederTree& t) {
+ 
   Array<SimpleCut> simple_cuts = t.simple_cuts();
-  
   int nsc = simple_cuts.size();
   Array<SchroederTree> trees(nsc);
   // Compute falling SchroederTree
