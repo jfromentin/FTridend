@@ -26,6 +26,7 @@ module_ftridend = Extension('ftridend',
     include_dirs = [],
     sources = ['cpp/kernel/schroeder_tree.cpp',
                'cpp/kernel/schroeder_forest.cpp',
+               'cpp/kernel/packed_word.cpp',
                #
                'cpp/python/schroeder_tree.cpp',
                'cpp/python/schroeder_forest.cpp',
