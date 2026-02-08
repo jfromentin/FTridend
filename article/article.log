@@ -1,7 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.8.31)  5 FEB 2026 22:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.8.23)  8 FEB 2026 23:06
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
 **article.tex
 (./article.tex
@@ -1199,73 +1198,10 @@ Class amsart Warning: Abstract should precede \maketitle in AMS document classe
 s; reported on input line 238.
 
 
-LaTeX Warning: Citation `LodayRonco_98' on page 1 undefined on input line 246.
-
-
-LaTeX Warning: Citation `Catoire_2023' on page 1 undefined on input line 246.
-
-
-LaTeX Warning: Citation `Manchon_2020' on page 1 undefined on input line 246.
-
-
-LaTeX Warning: Citation `Celestino_2022' on page 1 undefined on input line 247.
-
-
-
-LaTeX Warning: Citation `Ebrahimi-Fard_Patras_2018' on page 1 undefined on inpu
-t line 247.
-
-
-LaTeX Warning: Citation `Manchon_RB_2020' on page 1 undefined on input line 247
-.
-
-
-LaTeX Warning: Citation `Gao_2019' on page 1 undefined on input line 247.
-
-
-LaTeX Warning: Citation `Ho00' on page 1 undefined on input line 247.
-
-
-LaTeX Warning: Citation `Catoire_2025' on page 1 undefined on input line 247.
-
-
-LaTeX Warning: Citation `Sage_dend' on page 1 undefined on input line 248.
-
-
-LaTeX Warning: Citation `Sage_book' on page 1 undefined on input line 248.
-
-
-LaTeX Warning: Citation `Sage_doc' on page 1 undefined on input line 248.
-
-
-LaTeX Warning: Citation `Catoire_2023' on page 1 undefined on input line 249.
-
-
-LaTeX Warning: Citation `May_69' on page 1 undefined on input line 251.
-
-
-LaTeX Warning: Citation `MilnorMoore_65' on page 1 undefined on input line 251.
-
-
-
-LaTeX Warning: Citation `CartierPatras_2021' on page 1 undefined on input line 
-251.
-
-
-LaTeX Warning: Citation `Catoire_2023' on page 1 undefined on input line 251.
-
-
 
 [1{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 [2]
-
-LaTeX Warning: Citation `Catoire_2023' on page 3 undefined on input line 538.
-
-
-LaTeX Warning: Citation `euleridem' on page 3 undefined on input line 538.
-
-
 Underfull \vbox (badness 2781) has occurred while \output is active []
 
 
@@ -1286,40 +1222,10 @@ Missing character: There is no , in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no ) in font nullfont!
 
-LaTeX Warning: Citation `Catoire_2023' on page 5 undefined on input line 686.
-
-
-LaTeX Warning: Citation `LodayRonco_98' on page 5 undefined on input line 698.
-
-
-LaTeX Warning: Citation `Catoire_2023' on page 5 undefined on input line 699.
-
-
-LaTeX Warning: Citation `LodayRonco_98' on page 5 undefined on input line 699.
-
-
 
 [5]
 
-LaTeX Warning: Citation `CartierPatras_2021' on page 6 undefined on input line 
-708.
-
-
-LaTeX Warning: Citation `Catoire_2023' on page 6 undefined on input line 725.
-
-
-LaTeX Warning: Citation `euleridem' on page 6 undefined on input line 740.
-
-
-
 [6]
-
-LaTeX Warning: Citation `Palacios_06' on page 7 undefined on input line 810.
-
-
-LaTeX Warning: Citation `Grossman_89' on page 7 undefined on input line 817.
-
-
 
 [7]
 Overfull \hbox (14.17717pt too wide) in paragraph at lines 906--907
@@ -1333,148 +1239,142 @@ $[](4)$:
 
 
 [8]
-Overfull \hbox (8.2839pt too wide) in paragraph at lines 1051--1052
-\OT1/cmr/m/n/10 with $0$'s and $1$'s en-cod-ing the el-e-ment of $\OMS/cmsy/m/n
-/10 P\OT1/cmr/m/n/10 (\U/stmry/m/n/10 J\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; n\U/
-stmry/m/n/10 K\OT1/cmr/m/n/10 )$ con-sid-ered. More pre-cisely, for any $[]$: 
- []
-
 LaTeX Font Info:    Trying to load font information for U+bbm on input line 105
-3.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+2.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/bbm-macros/ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
 
 [9]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1185.
+(hyperref)                removing `math shift' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathop' on input line 1185.
+(hyperref)                removing `\mathop' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
+(hyperref)                removing `\mathcode' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
+(hyperref)                removing `\mathcode' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
+(hyperref)                removing `\mathcode' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathchardef' on input line 1185.
+(hyperref)                removing `\mathchardef' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\std@minus' on input line 1185.
+(hyperref)                removing `\std@minus' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
+(hyperref)                removing `\mathcode' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
+(hyperref)                removing `\mathcode' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
+(hyperref)                removing `\mathcode' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
+(hyperref)                removing `\mathcode' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern 2.55527pt
-(hyperref)                removed on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathgroup' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\symoperators' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathop' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathchardef' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\std@minus' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 1185.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\leavevmode@ifvmode' on input line 1185.
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.55527pt
-(hyperref)                removed on input line 1185.
+(hyperref)                removed on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathgroup' on input line 1185.
+(hyperref)                removing `\mathgroup' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\symoperators' on input line 1185.
+(hyperref)                removing `\symoperators' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1185.
+(hyperref)                removing `\@ifnextchar' on input line 1154.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1185.
+(hyperref)                removing `\mathop' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathchardef' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\std@minus' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\leavevmode@ifvmode' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.55527pt
+(hyperref)                removed on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathgroup' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\symoperators' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1154.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1154.
 
 > Step: init table outer spec.
 > Step: parse table options.
@@ -1495,6 +1395,14 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 [10]
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
 > Step: init table outer spec.
 > Step: parse table options.
 > Step: split table.
@@ -1650,14 +1558,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 > Step: execute table commands.
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
-> Step: init table outer spec.
-> Step: parse table options.
-> Step: split table.
-> Step: init table inner spec.
-> Step: parse table inner spec.
-> Step: execute table commands.
-> Step: calculate cell and line sizes.
-> Step: build the whole table.
 
 
 [12]
@@ -1691,7 +1591,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [13]
-Overfull \hbox (14.97528pt too wide) in paragraph at lines 1589--1590
+Overfull \hbox (14.97528pt too wide) in paragraph at lines 1490--1491
 [][]\OT1/cmr/bx/n/10 Definition 19. []\OT1/cmr/m/n/10 Let $\OML/cmm/m/it/10 T$ 
 \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 S$ \OT1/cmr/m/n/10 be two el-e-ments in $
 []([])$ such that $[]$ and $[]$.
@@ -1776,7 +1676,7 @@ Overfull \hbox (14.97528pt too wide) in paragraph at lines 1589--1590
 > Step: calculate cell and line sizes.
 > Step: build the whole table.
 
-Overfull \hbox (9.51187pt too wide) in paragraph at lines 1761--1763
+Overfull \hbox (9.51187pt too wide) in paragraph at lines 1662--1664
 \OT1/cmr/m/n/10 Applying the in-duc-tion hy-poth-e-sis as $[](\OML/cmm/m/it/10 
 t[]\OT1/cmr/m/n/10 ) + [](\OML/cmm/m/it/10 s[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/1
 0 ^^T \OML/cmm/m/it/10 r$\OT1/cmr/m/n/10 , we have $[](\OML/cmm/m/it/10 ^^[[]\O
@@ -1797,83 +1697,94 @@ T1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; s[]\OT1/cmr/m/n/10 )) =
 
 
 [17]
+> Step: init table outer spec.
+> Step: parse table options.
+> Step: split table.
+> Step: init table inner spec.
+> Step: parse table inner spec.
+> Step: execute table commands.
+> Step: calculate cell and line sizes.
+> Step: build the whole table.
+
+Overfull \hbox (1.453pt too wide) detected at line 2113
+[]
+ []
+
+
 
 [18]
 
-LaTeX Warning: Citation `Code' on page 19 undefined on input line 2238.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2184.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2250.
+(hyperref)                removing `\Omega' on input line 2184.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Omega' on input line 2250.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2250.
-
-
-LaTeX Warning: Citation `euleridem' on page 19 undefined on input line 2250.
+(hyperref)                removing `math shift' on input line 2184.
 
 
 
-[19]
-No file article.bbl.
+[19] (./article.bbl
+Underfull \hbox (badness 1178) in paragraph at lines 86--89
+[]\OT1/cmr/m/n/8 Yuanyuan Zhang, Xing Gao, and Do-minique Man-chon. Free rota-b
+axter fam-ily al-ge-bras and free
+ []
 
+)
 
-[20] (./article.aux)
+[20{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.en
+c}] (./article.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `article.out' has not changed.
-(rerunfilecheck)             Checksum: 2ABEEEFD7F038D3234D3414D378B0428;4186.
+(rerunfilecheck)             Checksum: 30503D0E1F6DFD18D92F74D4CB36E6B8;4281.
  ) 
 Here is how much of TeX's memory you used:
- 36503 strings out of 473190
- 743665 string characters out of 5715800
- 1325076 words of memory out of 5000000
- 58938 multiletter control sequences out of 15000+600000
- 619791 words of font info for 199 fonts, out of 8000000 for 9000
+ 36591 strings out of 473190
+ 745718 string characters out of 5715806
+ 1412553 words of memory out of 5000000
+ 58998 multiletter control sequences out of 15000+600000
+ 621883 words of font info for 204 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 102i,17n,107p,921b,1311s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </Users/fromentin/Library/texlive/2025/texmf-var/fonts/pk/ljfour/public/bbm/
-bbm10.600pk></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6
-.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.p
-fb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/l
-ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
-l/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
-exlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
-ive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive
-/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/20
-25/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/20
-25/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/tex
-live/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary7.pfb>
-Output written on article.pdf (20 pages, 377140 bytes).
+ 102i,17n,108p,921b,1333s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/catoire/.texlive2025/texmf-var/fonts/pk/ljfour/public/bbm/bbm10.600pk
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></us
+r/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/tex
+live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texliv
+e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2
+025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2025/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist
+/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf
+-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2025/texmf-d
+ist/fonts/type1/public/stmaryrd/stmary7.pfb>
+Output written on article.pdf (20 pages, 405744 bytes).
 PDF statistics:
- 455 PDF objects out of 1000 (max. 8388607)
- 376 compressed objects within 4 object streams
- 121 named destinations out of 1000 (max. 500000)
- 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 525 PDF objects out of 1000 (max. 8388607)
+ 441 compressed objects within 5 object streams
+ 143 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
