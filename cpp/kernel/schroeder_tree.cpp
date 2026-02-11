@@ -207,6 +207,7 @@ SchroederTree::SchroederTree(const SchroederTree& Tl, const SchroederTree& Tr, c
   Int shift = Tl.n - 1;
   for(il = 0; il < Tl.h - l; ++ il) {
     p[h] = Tl.p[il] + (Tr.p[0] << shift) ;
+    cout << "@1 : " << il << " : " << p[h] << " from " << Tl.p[il] << endl;
     ++ h;   
   }
   // il is a step too far 
@@ -217,20 +218,25 @@ SchroederTree::SchroederTree(const SchroederTree& Tl, const SchroederTree& Tr, c
   for (int i = sigma.max_value(); i >= 0 ; -- i) {
     GType g = sigma.graft_type(i);
     if (g == GRight or g == GBoth) {
+      cout << "Consider right term" << endl;
       // Construct a right forest
       const ForestInfo& info = Tr.left_forest_infos[ifr --];
+      cout << "Copy the right forest" << endl;
       for (; ir < info.h; ++ ir) {
 	p[h] = Tl.p[il] + (Tr.p[ir] << shift) ;
+	cout << "@2 : " << il << " " << ir << " : " << p[h] << endl;
 	if (p[h] != p[h - 1]) ++ h; // Check if the new layer is different from the previous one
       }
       if (g == GBoth) ++ il;
       // Graft Right or (Left and Right)
       p[h] = Tl.p[il] + (Tr.p[ir] << shift);
+      cout << "Graft Right or Both : " << p[h] << endl;
       ++ h;
     }
     else {
       ++ il;
       p[h] = Tl.p[il] + (Tr.p[ir] << shift);
+      cout << "Graft Left only ; " << p[h] << endl;
       ++ h;   
     }
   }

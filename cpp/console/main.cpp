@@ -43,7 +43,39 @@ void latex_primitives_output(fstream& file, const unordered_set<SchroederVector<
   
 }
 int main() {
-
+  
+  SchroederTree TL = {31, 30, 26, 2};
+  SchroederTree TR = {31, 30, 26, 2};
+  cout << "TL " << endl;
+  TL.display();
+  Array<SchroederForest> FTL = TL.right_comb_splitting();
+  
+  for (int i = 0; i < FTL.size(); ++ i) {
+    FTL[i].display();
+  }
+  cout << "TR " << endl;
+  TR.display();
+  Array<SchroederForest> FTR = TR.left_comb_splitting();
+  for (int i = 0; i < FTR.size(); ++ i) {
+    FTR[i].display();
+  }
+  int k = TL.right_forests_length();
+  int l = TR.left_forests_length();
+  cout << "k = " << k << endl;
+  cout << "l = " << l << endl;
+  QuasiShuffle sigma(2,2);
+  int i = 0;
+  do{
+    if (i == 3) {
+      sigma.display();
+      SchroederTree T(TL, TR, sigma);
+      T.display();
+    }
+    ++ i;
+    
+  }while(sigma.next());
+  exit(0);
+  
   /*  SchroederTree T = {127,126,122,120,24,8};//511, 510,  494, 302, 14, 2}; //127, 123, 121, 120, 104, 40};
 
   T.display();
