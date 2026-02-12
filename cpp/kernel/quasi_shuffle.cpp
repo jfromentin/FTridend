@@ -22,6 +22,13 @@
 
 void QuasiShuffle::display() const {
   for(int i = 0; i < l + r; ++ i) cout << tab[i] + 1 << ' ';
+  cout << " : ";
+  for(int i = 0; i < l + r; ++ i){
+    GType g = graft_type(i);
+    if (g == GLeft) cout << 'L';
+    if (g == GRight) cout << 'R';
+    if (g == GBoth) cout << 'B';
+  }
   cout << endl;
 }
 

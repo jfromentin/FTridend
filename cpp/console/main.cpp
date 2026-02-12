@@ -66,13 +66,12 @@ int main() {
   QuasiShuffle sigma(2,2);
   int i = 0;
   do{
-    if (i == 3) {
+    cout << "----------------------" << endl;
       sigma.display();
       SchroederTree T(TL, TR, sigma);
       T.display();
-    }
-    ++ i;
-    
+      ++ i;
+      
   }while(sigma.next());
   exit(0);
   
