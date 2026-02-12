@@ -136,6 +136,12 @@ def atomic_product(T, S, qs):
     r = max(qs)
     print("R = ", R)
     print("L = ", L)
+    n = R.n + L.n
+    c = []
+    h = 0
+    gl = 0
+    gr = 0
+    mid = k + 1
     
 
     
