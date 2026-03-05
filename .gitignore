@@ -1,0 +1,7 @@
+ftridend
+*~
+cpp/*/*~
+cpp/*/*/*~
+obj/kernel/*.o
+article/*.gz
+python/.ipynb*
