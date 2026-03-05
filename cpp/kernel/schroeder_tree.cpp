@@ -110,7 +110,7 @@ void SchroederTree::display(ostream& os) const {
   }
 }
 
-void SchroederTree::compute_left_forest_infos() {
+/*void SchroederTree::compute_left_forest_infos() {
   number_left_forests = 0;
   // Test empty case
   if (h < 2) return;
@@ -241,9 +241,9 @@ SchroederTree::SchroederTree(const SchroederTree& Tl, const SchroederTree& Tr, c
     }
   }
   initialize();
-}
+  }*/
 
-string SchroederTree::to_latex() const {
+/*string SchroederTree::to_latex() const {
   string str = "\\begin{tikzpicture}\n";
   float x[N][N];
   
@@ -277,14 +277,7 @@ string SchroederTree::to_latex() const {
       for (int j = left; j <= n - 1; ++ j) x[y + 1][j] = x_avg;
     }
   }
-  /*for (int y = 1; y <= h; ++ y) {
-    cout << "y = " << y << " : ";
-    for (int i = 0; i < n; ++ i) {
-      cout << x[y][i] << '\t';
-    }
-    cout << endl;
-    }*/
-  for (int y = 1; y < h; ++ y) {
+    for (int y = 1; y < h; ++ y) {
     //cout << "y = " << y << endl;
     for (int i = 0; i < n; ++ i) {
       str += "\\draw (" + to_string(x[y][i]) + "," + to_string((h - y) / 4.0) + ") -- ("  + to_string(x[y + 1][i]) + "," + to_string((h - y - 1) / 4.0) + "); \n";
@@ -296,10 +289,10 @@ string SchroederTree::to_latex() const {
   str += "\\end{tikzpicture}\n";
   //cout << str << endl;
   return str;
-}
+}*/
 
 
-PackedWord
+/*PackedWord
 SchroederTree::packed_word() const {
   Array<int> res(n - 1);
   for (int i = 1; i < h; ++ i) {
@@ -408,7 +401,7 @@ void SchroederTree::normalize() {
     }
   }
   h -= dh;
-}
+  }*/
   
 //***********************
 //* Auxiliary functions *

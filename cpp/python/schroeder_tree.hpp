@@ -63,11 +63,11 @@ static PyMethodDef SchroederTreeMethods[] = {
   {"height", (PyCFunction)SchroederTree_height, METH_NOARGS, SchroederTree_height_doc},
   {"leaves", (PyCFunction)SchroederTree_leaves, METH_NOARGS, SchroederTree_leaves_doc},
   {"layer", (PyCFunction)SchroederTree_layer, METH_VARARGS, SchroederTree_layer_doc},
-  {"left_forests_length", (PyCFunction)SchroederTree_left_forests_length, METH_VARARGS, SchroederTree_left_forests_length_doc},
+  /*{"left_forests_length", (PyCFunction)SchroederTree_left_forests_length, METH_VARARGS, SchroederTree_left_forests_length_doc},
   {"right_forests_length", (PyCFunction)SchroederTree_right_forests_length, METH_VARARGS, SchroederTree_right_forests_length_doc},
   
   {"left_forest", (PyCFunction)SchroederTree_left_forest, METH_VARARGS, SchroederTree_left_forest_doc},
-  {"right_forest", (PyCFunction)SchroederTree_right_forest, METH_VARARGS, SchroederTree_right_forest_doc},
+  {"right_forest", (PyCFunction)SchroederTree_right_forest, METH_VARARGS, SchroederTree_right_forest_doc},*/
   {"display", (PyCFunction)SchroederTree_display, METH_NOARGS, SchroederTree_display_doc},
   {"tikz", (PyCFunction)SchroederTree_tikz, METH_NOARGS, "Return tikz code to draw current SchroederTree"},
   {NULL}
@@ -116,13 +116,13 @@ inline PyObject* SchroederTree_leaves(SchroederTreeObject* self, PyObject *Py_UN
   return PyLong_FromLong(self -> data.leaves());
 }
 
-inline PyObject* SchroederTree_left_forests_length(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
+/*inline PyObject* SchroederTree_left_forests_length(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
   return PyLong_FromLong(self -> data.left_forests_length());
 }
 
 inline PyObject* SchroederTree_right_forests_length(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
   return PyLong_FromLong(self -> data.right_forests_length());
-}
+  }*/
 
 inline PyObject* SchroederTree_display(SchroederTreeObject* self, PyObject *Py_UNUSED(ignored)) {
   ostringstream os;

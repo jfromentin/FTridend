@@ -39,7 +39,7 @@ static const char* SchroederTree_layer_doc = R"'''(
 Return the specified layer of the current SchroederTree.
 )'''";
 
-static const char* SchroederTree_left_forests_length_doc = R"'''(
+/*static const char* SchroederTree_left_forests_length_doc = R"'''(
 Return the number of forests of the tree seen as left comb.
 )'''";
 
@@ -53,7 +53,7 @@ Return the ith forest of the tree seen as left comb.
 
 static const char* SchroederTree_right_forest_doc = R"'''(
 Return the ith forest of the tree seen as right comb.
-)'''"; 
+)'''"; */
 
 static const char* SchroederTree_display_doc = R"'''(
 Return a string to display the current SchroederTree.

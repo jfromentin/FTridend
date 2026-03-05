@@ -21,8 +21,8 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 #include "schroeder_tree.hpp"
-#include "schroeder_forest.hpp"
-#include "schroeder_vector.hpp"
+//#include "schroeder_forest.hpp"
+//#include "schroeder_vector.hpp"
 
 static PyModuleDef ftridend_module = {
   .m_base = PyModuleDef_HEAD_INIT,
@@ -36,8 +36,8 @@ PyInit_ftridend(void)
 {
   PyObject *m;
   if (PyType_Ready(&SchroederTreeType) < 0) return NULL;
-  if (PyType_Ready(&SchroederForestType) < 0) return NULL;
-  if (PyType_Ready(&SchroederVectorType) < 0) return NULL;
+  //if (PyType_Ready(&SchroederForestType) < 0) return NULL;
+  //if (PyType_Ready(&SchroederVectorType) < 0) return NULL;
   
   m = PyModule_Create(&ftridend_module);
   if (m == NULL) return NULL;
@@ -46,14 +46,14 @@ PyInit_ftridend(void)
     Py_DECREF(m);
     return NULL;
   }
-  if (PyModule_AddObjectRef(m, "SchroederForest", (PyObject *)&SchroederForestType) < 0) {
+  /*if (PyModule_AddObjectRef(m, "SchroederForest", (PyObject *)&SchroederForestType) < 0) {
     Py_DECREF(m);
     return NULL;
   }
   if (PyModule_AddObjectRef(m, "SchroederVector", (PyObject *)&SchroederVectorType) < 0) {
     Py_DECREF(m);
     return NULL;
-  }
+    }*/
 
   return m;
 }

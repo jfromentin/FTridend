@@ -25,12 +25,12 @@ module_ftridend = Extension('ftridend',
     extra_compile_args = ['-std=c++20', '-O3', '-g'],
     include_dirs = [],
     sources = ['cpp/kernel/schroeder_tree.cpp',
-               'cpp/kernel/schroeder_forest.cpp',
-               'cpp/kernel/packed_word.cpp',
+               #'cpp/kernel/schroeder_forest.cpp',
+               #'cpp/kernel/packed_word.cpp',
                #
                'cpp/python/schroeder_tree.cpp',
-               'cpp/python/schroeder_forest.cpp',
-               'cpp/python/schroeder_vector.cpp',
+               #'cpp/python/schroeder_forest.cpp',
+               #'cpp/python/schroeder_vector.cpp',
                #
                'cpp/python/module.cpp'])
 

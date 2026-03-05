@@ -3,8 +3,8 @@ PYTHON 			= python/ftridend.so
 CPP 			= g++ --std=c++20 
 CFLAGS			= -O3 -Wall -g
 LIBS 			= #-lflint 
-SRC_OBJ 		= packed_word schroeder_tree schroeder_forest quasi_shuffle ordered_partition primitives
-PYTHON_SRC 		= setup.py module.cpp schroeder_tree.hpp schroeder_tree.cpp schroeder_forest.hpp schroeder_forest.cpp schroeder_vector.hpp schroeder_vector.cpp
+SRC_OBJ 		= schroeder_tree #packed_word schroeder_tree schroeder_forest quasi_shuffle ordered_partition primitives
+PYTHON_SRC 		= setup.py module.cpp schroeder_tree.hpp schroeder_tree.cpp #schroeder_forest.hpp schroeder_forest.cpp schroeder_vector.hpp schroeder_vector.cpp
 PYTHON_DOC		= schroeder_tree schroeder_forest schroeder_vector
 KER_OBJ 		= $(addprefix obj/kernel/,$(addsuffix .o,$(SRC_OBJ)))
 PYTHON_FILES 		= $(addprefix cpp/python/, $(PYTHON_SRC))

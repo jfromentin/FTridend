@@ -18,7 +18,7 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-#include "../kernel/schroeder_tree.hpp"
+/*#include "../kernel/schroeder_tree.hpp"
 #include "../kernel/schroeder_forest.hpp"
 #include "../kernel/quasi_shuffle.hpp"
 #include "../kernel/schroeder_vector.hpp"
@@ -29,11 +29,11 @@
 
 #include "../kernel/packed_word.hpp"
 
-#include <fstream>
+#include <fstream>*/
 using namespace std;
 
 
-void latex_primitives_output(fstream& file, const unordered_set<SchroederVector<int>>& tab) {
+/*void latex_primitives_output(fstream& file, const unordered_set<SchroederVector<int>>& tab) {
   file << "There is " << tab.size() << " elements." << endl;
   file << "\\begin{enumerate}" << endl;
   for (auto it = tab.begin(); it != tab.end(); ++ it) {
@@ -41,9 +41,9 @@ void latex_primitives_output(fstream& file, const unordered_set<SchroederVector<
   }
   file << "\\end{enumerate}" << endl;
   
-}
+  }*/
 int main() {
-  
+  /*
   SchroederTree TL = {31, 30, 26, 2};
   SchroederTree TR = {31, 30, 26, 2};
   cout << "TL " << endl;
@@ -73,7 +73,7 @@ int main() {
       ++ i;
       
   }while(sigma.next());
-  exit(0);
+  exit(0);*/
   
   /*  SchroederTree T = {127,126,122,120,24,8};//511, 510,  494, 302, 14, 2}; //127, 123, 121, 120, 104, 40};
 
@@ -85,7 +85,7 @@ int main() {
   //T.simple_cuts();
   exit(0);*/
 
-  string filename = "output.tex";
+  /* string filename = "output.tex";
   string filename_details = "details.tex";
   fstream latex_file, latex_details_file;
   latex_file.open(filename.c_str(), fstream::out | fstream::trunc);
@@ -129,7 +129,7 @@ int main() {
 	cout << to_string(u) << endl;
       }
     }
-    cout << endl;
+    cout << endl;*/
 
 						      
     //to_matrix(*tab);
@@ -151,15 +151,15 @@ int main() {
     //cout << line << endl << endl;
     //cout << "- There is " << P.size_co_associative(i) << " elements" << endl << endl;
     //P.display_co_associative(i);
-    if (i < deg - 1) P.next(latex_details_file);
+    //if (i < deg - 1) P.next(latex_details_file);
     //cout << endl;
-  }
+  //}
   //SchroederTree T = {127, 123, 121, 120, 104, 40};
   //latex_file << T.to_latex();
-  latex_file << "\\end{document}" << endl;
+  /*latex_file << "\\end{document}" << endl;
   latex_details_file << "\\end{document}" << endl;
   latex_file.close();
-  latex_details_file.close();
+  latex_details_file.close();*/
   /* SchroederTree T1 = {1};
   T1.display();
   SchroederVector<int> u = SchroederModule<int>::product(T1, T1, PMiddle);

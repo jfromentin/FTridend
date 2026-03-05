@@ -102,7 +102,7 @@ PyObject* SchroederTree_layer(SchroederTreeObject* self, PyObject* args) {
   return NULL; 
 }
 
-PyObject* SchroederTree_left_forest(SchroederTreeObject* self, PyObject* args) {
+/*PyObject* SchroederTree_left_forest(SchroederTreeObject* self, PyObject* args) {
   PyObject* ob = NULL;
   if(PyArg_UnpackTuple(args, "left_forest", 1, 1, &ob)) {
     if(!PyLong_CheckExact(ob)) {
@@ -140,4 +140,4 @@ PyObject* SchroederTree_right_forest(SchroederTreeObject* self, PyObject* args) 
   }
   PyErr_SetString(PyExc_AttributeError, "Exactly one argument is required.");
   return NULL; 
-}
+  }*/
