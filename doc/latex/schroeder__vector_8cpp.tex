@@ -1,0 +1,73 @@
+\doxysection{cpp/\+python/\+schroeder\+\_\+vector.cpp File Reference}
+\hypertarget{schroeder__vector_8cpp}{}\label{schroeder__vector_8cpp}\index{cpp/python/schroeder\_vector.cpp@{cpp/python/schroeder\_vector.cpp}}
+{\ttfamily \+\#include "{}schroeder\+\_\+tree.\+hpp"{}}\newline
+{\ttfamily \+\#include "{}schroeder\+\_\+vector.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{schroeder__vector_8cpp_a052354b8fc31a42172c44ab8e5e26601}{Schroeder\+Vector\+Init}} (\doxymbox{\hyperlink{structSchroederVectorObject}{Schroeder\+Vector\+Object}} \texorpdfstring{$\ast$}{*}self, Py\+Object \texorpdfstring{$\ast$}{*}args, Py\+Object \texorpdfstring{$\ast$}{*}Py\+\_\+\+UNUSED(ignored))
+\item 
+Py\+Object \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{schroeder__vector_8cpp_a95d6786880562e051e6eb3e4af128f97}{Schroeder\+Vector\+\_\+add}} (\doxymbox{\hyperlink{structSchroederVectorObject}{Schroeder\+Vector\+Object}} \texorpdfstring{$\ast$}{*}self, Py\+Object \texorpdfstring{$\ast$}{*}args)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Py\+Type\+Object \doxymbox{\hyperlink{schroeder__vector_8cpp_a161645db6ddf718f44a506f2d56cb712}{Schroeder\+Vector\+Type}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{schroeder__vector_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{schroeder__vector_8cpp_a95d6786880562e051e6eb3e4af128f97}\index{schroeder\_vector.cpp@{schroeder\_vector.cpp}!SchroederVector\_add@{SchroederVector\_add}}
+\index{SchroederVector\_add@{SchroederVector\_add}!schroeder\_vector.cpp@{schroeder\_vector.cpp}}
+\doxysubsubsection{\texorpdfstring{SchroederVector\_add()}{SchroederVector\_add()}}
+{\footnotesize\ttfamily \label{schroeder__vector_8cpp_a95d6786880562e051e6eb3e4af128f97} 
+Py\+Object \texorpdfstring{$\ast$}{*} Schroeder\+Vector\+\_\+add (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structSchroederVectorObject}{Schroeder\+Vector\+Object}} \texorpdfstring{$\ast$}{*}}]{self}{, }\item[{Py\+Object \texorpdfstring{$\ast$}{*}}]{args}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__vector_8cpp_source_l00076}{76}} of file \doxymbox{\hyperlink{schroeder__vector_8cpp_source}{schroeder\+\_\+vector.\+cpp}}.
+
+\Hypertarget{schroeder__vector_8cpp_a052354b8fc31a42172c44ab8e5e26601}\index{schroeder\_vector.cpp@{schroeder\_vector.cpp}!SchroederVectorInit@{SchroederVectorInit}}
+\index{SchroederVectorInit@{SchroederVectorInit}!schroeder\_vector.cpp@{schroeder\_vector.cpp}}
+\doxysubsubsection{\texorpdfstring{SchroederVectorInit()}{SchroederVectorInit()}}
+{\footnotesize\ttfamily \label{schroeder__vector_8cpp_a052354b8fc31a42172c44ab8e5e26601} 
+int Schroeder\+Vector\+Init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structSchroederVectorObject}{Schroeder\+Vector\+Object}} \texorpdfstring{$\ast$}{*}}]{self}{, }\item[{Py\+Object \texorpdfstring{$\ast$}{*}}]{args}{, }\item[{Py\+Object \texorpdfstring{$\ast$}{*}}]{Py\+\_\+\+UNUSED}{ignored}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__vector_8cpp_source_l00050}{50}} of file \doxymbox{\hyperlink{schroeder__vector_8cpp_source}{schroeder\+\_\+vector.\+cpp}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{schroeder__vector_8cpp_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{schroeder__vector_8cpp_a161645db6ddf718f44a506f2d56cb712}\index{schroeder\_vector.cpp@{schroeder\_vector.cpp}!SchroederVectorType@{SchroederVectorType}}
+\index{SchroederVectorType@{SchroederVectorType}!schroeder\_vector.cpp@{schroeder\_vector.cpp}}
+\doxysubsubsection{\texorpdfstring{SchroederVectorType}{SchroederVectorType}}
+{\footnotesize\ttfamily \label{schroeder__vector_8cpp_a161645db6ddf718f44a506f2d56cb712} 
+Py\+Type\+Object Schroeder\+Vector\+Type}
+
+{\bfseries Initial value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \{}
+\DoxyCodeLine{\ \ .ob\_base\ =\ PyVarObject\_HEAD\_INIT(NULL,\ 0)}
+\DoxyCodeLine{\ \ .tp\_name\ =\ \textcolor{stringliteral}{"{}ftridend.SchroederVector"{}},}
+\DoxyCodeLine{\ \ .tp\_basicsize\ =\ \textcolor{keyword}{sizeof}(\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}),}
+\DoxyCodeLine{\ \ .tp\_itemsize\ =\ 0,}
+\DoxyCodeLine{\ \ .tp\_repr\ =\ (reprfunc)\doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a8aff6c32aeccbda95cda8e79a84a8a71}{SchroederVectorRepr}},}
+\DoxyCodeLine{\ \ .tp\_hash\ =\ (hashfunc)\doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a8d3417d96f4f3345da293574e0c31162}{SchroederVectorHash}},}
+\DoxyCodeLine{\ \ .tp\_flags\ =\ Py\_TPFLAGS\_DEFAULT,}
+\DoxyCodeLine{\ \ .tp\_doc\ =\ PyDoc\_STR(\textcolor{stringliteral}{"{}SchroederVector"{}}),}
+\DoxyCodeLine{\ \ .tp\_methods\ =\ SchroederVectorMethods,}
+\DoxyCodeLine{\ \ .tp\_init\ =\ (initproc)\doxymbox{\hyperlink{schroeder__vector_8cpp_a052354b8fc31a42172c44ab8e5e26601}{SchroederVectorInit}},}
+\DoxyCodeLine{\ \ .tp\_new\ =\ PyType\_GenericNew,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__vector_8cpp_source_l00028}{28}} of file \doxymbox{\hyperlink{schroeder__vector_8cpp_source}{schroeder\+\_\+vector.\+cpp}}.
+

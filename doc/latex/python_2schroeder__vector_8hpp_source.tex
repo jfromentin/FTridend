@@ -1,0 +1,108 @@
+\doxysection{schroeder\+\_\+vector.\+hpp}
+\hypertarget{python_2schroeder__vector_8hpp_source}{}\label{python_2schroeder__vector_8hpp_source}\index{cpp/python/schroeder\_vector.hpp@{cpp/python/schroeder\_vector.hpp}}
+\doxymbox{\hyperlink{python_2schroeder__vector_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ PYTHON\_SCHROEDER\_VECTOR\_HPP}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#define\ PYTHON\_SCHROEDER\_VECTOR\_HPP}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <Python.h>}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{kernel_2schroeder__vector_8hpp}{../kernel/schroeder\_vector.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{python_2doc_2schroeder__vector_8hpp}{doc/schroeder\_vector.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00029}00029\ \textcolor{comment}{//**************************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00030}00030\ \textcolor{comment}{//*\ SchroederVector\ object\ *}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00031}00031\ \textcolor{comment}{//**************************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00033}\doxymbox{\hyperlink{structSchroederVectorObject}{00033}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00034}00034\ \ \ PyObject\_HEAD}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00035}\doxymbox{\hyperlink{structSchroederVectorObject_a446806084dab07f40f1200ba68f19b7e}{00035}}\ \ \ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<int>}}\ \doxymbox{\hyperlink{structSchroederVectorObject_a446806084dab07f40f1200ba68f19b7e}{data}};}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00036}00036\ \}\ \doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}};}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00038}00038\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00039}00039\ \textcolor{comment}{//\ Python\ operator}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00040}00040\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00042}\doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a88954da4b6bd95ee9aac37230e8cc330}{00042}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a88954da4b6bd95ee9aac37230e8cc330}{SchroederVectorInit}}(\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*,\ PyObject*,\ PyObject*);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00043}00043\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a83d52ce7c69af1a666c9ef789ce27edb}{PyObjectFromCpp}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<int>}}\&\ p);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00044}00044\ Py\_hash\_t\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a8d3417d96f4f3345da293574e0c31162}{SchroederVectorHash}}(\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00045}00045\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a8aff6c32aeccbda95cda8e79a84a8a71}{SchroederVectorRepr}}(\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00048}00048\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00049}00049\ \textcolor{comment}{//\ Member\ functions}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00050}00050\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00052}00052\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_ae64046c0cf3a780bebd1a05605e8947c}{SchroederVector\_add}}(\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*,\ PyObject*);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00053}\doxymbox{\hyperlink{python_2schroeder__vector_8hpp_aadfafa1b5f9cc42329c7989ee4f3e22a}{00053}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_aadfafa1b5f9cc42329c7989ee4f3e22a}{SchroederVector\_tikz}}(\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*,\ PyObject*);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00055}00055\ \textcolor{keyword}{static}\ PyMethodDef\ SchroederVectorMethods[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00056}00056\ \ \ \{\textcolor{stringliteral}{"{}add"{}},\ (PyCFunction)\doxymbox{\hyperlink{schroeder__vector_8cpp_a95d6786880562e051e6eb3e4af128f97}{SchroederVector\_add}},\ METH\_VARARGS,\ SchroederVector\_add\_doc\},}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00057}00057\ \ \ \{\textcolor{stringliteral}{"{}tikz"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__vector_8hpp_aadfafa1b5f9cc42329c7989ee4f3e22a}{SchroederVector\_tikz}},\ METH\_NOARGS,\ \textcolor{stringliteral}{"{}Return\ tikz\ code\ to\ draw\ current\ SchroederVector"{}}\},}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00058}00058\ \ \ \{NULL\}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00059}00059\ \};}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00061}00061\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00062}00062\ \textcolor{comment}{//\ Object\ declaration}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00063}00063\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00065}00065\ \textcolor{keyword}{extern}\ PyTypeObject\ \doxymbox{\hyperlink{schroeder__vector_8cpp_a161645db6ddf718f44a506f2d56cb712}{SchroederVectorType}};}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00067}00067\ \textcolor{comment}{//**************************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00068}00068\ \textcolor{comment}{//*\ Inline\ Python\ operator\ *}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00069}00069\ \textcolor{comment}{//**************************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00071}00071\ \textcolor{comment}{//\ Hash\ operator}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00072}00072\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00073}\doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a8d3417d96f4f3345da293574e0c31162}{00073}}\ Py\_hash\_t\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a8d3417d96f4f3345da293574e0c31162}{SchroederVectorHash}}(\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*\ self)\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00074}00074\ \ \ \textcolor{keywordflow}{return}\ self\ -\/>\ data.hash();}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00075}00075\ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00077}00077\ \textcolor{comment}{//\ Repr\ operator}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00078}00078\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00079}\doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a8aff6c32aeccbda95cda8e79a84a8a71}{00079}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a8aff6c32aeccbda95cda8e79a84a8a71}{SchroederVectorRepr}}(\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*\ self)\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00080}00080\ \ \ \textcolor{keyword}{const}\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00081}00081\ \ \ \textcolor{keywordtype}{string}\ res\ =\ \doxymbox{\hyperlink{array_8hpp_a29ec543824f311df1a91e42db46cfa73}{to\_string}}(self\ -\/>\ data);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00082}00082\ \ \ \textcolor{keywordflow}{return}\ PyUnicode\_FromString(res.c\_str());}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00085}00085\ \textcolor{comment}{//\ FromCpp\ operator}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00086}00086\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00087}\doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a83d52ce7c69af1a666c9ef789ce27edb}{00087}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a83d52ce7c69af1a666c9ef789ce27edb}{PyObjectFromCpp}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<int>}}\&\ cpp)\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00088}00088\ \ \ \doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*\ res\ =\ (\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*)\doxymbox{\hyperlink{schroeder__vector_8cpp_a161645db6ddf718f44a506f2d56cb712}{SchroederVectorType}}.tp\_alloc(\&\doxymbox{\hyperlink{schroeder__vector_8cpp_a161645db6ddf718f44a506f2d56cb712}{SchroederVectorType}},\ 1);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00089}00089\ \ \ res\ -\/>\ data\ =\ cpp;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00090}00090\ \ \ \textcolor{keywordflow}{return}\ (PyObject*)res;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00093}00093\ \textcolor{comment}{//***************************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00094}00094\ \textcolor{comment}{//*\ Inline\ member\ functions\ *}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00095}00095\ \textcolor{comment}{//***************************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00098}\doxymbox{\hyperlink{python_2schroeder__vector_8hpp_a5eb8cc4d819dd04f592b54e5295c783b}{00098}}\ \textcolor{keyword}{inline}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__vector_8hpp_aadfafa1b5f9cc42329c7989ee4f3e22a}{SchroederVector\_tikz}}(\doxymbox{\hyperlink{structSchroederVectorObject}{SchroederVectorObject}}*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00099}00099\ \ \ \textcolor{keywordflow}{return}\ PyUnicode\_FromString(self\ -\/>\ data.to\_latex().c\_str());}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__vector_8hpp_source_l00102}00102\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

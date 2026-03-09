@@ -1,0 +1,178 @@
+\doxysection{Schroeder\+Tensor\texorpdfstring{$<$}{<} R \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classSchroederTensor}{}\label{classSchroederTensor}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+
+
+{\ttfamily \+\#include $<$schroeder\+\_\+tensor.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{Schroeder\+Tensor}} ()
+\item 
+void \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}} (const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&tl, const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&tr, const R \&r=1)
+\item 
+void \doxymbox{\hyperlink{classSchroederTensor_a8182d2ef9557a945176cac42a78ba20f}{add}} (const \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ R $>$ \&ul, const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&tr, const R \&r=1)
+\item 
+void \doxymbox{\hyperlink{classSchroederTensor_a0ea3b0a0a122680f04ecfe178807dfba}{add}} (const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&tl, const \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ R $>$ \&ur, const R \&r=1)
+\item 
+void \doxymbox{\hyperlink{classSchroederTensor_a89e7da4a20b4df57b2619b5601d8869e}{add}} (const \doxymbox{\hyperlink{structElementarySchroederTensor}{Elementary\+Schroeder\+Tensor}} \&t, const R \&r=1)
+\item 
+void \doxymbox{\hyperlink{classSchroederTensor_a278bb3ec56f01c655e8725d99d84138d}{add}} (const \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$ \&u, const R \&r=1)
+\item 
+unordered\+\_\+map$<$ \doxymbox{\hyperlink{structElementarySchroederTensor}{Elementary\+Schroeder\+Tensor}}, R $>$::\+const\+\_\+iterator \doxymbox{\hyperlink{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8}{begin}} () const
+\item 
+unordered\+\_\+map$<$ \doxymbox{\hyperlink{structElementarySchroederTensor}{Elementary\+Schroeder\+Tensor}}, R $>$::\+const\+\_\+iterator \doxymbox{\hyperlink{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019}{end}} () const
+\item 
+bool \doxymbox{\hyperlink{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7}{is\+\_\+zero}} () const
+\item 
+\doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{Schroeder\+Tensor}} ()
+\item 
+void \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}} (const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&tl, const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&tr, const R \&r=1)
+\item 
+void \doxymbox{\hyperlink{classSchroederTensor_adb1690b6c8a386ea4e9acdff58315910}{add}} (const \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}} \&ul, const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&tr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class R$>$\newline
+class Schroeder\+Tensor$<$ R $>$}
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00041}{41}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classSchroederTensor_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!SchroederTensor@{SchroederTensor}}
+\index{SchroederTensor@{SchroederTensor}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{SchroederTensor()}{SchroederTensor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c} 
+template$<$class R$>$ \\
+\doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+\+Schroeder\+Tensor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00061}{61}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+\Hypertarget{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!SchroederTensor@{SchroederTensor}}
+\index{SchroederTensor@{SchroederTensor}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{SchroederTensor()}{SchroederTensor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c} 
+template$<$class R$>$ \\
+\doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+\+Schroeder\+Tensor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{classSchroederTensor_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSchroederTensor_a89e7da4a20b4df57b2619b5601d8869e}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!add@{add}}
+\index{add@{add}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \label{classSchroederTensor_a89e7da4a20b4df57b2619b5601d8869e} 
+template$<$class R$>$ \\
+void \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+add (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{structElementarySchroederTensor}{Elementary\+Schroeder\+Tensor}}$<$ R $>$ \&}]{t}{, }\item[{const R \&}]{r}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00095}{95}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+\Hypertarget{classSchroederTensor_a278bb3ec56f01c655e8725d99d84138d}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!add@{add}}
+\index{add@{add}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \label{classSchroederTensor_a278bb3ec56f01c655e8725d99d84138d} 
+template$<$class R$>$ \\
+void \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+add (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$ \&}]{u}{, }\item[{const R \&}]{r}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00106}{106}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+\Hypertarget{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!add@{add}}
+\index{add@{add}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \label{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470} 
+template$<$class R$>$ \\
+void \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+add (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&}]{tl}{, }\item[{const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&}]{tr}{, }\item[{const R \&}]{r}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00066}{66}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+\Hypertarget{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!add@{add}}
+\index{add@{add}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \label{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470} 
+template$<$class R$>$ \\
+void \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+add (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&}]{tl}{, }\item[{const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&}]{tr}{, }\item[{const R \&}]{r}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+\Hypertarget{classSchroederTensor_a0ea3b0a0a122680f04ecfe178807dfba}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!add@{add}}
+\index{add@{add}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \label{classSchroederTensor_a0ea3b0a0a122680f04ecfe178807dfba} 
+template$<$class R$>$ \\
+void \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+add (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&}]{tl}{, }\item[{const \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ R $>$ \&}]{ur}{, }\item[{const R \&}]{r}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00087}{87}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+\Hypertarget{classSchroederTensor_adb1690b6c8a386ea4e9acdff58315910}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!add@{add}}
+\index{add@{add}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \label{classSchroederTensor_adb1690b6c8a386ea4e9acdff58315910} 
+template$<$class R$>$ \\
+void \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+add (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}} \&}]{ul}{, }\item[{const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&}]{tr}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSchroederTensor_a8182d2ef9557a945176cac42a78ba20f}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!add@{add}}
+\index{add@{add}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \label{classSchroederTensor_a8182d2ef9557a945176cac42a78ba20f} 
+template$<$class R$>$ \\
+void \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+add (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ R $>$ \&}]{ul}{, }\item[{const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&}]{tr}{, }\item[{const R \&}]{r}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00080}{80}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+\Hypertarget{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!begin@{begin}}
+\index{begin@{begin}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \label{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8} 
+template$<$class R$>$ \\
+unordered\+\_\+map$<$ \doxymbox{\hyperlink{structElementarySchroederTensor}{Elementary\+Schroeder\+Tensor}}, R $>$::\+const\+\_\+iterator \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+begin (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00115}{115}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+\Hypertarget{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!end@{end}}
+\index{end@{end}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \label{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019} 
+template$<$class R$>$ \\
+unordered\+\_\+map$<$ \doxymbox{\hyperlink{structElementarySchroederTensor}{Elementary\+Schroeder\+Tensor}}, R $>$::\+const\+\_\+iterator \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+end (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00121}{121}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+\Hypertarget{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7}\index{SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}!is\_zero@{is\_zero}}
+\index{is\_zero@{is\_zero}!SchroederTensor$<$ R $>$@{SchroederTensor$<$ R $>$}}
+\doxysubsubsection{\texorpdfstring{is\_zero()}{is\_zero()}}
+{\footnotesize\ttfamily \label{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7} 
+template$<$class R$>$ \\
+bool \doxymbox{\hyperlink{classSchroederTensor}{Schroeder\+Tensor}}$<$ R $>$::\+is\+\_\+zero (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{schroeder__tensor_8hpp_source_l00127}{127}} of file \doxymbox{\hyperlink{schroeder__tensor_8hpp_source}{schroeder\+\_\+tensor.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+cpp/\+kernel/\+\doxymbox{\hyperlink{schroeder__tensor_8hpp}{schroeder\+\_\+tensor.\+hpp}}\item 
+cpp/\+kernel/\+\doxymbox{\hyperlink{tensor__schroeder__vector_8hpp}{tensor\+\_\+schroeder\+\_\+vector.\+hpp}}\end{DoxyCompactItemize}

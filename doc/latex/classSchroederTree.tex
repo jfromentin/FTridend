@@ -1,0 +1,292 @@
+\doxysection{Schroeder\+Tree Class Reference}
+\hypertarget{classSchroederTree}{}\label{classSchroederTree}\index{SchroederTree@{SchroederTree}}
+
+
+A class for levelled Schroeder tree.  
+
+
+
+
+{\ttfamily \+\#include $<$schroeder\+\_\+tree.\+hpp$>$}
+
+Inheritance diagram for Schroeder\+Tree:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSchroederTree}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{Schroeder\+Tree}} ()
+\item 
+\doxymbox{\hyperlink{classSchroederTree_a1adc06aa91cdc56149c6ce8d680a866b}{Schroeder\+Tree}} (const initializer\+\_\+list$<$ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} $>$ \&l)
+\item 
+bool \doxymbox{\hyperlink{classSchroederTree_ae3117b877ba28f6c6a5391fc84430edc}{validate}} ()
+\item 
+void \doxymbox{\hyperlink{classSchroederTree_a8193951e18576e5ac75260289ba9a962}{normalize}} ()
+\item 
+void \doxymbox{\hyperlink{classSchroederTree_af34543973169e962338927db0041fa81}{initialize}} ()
+\item 
+int \doxymbox{\hyperlink{classSchroederTree_aab3b80379f1e06e67c9e2f34e27f7759}{height}} () const
+\begin{DoxyCompactList}\small\item\em Return the height of the tree as a levelled tree. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{classSchroederTree_afd74f1645ea6c919ac36b60e420549bc}{angles}} () const
+\begin{DoxyCompactList}\small\item\em Return the number of angles of the tree. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} \doxymbox{\hyperlink{classSchroederTree_ac7f580aad91df00eea564f2ee299f01b}{layer}} (\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} i) const
+\item 
+void \doxymbox{\hyperlink{classSchroederTree_ac2e06155ba50619f00cc1af1ad85e351}{display}} (ostream \&os=cout) const
+\item 
+string \doxymbox{\hyperlink{classSchroederTree_afd0e3907c723900f716b11476850af44}{to\+\_\+latex}} () const
+\item 
+void \doxymbox{\hyperlink{classSchroederTree_aa605d5e86479865c726f0ba37777196a}{sage\+\_\+init}} (\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}, \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} n)
+\item 
+void \doxymbox{\hyperlink{classSchroederTree_a2d73da83434515dab3c934ad40a98c81}{sage\+\_\+set\+\_\+value}} (\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} i, \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} v)
+\item 
+size\+\_\+t \doxymbox{\hyperlink{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}{hash}} () const
+\item 
+bool \doxymbox{\hyperlink{classSchroederTree_aa805ddd462b3da5e3b16844a6f3aa4ee}{operator==}} (const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>uint8\_t \doxymbox{\hyperlink{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08}{na}}\\
+\>\>uint8\_t \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\\
+\>\>uint8\_t \doxymbox{\hyperlink{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7}{slcd}}\\
+\>\>uint8\_t \doxymbox{\hyperlink{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d}{srcd}}\\
+\>\} \\
+\>size\_t \doxymbox{\hyperlink{classSchroederTree_abeb073583c22a8985ce9544d911faf6d}{info}}\\
+\}; \\
+
+\end{tabbing}\item 
+\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} \doxymbox{\hyperlink{classSchroederTree_a9682ec343ffd84484dc2c59fc035ac28}{chain}} \+[N]\+
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for levelled Schroeder tree. 
+
+A levelled Schroeder tree with $n+1$ leaves is entierly characterized by an increasing initial chain of the poset $(\mathcal{P}([1..n]),\subseteq)$. 
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00057}{57}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classSchroederTree_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}\index{SchroederTree@{SchroederTree}!SchroederTree@{SchroederTree}}
+\index{SchroederTree@{SchroederTree}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{SchroederTree()}{SchroederTree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93} 
+Schroeder\+Tree::\+\+Schroeder\+Tree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00125}{125}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_a1adc06aa91cdc56149c6ce8d680a866b}\index{SchroederTree@{SchroederTree}!SchroederTree@{SchroederTree}}
+\index{SchroederTree@{SchroederTree}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{SchroederTree()}{SchroederTree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classSchroederTree_a1adc06aa91cdc56149c6ce8d680a866b} 
+Schroeder\+Tree::\+\+Schroeder\+Tree (\begin{DoxyParamCaption}\item[{const initializer\+\_\+list$<$ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} $>$ \&}]{l}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8cpp_source_l00035}{35}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8cpp_source}{schroeder\+\_\+tree.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classSchroederTree_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSchroederTree_afd74f1645ea6c919ac36b60e420549bc}\index{SchroederTree@{SchroederTree}!angles@{angles}}
+\index{angles@{angles}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{angles()}{angles()}}
+{\footnotesize\ttfamily \label{classSchroederTree_afd74f1645ea6c919ac36b60e420549bc} 
+int Schroeder\+Tree::\+angles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the number of angles of the tree. 
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00161}{161}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_ac2e06155ba50619f00cc1af1ad85e351}\index{SchroederTree@{SchroederTree}!display@{display}}
+\index{display@{display}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \label{classSchroederTree_ac2e06155ba50619f00cc1af1ad85e351} 
+void Schroeder\+Tree::\+display (\begin{DoxyParamCaption}\item[{ostream \&}]{os}{ = {\ttfamily cout}}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8cpp_source_l00051}{51}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8cpp_source}{schroeder\+\_\+tree.\+cpp}}.
+
+\Hypertarget{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}\index{SchroederTree@{SchroederTree}!hash@{hash}}
+\index{hash@{hash}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
+{\footnotesize\ttfamily \label{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad} 
+size\+\_\+t Schroeder\+Tree::\+hash (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00195}{195}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_aab3b80379f1e06e67c9e2f34e27f7759}\index{SchroederTree@{SchroederTree}!height@{height}}
+\index{height@{height}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily \label{classSchroederTree_aab3b80379f1e06e67c9e2f34e27f7759} 
+int Schroeder\+Tree::\+height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return the height of the tree as a levelled tree. 
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00156}{156}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_af34543973169e962338927db0041fa81}\index{SchroederTree@{SchroederTree}!initialize@{initialize}}
+\index{initialize@{initialize}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{classSchroederTree_af34543973169e962338927db0041fa81} 
+void Schroeder\+Tree::\+initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00149}{149}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_ac7f580aad91df00eea564f2ee299f01b}\index{SchroederTree@{SchroederTree}!layer@{layer}}
+\index{layer@{layer}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{layer()}{layer()}}
+{\footnotesize\ttfamily \label{classSchroederTree_ac7f580aad91df00eea564f2ee299f01b} 
+\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} Schroeder\+Tree::\+layer (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00176}{176}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_a8193951e18576e5ac75260289ba9a962}\index{SchroederTree@{SchroederTree}!normalize@{normalize}}
+\index{normalize@{normalize}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily \label{classSchroederTree_a8193951e18576e5ac75260289ba9a962} 
+void Schroeder\+Tree::\+normalize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSchroederTree_aa805ddd462b3da5e3b16844a6f3aa4ee}\index{SchroederTree@{SchroederTree}!operator==@{operator==}}
+\index{operator==@{operator==}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{classSchroederTree_aa805ddd462b3da5e3b16844a6f3aa4ee} 
+bool Schroeder\+Tree::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&}]{t}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00202}{202}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_aa605d5e86479865c726f0ba37777196a}\index{SchroederTree@{SchroederTree}!sage\_init@{sage\_init}}
+\index{sage\_init@{sage\_init}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{sage\_init()}{sage\_init()}}
+{\footnotesize\ttfamily \label{classSchroederTree_aa605d5e86479865c726f0ba37777196a} 
+void Schroeder\+Tree::\+sage\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}}]{h}{, }\item[{\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}}]{n}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSchroederTree_a2d73da83434515dab3c934ad40a98c81}\index{SchroederTree@{SchroederTree}!sage\_set\_value@{sage\_set\_value}}
+\index{sage\_set\_value@{sage\_set\_value}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{sage\_set\_value()}{sage\_set\_value()}}
+{\footnotesize\ttfamily \label{classSchroederTree_a2d73da83434515dab3c934ad40a98c81} 
+void Schroeder\+Tree::\+sage\+\_\+set\+\_\+value (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}}]{i}{, }\item[{\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}}]{v}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classSchroederTree_afd0e3907c723900f716b11476850af44}\index{SchroederTree@{SchroederTree}!to\_latex@{to\_latex}}
+\index{to\_latex@{to\_latex}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{to\_latex()}{to\_latex()}}
+{\footnotesize\ttfamily \label{classSchroederTree_afd0e3907c723900f716b11476850af44} 
+string Schroeder\+Tree::\+to\+\_\+latex (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{classSchroederTree_ae3117b877ba28f6c6a5391fc84430edc}\index{SchroederTree@{SchroederTree}!validate@{validate}}
+\index{validate@{validate}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily \label{classSchroederTree_ae3117b877ba28f6c6a5391fc84430edc} 
+bool Schroeder\+Tree::\+validate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8cpp_source_l00024}{24}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8cpp_source}{schroeder\+\_\+tree.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classSchroederTree_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classSchroederTree_a69b55761fcf4d4c148a83c3d9826759d}\doxysubsubsection{\texorpdfstring{[union]}{[union]}}
+{\footnotesize\ttfamily \label{classSchroederTree_a69b55761fcf4d4c148a83c3d9826759d} 
+union  \{ ... \}  \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classSchroederTree_a9682ec343ffd84484dc2c59fc035ac28}\index{SchroederTree@{SchroederTree}!chain@{chain}}
+\index{chain@{chain}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{chain}{chain}}
+{\footnotesize\ttfamily \label{classSchroederTree_a9682ec343ffd84484dc2c59fc035ac28} 
+\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} Schroeder\+Tree::\+chain\+[N]\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00068}{68}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}\index{SchroederTree@{SchroederTree}!h@{h}}
+\index{h@{h}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily \label{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d} 
+uint8\+\_\+t Schroeder\+Tree::\+h}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00062}{62}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_abeb073583c22a8985ce9544d911faf6d}\index{SchroederTree@{SchroederTree}!info@{info}}
+\index{info@{info}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{info}{info}}
+{\footnotesize\ttfamily \label{classSchroederTree_abeb073583c22a8985ce9544d911faf6d} 
+size\+\_\+t Schroeder\+Tree::\+info}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00066}{66}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08}\index{SchroederTree@{SchroederTree}!na@{na}}
+\index{na@{na}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{na}{na}}
+{\footnotesize\ttfamily \label{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08} 
+uint8\+\_\+t Schroeder\+Tree::\+na}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00061}{61}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7}\index{SchroederTree@{SchroederTree}!slcd@{slcd}}
+\index{slcd@{slcd}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{slcd}{slcd}}
+{\footnotesize\ttfamily \label{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7} 
+uint8\+\_\+t Schroeder\+Tree::\+slcd}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00063}{63}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+\Hypertarget{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d}\index{SchroederTree@{SchroederTree}!srcd@{srcd}}
+\index{srcd@{srcd}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{srcd}{srcd}}
+{\footnotesize\ttfamily \label{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d} 
+uint8\+\_\+t Schroeder\+Tree::\+srcd}
+
+
+
+Definition at line \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source_l00064}{64}} of file \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_source}{schroeder\+\_\+tree.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+cpp/\+kernel/\+\doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp}{schroeder\+\_\+tree.\+hpp}}\item 
+cpp/\+kernel/\+\doxymbox{\hyperlink{kernel_2schroeder__tree_8cpp}{schroeder\+\_\+tree.\+cpp}}\end{DoxyCompactItemize}

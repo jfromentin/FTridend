@@ -1,0 +1,67 @@
+\doxysection{schroeder\+\_\+forest.\+hpp}
+\hypertarget{kernel_2schroeder__forest_8hpp_source}{}\label{kernel_2schroeder__forest_8hpp_source}\index{cpp/kernel/schroeder\_forest.hpp@{cpp/kernel/schroeder\_forest.hpp}}
+\doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ SCHROEDER\_FOREST\_HPP}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#define\ SCHROEDER\_FOREST\_HPP}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <bit>}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp}{schroeder\_tree.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00027}00027\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00029}\doxymbox{\hyperlink{classSchroederForest}{00029}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSchroederForest_af8ddf6951739e2147fa7c9dde190703c}{SchroederForest}}:\textcolor{keyword}{public}\ SchroederTree\{}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00030}00030\ \ \ \textcolor{keyword}{friend}\ SchroederTree;}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00031}00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00032}00032\ \ \ \textcolor{keywordtype}{int}\ s;}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00033}00033\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00034}00034\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederForest_aab4efff0e864a718a848f471364cd519}{compute\_size}}();}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00035}00035\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00036}00036\ \ \ \doxymbox{\hyperlink{classSchroederForest_af8ddf6951739e2147fa7c9dde190703c}{SchroederForest}}();}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00037}00037\ \ \ \doxymbox{\hyperlink{classSchroederForest_af8ddf6951739e2147fa7c9dde190703c}{SchroederForest}}(\textcolor{keyword}{const}\ SchroederTree\&\ T);}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00038}00038\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederForest_ac757adf0b5c4a2ee5bb331d785e4164a}{display}}(ostream\&\ os\ =\ cout)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00039}00039\ \ \ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ \doxymbox{\hyperlink{classSchroederForest_a39bf84f043e922a0df3c0a7b7c83523f}{size}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00040}00040\ \};}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00042}00042\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00043}\doxymbox{\hyperlink{classSchroederForest_af8ddf6951739e2147fa7c9dde190703c}{00043}}\ \doxymbox{\hyperlink{classSchroederForest_af8ddf6951739e2147fa7c9dde190703c}{SchroederForest::SchroederForest}}()\{}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00046}00046\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00047}\doxymbox{\hyperlink{classSchroederForest_a6c3f79c857cade6e3072b24cff67ceec}{00047}}\ \doxymbox{\hyperlink{classSchroederForest_af8ddf6951739e2147fa7c9dde190703c}{SchroederForest::SchroederForest}}(\textcolor{keyword}{const}\ SchroederTree\&\ T):\ SchroederTree(T)\ \{}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00048}00048\ \ \ \doxymbox{\hyperlink{classSchroederForest_aab4efff0e864a718a848f471364cd519}{compute\_size}}();\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00049}00049\ \}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00051}00051\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00052}\doxymbox{\hyperlink{classSchroederForest_aab4efff0e864a718a848f471364cd519}{00052}}\ \doxymbox{\hyperlink{classSchroederForest_aab4efff0e864a718a848f471364cd519}{SchroederForest::compute\_size}}()\ \{}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00053}00053\ \ \ s\ =\ popcount(p[\doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00056}00056\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00057}\doxymbox{\hyperlink{classSchroederForest_a39bf84f043e922a0df3c0a7b7c83523f}{00057}}\ \doxymbox{\hyperlink{classSchroederForest_a39bf84f043e922a0df3c0a7b7c83523f}{SchroederForest::size}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00058}00058\ \ \ \textcolor{keywordflow}{return}\ s;}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{kernel_2schroeder__forest_8hpp_source_l00061}00061\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

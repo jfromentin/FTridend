@@ -1,0 +1,149 @@
+\doxysection{schroeder\+\_\+tree.\+cpp}
+\hypertarget{python_2schroeder__tree_8cpp_source}{}\label{python_2schroeder__tree_8cpp_source}\index{cpp/python/schroeder\_tree.cpp@{cpp/python/schroeder\_tree.cpp}}
+\doxymbox{\hyperlink{python_2schroeder__tree_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp}{schroeder\_tree.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{python_2schroeder__forest_8hpp}{schroeder\_forest.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00024}00024\ \textcolor{comment}{//***************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00025}00025\ \textcolor{comment}{//*\ Python\ type\ *}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00026}00026\ \textcolor{comment}{//***************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00028}\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{00028}}\ PyTypeObject\ \doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{SchroederTreeType}}\ =\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00029}00029\ \ \ .ob\_base\ =\ PyVarObject\_HEAD\_INIT(NULL,\ 0)}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00030}00030\ \ \ .tp\_name\ =\ \textcolor{stringliteral}{"{}ftridend.SchroederTree"{}},}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00031}00031\ \ \ .tp\_basicsize\ =\ \textcolor{keyword}{sizeof}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}),}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00032}00032\ \ \ .tp\_itemsize\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00033}00033\ \ \ .tp\_repr\ =\ (reprfunc)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5fc8af67fc2ac629fadfdff046d8212c}{SchroederTreeRepr}},}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00034}00034\ \ \ .tp\_hash\ =\ (hashfunc)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a25673c11063e138611db37a400db4853}{SchroederTreeHash}},}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00035}00035\ \ \ .tp\_flags\ =\ Py\_TPFLAGS\_DEFAULT,}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00036}00036\ \ \ .tp\_doc\ =\ PyDoc\_STR(\textcolor{stringliteral}{"{}SchroederTree"{}}),}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00037}00037\ \ \ .tp\_methods\ =\ SchroederTreeMethods,}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00038}00038\ \ \ .tp\_init\ =\ (initproc)\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_acfc2731bba1961b98be3a1039ef7bb07}{SchroederTreeInit}},}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00039}00039\ \ \ .tp\_new\ =\ PyType\_GenericNew,}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00040}00040\ \};}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00042}00042\ \textcolor{comment}{//********************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00043}00043\ \textcolor{comment}{//*\ Python\ operators\ *}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00044}00044\ \textcolor{comment}{//********************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00046}00046\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00047}00047\ \textcolor{comment}{//\ Initialisation}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00048}00048\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00050}\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_acfc2731bba1961b98be3a1039ef7bb07}{00050}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{python_2schroeder__tree_8cpp_acfc2731bba1961b98be3a1039ef7bb07}{SchroederTreeInit}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject*\ args,\ PyObject*\ Py\_UNUSED(ignored))\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00051}00051\ \ \ PyObject*\ ob\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00052}00052\ \ \ \textcolor{keywordflow}{if}\ (PyArg\_UnpackTuple(args,\ \textcolor{stringliteral}{"{}SchroederTreeInit"{}},\ 0,\ 1,\ \&ob))\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (ob\ ==\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00054}00054\ \ \ \ \ \ \ \textcolor{comment}{//\ Call\ empty\ constructor}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00055}00055\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00058}00058\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (PyList\_CheckExact(ob))\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00059}00059\ \ \ \ \ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ h\ =\ PyList\_Size(ob)\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00060}00060\ \ \ \ \ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ v\ =\ PyLong\_AsLong(PyList\_GetItem(ob,\ 0));}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00061}00061\ \ \ \ \ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ n\ =\ popcount(v)\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00062}00062\ \ \ \ \ self\ -\/>\ data.sage\_init(h,\ n);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00063}00063\ \ \ \ \ self\ -\/>\ data.sage\_set\_value(0,\ v);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ h\ -\/\ 1;\ ++\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00065}00065\ \ \ \ \ \ \ v\ =\ PyLong\_AsLong(PyList\_GetItem(ob,i));}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00066}00066\ \ \ \ \ \ \ self\ -\/>\ data.sage\_set\_value(i,\ v);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00067}00067\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (not\ self\ -\/>\ data.validate())\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00069}00069\ \ \ \ \ \ \ PyErr\_SetString(PyExc\_AttributeError,\ \textcolor{stringliteral}{"{}The\ chain\ is\ not\ valid"{}});}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00070}00070\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00072}00072\ \ \ \ \ self\ -\/>\ data.initialize();}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00074}00074\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00075}00075\ \ \ \ \ \ \ PyErr\_SetString(PyExc\_AttributeError,\ \textcolor{stringliteral}{"{}A\ list\ of\ integer\ is\ required"{}});}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00076}00076\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00078}00078\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00079}00079\ \ \ PyErr\_SetString(PyExc\_AttributeError,\ \textcolor{stringliteral}{"{}At\ most\ one\ argument\ is\ required"{}});}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00080}00080\ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00081}00081\ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00083}00083\ \textcolor{comment}{//********************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00084}00084\ \textcolor{comment}{//*\ Member\ functions\ *}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00085}00085\ \textcolor{comment}{//********************}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00087}\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_a106dbf8f4bd8fa7a8ace9afd70b41f59}{00087}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8cpp_a106dbf8f4bd8fa7a8ace9afd70b41f59}{SchroederTree\_layer}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject*\ args)\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00088}00088\ \ \ PyObject*\ ob\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00089}00089\ \ \ \textcolor{keywordflow}{if}(PyArg\_UnpackTuple(args,\ \textcolor{stringliteral}{"{}get"{}},\ 1,\ 1,\ \&ob))\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{if}(PyLong\_CheckExact(ob))\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00091}00091\ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ i\ =\ PyLong\_AsLong(ob);}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00092}00092\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 0\ or\ i\ >=\ self\ -\/>\ data.height())\ \{}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00093}00093\ \ \ \ \ PyErr\_SetString(PyExc\_AttributeError,\ \textcolor{stringliteral}{"{}Index\ out\ of\ range."{}});}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00095}00095\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00096}00096\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PyLong\_FromLong(self\ -\/>\ data.layer(i));\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00098}00098\ \ \ \ \ PyErr\_SetString(PyExc\_AttributeError,\ \textcolor{stringliteral}{"{}Argument\ must\ be\ an\ integer."{}});}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00100}00100\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00101}00101\ \ \ PyErr\_SetString(PyExc\_AttributeError,\ \textcolor{stringliteral}{"{}Exactly\ one\ argument\ is\ required."{}});}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00102}00102\ \ \ \textcolor{keywordflow}{return}\ NULL;\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00105}00105\ \textcolor{comment}{/*PyObject*\ SchroederTree\_left\_forest(SchroederTreeObject*\ self,\ PyObject*\ args)\ \{}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00106}00106\ \textcolor{comment}{\ \ PyObject*\ ob\ =\ NULL;}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00107}00107\ \textcolor{comment}{\ \ if(PyArg\_UnpackTuple(args,\ "{}left\_forest"{},\ 1,\ 1,\ \&ob))\ \{}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00108}00108\ \textcolor{comment}{\ \ \ \ if(!PyLong\_CheckExact(ob))\ \{}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00109}00109\ \textcolor{comment}{\ \ \ \ \ \ PyErr\_SetString(PyExc\_AttributeError,\ "{}Argument\ must\ be\ an\ integer."{});}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00110}00110\ \textcolor{comment}{\ \ \ \ \ \ return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00111}00111\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00112}00112\ \textcolor{comment}{\ \ \ \ long\ i\ =\ PyLong\_AsLong(ob);}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00113}00113\ \textcolor{comment}{\ \ \ \ if\ (i\ <\ 0\ or\ i\ >=\ self\ -\/>\ data.left\_forests\_length())\ \{}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00114}00114\ \textcolor{comment}{\ \ \ \ \ \ PyErr\_SetString(PyExc\_AttributeError,\ "{}Index\ out\ of\ range."{});}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00115}00115\ \textcolor{comment}{\ \ \ \ \ \ return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00116}00116\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00117}00117\ \textcolor{comment}{\ \ \ \ SchroederForestObject*\ res\ =\ (SchroederForestObject*)SchroederForestType.tp\_alloc(\&SchroederForestType,\ 1);}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00118}00118\ \textcolor{comment}{\ \ \ \ self\ -\/>\ data.set\_left\_comb\_forest(res\ -\/>\ data,\ i);}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00119}00119\ \textcolor{comment}{\ \ \ \ return\ (PyObject*)res;}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00120}00120\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00121}00121\ \textcolor{comment}{\ \ PyErr\_SetString(PyExc\_AttributeError,\ "{}Exactly\ one\ argument\ is\ required."{});}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00122}00122\ \textcolor{comment}{\ \ return\ NULL;\ }}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00123}00123\ \textcolor{comment}{\}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00124}00124\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00125}00125\ \textcolor{comment}{PyObject*\ SchroederTree\_right\_forest(SchroederTreeObject*\ self,\ PyObject*\ args)\ \{}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00126}00126\ \textcolor{comment}{\ \ PyObject*\ ob\ =\ NULL;}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00127}00127\ \textcolor{comment}{\ \ if(PyArg\_UnpackTuple(args,\ "{}left\_forest"{},\ 1,\ 1,\ \&ob))\ \{}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00128}00128\ \textcolor{comment}{\ \ \ \ if(!PyLong\_CheckExact(ob))\ \{}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00129}00129\ \textcolor{comment}{\ \ \ \ \ \ PyErr\_SetString(PyExc\_AttributeError,\ "{}Argument\ must\ be\ an\ integer."{});}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00130}00130\ \textcolor{comment}{\ \ \ \ \ \ return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00131}00131\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00132}00132\ \textcolor{comment}{\ \ \ \ long\ i\ =\ PyLong\_AsLong(ob);}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00133}00133\ \textcolor{comment}{\ \ \ \ if\ (i\ <\ 0\ or\ i\ >=\ self\ -\/>\ data.right\_forests\_length())\ \{}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00134}00134\ \textcolor{comment}{\ \ \ \ \ \ PyErr\_SetString(PyExc\_AttributeError,\ "{}Index\ out\ of\ range."{});}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00135}00135\ \textcolor{comment}{\ \ \ \ \ \ return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00136}00136\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00137}00137\ \textcolor{comment}{\ \ \ \ SchroederForestObject*\ res\ =\ (SchroederForestObject*)SchroederForestType.tp\_alloc(\&SchroederForestType,\ 1);}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00138}00138\ \textcolor{comment}{\ \ \ \ self\ -\/>\ data.set\_right\_comb\_forest(res\ -\/>\ data,\ i);}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00139}00139\ \textcolor{comment}{\ \ \ \ return\ (PyObject*)\ res;}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00140}00140\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00141}00141\ \textcolor{comment}{\ \ PyErr\_SetString(PyExc\_AttributeError,\ "{}Exactly\ one\ argument\ is\ required."{});}}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00142}00142\ \textcolor{comment}{\ \ return\ NULL;\ }}
+\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8cpp_source_l00143}00143\ \textcolor{comment}{\ \ \}*/}}
+
+\end{DoxyCode}

@@ -1,0 +1,232 @@
+\doxysection{Primitives Class Reference}
+\hypertarget{classPrimitives}{}\label{classPrimitives}\index{Primitives@{Primitives}}
+
+
+{\ttfamily \+\#include $<$primitives.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ \doxymbox{\hyperlink{classPrimitives_afc475b38be8879b37e810e64b61af17b}{theta}} (const \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ \&)
+\item 
+\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ \doxymbox{\hyperlink{classPrimitives_ac74754baed632c70d0c420e61aadf667}{omega}} (int l, fstream \&file)
+\item 
+\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ \doxymbox{\hyperlink{classPrimitives_a71ecadc59d4a8c3dd7f769bbb38d107c}{omega\+\_\+left}} (int first, int last)
+\item 
+\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ \doxymbox{\hyperlink{classPrimitives_a1e9a77bd205a1ad08bff03adba93a46b}{omega\+\_\+right\+\_\+middle}} (int first, int last)
+\item 
+\doxymbox{\hyperlink{classPrimitives_a064bdc976c3a8f0fc40205d820a0faa6}{Primitives}} ()
+\item 
+void \doxymbox{\hyperlink{classPrimitives_acb517489c572f57db0e6f58badfbf596}{init}} ()
+\item 
+int \doxymbox{\hyperlink{classPrimitives_a268dd289c9646ba77ccbbe270d373459}{rank}} () const
+\item 
+int \doxymbox{\hyperlink{classPrimitives_a15cf6704fbe302f8732c99eb4ec04385}{size\+\_\+co\+\_\+associative}} (int i) const
+\item 
+int \doxymbox{\hyperlink{classPrimitives_a7f4533619b2cbd7d14dcd24f2994066c}{size\+\_\+co\+\_\+dendriform}} (int i) const
+\item 
+void \doxymbox{\hyperlink{classPrimitives_a3ee2bc2270aab05ad4d71abe2e127b66}{display\+\_\+co\+\_\+dendriform}} (int i) const
+\item 
+void \doxymbox{\hyperlink{classPrimitives_ad2b909435bbde9b3e6549ca7fbeeed61}{display\+\_\+co\+\_\+associative}} (int i) const
+\item 
+void \doxymbox{\hyperlink{classPrimitives_aef9bec4dd4f4749e9ac61f65553b671e}{next}} (fstream \&file)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unordered\+\_\+set$<$ \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ $>$ \doxymbox{\hyperlink{classPrimitives_a0ce94aa5dbb7c7bf1667268672df076c}{co\+\_\+dendriform}} \+[N]\+
+\item 
+unordered\+\_\+set$<$ \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ $>$ \doxymbox{\hyperlink{classPrimitives_adfc30d840d874dc8932ba234fa3cce9d}{co\+\_\+associative}} \+[N]\+
+\item 
+size\+\_\+t \doxymbox{\hyperlink{classPrimitives_ae78f0202f61f406a2aeb7063bb8d7464}{n}}
+\item 
+unordered\+\_\+set$<$ \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ $>$::\+const\+\_\+iterator \doxymbox{\hyperlink{classPrimitives_a144b5e8e9ccfa5d30a584f4485eb1024}{tuple}} \+[N]\+
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8hpp_source_l00031}{31}} of file \doxymbox{\hyperlink{primitives_8hpp_source}{primitives.\+hpp}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classPrimitives_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPrimitives_a064bdc976c3a8f0fc40205d820a0faa6}\index{Primitives@{Primitives}!Primitives@{Primitives}}
+\index{Primitives@{Primitives}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{Primitives()}{Primitives()}}
+{\footnotesize\ttfamily \label{classPrimitives_a064bdc976c3a8f0fc40205d820a0faa6} 
+Primitives::\+\+Primitives (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8hpp_source_l00054}{54}} of file \doxymbox{\hyperlink{primitives_8hpp_source}{primitives.\+hpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classPrimitives_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPrimitives_ad2b909435bbde9b3e6549ca7fbeeed61}\index{Primitives@{Primitives}!display\_co\_associative@{display\_co\_associative}}
+\index{display\_co\_associative@{display\_co\_associative}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{display\_co\_associative()}{display\_co\_associative()}}
+{\footnotesize\ttfamily \label{classPrimitives_ad2b909435bbde9b3e6549ca7fbeeed61} 
+void Primitives::\+display\+\_\+co\+\_\+associative (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8cpp_source_l00052}{52}} of file \doxymbox{\hyperlink{primitives_8cpp_source}{primitives.\+cpp}}.
+
+\Hypertarget{classPrimitives_a3ee2bc2270aab05ad4d71abe2e127b66}\index{Primitives@{Primitives}!display\_co\_dendriform@{display\_co\_dendriform}}
+\index{display\_co\_dendriform@{display\_co\_dendriform}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{display\_co\_dendriform()}{display\_co\_dendriform()}}
+{\footnotesize\ttfamily \label{classPrimitives_a3ee2bc2270aab05ad4d71abe2e127b66} 
+void Primitives::\+display\+\_\+co\+\_\+dendriform (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8cpp_source_l00041}{41}} of file \doxymbox{\hyperlink{primitives_8cpp_source}{primitives.\+cpp}}.
+
+\Hypertarget{classPrimitives_acb517489c572f57db0e6f58badfbf596}\index{Primitives@{Primitives}!init@{init}}
+\index{init@{init}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{classPrimitives_acb517489c572f57db0e6f58badfbf596} 
+void Primitives::\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8cpp_source_l00033}{33}} of file \doxymbox{\hyperlink{primitives_8cpp_source}{primitives.\+cpp}}.
+
+\Hypertarget{classPrimitives_aef9bec4dd4f4749e9ac61f65553b671e}\index{Primitives@{Primitives}!next@{next}}
+\index{next@{next}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \label{classPrimitives_aef9bec4dd4f4749e9ac61f65553b671e} 
+void Primitives::\+next (\begin{DoxyParamCaption}\item[{fstream \&}]{file}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8cpp_source_l00063}{63}} of file \doxymbox{\hyperlink{primitives_8cpp_source}{primitives.\+cpp}}.
+
+\Hypertarget{classPrimitives_ac74754baed632c70d0c420e61aadf667}\index{Primitives@{Primitives}!omega@{omega}}
+\index{omega@{omega}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{omega()}{omega()}}
+{\footnotesize\ttfamily \label{classPrimitives_ac74754baed632c70d0c420e61aadf667} 
+\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ Primitives::\+omega (\begin{DoxyParamCaption}\item[{int}]{l}{, }\item[{fstream \&}]{file}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8cpp_source_l00155}{155}} of file \doxymbox{\hyperlink{primitives_8cpp_source}{primitives.\+cpp}}.
+
+\Hypertarget{classPrimitives_a71ecadc59d4a8c3dd7f769bbb38d107c}\index{Primitives@{Primitives}!omega\_left@{omega\_left}}
+\index{omega\_left@{omega\_left}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{omega\_left()}{omega\_left()}}
+{\footnotesize\ttfamily \label{classPrimitives_a71ecadc59d4a8c3dd7f769bbb38d107c} 
+\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ Primitives::\+omega\+\_\+left (\begin{DoxyParamCaption}\item[{int}]{first}{, }\item[{int}]{last}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8cpp_source_l00139}{139}} of file \doxymbox{\hyperlink{primitives_8cpp_source}{primitives.\+cpp}}.
+
+\Hypertarget{classPrimitives_a1e9a77bd205a1ad08bff03adba93a46b}\index{Primitives@{Primitives}!omega\_right\_middle@{omega\_right\_middle}}
+\index{omega\_right\_middle@{omega\_right\_middle}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{omega\_right\_middle()}{omega\_right\_middle()}}
+{\footnotesize\ttfamily \label{classPrimitives_a1e9a77bd205a1ad08bff03adba93a46b} 
+\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ Primitives::\+omega\+\_\+right\+\_\+middle (\begin{DoxyParamCaption}\item[{int}]{first}{, }\item[{int}]{last}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8cpp_source_l00147}{147}} of file \doxymbox{\hyperlink{primitives_8cpp_source}{primitives.\+cpp}}.
+
+\Hypertarget{classPrimitives_a268dd289c9646ba77ccbbe270d373459}\index{Primitives@{Primitives}!rank@{rank}}
+\index{rank@{rank}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{rank()}{rank()}}
+{\footnotesize\ttfamily \label{classPrimitives_a268dd289c9646ba77ccbbe270d373459} 
+int Primitives::\+rank (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8hpp_source_l00063}{63}} of file \doxymbox{\hyperlink{primitives_8hpp_source}{primitives.\+hpp}}.
+
+\Hypertarget{classPrimitives_a15cf6704fbe302f8732c99eb4ec04385}\index{Primitives@{Primitives}!size\_co\_associative@{size\_co\_associative}}
+\index{size\_co\_associative@{size\_co\_associative}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{size\_co\_associative()}{size\_co\_associative()}}
+{\footnotesize\ttfamily \label{classPrimitives_a15cf6704fbe302f8732c99eb4ec04385} 
+int Primitives::\+size\+\_\+co\+\_\+associative (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8hpp_source_l00068}{68}} of file \doxymbox{\hyperlink{primitives_8hpp_source}{primitives.\+hpp}}.
+
+\Hypertarget{classPrimitives_a7f4533619b2cbd7d14dcd24f2994066c}\index{Primitives@{Primitives}!size\_co\_dendriform@{size\_co\_dendriform}}
+\index{size\_co\_dendriform@{size\_co\_dendriform}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{size\_co\_dendriform()}{size\_co\_dendriform()}}
+{\footnotesize\ttfamily \label{classPrimitives_a7f4533619b2cbd7d14dcd24f2994066c} 
+int Primitives::\+size\+\_\+co\+\_\+dendriform (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8hpp_source_l00074}{74}} of file \doxymbox{\hyperlink{primitives_8hpp_source}{primitives.\+hpp}}.
+
+\Hypertarget{classPrimitives_afc475b38be8879b37e810e64b61af17b}\index{Primitives@{Primitives}!theta@{theta}}
+\index{theta@{theta}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{theta()}{theta()}}
+{\footnotesize\ttfamily \label{classPrimitives_afc475b38be8879b37e810e64b61af17b} 
+\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ Primitives::\+theta (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$ int $>$ \&}]{u}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8cpp_source_l00027}{27}} of file \doxymbox{\hyperlink{primitives_8cpp_source}{primitives.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classPrimitives_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classPrimitives_adfc30d840d874dc8932ba234fa3cce9d}\index{Primitives@{Primitives}!co\_associative@{co\_associative}}
+\index{co\_associative@{co\_associative}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{co\_associative}{co\_associative}}
+{\footnotesize\ttfamily \label{classPrimitives_adfc30d840d874dc8932ba234fa3cce9d} 
+unordered\+\_\+set$<$\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$int$>$ $>$ Primitives::\+co\+\_\+associative\+[N]\+}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8hpp_source_l00034}{34}} of file \doxymbox{\hyperlink{primitives_8hpp_source}{primitives.\+hpp}}.
+
+\Hypertarget{classPrimitives_a0ce94aa5dbb7c7bf1667268672df076c}\index{Primitives@{Primitives}!co\_dendriform@{co\_dendriform}}
+\index{co\_dendriform@{co\_dendriform}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{co\_dendriform}{co\_dendriform}}
+{\footnotesize\ttfamily \label{classPrimitives_a0ce94aa5dbb7c7bf1667268672df076c} 
+unordered\+\_\+set$<$\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$int$>$ $>$ Primitives::\+co\+\_\+dendriform\+[N]\+}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8hpp_source_l00033}{33}} of file \doxymbox{\hyperlink{primitives_8hpp_source}{primitives.\+hpp}}.
+
+\Hypertarget{classPrimitives_ae78f0202f61f406a2aeb7063bb8d7464}\index{Primitives@{Primitives}!n@{n}}
+\index{n@{n}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily \label{classPrimitives_ae78f0202f61f406a2aeb7063bb8d7464} 
+size\+\_\+t Primitives::\+n}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8hpp_source_l00035}{35}} of file \doxymbox{\hyperlink{primitives_8hpp_source}{primitives.\+hpp}}.
+
+\Hypertarget{classPrimitives_a144b5e8e9ccfa5d30a584f4485eb1024}\index{Primitives@{Primitives}!tuple@{tuple}}
+\index{tuple@{tuple}!Primitives@{Primitives}}
+\doxysubsubsection{\texorpdfstring{tuple}{tuple}}
+{\footnotesize\ttfamily \label{classPrimitives_a144b5e8e9ccfa5d30a584f4485eb1024} 
+unordered\+\_\+set$<$\doxymbox{\hyperlink{classSchroederVector}{Schroeder\+Vector}}$<$int$>$$>$::\+const\+\_\+iterator Primitives::\+tuple\+[N]\+}
+
+
+
+Definition at line \doxymbox{\hyperlink{primitives_8hpp_source_l00036}{36}} of file \doxymbox{\hyperlink{primitives_8hpp_source}{primitives.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+cpp/\+kernel/\+\doxymbox{\hyperlink{primitives_8hpp}{primitives.\+hpp}}\item 
+cpp/\+kernel/\+\doxymbox{\hyperlink{primitives_8cpp}{primitives.\+cpp}}\end{DoxyCompactItemize}

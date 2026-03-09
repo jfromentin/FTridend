@@ -50,7 +50,7 @@ SchroederForest::SchroederForest(const SchroederTree& T): SchroederTree(T) {
 
 inline void
 SchroederForest::compute_size() {
-  s = popcount(p[h - 1]);
+  s = popcount(chain[h - 1]);
 }
 
 inline Int

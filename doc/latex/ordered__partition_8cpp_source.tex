@@ -1,0 +1,54 @@
+\doxysection{ordered\+\_\+partition.\+cpp}
+\hypertarget{ordered__partition_8cpp_source}{}\label{ordered__partition_8cpp_source}\index{cpp/kernel/ordered\_partition.cpp@{cpp/kernel/ordered\_partition.cpp}}
+\doxymbox{\hyperlink{ordered__partition_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{ordered__partition_8hpp}{ordered\_partition.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00023}\doxymbox{\hyperlink{ordered__partition_8cpp_ac4fccfbec924a30b4919f861fa6cf455}{00023}}\ ostream\&\ \doxymbox{\hyperlink{ordered__partition_8cpp_ac4fccfbec924a30b4919f861fa6cf455}{operator<<}}(ostream\&\ os,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classOrderedPartition}{OrderedPartition}}\&\ P)\{}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00024}00024\ \ \ os\ <<\ \textcolor{charliteral}{'\{'}\ <<\ P[0];}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00025}00025\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ P.\doxymbox{\hyperlink{classOrderedPartition_aa0e815db93061a1a0b6a8da9c6252908}{length}}();\ ++\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00026}00026\ \ \ \ \ os\ <<\ \textcolor{charliteral}{','}\ <<\ P[i];}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00027}00027\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00028}00028\ \ \ \textcolor{keywordflow}{return}\ os\ <<\ \textcolor{charliteral}{'\}'};}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00032}00032\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00033}\doxymbox{\hyperlink{classOrderedPartition_afe9d444a875872fc5a68d4a9849035ca}{00033}}\ \doxymbox{\hyperlink{classOrderedPartition_afe9d444a875872fc5a68d4a9849035ca}{OrderedPartition::next}}()\ \{}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00034}00034\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ l\ -\/\ 1;\ i\ >\ -\/1;\ -\/-\/\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (a[i]\ >\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00036}00036\ \ \ \ \ \ \ -\/-\/\ a[i];}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00037}00037\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00038}00038\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <=\ i;\ ++\ j)\ m\ +=\ a[j];}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00039}00039\ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ n\ -\/\ m;}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00040}00040\ \ \ \ \ \ \ l\ =\ i\ +\ 2;}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00041}00041\ \ \ \ \ \ \ a[i\ +\ 1]\ =\ r;}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00042}00042\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ i\ +\ 2;\ j\ <\ (int)N;\ ++\ j)\ a[j]\ =\ 0;\ }
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00043}00043\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00045}00045\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00046}00046\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{ordered__partition_8cpp_source_l00048}00048\ }
+
+\end{DoxyCode}

@@ -22,11 +22,11 @@
 #include "schroeder_forest.hpp"
 
 bool SchroederTree::validate() {
-  if (p[0] != ((1L << (n - 1)) - 1)) return false;
-  if (p[h - 1] != 0) return false;
-  Int prev = p[0];
+  if (chain[0] != ((1L << (na - 1)) - 1)) return false;
+  if (chain[h - 1] != 0) return false;
+  BSet prev = chain[0];
   for (int i = 1; i < h - 1; ++ i) {
-    Int v = p[i];
+    BSet v = chain[i];
     if ((v | prev) != prev) return false;
     prev = v;
   }
@@ -35,15 +35,15 @@ bool SchroederTree::validate() {
 SchroederTree::SchroederTree(const initializer_list<Int>& l) {
   h = l.size() + 1;
   auto it = l.begin(); 
-  Int v = *it;
+  BSet v = *it;
   n = popcount(v) + 1;
-  p[0] = v;
+  chain[0] = v;
   int k = 0;
   for (++ it; it != l.end(); ++ it) {
     v = *it;
-    p[++ k] = v;
+    chain[++ k] = v;
   }
-  p[h - 1] = 0;
+  chain[h - 1] = 0;
   assert(validate());
   initialize();
 }

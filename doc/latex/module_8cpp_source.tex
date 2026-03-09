@@ -1,0 +1,65 @@
+\doxysection{module.\+cpp}
+\hypertarget{module_8cpp_source}{}\label{module_8cpp_source}\index{cpp/python/module.cpp@{cpp/python/module.cpp}}
+\doxymbox{\hyperlink{module_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00021}\doxymbox{\hyperlink{module_8cpp_ac9efdaac9411d0868b715edccca3269d}{00021}}\ \textcolor{preprocessor}{\#define\ PY\_SSIZE\_T\_CLEAN}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00022}00022\ \textcolor{preprocessor}{\#include\ <Python.h>}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp}{schroeder\_tree.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00024}00024\ \textcolor{comment}{//\#include\ "{}schroeder\_forest.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00025}00025\ \textcolor{comment}{//\#include\ "{}schroeder\_vector.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00027}00027\ \textcolor{keyword}{static}\ PyModuleDef\ ftridend\_module\ =\ \{}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00028}00028\ \ \ .m\_base\ =\ PyModuleDef\_HEAD\_INIT,}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00029}00029\ \ \ .m\_name\ =\ \textcolor{stringliteral}{"{}ftridend"{}},}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00030}00030\ \ \ .m\_doc\ =\ \textcolor{stringliteral}{"{}Module\ for\ the\ free\ tridendriform\ algebra."{}},}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00031}00031\ \ \ .m\_size\ =\ -\/1,}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00032}00032\ \};}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00034}00034\ PyMODINIT\_FUNC}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00035}\doxymbox{\hyperlink{module_8cpp_a533045ff8a5c57d08ae24b4ba085836c}{00035}}\ \doxymbox{\hyperlink{module_8cpp_a533045ff8a5c57d08ae24b4ba085836c}{PyInit\_ftridend}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00037}00037\ \ \ PyObject\ *m;}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00038}00038\ \ \ \textcolor{keywordflow}{if}\ (PyType\_Ready(\&\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{SchroederTreeType}})\ <\ 0)\ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00039}00039\ \ \ \textcolor{comment}{//if\ (PyType\_Ready(\&SchroederForestType)\ <\ 0)\ return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00040}00040\ \ \ \textcolor{comment}{//if\ (PyType\_Ready(\&SchroederVectorType)\ <\ 0)\ return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00041}00041\ \ \ }
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00042}00042\ \ \ m\ =\ PyModule\_Create(\&ftridend\_module);}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00043}00043\ \ \ \textcolor{keywordflow}{if}\ (m\ ==\ NULL)\ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00044}00044\ \ \ }
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00045}00045\ \ \ \textcolor{keywordflow}{if}\ (PyModule\_AddObjectRef(m,\ \textcolor{stringliteral}{"{}SchroederTree"{}},\ (PyObject\ *)\&\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{SchroederTreeType}})\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00046}00046\ \ \ \ \ Py\_DECREF(m);}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00048}00048\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00049}00049\ \ \ \textcolor{comment}{/*if\ (PyModule\_AddObjectRef(m,\ "{}SchroederForest"{},\ (PyObject\ *)\&SchroederForestType)\ <\ 0)\ \{}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00050}00050\ \textcolor{comment}{\ \ \ \ Py\_DECREF(m);}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00051}00051\ \textcolor{comment}{\ \ \ \ return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00052}00052\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00053}00053\ \textcolor{comment}{\ \ if\ (PyModule\_AddObjectRef(m,\ "{}SchroederVector"{},\ (PyObject\ *)\&SchroederVectorType)\ <\ 0)\ \{}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00054}00054\ \textcolor{comment}{\ \ \ \ Py\_DECREF(m);}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00055}00055\ \textcolor{comment}{\ \ \ \ return\ NULL;}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00056}00056\ \textcolor{comment}{\ \ \ \ \}*/}}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00058}00058\ \ \ \textcolor{keywordflow}{return}\ m;}
+\DoxyCodeLine{\Hypertarget{module_8cpp_source_l00059}00059\ \}}
+
+\end{DoxyCode}

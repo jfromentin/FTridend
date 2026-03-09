@@ -24,6 +24,7 @@
 #include <bit>
 #include <initializer_list>
 
+#include "bset.hpp"
 #include "common.hpp"
 #include "array.hpp"
 #include "quasi_shuffle.hpp"
@@ -56,7 +57,6 @@ struct ForestInfo{
     increasing initial chain of the poset \f$(\mathcal{P}([1..n]),\subseteq)\f$. */
 class SchroederTree{
 public:
-  typedef uint32_t BSet;
   static const int max_angles = 32;
 protected:
   union{
@@ -91,7 +91,7 @@ public:
   int angles() const;
 
   
-  Int layer(Int i) const;
+  BSet layer(Int i) const;
   //Int left_forests_length() const;
   //Int right_forests_length() const;
   //const ForestInfo& get_left_forest_info(Int i) const;
@@ -175,7 +175,7 @@ SchroederTree::right_forests_length() const {
   return number_right_forests;
   }*/
 
-inline SchroederTree::BSet
+inline BSet
 SchroederTree::layer(Int i) const {
   assert (0 <= i and i < h);
   return chain[i];
@@ -197,7 +197,7 @@ SchroederTree::get_right_forest_info(Int i) const {
 inline size_t
 SchroederTree::hash() const {
   size_t res = 0;
-  for (int i = 0; i < h - 1; ++ i) res += p[i];
+  for (int i = 0; i < h - 1; ++ i) res += chain[i].hash();
   return res;		    			     
 }
 
@@ -205,7 +205,7 @@ inline bool
 SchroederTree::operator==(const SchroederTree& t) const {
   if (h != t.h) return false;
   for (int i = 0; i < h - 1; ++ i) {
-    if (p[i] != t.p[i]) return false;
+    if (chain[i] != t.chain[i]) return false;
   }
   return true;
 }

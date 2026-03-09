@@ -1,0 +1,85 @@
+\doxysection{primitives.\+hpp}
+\hypertarget{primitives_8hpp_source}{}\label{primitives_8hpp_source}\index{cpp/kernel/primitives.hpp@{cpp/kernel/primitives.hpp}}
+\doxymbox{\hyperlink{primitives_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ PRIMITIVES\_HPP}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#define\ PRIMITIVES\_HPP}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <unordered\_set>}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{schroeder__module_8hpp}{schroeder\_module.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00028}00028\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00031}\doxymbox{\hyperlink{classPrimitives}{00031}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classPrimitives_a064bdc976c3a8f0fc40205d820a0faa6}{Primitives}}\{}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00032}00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00033}\doxymbox{\hyperlink{classPrimitives_a0ce94aa5dbb7c7bf1667268672df076c}{00033}}\ \ \ unordered\_set<SchroederVector<int>>\ \doxymbox{\hyperlink{classPrimitives_a0ce94aa5dbb7c7bf1667268672df076c}{co\_dendriform}}[N];}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00034}\doxymbox{\hyperlink{classPrimitives_adfc30d840d874dc8932ba234fa3cce9d}{00034}}\ \ \ unordered\_set<SchroederVector<int>>\ \doxymbox{\hyperlink{classPrimitives_adfc30d840d874dc8932ba234fa3cce9d}{co\_associative}}[N];}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00035}\doxymbox{\hyperlink{classPrimitives_ae78f0202f61f406a2aeb7063bb8d7464}{00035}}\ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{classPrimitives_ae78f0202f61f406a2aeb7063bb8d7464}{n}};}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00036}\doxymbox{\hyperlink{classPrimitives_a144b5e8e9ccfa5d30a584f4485eb1024}{00036}}\ \ \ unordered\_set<SchroederVector<int>>::const\_iterator\ \doxymbox{\hyperlink{classPrimitives_a144b5e8e9ccfa5d30a584f4485eb1024}{tuple}}[N];}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00037}00037\ \ \ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<int>}}\ \doxymbox{\hyperlink{classPrimitives_afc475b38be8879b37e810e64b61af17b}{theta}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<int>}}\&);}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00038}00038\ \ \ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<int>}}\ \doxymbox{\hyperlink{classPrimitives_ac74754baed632c70d0c420e61aadf667}{omega}}(\textcolor{keywordtype}{int}\ l,fstream\&\ file);}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00039}00039\ \ \ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<int>}}\ \doxymbox{\hyperlink{classPrimitives_a71ecadc59d4a8c3dd7f769bbb38d107c}{omega\_left}}(\textcolor{keywordtype}{int}\ first,\ \textcolor{keywordtype}{int}\ last);\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00040}00040\ \ \ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<int>}}\ \doxymbox{\hyperlink{classPrimitives_a1e9a77bd205a1ad08bff03adba93a46b}{omega\_right\_middle}}(\textcolor{keywordtype}{int}\ first,\ \textcolor{keywordtype}{int}\ last);\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00041}00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00042}00042\ \ \ \doxymbox{\hyperlink{classPrimitives_a064bdc976c3a8f0fc40205d820a0faa6}{Primitives}}();}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00043}00043\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classPrimitives_acb517489c572f57db0e6f58badfbf596}{init}}();}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00044}00044\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classPrimitives_a268dd289c9646ba77ccbbe270d373459}{rank}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00045}00045\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classPrimitives_a15cf6704fbe302f8732c99eb4ec04385}{size\_co\_associative}}(\textcolor{keywordtype}{int}\ i)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00046}00046\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classPrimitives_a7f4533619b2cbd7d14dcd24f2994066c}{size\_co\_dendriform}}(\textcolor{keywordtype}{int}\ i)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00047}00047\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classPrimitives_a3ee2bc2270aab05ad4d71abe2e127b66}{display\_co\_dendriform}}(\textcolor{keywordtype}{int}\ i)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00048}00048\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classPrimitives_ad2b909435bbde9b3e6549ca7fbeeed61}{display\_co\_associative}}(\textcolor{keywordtype}{int}\ i)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00049}00049\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classPrimitives_aef9bec4dd4f4749e9ac61f65553b671e}{next}}(fstream\&\ file);}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00050}00050\ \};}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00052}00052\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{primitives_8hpp_a22fee045bc3c3cdda93a202f131fac32}{to\_matrix}}(\textcolor{keyword}{const}\ unordered\_set<\doxymbox{\hyperlink{classSchroederVector}{SchroederVector<int>}}>\&\ F);}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00054}\doxymbox{\hyperlink{classPrimitives_a064bdc976c3a8f0fc40205d820a0faa6}{00054}}\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{classPrimitives_a064bdc976c3a8f0fc40205d820a0faa6}{Primitives::Primitives}}()\ \{}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00055}00055\ \ \ \doxymbox{\hyperlink{classPrimitives_ae78f0202f61f406a2aeb7063bb8d7464}{n}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00056}00056\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (int)N;\ ++\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00057}00057\ \ \ \ \ \doxymbox{\hyperlink{classPrimitives_a0ce94aa5dbb7c7bf1667268672df076c}{co\_dendriform}}[i].clear();}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00058}00058\ \ \ \ \ \doxymbox{\hyperlink{classPrimitives_adfc30d840d874dc8932ba234fa3cce9d}{co\_associative}}[i].clear();}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00059}00059\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00062}00062\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00063}\doxymbox{\hyperlink{classPrimitives_a268dd289c9646ba77ccbbe270d373459}{00063}}\ \doxymbox{\hyperlink{classPrimitives_a268dd289c9646ba77ccbbe270d373459}{Primitives::rank}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00064}00064\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classPrimitives_ae78f0202f61f406a2aeb7063bb8d7464}{n}};}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00067}00067\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00068}\doxymbox{\hyperlink{classPrimitives_a15cf6704fbe302f8732c99eb4ec04385}{00068}}\ \doxymbox{\hyperlink{classPrimitives_a15cf6704fbe302f8732c99eb4ec04385}{Primitives::size\_co\_associative}}(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00069}00069\ \ \ assert(0\ <=\ i\ and\ i\ <\ (\textcolor{keywordtype}{int})N);}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00070}00070\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classPrimitives_adfc30d840d874dc8932ba234fa3cce9d}{co\_associative}}[i].size();}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00073}00073\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00074}\doxymbox{\hyperlink{classPrimitives_a7f4533619b2cbd7d14dcd24f2994066c}{00074}}\ \doxymbox{\hyperlink{classPrimitives_a7f4533619b2cbd7d14dcd24f2994066c}{Primitives::size\_co\_dendriform}}(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00075}00075\ \ \ assert(0\ <=\ i\ and\ i\ <\ (\textcolor{keywordtype}{int})N);}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00076}00076\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classPrimitives_a0ce94aa5dbb7c7bf1667268672df076c}{co\_dendriform}}[i].size();}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{primitives_8hpp_source_l00079}00079\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

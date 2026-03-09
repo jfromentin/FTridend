@@ -1,0 +1,104 @@
+\doxysection{Ordered\+Partition Class Reference}
+\hypertarget{classOrderedPartition}{}\label{classOrderedPartition}\index{OrderedPartition@{OrderedPartition}}
+
+
+{\ttfamily \+\#include $<$ordered\+\_\+partition.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{Ordered\+Partition}} ()
+\item 
+\doxymbox{\hyperlink{classOrderedPartition_ab85b3c16908eb990fff6be635faa224f}{Ordered\+Partition}} (int n)
+\item 
+void \doxymbox{\hyperlink{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad}{initialize}} ()
+\item 
+int \doxymbox{\hyperlink{classOrderedPartition_aa0e815db93061a1a0b6a8da9c6252908}{length}} () const
+\item 
+int \doxymbox{\hyperlink{classOrderedPartition_a934cf74c0b335e356195222d4ab86fe8}{operator\+[$\,$]\+}} (size\+\_\+t i) const
+\item 
+bool \doxymbox{\hyperlink{classOrderedPartition_afe9d444a875872fc5a68d4a9849035ca}{next}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \doxymbox{\hyperlink{ordered__partition_8hpp_source_l00027}{27}} of file \doxymbox{\hyperlink{ordered__partition_8hpp_source}{ordered\+\_\+partition.\+hpp}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classOrderedPartition_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}\index{OrderedPartition@{OrderedPartition}!OrderedPartition@{OrderedPartition}}
+\index{OrderedPartition@{OrderedPartition}!OrderedPartition@{OrderedPartition}}
+\doxysubsubsection{\texorpdfstring{OrderedPartition()}{OrderedPartition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def} 
+Ordered\+Partition::\+\+Ordered\+Partition (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct the unique ordered partition of 0 
+
+Definition at line \doxymbox{\hyperlink{ordered__partition_8hpp_source_l00063}{63}} of file \doxymbox{\hyperlink{ordered__partition_8hpp_source}{ordered\+\_\+partition.\+hpp}}.
+
+\Hypertarget{classOrderedPartition_ab85b3c16908eb990fff6be635faa224f}\index{OrderedPartition@{OrderedPartition}!OrderedPartition@{OrderedPartition}}
+\index{OrderedPartition@{OrderedPartition}!OrderedPartition@{OrderedPartition}}
+\doxysubsubsection{\texorpdfstring{OrderedPartition()}{OrderedPartition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classOrderedPartition_ab85b3c16908eb990fff6be635faa224f} 
+Ordered\+Partition::\+\+Ordered\+Partition (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Construct the ordered partition (n) of n 
+
+Definition at line \doxymbox{\hyperlink{ordered__partition_8hpp_source_l00069}{69}} of file \doxymbox{\hyperlink{ordered__partition_8hpp_source}{ordered\+\_\+partition.\+hpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classOrderedPartition_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad}\index{OrderedPartition@{OrderedPartition}!initialize@{initialize}}
+\index{initialize@{initialize}!OrderedPartition@{OrderedPartition}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad} 
+void Ordered\+Partition::\+initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{ordered__partition_8hpp_source_l00086}{86}} of file \doxymbox{\hyperlink{ordered__partition_8hpp_source}{ordered\+\_\+partition.\+hpp}}.
+
+\Hypertarget{classOrderedPartition_aa0e815db93061a1a0b6a8da9c6252908}\index{OrderedPartition@{OrderedPartition}!length@{length}}
+\index{length@{length}!OrderedPartition@{OrderedPartition}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily \label{classOrderedPartition_aa0e815db93061a1a0b6a8da9c6252908} 
+int Ordered\+Partition::\+length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the length of the ordered parition. 
+
+Definition at line \doxymbox{\hyperlink{ordered__partition_8hpp_source_l00076}{76}} of file \doxymbox{\hyperlink{ordered__partition_8hpp_source}{ordered\+\_\+partition.\+hpp}}.
+
+\Hypertarget{classOrderedPartition_afe9d444a875872fc5a68d4a9849035ca}\index{OrderedPartition@{OrderedPartition}!next@{next}}
+\index{next@{next}!OrderedPartition@{OrderedPartition}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \label{classOrderedPartition_afe9d444a875872fc5a68d4a9849035ca} 
+bool Ordered\+Partition::\+next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Try to set the current ordered parititon to the next one. Return true if we can perform the modification and false otherwise 
+
+Definition at line \doxymbox{\hyperlink{ordered__partition_8cpp_source_l00033}{33}} of file \doxymbox{\hyperlink{ordered__partition_8cpp_source}{ordered\+\_\+partition.\+cpp}}.
+
+\Hypertarget{classOrderedPartition_a934cf74c0b335e356195222d4ab86fe8}\index{OrderedPartition@{OrderedPartition}!operator\+[]\+@{operator[]}}
+\index{operator\+[]\+@{operator[]}!OrderedPartition@{OrderedPartition}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \label{classOrderedPartition_a934cf74c0b335e356195222d4ab86fe8} 
+int Ordered\+Partition::\+operator\+[$\,$]\+ (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{i}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return entry i of the ordered partition. 
+
+Definition at line \doxymbox{\hyperlink{ordered__partition_8hpp_source_l00081}{81}} of file \doxymbox{\hyperlink{ordered__partition_8hpp_source}{ordered\+\_\+partition.\+hpp}}.
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+cpp/\+kernel/\+\doxymbox{\hyperlink{ordered__partition_8hpp}{ordered\+\_\+partition.\+hpp}}\item 
+cpp/\+kernel/\+\doxymbox{\hyperlink{ordered__partition_8cpp}{ordered\+\_\+partition.\+cpp}}\end{DoxyCompactItemize}
