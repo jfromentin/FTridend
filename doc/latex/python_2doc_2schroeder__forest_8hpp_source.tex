@@ -2,49 +2,49 @@
 \hypertarget{python_2doc_2schroeder__forest_8hpp_source}{}\label{python_2doc_2schroeder__forest_8hpp_source}\index{cpp/python/doc/schroeder\_forest.hpp@{cpp/python/doc/schroeder\_forest.hpp}}
 \doxymbox{\hyperlink{python_2doc_2schroeder__forest_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ SCHROEDER\_FOREST\_DOC\_HPP}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#define\ SCHROEDER\_FOREST\_DOC\_HPP}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00024}00024\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_size\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00025}00025\ \textcolor{stringliteral}{Return\ the\ size\ of\ the\ current\ SchroederForest.}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00026}00026\ \textcolor{stringliteral}{)'''"{};}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00027}00027\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00028}00028\ \textcolor{stringliteral}{}\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_height\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00029}00029\ \textcolor{stringliteral}{Return\ the\ height\ of\ the\ current\ SchroederForest.}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00030}00030\ \textcolor{stringliteral}{)'''"{};}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00031}00031\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00032}00032\ \textcolor{stringliteral}{}\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_leaves\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00033}00033\ \textcolor{stringliteral}{Return\ the\ number\ of\ leaves\ of\ the\ current\ SchroederForest.}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00034}00034\ \textcolor{stringliteral}{)'''"{};}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00035}00035\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00036}00036\ \textcolor{stringliteral}{}\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_layer\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00037}00037\ \textcolor{stringliteral}{Return\ the\ specified\ layer\ of\ the\ current\ SchroederForest.}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00038}00038\ \textcolor{stringliteral}{)'''"{};}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00039}00039\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00040}00040\ \textcolor{stringliteral}{}\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_display\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00041}00041\ \textcolor{stringliteral}{Return\ a\ string\ to\ display\ the\ current\ SchroederForest.}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00042}00042\ \textcolor{stringliteral}{)'''"{};\ }}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00043}00043\ \textcolor{stringliteral}{}}
-\DoxyCodeLine{\Hypertarget{python_2doc_2schroeder__forest_8hpp_source_l00044}00044\ \textcolor{stringliteral}{}\textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ SCHROEDER\_FOREST\_DOC\_HPP}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ SCHROEDER\_FOREST\_DOC\_HPP}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_size\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{Return\ the\ size\ of\ the\ current\ SchroederForest.}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{)'''"{};}}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{}\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_height\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{Return\ the\ height\ of\ the\ current\ SchroederForest.}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{)'''"{};}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{}\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_leaves\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{Return\ the\ number\ of\ leaves\ of\ the\ current\ SchroederForest.}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{)'''"{};}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{}\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_layer\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{Return\ the\ specified\ layer\ of\ the\ current\ SchroederForest.}}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{)'''"{};}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{}\textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ SchroederForest\_display\_doc\ =\ R\textcolor{stringliteral}{"{}'''(}}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{Return\ a\ string\ to\ display\ the\ current\ SchroederForest.}}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{)'''"{};\ }}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{}\textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

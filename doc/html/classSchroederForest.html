@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -119,7 +126,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aab3b80379f1e06e67c9e2f34e27f7759 inherit pub_methods_classSchroederTree"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the height of the tree as a levelled tree.  <br /></td></tr>
 <tr class="memitem:afd74f1645ea6c919ac36b60e420549bc inherit pub_methods_classSchroederTree" id="r_afd74f1645ea6c919ac36b60e420549bc"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="classSchroederTree.html#afd74f1645ea6c919ac36b60e420549bc">angles</a> () const</td></tr>
 <tr class="memdesc:afd74f1645ea6c919ac36b60e420549bc inherit pub_methods_classSchroederTree"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of angles of the tree.  <br /></td></tr>
-<tr class="memitem:ac7f580aad91df00eea564f2ee299f01b inherit pub_methods_classSchroederTree" id="r_ac7f580aad91df00eea564f2ee299f01b"><td class="memItemLeft"><a class="el" href="common_8hpp.html#a2eeb6279e316215d89dc3aab9122d161">Int</a>&#160;</td><td class="memItemRight"><a class="el" href="classSchroederTree.html#ac7f580aad91df00eea564f2ee299f01b">layer</a> (<a class="el" href="common_8hpp.html#a2eeb6279e316215d89dc3aab9122d161">Int</a> i) const</td></tr>
+<tr class="memitem:a092c3bfddf0c3dc10fcb1064868765a4 inherit pub_methods_classSchroederTree" id="r_a092c3bfddf0c3dc10fcb1064868765a4"><td class="memItemLeft"><a class="el" href="classBSet.html">BSet</a>&#160;</td><td class="memItemRight"><a class="el" href="classSchroederTree.html#a092c3bfddf0c3dc10fcb1064868765a4">layer</a> (<a class="el" href="common_8hpp.html#a2eeb6279e316215d89dc3aab9122d161">Int</a> i) const</td></tr>
 <tr class="memitem:ac2e06155ba50619f00cc1af1ad85e351 inherit pub_methods_classSchroederTree" id="r_ac2e06155ba50619f00cc1af1ad85e351"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="classSchroederTree.html#ac2e06155ba50619f00cc1af1ad85e351">display</a> (ostream &amp;os=cout) const</td></tr>
 <tr class="memitem:afd0e3907c723900f716b11476850af44 inherit pub_methods_classSchroederTree" id="r_afd0e3907c723900f716b11476850af44"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="classSchroederTree.html#afd0e3907c723900f716b11476850af44">to_latex</a> () const</td></tr>
 <tr class="memitem:aa605d5e86479865c726f0ba37777196a inherit pub_methods_classSchroederTree" id="r_aa605d5e86479865c726f0ba37777196a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="classSchroederTree.html#aa605d5e86479865c726f0ba37777196a">sage_init</a> (<a class="el" href="common_8hpp.html#a2eeb6279e316215d89dc3aab9122d161">Int</a> <a class="el" href="classSchroederTree.html#ac5d53e7c5f289acbde00bb3a0d08e18d">h</a>, <a class="el" href="common_8hpp.html#a2eeb6279e316215d89dc3aab9122d161">Int</a> n)</td></tr>
@@ -133,6 +140,8 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_static_attribs_classSchroederTree"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_static_attribs_classSchroederTree')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Public Attributes inherited from <a class="el" href="classSchroederTree.html">SchroederTree</a></td></tr>
+<tr class="memitem:ac0d70bb1d99827d8a68c9d83f99b4bfd inherit pub_static_attribs_classSchroederTree" id="r_ac0d70bb1d99827d8a68c9d83f99b4bfd"><td class="memItemLeft">static const int&#160;</td><td class="memItemRight"><a class="el" href="classSchroederTree.html#ac0d70bb1d99827d8a68c9d83f99b4bfd">max_angles</a> = 32</td></tr>
 <tr class="inherit_header pro_attribs_classSchroederTree"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classSchroederTree')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="classSchroederTree.html">SchroederTree</a></td></tr>
 <tr class="memitem: inherit pro_attribs_classSchroederTree"><td class="memItemLeft anon">union {&#160;</td><td class="memItemRight"></td></tr>
 <tr class="memitem: inherit pro_attribs_classSchroederTree"><td class="memItemLeft anon">&#160;&#160;&#160;struct {&#160;</td><td class="memItemRight"></td></tr>
@@ -143,12 +152,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a3f33028fb489dd3657a443e34da528cb inherit pro_attribs_classSchroederTree" id="r_a3f33028fb489dd3657a443e34da528cb"><td class="memItemLeft anonEnd">&#160;&#160;&#160;}&#160;</td><td class="memItemRight"></td></tr>
 <tr class="memitem:a8c3eafd1de32b5dd5bea9e6f6e682b28 inherit pro_attribs_classSchroederTree" id="r_a8c3eafd1de32b5dd5bea9e6f6e682b28"><td class="memItemLeft anon">&#160;&#160;&#160;size_t&#160;&#160;&#160;<a class="el" href="classSchroederTree.html#abeb073583c22a8985ce9544d911faf6d">info</a>&#160;</td><td class="memItemRight"></td></tr>
 <tr class="memitem:a69b55761fcf4d4c148a83c3d9826759d inherit pro_attribs_classSchroederTree" id="r_a69b55761fcf4d4c148a83c3d9826759d"><td class="memItemLeft anonEnd">};&#160;</td><td class="memItemRight"></td></tr>
-<tr class="memitem:a9682ec343ffd84484dc2c59fc035ac28 inherit pro_attribs_classSchroederTree" id="r_a9682ec343ffd84484dc2c59fc035ac28"><td class="memItemLeft"><a class="el" href="common_8hpp.html#a2eeb6279e316215d89dc3aab9122d161">Int</a>&#160;</td><td class="memItemRight"><a class="el" href="classSchroederTree.html#a9682ec343ffd84484dc2c59fc035ac28">chain</a> [N]</td></tr>
+<tr class="memitem:a5eafd06fecec871f60e9ed11918ff302 inherit pro_attribs_classSchroederTree" id="r_a5eafd06fecec871f60e9ed11918ff302"><td class="memItemLeft"><a class="el" href="classBSet.html">BSet</a>&#160;</td><td class="memItemRight"><a class="el" href="classSchroederTree.html#a5eafd06fecec871f60e9ed11918ff302">chain</a> [N]</td></tr>
 </table>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="kernel_2schroeder__forest_8hpp_source.html#l00029">29</a> of file <a class="el" href="kernel_2schroeder__forest_8hpp_source.html">schroeder_forest.hpp</a>.</p>
-</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af8ddf6951739e2147fa7c9dde190703c" name="af8ddf6951739e2147fa7c9dde190703c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af8ddf6951739e2147fa7c9dde190703c">&#9670;&#160;</a></span>SchroederForest() <span class="overload">[1/2]</span></h2>
 
@@ -171,8 +177,6 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="kernel_2schroeder__forest_8hpp_source.html#l00043">43</a> of file <a class="el" href="kernel_2schroeder__forest_8hpp_source.html">schroeder_forest.hpp</a>.</p>
 
 </div>
 </div>
@@ -198,8 +202,6 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="kernel_2schroeder__forest_8hpp_source.html#l00047">47</a> of file <a class="el" href="kernel_2schroeder__forest_8hpp_source.html">schroeder_forest.hpp</a>.</p>
 
 </div>
 </div>
@@ -227,8 +229,6 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="kernel_2schroeder__forest_8hpp_source.html#l00052">52</a> of file <a class="el" href="kernel_2schroeder__forest_8hpp_source.html">schroeder_forest.hpp</a>.</p>
-
 </div>
 </div>
 <a id="ac757adf0b5c4a2ee5bb331d785e4164a" name="ac757adf0b5c4a2ee5bb331d785e4164a"></a>
@@ -245,8 +245,6 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="kernel_2schroeder__forest_8cpp_source.html#l00023">23</a> of file <a class="el" href="kernel_2schroeder__forest_8cpp_source.html">schroeder_forest.cpp</a>.</p>
 
 </div>
 </div>
@@ -273,13 +271,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="kernel_2schroeder__forest_8hpp_source.html#l00057">57</a> of file <a class="el" href="kernel_2schroeder__forest_8hpp_source.html">schroeder_forest.hpp</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>cpp/kernel/<a class="el" href="kernel_2schroeder__forest_8hpp_source.html">schroeder_forest.hpp</a></li>
-<li>cpp/kernel/<a class="el" href="kernel_2schroeder__forest_8cpp_source.html">schroeder_forest.cpp</a></li>
+<li>cpp/kernel/<a class="el" href="kernel_2schroeder__forest_8cpp.html">schroeder_forest.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

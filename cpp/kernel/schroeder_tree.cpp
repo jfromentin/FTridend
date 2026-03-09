@@ -22,18 +22,18 @@
 #include "schroeder_forest.hpp"
 
 bool SchroederTree::validate() {
-  if (chain[0] != ((1L << (na - 1)) - 1)) return false;
+  /*if (chain[0] != ((1L << (na - 1)) - 1)) return false;
   if (chain[h - 1] != 0) return false;
   BSet prev = chain[0];
   for (int i = 1; i < h - 1; ++ i) {
     BSet v = chain[i];
     if ((v | prev) != prev) return false;
     prev = v;
-  }
+    }*/
   return true;
 }
 SchroederTree::SchroederTree(const initializer_list<Int>& l) {
-  h = l.size() + 1;
+  /* h = l.size() + 1;
   auto it = l.begin(); 
   BSet v = *it;
   n = popcount(v) + 1;
@@ -45,11 +45,11 @@ SchroederTree::SchroederTree(const initializer_list<Int>& l) {
   }
   chain[h - 1] = 0;
   assert(validate());
-  initialize();
+  initialize();*/
 }
 
 void SchroederTree::display(ostream& os) const {
-  for (int j = 0; j < n; ++ j) {
+  /*for (int j = 0; j < na; ++ j) {
     os << char('a' + j) << ' ';
   }
   if (verbose_display) {
@@ -107,7 +107,7 @@ void SchroederTree::display(ostream& os) const {
       os << "  ";
     }
     os << "\u2567" << endl;
-  }
+    }*/
 }
 
 /*void SchroederTree::compute_left_forest_infos() {

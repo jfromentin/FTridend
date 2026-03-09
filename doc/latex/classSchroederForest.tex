@@ -38,7 +38,7 @@ int \doxymbox{\hyperlink{classSchroederTree_aab3b80379f1e06e67c9e2f34e27f7759}{h
 \begin{DoxyCompactList}\small\item\em Return the height of the tree as a levelled tree. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{classSchroederTree_afd74f1645ea6c919ac36b60e420549bc}{angles}} () const
 \begin{DoxyCompactList}\small\item\em Return the number of angles of the tree. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} \doxymbox{\hyperlink{classSchroederTree_ac7f580aad91df00eea564f2ee299f01b}{layer}} (\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} i) const
+\doxymbox{\hyperlink{classBSet}{BSet}} \doxymbox{\hyperlink{classSchroederTree_a092c3bfddf0c3dc10fcb1064868765a4}{layer}} (\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} i) const
 \item 
 void \doxymbox{\hyperlink{classSchroederTree_ac2e06155ba50619f00cc1af1ad85e351}{display}} (ostream \&os=cout) const
 \item 
@@ -58,6 +58,11 @@ bool \doxymbox{\hyperlink{classSchroederTree_aa805ddd462b3da5e3b16844a6f3aa4ee}{
 void \doxymbox{\hyperlink{classSchroederForest_aab4efff0e864a718a848f471364cd519}{compute\+\_\+size}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}}}
+\begin{DoxyCompactItemize}
+\item 
+static const int \doxymbox{\hyperlink{classSchroederTree_ac0d70bb1d99827d8a68c9d83f99b4bfd}{max\+\_\+angles}} = 32
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -74,15 +79,8 @@ union \{\\
 \}; \\
 
 \end{tabbing}\item 
-\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} \doxymbox{\hyperlink{classSchroederTree_a9682ec343ffd84484dc2c59fc035ac28}{chain}} \+[N]\+
+\doxymbox{\hyperlink{classBSet}{BSet}} \doxymbox{\hyperlink{classSchroederTree_a5eafd06fecec871f60e9ed11918ff302}{chain}} \+[N]\+
 \end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-
-
-Definition at line \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source_l00029}{29}} of file \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source}{schroeder\+\_\+forest.\+hpp}}.
-
 
 
 \label{doc-constructors}
@@ -94,19 +92,11 @@ Definition at line \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source_l0
 {\footnotesize\ttfamily \label{classSchroederForest_af8ddf6951739e2147fa7c9dde190703c} 
 Schroeder\+Forest::\+\+Schroeder\+Forest (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source_l00043}{43}} of file \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source}{schroeder\+\_\+forest.\+hpp}}.
-
 \Hypertarget{classSchroederForest_a6c3f79c857cade6e3072b24cff67ceec}\index{SchroederForest@{SchroederForest}!SchroederForest@{SchroederForest}}
 \index{SchroederForest@{SchroederForest}!SchroederForest@{SchroederForest}}
 \doxysubsubsection{\texorpdfstring{SchroederForest()}{SchroederForest()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{classSchroederForest_a6c3f79c857cade6e3072b24cff67ceec} 
 Schroeder\+Forest::\+\+Schroeder\+Forest (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}} \&}]{T}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source_l00047}{47}} of file \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source}{schroeder\+\_\+forest.\+hpp}}.
 
 
 
@@ -119,29 +109,17 @@ Definition at line \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source_l0
 {\footnotesize\ttfamily \label{classSchroederForest_aab4efff0e864a718a848f471364cd519} 
 void Schroeder\+Forest::\+compute\+\_\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
-
-
-Definition at line \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source_l00052}{52}} of file \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source}{schroeder\+\_\+forest.\+hpp}}.
-
 \Hypertarget{classSchroederForest_ac757adf0b5c4a2ee5bb331d785e4164a}\index{SchroederForest@{SchroederForest}!display@{display}}
 \index{display@{display}!SchroederForest@{SchroederForest}}
 \doxysubsubsection{\texorpdfstring{display()}{display()}}
 {\footnotesize\ttfamily \label{classSchroederForest_ac757adf0b5c4a2ee5bb331d785e4164a} 
 void Schroeder\+Forest::\+display (\begin{DoxyParamCaption}\item[{ostream \&}]{os}{ = {\ttfamily cout}}\end{DoxyParamCaption}) const}
 
-
-
-Definition at line \doxymbox{\hyperlink{kernel_2schroeder__forest_8cpp_source_l00023}{23}} of file \doxymbox{\hyperlink{kernel_2schroeder__forest_8cpp_source}{schroeder\+\_\+forest.\+cpp}}.
-
 \Hypertarget{classSchroederForest_a39bf84f043e922a0df3c0a7b7c83523f}\index{SchroederForest@{SchroederForest}!size@{size}}
 \index{size@{size}!SchroederForest@{SchroederForest}}
 \doxysubsubsection{\texorpdfstring{size()}{size()}}
 {\footnotesize\ttfamily \label{classSchroederForest_a39bf84f043e922a0df3c0a7b7c83523f} 
 \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} Schroeder\+Forest::\+size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source_l00057}{57}} of file \doxymbox{\hyperlink{kernel_2schroeder__forest_8hpp_source}{schroeder\+\_\+forest.\+hpp}}.
 
 
 

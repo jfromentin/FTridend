@@ -1,6 +1,8 @@
 var dir_e1eb1cbbc2cd8f4e7860dd408bd02442 =
 [
     [ "array.hpp", "array_8hpp.html", "array_8hpp" ],
+    [ "bset.cpp", "bset_8cpp.html", null ],
+    [ "bset.hpp", "bset_8hpp.html", "bset_8hpp" ],
     [ "common.hpp", "common_8hpp.html", "common_8hpp" ],
     [ "ordered_partition.cpp", "ordered__partition_8cpp.html", "ordered__partition_8cpp" ],
     [ "ordered_partition.hpp", "ordered__partition_8hpp.html", "ordered__partition_8hpp" ],

@@ -4,6 +4,7 @@ var hierarchy =
     [ "Array&lt; int &gt;", "classArray.html", [
       [ "PackedWord", "classPackedWord.html", null ]
     ] ],
+    [ "BSet", "classBSet.html", null ],
     [ "ElementarySchroederTensor", "structElementarySchroederTensor.html", null ],
     [ "std::hash&lt; ElementarySchroederTensor &gt;", "structstd_1_1hash_3_01ElementarySchroederTensor_01_4.html", null ],
     [ "std::hash&lt; SchroederTree &gt;", "structstd_1_1hash_3_01SchroederTree_01_4.html", null ],

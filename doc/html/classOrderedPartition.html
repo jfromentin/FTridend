@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -103,10 +110,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a934cf74c0b335e356195222d4ab86fe8" id="r_a934cf74c0b335e356195222d4ab86fe8"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a934cf74c0b335e356195222d4ab86fe8">operator[]</a> (size_t i) const</td></tr>
 <tr class="memitem:afe9d444a875872fc5a68d4a9849035ca" id="r_afe9d444a875872fc5a68d4a9849035ca"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afe9d444a875872fc5a68d4a9849035ca">next</a> ()</td></tr>
 </table>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="ordered__partition_8hpp_source.html#l00027">27</a> of file <a class="el" href="ordered__partition_8hpp_source.html">ordered_partition.hpp</a>.</p>
-</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad8b2c19fd1ecb7c792d3be62da125def" name="ad8b2c19fd1ecb7c792d3be62da125def"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad8b2c19fd1ecb7c792d3be62da125def">&#9670;&#160;</a></span>OrderedPartition() <span class="overload">[1/2]</span></h2>
 
@@ -130,8 +134,6 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Construct the unique ordered partition of 0 </p>
-
-<p class="definition">Definition at line <a class="el" href="ordered__partition_8hpp_source.html#l00063">63</a> of file <a class="el" href="ordered__partition_8hpp_source.html">ordered_partition.hpp</a>.</p>
 
 </div>
 </div>
@@ -159,8 +161,6 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Construct the ordered partition (n) of n </p>
 
-<p class="definition">Definition at line <a class="el" href="ordered__partition_8hpp_source.html#l00069">69</a> of file <a class="el" href="ordered__partition_8hpp_source.html">ordered_partition.hpp</a>.</p>
-
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
@@ -186,8 +186,6 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ordered__partition_8hpp_source.html#l00086">86</a> of file <a class="el" href="ordered__partition_8hpp_source.html">ordered_partition.hpp</a>.</p>
 
 </div>
 </div>
@@ -215,8 +213,6 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the length of the ordered parition. </p>
 
-<p class="definition">Definition at line <a class="el" href="ordered__partition_8hpp_source.html#l00076">76</a> of file <a class="el" href="ordered__partition_8hpp_source.html">ordered_partition.hpp</a>.</p>
-
 </div>
 </div>
 <a id="afe9d444a875872fc5a68d4a9849035ca" name="afe9d444a875872fc5a68d4a9849035ca"></a>
@@ -234,8 +230,6 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Try to set the current ordered parititon to the next one. Return true if we can perform the modification and false otherwise </p>
-
-<p class="definition">Definition at line <a class="el" href="ordered__partition_8cpp_source.html#l00033">33</a> of file <a class="el" href="ordered__partition_8cpp_source.html">ordered_partition.cpp</a>.</p>
 
 </div>
 </div>
@@ -263,13 +257,11 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return entry i of the ordered partition. </p>
 
-<p class="definition">Definition at line <a class="el" href="ordered__partition_8hpp_source.html#l00081">81</a> of file <a class="el" href="ordered__partition_8hpp_source.html">ordered_partition.hpp</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>cpp/kernel/<a class="el" href="ordered__partition_8hpp_source.html">ordered_partition.hpp</a></li>
-<li>cpp/kernel/<a class="el" href="ordered__partition_8cpp_source.html">ordered_partition.cpp</a></li>
+<li>cpp/kernel/<a class="el" href="ordered__partition_8cpp.html">ordered_partition.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

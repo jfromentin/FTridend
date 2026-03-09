@@ -2,109 +2,109 @@
 \hypertarget{quasi__shuffle_8hpp_source}{}\label{quasi__shuffle_8hpp_source}\index{cpp/kernel/quasi\_shuffle.hpp@{cpp/kernel/quasi\_shuffle.hpp}}
 \doxymbox{\hyperlink{quasi__shuffle_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ QUASI\_SHUFFLE\_HPP}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#define\ QUASI\_SHUFFLE\_HPP}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{common_8hpp}{common.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00025}\doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ab76eb5af1a657f85333056cb71045ccd}{00025}}\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00}{PType}}\ \{\doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ab7dc4371233868078efb5b9a1ef1a9e3}{PLeft}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00acf684edbc7afc6828ff93fa7e258ebf5}{PLeftMiddle}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ac5cff80100e4f838d3eaffa3b69bfbfa}{PMiddle}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00a75c3a4525bfa788df0cc8a2d6eb8bbe3}{PRight}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00a6872b892fbab60aa1bf9dfc268e66120}{PRightMiddle}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ab76eb5af1a657f85333056cb71045ccd}{PAll}}\};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00026}\doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7aa06934b290d5e0ed19e5e42203c8d5487}{00026}}\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7a}{QSType}}\ \{\doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7aa06934b290d5e0ed19e5e42203c8d5487}{QSBase}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7aacc892396e567abd6b14857af1bc4624d}{QSLeft}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7aae2aa429a8217cc19ee9caaf1c5d4b1c1}{QSMiddle}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7aaa3faf8dae6ebc6a688c081ade85a246d}{QSRight}}\};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00027}\doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8af953e34a9ed3158290f5123c1b917126}{00027}}\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8}{GType}}\ \{\doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8a7f06d4528126a008f0a351d28b12617f}{GLeft}}\ =\ 1,\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8a2e4129579a0124519996e52acf3c9185}{GRight}}\ =\ 2,\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8af953e34a9ed3158290f5123c1b917126}{GBoth}}\ =\ 3\};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00029}\doxymbox{\hyperlink{classQuasiShuffle}{00029}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle}}\ \{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00030}00030\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00031}00031\ \ \ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00}{PType}}\ p;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00032}00032\ \ \ \textcolor{keywordtype}{int}\ l,\ r;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00033}00033\ \ \ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7a}{QSType}}\ type;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00034}00034\ \ \ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle}}*\ tau;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00035}00035\ \ \ \textcolor{keywordtype}{int}\ tab[N];}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00036}00036\ \ \ \textcolor{comment}{/*int\ nmin,\ nmax;}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00037}00037\ \textcolor{comment}{\ \ int\ n;}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00038}00038\ \textcolor{comment}{\ \ int\ left;}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00039}00039\ \textcolor{comment}{\ \ int\ right;}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00040}00040\ \textcolor{comment}{\ \ bool\ next\_right();*/}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00041}00041\ \ \ \textcolor{keywordtype}{void}\ compute\_left\_sigma();}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00042}00042\ \ \ \textcolor{keywordtype}{void}\ compute\_middle\_sigma();}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00043}00043\ \ \ \textcolor{keywordtype}{void}\ compute\_right\_sigma();}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00044}00044\ \ \ \textcolor{keywordtype}{void}\ compute\_sigma();}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00045}00045\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00046}00046\ \ \ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle}}();}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00047}00047\ \ \ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r,\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00}{PType}}\ ptype\ =\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ab76eb5af1a657f85333056cb71045ccd}{PAll}});}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00048}00048\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classQuasiShuffle_a392ecf9cd017ccc058636d9abe2ad888}{initialize}}();}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00049}00049\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classQuasiShuffle_a6b70146eb08e4ebcb8c15a11d8082f21}{display}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00050}00050\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classQuasiShuffle_abb2d68c3d413b11984ca2142e98f7b91}{next}}();}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00051}00051\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classQuasiShuffle_a6341e4b944f45c69106052728fa7e4cc}{operator[]}}(\textcolor{keywordtype}{int}\ i)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00052}00052\ \ \ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8}{GType}}\ \doxymbox{\hyperlink{classQuasiShuffle_a43529c2c51d529939b6a5c4d75d21f61}{graft\_type}}(\textcolor{keywordtype}{int}\ i)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00053}00053\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classQuasiShuffle_a8b25932c32e0481cc5168a1c615bb3ba}{max\_value}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00054}00054\ \ \ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00055}00055\ \};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00056}00056\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00057}00057\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00058}\doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{00058}}\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle::QuasiShuffle}}()\ \{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00059}00059\ \ \ p\ =\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ab76eb5af1a657f85333056cb71045ccd}{PAll}};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00060}00060\ \ \ l\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00061}00061\ \ \ r\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00062}00062\ \ \ tau\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00063}00063\ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00064}00064\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00065}\doxymbox{\hyperlink{classQuasiShuffle_abff5dad58e091e4d74bdb964d1fb4508}{00065}}\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle::QuasiShuffle}}(\textcolor{keywordtype}{int}\ ll,\ \textcolor{keywordtype}{int}\ rr,\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00}{PType}}\ pp)\ \{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00066}00066\ \ \ p\ =\ pp;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00067}00067\ \ \ l\ =\ ll;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00068}00068\ \ \ r\ =\ rr;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00069}00069\ \ \ \doxymbox{\hyperlink{classQuasiShuffle_a392ecf9cd017ccc058636d9abe2ad888}{initialize}}();}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00070}00070\ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00071}00071\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00072}\doxymbox{\hyperlink{classQuasiShuffle_a6341e4b944f45c69106052728fa7e4cc}{00072}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classQuasiShuffle_a6341e4b944f45c69106052728fa7e4cc}{QuasiShuffle::operator[]}}(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00073}00073\ \ \ assert(i\ <\ l\ +\ r);}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00074}00074\ \ \ \textcolor{keywordflow}{return}\ tab[i];}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00075}00075\ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00076}00076\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00077}\doxymbox{\hyperlink{classQuasiShuffle_a43529c2c51d529939b6a5c4d75d21f61}{00077}}\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8}{GType}}\ \doxymbox{\hyperlink{classQuasiShuffle_a43529c2c51d529939b6a5c4d75d21f61}{QuasiShuffle::graft\_type}}(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00078}00078\ \ \ \textcolor{keywordtype}{int}\ res\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00079}00079\ \ \ \textcolor{keywordtype}{int}\ j\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00080}00080\ \ \ \textcolor{keywordflow}{for}(;\ j\ <\ l;\ ++\ j)\ \{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (tab[j]\ ==\ i)\ \{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00082}00082\ \ \ \ \ \ \ res\ =\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8a7f06d4528126a008f0a351d28b12617f}{GLeft}};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00083}00083\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00084}00084\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00085}00085\ \ \ \textcolor{keywordflow}{for}(;\ j\ <\ l\ +\ r;\ ++\ j)\ \{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{if}\ (tab[j]\ ==\ i)\ \{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00087}00087\ \ \ \ \ \ \ res\ +=\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8a2e4129579a0124519996e52acf3c9185}{GRight}};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00088}00088\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00089}00089\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00090}00090\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00091}00091\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8}{GType}}(res);}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00092}00092\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00093}00093\ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00094}00094\ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00095}\doxymbox{\hyperlink{classQuasiShuffle_a8b25932c32e0481cc5168a1c615bb3ba}{00095}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classQuasiShuffle_a8b25932c32e0481cc5168a1c615bb3ba}{QuasiShuffle::max\_value}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00096}00096\ \ \ \textcolor{keywordtype}{int}\ res\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00097}00097\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ l\ +\ r;\ ++\ i)\{}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (tab[i]\ >\ res)\ res\ =\ tab[i];}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00099}00099\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00100}00100\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00101}00101\ \}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00102}00102\ \ \ }
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00103}00103\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{quasi__shuffle_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ QUASI\_SHUFFLE\_HPP}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ QUASI\_SHUFFLE\_HPP}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{common_8hpp}{common.hpp}}"{}}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00}{PType}}\ \{\doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ab7dc4371233868078efb5b9a1ef1a9e3}{PLeft}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00acf684edbc7afc6828ff93fa7e258ebf5}{PLeftMiddle}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ac5cff80100e4f838d3eaffa3b69bfbfa}{PMiddle}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00a75c3a4525bfa788df0cc8a2d6eb8bbe3}{PRight}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00a6872b892fbab60aa1bf9dfc268e66120}{PRightMiddle}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ab76eb5af1a657f85333056cb71045ccd}{PAll}}\};}
+\DoxyCodeLine{00026\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7a}{QSType}}\ \{\doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7aa06934b290d5e0ed19e5e42203c8d5487}{QSBase}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7aacc892396e567abd6b14857af1bc4624d}{QSLeft}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7aae2aa429a8217cc19ee9caaf1c5d4b1c1}{QSMiddle}},\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7aaa3faf8dae6ebc6a688c081ade85a246d}{QSRight}}\};}
+\DoxyCodeLine{00027\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8}{GType}}\ \{\doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8a7f06d4528126a008f0a351d28b12617f}{GLeft}}\ =\ 1,\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8a2e4129579a0124519996e52acf3c9185}{GRight}}\ =\ 2,\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8af953e34a9ed3158290f5123c1b917126}{GBoth}}\ =\ 3\};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00}{PType}}\ p;}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{int}\ l,\ r;}
+\DoxyCodeLine{00033\ \ \ \doxymbox{\hyperlink{quasi__shuffle_8hpp_a4cb0308eaa6b5df799251613ebfe9e7a}{QSType}}\ type;}
+\DoxyCodeLine{00034\ \ \ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle}}*\ tau;}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{int}\ tab[N];}
+\DoxyCodeLine{00036\ \ \ \textcolor{comment}{/*int\ nmin,\ nmax;}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ \ int\ n;}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ int\ left;}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ \ int\ right;}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ bool\ next\_right();*/}}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ compute\_left\_sigma();}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ compute\_middle\_sigma();}
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ compute\_right\_sigma();}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ compute\_sigma();}
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle}}();}
+\DoxyCodeLine{00047\ \ \ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle}}(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r,\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00}{PType}}\ ptype\ =\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ab76eb5af1a657f85333056cb71045ccd}{PAll}});}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classQuasiShuffle_a392ecf9cd017ccc058636d9abe2ad888}{initialize}}();}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classQuasiShuffle_a6b70146eb08e4ebcb8c15a11d8082f21}{display}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classQuasiShuffle_abb2d68c3d413b11984ca2142e98f7b91}{next}}();}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classQuasiShuffle_a6341e4b944f45c69106052728fa7e4cc}{operator[]}}(\textcolor{keywordtype}{int}\ i)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8}{GType}}\ \doxymbox{\hyperlink{classQuasiShuffle_a43529c2c51d529939b6a5c4d75d21f61}{graft\_type}}(\textcolor{keywordtype}{int}\ i)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classQuasiShuffle_a8b25932c32e0481cc5168a1c615bb3ba}{max\_value}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ }
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle::QuasiShuffle}}()\ \{}
+\DoxyCodeLine{00059\ \ \ p\ =\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00ab76eb5af1a657f85333056cb71045ccd}{PAll}};}
+\DoxyCodeLine{00060\ \ \ l\ =\ 0;}
+\DoxyCodeLine{00061\ \ \ r\ =\ 0;}
+\DoxyCodeLine{00062\ \ \ tau\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00063\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{classQuasiShuffle_a997c7dd78ef5d2557bada4e9748c7e10}{QuasiShuffle::QuasiShuffle}}(\textcolor{keywordtype}{int}\ ll,\ \textcolor{keywordtype}{int}\ rr,\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_af7a96f98db345cfc58a46ae9d3ef7c00}{PType}}\ pp)\ \{}
+\DoxyCodeLine{00066\ \ \ p\ =\ pp;}
+\DoxyCodeLine{00067\ \ \ l\ =\ ll;}
+\DoxyCodeLine{00068\ \ \ r\ =\ rr;}
+\DoxyCodeLine{00069\ \ \ \doxymbox{\hyperlink{classQuasiShuffle_a392ecf9cd017ccc058636d9abe2ad888}{initialize}}();}
+\DoxyCodeLine{00070\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classQuasiShuffle_a6341e4b944f45c69106052728fa7e4cc}{QuasiShuffle::operator[]}}(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00073\ \ \ assert(i\ <\ l\ +\ r);}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordflow}{return}\ tab[i];}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8}{GType}}\ \doxymbox{\hyperlink{classQuasiShuffle_a43529c2c51d529939b6a5c4d75d21f61}{QuasiShuffle::graft\_type}}(\textcolor{keywordtype}{int}\ i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{int}\ res\ =\ 0;}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{int}\ j\ =\ 0;}
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordflow}{for}(;\ j\ <\ l;\ ++\ j)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (tab[j]\ ==\ i)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ res\ =\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8a7f06d4528126a008f0a351d28b12617f}{GLeft}};}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{for}(;\ j\ <\ l\ +\ r;\ ++\ j)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{if}\ (tab[j]\ ==\ i)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ res\ +=\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8a2e4129579a0124519996e52acf3c9185}{GRight}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{quasi__shuffle_8hpp_ae46960230a34b65022ef30c31897e9c8}{GType}}(res);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classQuasiShuffle_a8b25932c32e0481cc5168a1c615bb3ba}{QuasiShuffle::max\_value}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{int}\ res\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ l\ +\ r;\ ++\ i)\{}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{if}\ (tab[i]\ >\ res)\ res\ =\ tab[i];}
+\DoxyCodeLine{00099\ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordflow}{return}\ res;}
+\DoxyCodeLine{00101\ \}}
+\DoxyCodeLine{00102\ \ \ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00104\ }
 
 \end{DoxyCode}

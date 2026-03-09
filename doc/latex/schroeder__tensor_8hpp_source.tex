@@ -2,168 +2,168 @@
 \hypertarget{schroeder__tensor_8hpp_source}{}\label{schroeder__tensor_8hpp_source}\index{cpp/kernel/schroeder\_tensor.hpp@{cpp/kernel/schroeder\_tensor.hpp}}
 \doxymbox{\hyperlink{schroeder__tensor_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ SCHROEDER\_TENSOR\_HPP}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#define\ SCHROEDER\_TENSOR\_HPP}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{kernel_2schroeder__vector_8hpp}{schroeder\_vector.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00026}\doxymbox{\hyperlink{structElementarySchroederTensor}{00026}}\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00027}\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{00027}}\ \ \ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\ \doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00028}\doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{00028}}\ \ \ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\ \doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00029}00029\ \};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00030}00030\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00031}00031\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00032}00032\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_a26e2ee5b9fead8b6d4f88a4a9a1ea686}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t2);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00033}00033\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00034}\doxymbox{\hyperlink{structstd_1_1hash_3_01ElementarySchroederTensor_01_4}{00034}}\ \textcolor{keyword}{template}<>\ \textcolor{keyword}{struct\ }std::hash<\doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}>\{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00035}\doxymbox{\hyperlink{structstd_1_1hash_3_01ElementarySchroederTensor_01_4_a0f57f859fe59ef04ae6e8673e6ab2ff6}{00035}}\ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{structstd_1_1hash_3_01ElementarySchroederTensor_01_4_a0f57f859fe59ef04ae6e8673e6ab2ff6}{operator()}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t)\textcolor{keyword}{\ const}\{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ t.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}}.\doxymbox{\hyperlink{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}{hash}}()\ \string^\ (\string~\ t.right.hash());}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00037}00037\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00038}00038\ \};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00039}00039\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00040}00040\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00041}\doxymbox{\hyperlink{classSchroederTensor}{00041}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor}}\{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00042}00042\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00043}00043\ \ \ unordered\_map<ElementarySchroederTensor,\ R>\ coeffs;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00044}00044\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00045}00045\ \ \ \doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor}}();}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00046}00046\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tl,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tr,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00047}00047\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<R>}}\&\ ul,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tr,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00048}00048\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tl,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<R>}}\&\ ur,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00049}00049\ \ \ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00050}00050\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00051}00051\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor<R>}}\&\ u,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00052}00052\ \ \ unordered\_map<ElementarySchroederTensor,\ R>::const\_iterator\ \doxymbox{\hyperlink{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8}{begin}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00053}00053\ \ \ unordered\_map<ElementarySchroederTensor,\ R>::const\_iterator\ \doxymbox{\hyperlink{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019}{end}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00054}00054\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7}{is\_zero}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00055}00055\ \ \ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00056}00056\ \};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00057}00057\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00058}00058\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTensor}{SchroederTensor<R>}}\&\ U);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00059}00059\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00060}00060\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00061}\doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{00061}}\ \doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor<R>::SchroederTensor}}()\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00062}00062\ \ \ coeffs.clear();}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00063}00063\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00064}00064\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00065}00065\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00066}\doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{00066}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tl,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tr,\ \textcolor{keyword}{const}\ R\&\ r)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00067}00067\ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 0)\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00068}00068\ \ \ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\ t;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00069}00069\ \ \ t.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}}\ =\ tl;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00070}00070\ \ \ t.\doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}}\ =\ tr;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00071}00071\ \ \ \textcolor{keyword}{auto}\ it\ =\ coeffs.find(t);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00072}00072\ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ coeffs.end())\ \ coeffs[t]\ =\ r;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00073}00073\ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ -\/>\ second\ +\ r\ ==\ 0)\ coeffs.erase(it);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{else}\ it\ -\/>\ second\ +=\ r;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00076}00076\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00077}00077\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00078}00078\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00079}00079\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00080}\doxymbox{\hyperlink{classSchroederTensor_a8182d2ef9557a945176cac42a78ba20f}{00080}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<R>}}\&\ u,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ t,\ \textcolor{keyword}{const}\ R\&\ r)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00081}00081\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ u.\doxymbox{\hyperlink{classSchroederVector_a6754591ab190f42c791911e9440b0042}{begin}}();\ it\ !=\ u.\doxymbox{\hyperlink{classSchroederVector_a2bdefcd3b57d65d8d49d36cd4c2bdecb}{end}}();\ ++\ it)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00082}00082\ \ \ \ \ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(it\ -\/>\ first,\ t,\ r\ *\ it\ -\/>\ second);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00083}00083\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00084}00084\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00085}00085\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00086}00086\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00087}\doxymbox{\hyperlink{classSchroederTensor_a0ea3b0a0a122680f04ecfe178807dfba}{00087}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ t,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<R>}}\&\ u,\ \ \textcolor{keyword}{const}\ R\&\ r)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00088}00088\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ u.\doxymbox{\hyperlink{classSchroederVector_a6754591ab190f42c791911e9440b0042}{begin}}();\ it\ !=\ u.\doxymbox{\hyperlink{classSchroederVector_a2bdefcd3b57d65d8d49d36cd4c2bdecb}{end}}();\ ++\ it)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00089}00089\ \ \ \ \ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(t,\ it\ -\/>\ first,\ r\ *\ it\ -\/>\ second);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00090}00090\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00091}00091\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00092}00092\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00093}00093\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00094}00094\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00095}\doxymbox{\hyperlink{classSchroederTensor_a89e7da4a20b4df57b2619b5601d8869e}{00095}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t,\ \textcolor{keyword}{const}\ R\&\ r)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00096}00096\ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 0)\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00097}00097\ \ \ \textcolor{keyword}{auto}\ it\ =\ coeffs.find(t);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00098}00098\ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ coeffs.end())\ \ coeffs[t]\ =\ r;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00099}00099\ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ -\/>\ second\ +\ r\ ==\ 0)\ coeffs.erase(it);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{else}\ it\ -\/>\ second\ +=\ r;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00102}00102\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00103}00103\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00104}00104\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00105}00105\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00106}\doxymbox{\hyperlink{classSchroederTensor_a278bb3ec56f01c655e8725d99d84138d}{00106}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor<R>}}\&\ u,\ \textcolor{keyword}{const}\ R\&\ r)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00107}00107\ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 0)\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00108}00108\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ u.coeffs.begin();\ it\ !=\ u.coeffs.end();\ ++\ it)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00109}00109\ \ \ \ \ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(it\ -\/>\ first,\ r\ *\ it\ -\/>\ second);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00110}00110\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00111}00111\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00112}00112\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00113}00113\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00114}00114\ \textcolor{keyword}{inline}\ \ unordered\_map<ElementarySchroederTensor,\ R>::const\_iterator}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00115}\doxymbox{\hyperlink{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8}{00115}}\ \doxymbox{\hyperlink{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8}{SchroederTensor<R>::begin}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00116}00116\ \ \ \textcolor{keywordflow}{return}\ coeffs.begin();}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00117}00117\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00118}00118\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00119}00119\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00120}00120\ \textcolor{keyword}{inline}\ \ unordered\_map<ElementarySchroederTensor,\ R>::const\_iterator}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00121}\doxymbox{\hyperlink{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019}{00121}}\ \doxymbox{\hyperlink{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019}{SchroederTensor<R>::end}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00122}00122\ \ \ \textcolor{keywordflow}{return}\ coeffs.end();}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00123}00123\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00124}00124\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00125}00125\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00126}00126\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00127}\doxymbox{\hyperlink{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7}{00127}}\ \doxymbox{\hyperlink{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7}{SchroederTensor<R>::is\_zero}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00128}00128\ \ \ \textcolor{keywordflow}{return}\ coeffs.empty();}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00129}00129\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00130}00130\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00131}00131\ \textcolor{keyword}{inline}\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00132}\doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{00132}}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00133}00133\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(t.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}})\ +\ \textcolor{stringliteral}{"{}\(\backslash\)u2297"{}}\ +\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(t.\doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}});}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00134}00134\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00135}00135\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00136}00136\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00137}\doxymbox{\hyperlink{schroeder__tensor_8hpp_a128345ebfa597b4d54bac4a9505e4203}{00137}}\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTensor}{SchroederTensor<R>}}\&\ u)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00138}00138\ \ \ \textcolor{keywordflow}{if}(u.\doxymbox{\hyperlink{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7}{is\_zero}}())\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}0"{}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00139}00139\ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00140}00140\ \ \ \textcolor{keywordtype}{string}\ str\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00141}00141\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ u.\doxymbox{\hyperlink{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8}{begin}}();\ it\ !=\ u.\doxymbox{\hyperlink{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019}{end}}();\ ++\ it)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00142}00142\ \ \ \ \ R\ c\ =\ it\ -\/>\ second;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00143}00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (first)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00144}00144\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ -\/1)\ str\ +=\ \textcolor{stringliteral}{"{}-\/\ "{}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00145}00145\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (c\ !=\ 1)\ str\ +=\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(c)\ +\ \textcolor{stringliteral}{"{}\ *\ "{}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00146}00146\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00148}00148\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ -\/1)\ str\ +=\ \textcolor{stringliteral}{"{}\ -\/\ "{}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00149}00149\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (c\ ==\ 1)\ str\ +=\ \textcolor{stringliteral}{"{}\ +\ "{}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00150}00150\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (c\ >\ 0)\ str\ +=\ \textcolor{stringliteral}{"{}\ +\ "{}}\ +\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(c)\ +\ \textcolor{stringliteral}{"{}\ *\ "{}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00151}00151\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ str\ +=\ \textcolor{stringliteral}{"{}\ -\/"{}}\ +\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(-\/c)\ +\ \textcolor{stringliteral}{"{}\ *\ "{}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00152}00152\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00153}00153\ \ \ \ \ str\ +=\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(it\ -\/>\ first);}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00154}00154\ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00155}00155\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00156}00156\ \ \ \textcolor{keywordflow}{return}\ str;}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00157}00157\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00158}00158\ }
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00159}00159\ \textcolor{keyword}{inline}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00160}\doxymbox{\hyperlink{schroeder__tensor_8hpp_a26e2ee5b9fead8b6d4f88a4a9a1ea686}{00160}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_a26e2ee5b9fead8b6d4f88a4a9a1ea686}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t2)\ \{}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00161}00161\ \ \ \textcolor{keywordflow}{return}\ t1.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}}\ ==\ t2.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}}\ and\ t1.\doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}}\ ==\ t2.\doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}};}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00162}00162\ \}}
-\DoxyCodeLine{\Hypertarget{schroeder__tensor_8hpp_source_l00163}00163\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ SCHROEDER\_TENSOR\_HPP}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ SCHROEDER\_TENSOR\_HPP}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{kernel_2schroeder__vector_8hpp}{schroeder\_vector.hpp}}"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\ \{}
+\DoxyCodeLine{00027\ \ \ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\ \doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}};}
+\DoxyCodeLine{00028\ \ \ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\ \doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}};}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&);}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_a26e2ee5b9fead8b6d4f88a4a9a1ea686}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t2);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}<>\ \textcolor{keyword}{struct\ }std::hash<\doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}>\{}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{structstd_1_1hash_3_01ElementarySchroederTensor_01_4_a0f57f859fe59ef04ae6e8673e6ab2ff6}{operator()}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ t.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}}.\doxymbox{\hyperlink{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}{hash}}()\ \string^\ (\string~\ t.right.hash());}
+\DoxyCodeLine{00037\ \ \ \}}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor}}\{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ unordered\_map<ElementarySchroederTensor,\ R>\ coeffs;}
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor}}();}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tl,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tr,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<R>}}\&\ ul,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tr,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tl,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<R>}}\&\ ur,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
+\DoxyCodeLine{00049\ \ \ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor<R>}}\&\ u,\ \textcolor{keyword}{const}\ R\&\ r\ =\ 1);}
+\DoxyCodeLine{00052\ \ \ unordered\_map<ElementarySchroederTensor,\ R>::const\_iterator\ \doxymbox{\hyperlink{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8}{begin}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ unordered\_map<ElementarySchroederTensor,\ R>::const\_iterator\ \doxymbox{\hyperlink{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019}{end}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7}{is\_zero}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ }
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTensor}{SchroederTensor<R>}}\&\ U);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00061\ \doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor<R>::SchroederTensor}}()\ \{}
+\DoxyCodeLine{00062\ \ \ coeffs.clear();}
+\DoxyCodeLine{00063\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tl,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ tr,\ \textcolor{keyword}{const}\ R\&\ r)\ \{}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00068\ \ \ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\ t;}
+\DoxyCodeLine{00069\ \ \ t.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}}\ =\ tl;}
+\DoxyCodeLine{00070\ \ \ t.\doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}}\ =\ tr;}
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{auto}\ it\ =\ coeffs.find(t);}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ coeffs.end())\ \ coeffs[t]\ =\ r;}
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ -\/>\ second\ +\ r\ ==\ 0)\ coeffs.erase(it);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{else}\ it\ -\/>\ second\ +=\ r;}
+\DoxyCodeLine{00076\ \ \ \}}
+\DoxyCodeLine{00077\ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<R>}}\&\ u,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ t,\ \textcolor{keyword}{const}\ R\&\ r)\ \{}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ u.\doxymbox{\hyperlink{classSchroederVector_a6754591ab190f42c791911e9440b0042}{begin}}();\ it\ !=\ u.\doxymbox{\hyperlink{classSchroederVector_a2bdefcd3b57d65d8d49d36cd4c2bdecb}{end}}();\ ++\ it)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(it\ -\/>\ first,\ t,\ r\ *\ it\ -\/>\ second);}
+\DoxyCodeLine{00083\ \ \ \}}
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ t,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederVector}{SchroederVector<R>}}\&\ u,\ \ \textcolor{keyword}{const}\ R\&\ r)\ \{}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ u.\doxymbox{\hyperlink{classSchroederVector_a6754591ab190f42c791911e9440b0042}{begin}}();\ it\ !=\ u.\doxymbox{\hyperlink{classSchroederVector_a2bdefcd3b57d65d8d49d36cd4c2bdecb}{end}}();\ ++\ it)\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(t,\ it\ -\/>\ first,\ r\ *\ it\ -\/>\ second);}
+\DoxyCodeLine{00090\ \ \ \}}
+\DoxyCodeLine{00091\ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t,\ \textcolor{keyword}{const}\ R\&\ r)\ \{}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00097\ \ \ \textcolor{keyword}{auto}\ it\ =\ coeffs.find(t);}
+\DoxyCodeLine{00098\ \ \ \textcolor{keywordflow}{if}\ (it\ ==\ coeffs.end())\ \ coeffs[t]\ =\ r;}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ -\/>\ second\ +\ r\ ==\ 0)\ coeffs.erase(it);}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{else}\ it\ -\/>\ second\ +=\ r;}
+\DoxyCodeLine{00102\ \ \ \}}
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{SchroederTensor<R>::add}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTensor_af137c74c9485eb34dd49b92bde086b1c}{SchroederTensor<R>}}\&\ u,\ \textcolor{keyword}{const}\ R\&\ r)\ \{}
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ u.coeffs.begin();\ it\ !=\ u.coeffs.end();\ ++\ it)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \doxymbox{\hyperlink{classSchroederTensor_a1216f5281ea3ca72f810ec896eb0c470}{add}}(it\ -\/>\ first,\ r\ *\ it\ -\/>\ second);}
+\DoxyCodeLine{00110\ \ \ \}}
+\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00114\ \textcolor{keyword}{inline}\ \ unordered\_map<ElementarySchroederTensor,\ R>::const\_iterator}
+\DoxyCodeLine{00115\ \doxymbox{\hyperlink{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8}{SchroederTensor<R>::begin}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00116\ \ \ \textcolor{keywordflow}{return}\ coeffs.begin();}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00120\ \textcolor{keyword}{inline}\ \ unordered\_map<ElementarySchroederTensor,\ R>::const\_iterator}
+\DoxyCodeLine{00121\ \doxymbox{\hyperlink{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019}{SchroederTensor<R>::end}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordflow}{return}\ coeffs.end();}
+\DoxyCodeLine{00123\ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00126\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00127\ \doxymbox{\hyperlink{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7}{SchroederTensor<R>::is\_zero}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordflow}{return}\ coeffs.empty();}
+\DoxyCodeLine{00129\ \}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{inline}\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t)\ \{}
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(t.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}})\ +\ \textcolor{stringliteral}{"{}\(\backslash\)u2297"{}}\ +\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(t.\doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}});}
+\DoxyCodeLine{00134\ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ R>}
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTensor}{SchroederTensor<R>}}\&\ u)\ \{}
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordflow}{if}(u.\doxymbox{\hyperlink{classSchroederTensor_a2ecef0afbda86286f7df7b664c1a59b7}{is\_zero}}())\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00140\ \ \ \textcolor{keywordtype}{string}\ str\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ u.\doxymbox{\hyperlink{classSchroederTensor_ac38bd76f86a7cdc73209083c088863c8}{begin}}();\ it\ !=\ u.\doxymbox{\hyperlink{classSchroederTensor_ac3f0ab4484d73d6ff24690fafacd7019}{end}}();\ ++\ it)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ R\ c\ =\ it\ -\/>\ second;}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}\ (first)\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ -\/1)\ str\ +=\ \textcolor{stringliteral}{"{}-\/\ "{}};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (c\ !=\ 1)\ str\ +=\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(c)\ +\ \textcolor{stringliteral}{"{}\ *\ "{}};}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ -\/1)\ str\ +=\ \textcolor{stringliteral}{"{}\ -\/\ "{}};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (c\ ==\ 1)\ str\ +=\ \textcolor{stringliteral}{"{}\ +\ "{}};}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (c\ >\ 0)\ str\ +=\ \textcolor{stringliteral}{"{}\ +\ "{}}\ +\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(c)\ +\ \textcolor{stringliteral}{"{}\ *\ "{}};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ str\ +=\ \textcolor{stringliteral}{"{}\ -\/"{}}\ +\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(-\/c)\ +\ \textcolor{stringliteral}{"{}\ *\ "{}};}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ str\ +=\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_aa6641740679fb16677290eb13e1d76d9}{to\_string}}(it\ -\/>\ first);}
+\DoxyCodeLine{00154\ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00155\ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \textcolor{keywordflow}{return}\ str;}
+\DoxyCodeLine{00157\ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{schroeder__tensor_8hpp_a26e2ee5b9fead8b6d4f88a4a9a1ea686}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t1,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structElementarySchroederTensor}{ElementarySchroederTensor}}\&\ t2)\ \{}
+\DoxyCodeLine{00161\ \ \ \textcolor{keywordflow}{return}\ t1.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}}\ ==\ t2.\doxymbox{\hyperlink{structElementarySchroederTensor_ad2a6c7e0ff15a812f851e90cb66ff54b}{left}}\ and\ t1.\doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}}\ ==\ t2.\doxymbox{\hyperlink{structElementarySchroederTensor_abd6bbf543aee4902a0deaad4871d5598}{right}};}
+\DoxyCodeLine{00162\ \}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

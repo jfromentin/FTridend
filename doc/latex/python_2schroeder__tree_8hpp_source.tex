@@ -2,142 +2,142 @@
 \hypertarget{python_2schroeder__tree_8hpp_source}{}\label{python_2schroeder__tree_8hpp_source}\index{cpp/python/schroeder\_tree.hpp@{cpp/python/schroeder\_tree.hpp}}
 \doxymbox{\hyperlink{python_2schroeder__tree_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ PYTHON\_SCHROEDER\_TREE\_HPP}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#define\ PYTHON\_SCHROEDER\_TREE\_HPP}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <Python.h>}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <sstream>}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp}{../kernel/schroeder\_tree.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{python_2doc_2schroeder__tree_8hpp}{doc/schroeder\_tree.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00029}00029\ \textcolor{comment}{//************************}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00030}00030\ \textcolor{comment}{//*\ SchroederTree\ object\ *}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00031}00031\ \textcolor{comment}{//************************}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00032}00032\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00033}\doxymbox{\hyperlink{structSchroederTreeObject}{00033}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00034}00034\ \ \ PyObject\_HEAD}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00035}\doxymbox{\hyperlink{structSchroederTreeObject_ae71ca59122f544607d5d5397f4c9bb11}{00035}}\ \ \ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\ \doxymbox{\hyperlink{structSchroederTreeObject_ae71ca59122f544607d5d5397f4c9bb11}{data}};}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00036}00036\ \}\ \doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}};}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00037}00037\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00038}00038\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00039}00039\ \textcolor{comment}{//\ Python\ operator}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00040}00040\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00041}00041\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00042}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_abd3a38a7cc883d20fef938e3238af6ec}{00042}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_abd3a38a7cc883d20fef938e3238af6ec}{SchroederTreeInit}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00043}00043\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af96ea02a21f357f8b40af11438b5b902}{PyObjectFromCpp}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ p);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00044}00044\ Py\_hash\_t\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a25673c11063e138611db37a400db4853}{SchroederTreeHash}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00045}00045\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5fc8af67fc2ac629fadfdff046d8212c}{SchroederTreeRepr}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00047}00047\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00048}00048\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00049}00049\ \textcolor{comment}{//\ Member\ functions}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00050}00050\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00051}00051\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00052}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aa78094497110d863182d35e36622abe6}{00052}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aa78094497110d863182d35e36622abe6}{SchroederTree\_height}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00053}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a9659fadf7ea53c30e78ba65e2b283373}{00053}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a9659fadf7ea53c30e78ba65e2b283373}{SchroederTree\_leaves}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00054}00054\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a94804e47bec13e08a1f191ad4eab574e}{SchroederTree\_layer}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00055}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_abd05e1bd472ad1752385b099c0e1cfd5}{00055}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_abd05e1bd472ad1752385b099c0e1cfd5}{SchroederTree\_left\_forests\_length}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00056}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a458c8e3fe44a6dbecab90c6a1b975cb0}{00056}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a458c8e3fe44a6dbecab90c6a1b975cb0}{SchroederTree\_right\_forests\_length}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00057}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5070f12ebaf14f31bab48823be688e5c}{00057}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5070f12ebaf14f31bab48823be688e5c}{SchroederTree\_left\_forest}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00058}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5fc6c0aede211fbe5087269f1bd7f46b}{00058}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5fc6c0aede211fbe5087269f1bd7f46b}{SchroederTree\_right\_forest}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00059}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aad15afad0a3d0e28318c61984680c003}{00059}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aad15afad0a3d0e28318c61984680c003}{SchroederTree\_display}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00060}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af64fb382a2a222eb323da89e58bddc99}{00060}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af64fb382a2a222eb323da89e58bddc99}{SchroederTree\_tikz}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00061}00061\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00062}00062\ \textcolor{keyword}{static}\ PyMethodDef\ SchroederTreeMethods[]\ =\ \{}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00063}00063\ \ \ \{\textcolor{stringliteral}{"{}height"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aa78094497110d863182d35e36622abe6}{SchroederTree\_height}},\ METH\_NOARGS,\ SchroederTree\_height\_doc\},}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00064}00064\ \ \ \{\textcolor{stringliteral}{"{}leaves"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a9659fadf7ea53c30e78ba65e2b283373}{SchroederTree\_leaves}},\ METH\_NOARGS,\ SchroederTree\_leaves\_doc\},}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00065}00065\ \ \ \{\textcolor{stringliteral}{"{}layer"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_a106dbf8f4bd8fa7a8ace9afd70b41f59}{SchroederTree\_layer}},\ METH\_VARARGS,\ SchroederTree\_layer\_doc\},}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00066}00066\ \ \ \textcolor{comment}{/*\{"{}left\_forests\_length"{},\ (PyCFunction)SchroederTree\_left\_forests\_length,\ METH\_VARARGS,\ SchroederTree\_left\_forests\_length\_doc\},}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00067}00067\ \textcolor{comment}{\ \ \{"{}right\_forests\_length"{},\ (PyCFunction)SchroederTree\_right\_forests\_length,\ METH\_VARARGS,\ SchroederTree\_right\_forests\_length\_doc\},}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00068}00068\ \textcolor{comment}{\ \ }}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00069}00069\ \textcolor{comment}{\ \ \{"{}left\_forest"{},\ (PyCFunction)SchroederTree\_left\_forest,\ METH\_VARARGS,\ SchroederTree\_left\_forest\_doc\},}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00070}00070\ \textcolor{comment}{\ \ \{"{}right\_forest"{},\ (PyCFunction)SchroederTree\_right\_forest,\ METH\_VARARGS,\ SchroederTree\_right\_forest\_doc\},*/}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00071}00071\ \ \ \{\textcolor{stringliteral}{"{}display"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aad15afad0a3d0e28318c61984680c003}{SchroederTree\_display}},\ METH\_NOARGS,\ SchroederTree\_display\_doc\},}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00072}00072\ \ \ \{\textcolor{stringliteral}{"{}tikz"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af64fb382a2a222eb323da89e58bddc99}{SchroederTree\_tikz}},\ METH\_NOARGS,\ \textcolor{stringliteral}{"{}Return\ tikz\ code\ to\ draw\ current\ SchroederTree"{}}\},}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00073}00073\ \ \ \{NULL\}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00074}00074\ \};}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00075}00075\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00076}00076\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00077}00077\ \textcolor{comment}{//\ Object\ declaration}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00078}00078\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00079}00079\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00080}00080\ \textcolor{keyword}{extern}\ PyTypeObject\ \doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{SchroederTreeType}};}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00082}00082\ \textcolor{comment}{//**************************}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00083}00083\ \textcolor{comment}{//*\ Inline\ Python\ operator\ *}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00084}00084\ \textcolor{comment}{//**************************}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00085}00085\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00086}00086\ \textcolor{comment}{//\ Hash\ operator}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00087}00087\ \textcolor{keyword}{inline}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00088}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a25673c11063e138611db37a400db4853}{00088}}\ Py\_hash\_t\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a25673c11063e138611db37a400db4853}{SchroederTreeHash}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self)\ \{}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00089}00089\ \ \ \textcolor{keywordflow}{return}\ self\ -\/>\ data.hash();}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00090}00090\ \}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00091}00091\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00092}00092\ \textcolor{comment}{//\ Repr\ operator}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00093}00093\ \textcolor{keyword}{inline}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00094}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5fc8af67fc2ac629fadfdff046d8212c}{00094}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5fc8af67fc2ac629fadfdff046d8212c}{SchroederTreeRepr}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self)\ \{}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00095}00095\ \ \ \textcolor{keywordtype}{string}\ res\ =\ \doxymbox{\hyperlink{array_8hpp_a29ec543824f311df1a91e42db46cfa73}{to\_string}}(self\ -\/>\ data);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00096}00096\ \ \ \textcolor{keywordflow}{return}\ PyUnicode\_FromString(res.c\_str());}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00097}00097\ \}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00098}00098\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00099}00099\ \textcolor{comment}{//\ FromCpp\ operator}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00100}00100\ \textcolor{keyword}{inline}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00101}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af96ea02a21f357f8b40af11438b5b902}{00101}}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af96ea02a21f357f8b40af11438b5b902}{PyObjectFromCpp}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ cpp)\ \{}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00102}00102\ \ \ \doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ res\ =\ (\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*)\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{SchroederTreeType}}.tp\_alloc(\&\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{SchroederTreeType}},\ 1);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00103}00103\ \ \ res\ -\/>\ data\ =\ cpp;}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00104}00104\ \ \ \textcolor{keywordflow}{return}\ (PyObject*)res;}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00105}00105\ \}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00106}00106\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00107}00107\ \textcolor{comment}{//***************************}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00108}00108\ \textcolor{comment}{//*\ Inline\ member\ functions\ *}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00109}00109\ \textcolor{comment}{//***************************}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00110}00110\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00111}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a4a59a5430a3001335cbd6ee6772c68bb}{00111}}\ \textcolor{keyword}{inline}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aa78094497110d863182d35e36622abe6}{SchroederTree\_height}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00112}00112\ \ \ \textcolor{keywordflow}{return}\ PyLong\_FromLong(self\ -\/>\ data.height());}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00113}00113\ \}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00114}00114\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00115}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a759990f9997679f0d8cf7add6a2d50ed}{00115}}\ \textcolor{keyword}{inline}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a9659fadf7ea53c30e78ba65e2b283373}{SchroederTree\_leaves}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00116}00116\ \ \ \textcolor{keywordflow}{return}\ PyLong\_FromLong(self\ -\/>\ data.leaves());}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00117}00117\ \}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00118}00118\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00119}00119\ \textcolor{comment}{/*inline\ PyObject*\ SchroederTree\_left\_forests\_length(SchroederTreeObject*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00120}00120\ \textcolor{comment}{\ \ return\ PyLong\_FromLong(self\ -\/>\ data.left\_forests\_length());}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00121}00121\ \textcolor{comment}{\}}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00122}00122\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00123}00123\ \textcolor{comment}{inline\ PyObject*\ SchroederTree\_right\_forests\_length(SchroederTreeObject*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00124}00124\ \textcolor{comment}{\ \ return\ PyLong\_FromLong(self\ -\/>\ data.right\_forests\_length());}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00125}00125\ \textcolor{comment}{\ \ \}*/}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00126}00126\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00127}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a86a6f887dc901a8a6b646f6e14a6c72d}{00127}}\ \textcolor{keyword}{inline}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aad15afad0a3d0e28318c61984680c003}{SchroederTree\_display}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00128}00128\ \ \ ostringstream\ os;}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00129}00129\ \ \ self\ -\/>\ data.display(os);}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00130}00130\ \ \ \textcolor{keywordflow}{return}\ PyUnicode\_FromString(os.str().c\_str());}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00131}00131\ \}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00132}00132\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00133}\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a2d6efa1bd14e8e104150082df5cec0a5}{00133}}\ \textcolor{keyword}{inline}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af64fb382a2a222eb323da89e58bddc99}{SchroederTree\_tikz}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00134}00134\ \ \ \textcolor{keywordflow}{return}\ PyUnicode\_FromString(self\ -\/>\ data.to\_latex().c\_str());}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00135}00135\ \}}
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00136}00136\ }
-\DoxyCodeLine{\Hypertarget{python_2schroeder__tree_8hpp_source_l00137}00137\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ PYTHON\_SCHROEDER\_TREE\_HPP}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PYTHON\_SCHROEDER\_TREE\_HPP}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <Python.h>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp}{../kernel/schroeder\_tree.hpp}}"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{python_2doc_2schroeder__tree_8hpp}{doc/schroeder\_tree.hpp}}"{}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//************************}}
+\DoxyCodeLine{00030\ \textcolor{comment}{//*\ SchroederTree\ object\ *}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//************************}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00034\ \ \ PyObject\_HEAD}
+\DoxyCodeLine{00035\ \ \ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\ \doxymbox{\hyperlink{structSchroederTreeObject_ae71ca59122f544607d5d5397f4c9bb11}{data}};}
+\DoxyCodeLine{00036\ \}\ \doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Python\ operator}}
+\DoxyCodeLine{00040\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_abd3a38a7cc883d20fef938e3238af6ec}{SchroederTreeInit}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*,\ PyObject*);}
+\DoxyCodeLine{00043\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af96ea02a21f357f8b40af11438b5b902}{PyObjectFromCpp}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ p);}
+\DoxyCodeLine{00044\ Py\_hash\_t\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a25673c11063e138611db37a400db4853}{SchroederTreeHash}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*);}
+\DoxyCodeLine{00045\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5fc8af67fc2ac629fadfdff046d8212c}{SchroederTreeRepr}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//\ Member\ functions}}
+\DoxyCodeLine{00050\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aa78094497110d863182d35e36622abe6}{SchroederTree\_height}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
+\DoxyCodeLine{00053\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a9659fadf7ea53c30e78ba65e2b283373}{SchroederTree\_leaves}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
+\DoxyCodeLine{00054\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a94804e47bec13e08a1f191ad4eab574e}{SchroederTree\_layer}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
+\DoxyCodeLine{00055\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_abd05e1bd472ad1752385b099c0e1cfd5}{SchroederTree\_left\_forests\_length}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
+\DoxyCodeLine{00056\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a458c8e3fe44a6dbecab90c6a1b975cb0}{SchroederTree\_right\_forests\_length}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
+\DoxyCodeLine{00057\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5070f12ebaf14f31bab48823be688e5c}{SchroederTree\_left\_forest}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
+\DoxyCodeLine{00058\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5fc6c0aede211fbe5087269f1bd7f46b}{SchroederTree\_right\_forest}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
+\DoxyCodeLine{00059\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aad15afad0a3d0e28318c61984680c003}{SchroederTree\_display}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
+\DoxyCodeLine{00060\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af64fb382a2a222eb323da89e58bddc99}{SchroederTree\_tikz}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*,\ PyObject*);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{static}\ PyMethodDef\ SchroederTreeMethods[]\ =\ \{}
+\DoxyCodeLine{00063\ \ \ \{\textcolor{stringliteral}{"{}height"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aa78094497110d863182d35e36622abe6}{SchroederTree\_height}},\ METH\_NOARGS,\ SchroederTree\_height\_doc\},}
+\DoxyCodeLine{00064\ \ \ \{\textcolor{stringliteral}{"{}leaves"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a9659fadf7ea53c30e78ba65e2b283373}{SchroederTree\_leaves}},\ METH\_NOARGS,\ SchroederTree\_leaves\_doc\},}
+\DoxyCodeLine{00065\ \ \ \{\textcolor{stringliteral}{"{}layer"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_a106dbf8f4bd8fa7a8ace9afd70b41f59}{SchroederTree\_layer}},\ METH\_VARARGS,\ SchroederTree\_layer\_doc\},}
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{/*\{"{}left\_forests\_length"{},\ (PyCFunction)SchroederTree\_left\_forests\_length,\ METH\_VARARGS,\ SchroederTree\_left\_forests\_length\_doc\},}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \{"{}right\_forests\_length"{},\ (PyCFunction)SchroederTree\_right\_forests\_length,\ METH\_VARARGS,\ SchroederTree\_right\_forests\_length\_doc\},}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ }}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \{"{}left\_forest"{},\ (PyCFunction)SchroederTree\_left\_forest,\ METH\_VARARGS,\ SchroederTree\_left\_forest\_doc\},}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \{"{}right\_forest"{},\ (PyCFunction)SchroederTree\_right\_forest,\ METH\_VARARGS,\ SchroederTree\_right\_forest\_doc\},*/}}
+\DoxyCodeLine{00071\ \ \ \{\textcolor{stringliteral}{"{}display"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aad15afad0a3d0e28318c61984680c003}{SchroederTree\_display}},\ METH\_NOARGS,\ SchroederTree\_display\_doc\},}
+\DoxyCodeLine{00072\ \ \ \{\textcolor{stringliteral}{"{}tikz"{}},\ (PyCFunction)\doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af64fb382a2a222eb323da89e58bddc99}{SchroederTree\_tikz}},\ METH\_NOARGS,\ \textcolor{stringliteral}{"{}Return\ tikz\ code\ to\ draw\ current\ SchroederTree"{}}\},}
+\DoxyCodeLine{00073\ \ \ \{NULL\}}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00077\ \textcolor{comment}{//\ Object\ declaration}}
+\DoxyCodeLine{00078\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{extern}\ PyTypeObject\ \doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{SchroederTreeType}};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{//**************************}}
+\DoxyCodeLine{00083\ \textcolor{comment}{//*\ Inline\ Python\ operator\ *}}
+\DoxyCodeLine{00084\ \textcolor{comment}{//**************************}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ Hash\ operator}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00088\ Py\_hash\_t\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a25673c11063e138611db37a400db4853}{SchroederTreeHash}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self)\ \{}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordflow}{return}\ self\ -\/>\ data.hash();}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ Repr\ operator}}
+\DoxyCodeLine{00093\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00094\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a5fc8af67fc2ac629fadfdff046d8212c}{SchroederTreeRepr}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self)\ \{}
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{string}\ res\ =\ \doxymbox{\hyperlink{array_8hpp_a29ec543824f311df1a91e42db46cfa73}{to\_string}}(self\ -\/>\ data);}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordflow}{return}\ PyUnicode\_FromString(res.c\_str());}
+\DoxyCodeLine{00097\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ FromCpp\ operator}}
+\DoxyCodeLine{00100\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00101\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af96ea02a21f357f8b40af11438b5b902}{PyObjectFromCpp}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ cpp)\ \{}
+\DoxyCodeLine{00102\ \ \ \doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ res\ =\ (\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*)\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{SchroederTreeType}}.tp\_alloc(\&\doxymbox{\hyperlink{python_2schroeder__tree_8cpp_ae016877e8517d5f970c5f94cf67d7b8d}{SchroederTreeType}},\ 1);}
+\DoxyCodeLine{00103\ \ \ res\ -\/>\ data\ =\ cpp;}
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordflow}{return}\ (PyObject*)res;}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{comment}{//***************************}}
+\DoxyCodeLine{00108\ \textcolor{comment}{//*\ Inline\ member\ functions\ *}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//***************************}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{inline}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aa78094497110d863182d35e36622abe6}{SchroederTree\_height}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordflow}{return}\ PyLong\_FromLong(self\ -\/>\ data.height());}
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{inline}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_a9659fadf7ea53c30e78ba65e2b283373}{SchroederTree\_leaves}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}
+\DoxyCodeLine{00116\ \ \ \textcolor{keywordflow}{return}\ PyLong\_FromLong(self\ -\/>\ data.leaves());}
+\DoxyCodeLine{00117\ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{comment}{/*inline\ PyObject*\ SchroederTree\_left\_forests\_length(SchroederTreeObject*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ \ return\ PyLong\_FromLong(self\ -\/>\ data.left\_forests\_length());}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00122\ \textcolor{comment}{}}
+\DoxyCodeLine{00123\ \textcolor{comment}{inline\ PyObject*\ SchroederTree\_right\_forests\_length(SchroederTreeObject*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ \ return\ PyLong\_FromLong(self\ -\/>\ data.right\_forests\_length());}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \}*/}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{keyword}{inline}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_aad15afad0a3d0e28318c61984680c003}{SchroederTree\_display}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}
+\DoxyCodeLine{00128\ \ \ ostringstream\ os;}
+\DoxyCodeLine{00129\ \ \ self\ -\/>\ data.display(os);}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordflow}{return}\ PyUnicode\_FromString(os.str().c\_str());}
+\DoxyCodeLine{00131\ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{keyword}{inline}\ PyObject*\ \doxymbox{\hyperlink{python_2schroeder__tree_8hpp_af64fb382a2a222eb323da89e58bddc99}{SchroederTree\_tikz}}(\doxymbox{\hyperlink{structSchroederTreeObject}{SchroederTreeObject}}*\ self,\ PyObject\ *Py\_UNUSED(ignored))\ \{}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordflow}{return}\ PyUnicode\_FromString(self\ -\/>\ data.to\_latex().c\_str());}
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

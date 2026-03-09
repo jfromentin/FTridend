@@ -2,210 +2,213 @@
 \hypertarget{kernel_2schroeder__tree_8hpp_source}{}\label{kernel_2schroeder__tree_8hpp_source}\index{cpp/kernel/schroeder\_tree.hpp@{cpp/kernel/schroeder\_tree.hpp}}
 \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ SCHROEDER\_TREE\_HPP}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#define\ SCHROEDER\_TREE\_HPP}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <bit>}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <initializer\_list>}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{common_8hpp}{common.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{array_8hpp}{array.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{quasi__shuffle_8hpp}{quasi\_shuffle.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{packed__word_8hpp}{packed\_word.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00032}00032\ \textcolor{comment}{/*class\ SchroederForest;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00033}00033\ \textcolor{comment}{\ \ class\ SchroederTree;*/}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00035}00035\ \textcolor{comment}{/*struct\ SimpleCut\{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00036}00036\ \textcolor{comment}{\ \ Int\ left;\ //\ left\ of\ the\ interval}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00037}00037\ \textcolor{comment}{\ \ Int\ right;\ //\ right\ ot\ the\ interval}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00038}00038\ \textcolor{comment}{\};}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00039}00039\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00040}00040\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00041}00041\ \textcolor{comment}{struct\ Cut\{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00042}00042\ \textcolor{comment}{\ \ int\ sc[N];\ //\ indices\ of\ simple\ cuts\ to\ consider}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00043}00043\ \textcolor{comment}{\ \ int\ s;\ //\ number\ of\ simple\ cuts\ in\ the\ cuts}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00044}00044\ \textcolor{comment}{\ \ int\ m;\ //\ maximal\ angle\ in\ the\ cut}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00045}00045\ \textcolor{comment}{\};}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00046}00046\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00047}00047\ \textcolor{comment}{struct\ ForestInfo\{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00048}00048\ \textcolor{comment}{\ \ Int\ h;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00049}00049\ \textcolor{comment}{\ \ Int\ n;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00050}00050\ \textcolor{comment}{\ \ Int\ a;\ //\ angle}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00051}00051\ \textcolor{comment}{\ \ \};*/}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00052}00052\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00053}00053\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00055}00055\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00057}\doxymbox{\hyperlink{classSchroederTree}{00057}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}\{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00058}00058\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00059}00059\ \ \ \textcolor{keyword}{union}\{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00061}\doxymbox{\hyperlink{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08}{00061}}\ \ \ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08}{na}};\ \textcolor{comment}{//\ number\ of\ angles}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00062}\doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{00062}}\ \ \ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}};\ \textcolor{comment}{//\ height\ of\ the\ tree\ as\ a\ levelled\ tree,\ ie,\ size\ of\ the\ corresponding\ initial\ chain\ -\/\ 1}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00063}\doxymbox{\hyperlink{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7}{00063}}\ \ \ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7}{slcd}};\ \textcolor{comment}{//\ size\ of\ the\ left\ comb\ decomposition}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00064}\doxymbox{\hyperlink{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d}{00064}}\ \ \ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d}{srcd}};\ \textcolor{comment}{//\ size\ of\ the\ right\ comb\ decomposition}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00065}00065\ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00066}\doxymbox{\hyperlink{classSchroederTree_abeb073583c22a8985ce9544d911faf6d}{00066}}\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{classSchroederTree_abeb073583c22a8985ce9544d911faf6d}{info}};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00067}00067\ \ \ \};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00068}\doxymbox{\hyperlink{classSchroederTree_a9682ec343ffd84484dc2c59fc035ac28}{00068}}\ \ \ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ \doxymbox{\hyperlink{classSchroederTree_a9682ec343ffd84484dc2c59fc035ac28}{chain}}[N];\ \textcolor{comment}{//\ initial\ cChain\ partition\ giving\ the\ structure\ of\ the\ tree}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00069}00069\ \ \ \textcolor{comment}{//ForestInfo\ left\_forest\_infos[N];}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00070}00070\ \ \ \textcolor{comment}{//ForestInfo\ right\_forest\_infos[N];}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00071}00071\ \ \ \textcolor{comment}{//\ \ void\ compute\_left\_forest\_infos();}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00072}00072\ \ \ \textcolor{comment}{//void\ compute\_right\_forest\_infos();}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00073}00073\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00074}00074\ \ \ \textcolor{comment}{//\ Construct\ the\ empty\ tree}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00075}00075\ \ \ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}();}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00076}00076\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00077}00077\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00078}00078\ \ \ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}(\textcolor{keyword}{const}\ initializer\_list<Int>\&\ l);}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00079}00079\ \ \ \textcolor{comment}{//SchroederTree(const\ SchroederTree\&,\ const\ SchroederTree\&,\ const\ QuasiShuffle\ \&sigma);}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00080}00080\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classSchroederTree_ae3117b877ba28f6c6a5391fc84430edc}{validate}}();}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00081}\doxymbox{\hyperlink{classSchroederTree_a8193951e18576e5ac75260289ba9a962}{00081}}\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_a8193951e18576e5ac75260289ba9a962}{normalize}}();}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00082}00082\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_af34543973169e962338927db0041fa81}{initialize}}();}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00083}00083\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00085}00085\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classSchroederTree_aab3b80379f1e06e67c9e2f34e27f7759}{height}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00086}00086\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00088}00088\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classSchroederTree_afd74f1645ea6c919ac36b60e420549bc}{angles}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00089}00089\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00090}00090\ \ \ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00091}00091\ \ \ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ \doxymbox{\hyperlink{classSchroederTree_ac7f580aad91df00eea564f2ee299f01b}{layer}}(\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ i)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00092}00092\ \ \ \textcolor{comment}{//Int\ left\_forests\_length()\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00093}00093\ \ \ \textcolor{comment}{//Int\ right\_forests\_length()\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00094}00094\ \ \ \textcolor{comment}{//const\ ForestInfo\&\ get\_left\_forest\_info(Int\ i)\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00095}00095\ \ \ \textcolor{comment}{//const\ ForestInfo\&\ get\_right\_forest\_info(Int\ i)\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00096}00096\ \ \ \textcolor{comment}{//void\ set\_left\_comb\_forest(SchroederForest\&\ f,\ Int\ i)\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00097}00097\ \ \ \textcolor{comment}{//void\ set\_right\_comb\_forest(SchroederForest\&\ f,\ Int\ i)\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00098}00098\ \ \ \textcolor{comment}{//Array<SchroederForest>\ left\_comb\_splitting()\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00099}00099\ \ \ \textcolor{comment}{//Array<SchroederForest>\ right\_comb\_splitting()\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00100}00100\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00101}00101\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_ac2e06155ba50619f00cc1af1ad85e351}{display}}(ostream\&\ os\ =\ cout)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00102}00102\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00103}\doxymbox{\hyperlink{classSchroederTree_afd0e3907c723900f716b11476850af44}{00103}}\ \ \ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{classSchroederTree_afd0e3907c723900f716b11476850af44}{to\_latex}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00104}00104\ \ \ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00105}00105\ \ \ \textcolor{comment}{//\ Sage\ functions}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00106}\doxymbox{\hyperlink{classSchroederTree_aa605d5e86479865c726f0ba37777196a}{00106}}\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_aa605d5e86479865c726f0ba37777196a}{sage\_init}}(\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}},\ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ n);}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00107}\doxymbox{\hyperlink{classSchroederTree_a2d73da83434515dab3c934ad40a98c81}{00107}}\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_a2d73da83434515dab3c934ad40a98c81}{sage\_set\_value}}(\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ i,\ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ v);}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00108}00108\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00109}00109\ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00110}00110\ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}{hash}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00111}00111\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classSchroederTree_aa805ddd462b3da5e3b16844a6f3aa4ee}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}\&)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00112}00112\ \ \ \textcolor{comment}{//PackedWord\ packed\_word()\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00113}00113\ \ \ \textcolor{comment}{//Array<SimpleCut>\ simple\_cuts()\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00114}00114\ \ \ \textcolor{comment}{//void\ set\_sub\_tree(SchroederTree\&\ t,\ int\ left,\ int\ right)\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00115}00115\ \ \ \textcolor{comment}{//void\ set\_root(SchroederTree\&\ t,\ const\ Cut\&,\ const\ Array<SimpleCut>\&)\ const;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00116}00116\ \};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00117}00117\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00118}00118\ \textcolor{comment}{//***********************}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00119}00119\ \textcolor{comment}{//*\ Auxiliary\ functions\ *}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00120}00120\ \textcolor{comment}{//***********************}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00121}00121\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00122}00122\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_a1bec7eaed6810f1624e3737151ab34a0}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ T);}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00123}00123\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00124}00124\ \textcolor{keyword}{inline}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00125}\doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{00125}}\ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree::SchroederTree}}()\ \{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00126}00126\ \ \ \textcolor{comment}{//\ Construct\ the\ empty\ tree}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00127}00127\ \ \ \textcolor{comment}{//\ There\ is\ no\ angles}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00128}00128\ \ \ n\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00129}00129\ \ \ \textcolor{comment}{//\ Height\ is\ 0}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00130}00130\ \ \ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00131}00131\ \ \ \textcolor{comment}{//\ Left\ and\ right\ decompositions\ are\ empty}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00132}00132\ \ \ \doxymbox{\hyperlink{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7}{slcd}}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00133}00133\ \ \ \doxymbox{\hyperlink{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d}{srcd}}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00134}00134\ \}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00135}00135\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00136}00136\ \textcolor{comment}{/*inline\ void}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00137}00137\ \textcolor{comment}{SchroederTree::sage\_init(Int\ hh,\ Int\ nn)\ \{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00138}00138\ \textcolor{comment}{\ \ h\ =\ hh;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00139}00139\ \textcolor{comment}{\ \ n\ =\ nn;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00140}00140\ \textcolor{comment}{\ \ \}*/}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00141}00141\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00142}00142\ \textcolor{comment}{/*inline\ void}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00143}00143\ \textcolor{comment}{SchroederTree::sage\_set\_value(Int\ i,\ Int\ v)\ \{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00144}00144\ \textcolor{comment}{\ \ assert(i\ <\ h\ -\/\ 1);}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00145}00145\ \textcolor{comment}{\ \ p[i]\ =\ v;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00146}00146\ \textcolor{comment}{\ \ \}*/}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00147}00147\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00148}00148\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00149}\doxymbox{\hyperlink{classSchroederTree_af34543973169e962338927db0041fa81}{00149}}\ \doxymbox{\hyperlink{classSchroederTree_af34543973169e962338927db0041fa81}{SchroederTree::initialize}}()\ \{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00150}00150\ \ \ \textcolor{comment}{//compute\_left\_forest\_infos();}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00151}00151\ \ \ \textcolor{comment}{//compute\_right\_forest\_infos();}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00152}00152\ \}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00153}00153\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00154}00154\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00155}00155\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00156}\doxymbox{\hyperlink{classSchroederTree_aab3b80379f1e06e67c9e2f34e27f7759}{00156}}\ \doxymbox{\hyperlink{classSchroederTree_aab3b80379f1e06e67c9e2f34e27f7759}{SchroederTree::height}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00157}00157\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00158}00158\ \}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00159}00159\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00160}00160\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00161}\doxymbox{\hyperlink{classSchroederTree_afd74f1645ea6c919ac36b60e420549bc}{00161}}\ \doxymbox{\hyperlink{classSchroederTree_afd74f1645ea6c919ac36b60e420549bc}{SchroederTree::angles}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00162}00162\ \ \ \textcolor{keywordflow}{return}\ n;}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00163}00163\ \}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00164}00164\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00165}00165\ \textcolor{comment}{/*inline\ Int}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00166}00166\ \textcolor{comment}{SchroederTree::left\_forests\_length()\ const\ \{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00167}00167\ \textcolor{comment}{\ \ return\ number\_left\_forests;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00168}00168\ \textcolor{comment}{\ \ \}}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00169}00169\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00170}00170\ \textcolor{comment}{inline\ Int}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00171}00171\ \textcolor{comment}{SchroederTree::right\_forests\_length()\ const\ \{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00172}00172\ \textcolor{comment}{\ \ return\ number\_right\_forests;}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00173}00173\ \textcolor{comment}{\ \ \}*/}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00174}00174\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00175}00175\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00176}\doxymbox{\hyperlink{classSchroederTree_ac7f580aad91df00eea564f2ee299f01b}{00176}}\ \doxymbox{\hyperlink{classSchroederTree_ac7f580aad91df00eea564f2ee299f01b}{SchroederTree::layer}}(\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ i)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00177}00177\ \ \ assert\ (0\ <=\ i\ and\ i\ <\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}});}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00178}00178\ \ \ \textcolor{keywordflow}{return}\ p[i];}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00179}00179\ \}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00180}00180\ \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00181}00181\ \textcolor{comment}{inline\ const\ ForestInfo\&}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00182}00182\ \textcolor{comment}{SchroederTree::get\_left\_forest\_info(Int\ i)\ const\ \{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00183}00183\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00184}00184\ \textcolor{comment}{\ \ assert\ (0\ <=\ i\ and\ i\ <\ number\_left\_forests);}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00185}00185\ \textcolor{comment}{\ \ return\ left\_forest\_infos[i];}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00186}00186\ \textcolor{comment}{\}}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00187}00187\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00188}00188\ \textcolor{comment}{inline\ const\ ForestInfo\&}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00189}00189\ \textcolor{comment}{SchroederTree::get\_right\_forest\_info(Int\ i)\ const\ \{}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00190}00190\ \textcolor{comment}{\ \ assert\ (0\ <=\ i\ and\ i\ <\ number\_right\_forests);}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00191}00191\ \textcolor{comment}{\ \ return\ right\_forest\_infos[i];}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00192}00192\ \textcolor{comment}{\ \ \}*/}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00193}00193\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00194}00194\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{size\_t}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00195}\doxymbox{\hyperlink{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}{00195}}\ \doxymbox{\hyperlink{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}{SchroederTree::hash}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00196}00196\ \ \ \textcolor{keywordtype}{size\_t}\ res\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00197}00197\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\ -\/\ 1;\ ++\ i)\ res\ +=\ p[i];}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00198}00198\ \ \ \textcolor{keywordflow}{return}\ res;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00199}00199\ \}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00200}00200\ }
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00201}00201\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00202}\doxymbox{\hyperlink{classSchroederTree_aa805ddd462b3da5e3b16844a6f3aa4ee}{00202}}\ \doxymbox{\hyperlink{classSchroederTree_aa805ddd462b3da5e3b16844a6f3aa4ee}{SchroederTree::operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}\&\ t)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00203}00203\ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\ !=\ t.\doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00204}00204\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\ -\/\ 1;\ ++\ i)\ \{}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00205}00205\ \ \ \ \ \textcolor{keywordflow}{if}\ (p[i]\ !=\ t.p[i])\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00206}00206\ \ \ \}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00207}00207\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00208}00208\ \}}
-\DoxyCodeLine{\Hypertarget{kernel_2schroeder__tree_8hpp_source_l00209}00209\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ SCHROEDER\_TREE\_HPP}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ SCHROEDER\_TREE\_HPP}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <bit>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <initializer\_list>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bset_8hpp}{bset.hpp}}"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{common_8hpp}{common.hpp}}"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{array_8hpp}{array.hpp}}"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{quasi__shuffle_8hpp}{quasi\_shuffle.hpp}}"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{packed__word_8hpp}{packed\_word.hpp}}"{}}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{/*class\ SchroederForest;}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ \ class\ SchroederTree;*/}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/*struct\ SimpleCut\{}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ \ Int\ left;\ //\ left\ of\ the\ interval}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ Int\ right;\ //\ right\ ot\ the\ interval}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\};}}
+\DoxyCodeLine{00040\ \textcolor{comment}{}}
+\DoxyCodeLine{00041\ \textcolor{comment}{}}
+\DoxyCodeLine{00042\ \textcolor{comment}{struct\ Cut\{}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ int\ sc[N];\ //\ indices\ of\ simple\ cuts\ to\ consider}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ int\ s;\ //\ number\ of\ simple\ cuts\ in\ the\ cuts}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ int\ m;\ //\ maximal\ angle\ in\ the\ cut}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\};}}
+\DoxyCodeLine{00047\ \textcolor{comment}{}}
+\DoxyCodeLine{00048\ \textcolor{comment}{struct\ ForestInfo\{}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ Int\ h;}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ \ Int\ n;}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ \ Int\ a;\ //\ angle}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ \ \};*/}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}\{}
+\DoxyCodeLine{00059\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classSchroederTree_ac0d70bb1d99827d8a68c9d83f99b4bfd}{max\_angles}}\ =\ 32;}
+\DoxyCodeLine{00061\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{union}\{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08}{na}};\ \textcolor{comment}{//\ number\ of\ angles}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}};\ \textcolor{comment}{//\ height\ of\ the\ tree\ as\ a\ levelled\ tree,\ ie,\ size\ of\ the\ corresponding\ initial\ chain\ -\/\ 1}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7}{slcd}};\ \textcolor{comment}{//\ size\ of\ the\ left\ comb\ decomposition}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d}{srcd}};\ \textcolor{comment}{//\ size\ of\ the\ right\ comb\ decomposition}}
+\DoxyCodeLine{00068\ \ \ \ \ \};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{classSchroederTree_abeb073583c22a8985ce9544d911faf6d}{info}};}
+\DoxyCodeLine{00070\ \ \ \};}
+\DoxyCodeLine{00071\ \ \ \doxymbox{\hyperlink{classBSet}{BSet}}\ \doxymbox{\hyperlink{classSchroederTree_a5eafd06fecec871f60e9ed11918ff302}{chain}}[N];\ \textcolor{comment}{//\ initial\ chain\ partition\ giving\ the\ structure\ of\ the\ tree}}
+\DoxyCodeLine{00072\ \ \ \textcolor{comment}{//ForestInfo\ left\_forest\_infos[N];}}
+\DoxyCodeLine{00073\ \ \ \textcolor{comment}{//ForestInfo\ right\_forest\_infos[N];}}
+\DoxyCodeLine{00074\ \ \ \textcolor{comment}{//\ \ void\ compute\_left\_forest\_infos();}}
+\DoxyCodeLine{00075\ \ \ \textcolor{comment}{//void\ compute\_right\_forest\_infos();}}
+\DoxyCodeLine{00076\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ Construct\ the\ empty\ tree}}
+\DoxyCodeLine{00078\ \ \ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}(\textcolor{keyword}{const}\ initializer\_list<Int>\&\ l);}
+\DoxyCodeLine{00082\ \ \ \textcolor{comment}{//SchroederTree(const\ SchroederTree\&,\ const\ SchroederTree\&,\ const\ QuasiShuffle\ \&sigma);}}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classSchroederTree_ae3117b877ba28f6c6a5391fc84430edc}{validate}}();}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_a8193951e18576e5ac75260289ba9a962}{normalize}}();}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_af34543973169e962338927db0041fa81}{initialize}}();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classSchroederTree_aab3b80379f1e06e67c9e2f34e27f7759}{height}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classSchroederTree_afd74f1645ea6c919ac36b60e420549bc}{angles}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ }
+\DoxyCodeLine{00094\ \ \ \doxymbox{\hyperlink{classBSet}{BSet}}\ \doxymbox{\hyperlink{classSchroederTree_a092c3bfddf0c3dc10fcb1064868765a4}{layer}}(\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ i)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00095\ \ \ \textcolor{comment}{//Int\ left\_forests\_length()\ const;}}
+\DoxyCodeLine{00096\ \ \ \textcolor{comment}{//Int\ right\_forests\_length()\ const;}}
+\DoxyCodeLine{00097\ \ \ \textcolor{comment}{//const\ ForestInfo\&\ get\_left\_forest\_info(Int\ i)\ const;}}
+\DoxyCodeLine{00098\ \ \ \textcolor{comment}{//const\ ForestInfo\&\ get\_right\_forest\_info(Int\ i)\ const;}}
+\DoxyCodeLine{00099\ \ \ \textcolor{comment}{//void\ set\_left\_comb\_forest(SchroederForest\&\ f,\ Int\ i)\ const;}}
+\DoxyCodeLine{00100\ \ \ \textcolor{comment}{//void\ set\_right\_comb\_forest(SchroederForest\&\ f,\ Int\ i)\ const;}}
+\DoxyCodeLine{00101\ \ \ \textcolor{comment}{//Array<SchroederForest>\ left\_comb\_splitting()\ const;}}
+\DoxyCodeLine{00102\ \ \ \textcolor{comment}{//Array<SchroederForest>\ right\_comb\_splitting()\ const;}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_ac2e06155ba50619f00cc1af1ad85e351}{display}}(ostream\&\ os\ =\ cout)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{classSchroederTree_afd0e3907c723900f716b11476850af44}{to\_latex}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ \ \ }
+\DoxyCodeLine{00108\ \ \ \textcolor{comment}{//\ Sage\ functions}}
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_aa605d5e86479865c726f0ba37777196a}{sage\_init}}(\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}},\ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ n);}
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classSchroederTree_a2d73da83434515dab3c934ad40a98c81}{sage\_set\_value}}(\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ i,\ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ v);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{size\_t}\ \doxymbox{\hyperlink{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}{hash}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classSchroederTree_aa805ddd462b3da5e3b16844a6f3aa4ee}{operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}\&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00115\ \ \ \textcolor{comment}{//PackedWord\ packed\_word()\ const;}}
+\DoxyCodeLine{00116\ \ \ \textcolor{comment}{//Array<SimpleCut>\ simple\_cuts()\ const;}}
+\DoxyCodeLine{00117\ \ \ \textcolor{comment}{//void\ set\_sub\_tree(SchroederTree\&\ t,\ int\ left,\ int\ right)\ const;}}
+\DoxyCodeLine{00118\ \ \ \textcolor{comment}{//void\ set\_root(SchroederTree\&\ t,\ const\ Cut\&,\ const\ Array<SimpleCut>\&)\ const;}}
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{comment}{//***********************}}
+\DoxyCodeLine{00122\ \textcolor{comment}{//*\ Auxiliary\ functions\ *}}
+\DoxyCodeLine{00123\ \textcolor{comment}{//***********************}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keywordtype}{string}\ \doxymbox{\hyperlink{kernel_2schroeder__tree_8hpp_a1bec7eaed6810f1624e3737151ab34a0}{to\_string}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree}{SchroederTree}}\&\ T);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00128\ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree::SchroederTree}}()\ \{}
+\DoxyCodeLine{00129\ \ \ \textcolor{comment}{//\ Construct\ the\ empty\ tree}}
+\DoxyCodeLine{00130\ \ \ \textcolor{comment}{//\ There\ is\ no\ angles}}
+\DoxyCodeLine{00131\ \ \ \doxymbox{\hyperlink{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08}{na}}\ =\ 0;}
+\DoxyCodeLine{00132\ \ \ \textcolor{comment}{//\ Height\ is\ 0}}
+\DoxyCodeLine{00133\ \ \ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\ =\ 0;}
+\DoxyCodeLine{00134\ \ \ \textcolor{comment}{//\ Left\ and\ right\ decompositions\ are\ empty}}
+\DoxyCodeLine{00135\ \ \ \doxymbox{\hyperlink{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7}{slcd}}\ =\ 0;}
+\DoxyCodeLine{00136\ \ \ \doxymbox{\hyperlink{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d}{srcd}}\ =\ 0;}
+\DoxyCodeLine{00137\ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{/*inline\ void}}
+\DoxyCodeLine{00140\ \textcolor{comment}{SchroederTree::sage\_init(Int\ hh,\ Int\ nn)\ \{}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ \ h\ =\ hh;}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ \ n\ =\ nn;}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \}*/}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{comment}{/*inline\ void}}
+\DoxyCodeLine{00146\ \textcolor{comment}{SchroederTree::sage\_set\_value(Int\ i,\ Int\ v)\ \{}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ \ assert(i\ <\ h\ -\/\ 1);}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ \ p[i]\ =\ v;}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ \ \}*/}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00152\ \doxymbox{\hyperlink{classSchroederTree_af34543973169e962338927db0041fa81}{SchroederTree::initialize}}()\ \{}
+\DoxyCodeLine{00153\ \ \ \textcolor{comment}{//compute\_left\_forest\_infos();}}
+\DoxyCodeLine{00154\ \ \ \textcolor{comment}{//compute\_right\_forest\_infos();}}
+\DoxyCodeLine{00155\ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00159\ \doxymbox{\hyperlink{classSchroederTree_aab3b80379f1e06e67c9e2f34e27f7759}{SchroederTree::height}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00160\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}};}
+\DoxyCodeLine{00161\ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00164\ \doxymbox{\hyperlink{classSchroederTree_afd74f1645ea6c919ac36b60e420549bc}{SchroederTree::angles}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00165\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08}{na}};}
+\DoxyCodeLine{00166\ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{comment}{/*inline\ Int}}
+\DoxyCodeLine{00169\ \textcolor{comment}{SchroederTree::left\_forests\_length()\ const\ \{}}
+\DoxyCodeLine{00170\ \textcolor{comment}{\ \ return\ number\_left\_forests;}}
+\DoxyCodeLine{00171\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00172\ \textcolor{comment}{}}
+\DoxyCodeLine{00173\ \textcolor{comment}{inline\ Int}}
+\DoxyCodeLine{00174\ \textcolor{comment}{SchroederTree::right\_forests\_length()\ const\ \{}}
+\DoxyCodeLine{00175\ \textcolor{comment}{\ \ return\ number\_right\_forests;}}
+\DoxyCodeLine{00176\ \textcolor{comment}{\ \ \}*/}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{inline}\ \doxymbox{\hyperlink{classBSet}{BSet}}}
+\DoxyCodeLine{00179\ \doxymbox{\hyperlink{classSchroederTree_a092c3bfddf0c3dc10fcb1064868765a4}{SchroederTree::layer}}(\doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}}\ i)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00180\ \ \ assert\ (0\ <=\ i\ and\ i\ <\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}});}
+\DoxyCodeLine{00181\ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{classSchroederTree_a5eafd06fecec871f60e9ed11918ff302}{chain}}[i];}
+\DoxyCodeLine{00182\ \}}
+\DoxyCodeLine{00183\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00184\ \textcolor{comment}{inline\ const\ ForestInfo\&}}
+\DoxyCodeLine{00185\ \textcolor{comment}{SchroederTree::get\_left\_forest\_info(Int\ i)\ const\ \{}}
+\DoxyCodeLine{00186\ \textcolor{comment}{}}
+\DoxyCodeLine{00187\ \textcolor{comment}{\ \ assert\ (0\ <=\ i\ and\ i\ <\ number\_left\_forests);}}
+\DoxyCodeLine{00188\ \textcolor{comment}{\ \ return\ left\_forest\_infos[i];}}
+\DoxyCodeLine{00189\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00190\ \textcolor{comment}{}}
+\DoxyCodeLine{00191\ \textcolor{comment}{inline\ const\ ForestInfo\&}}
+\DoxyCodeLine{00192\ \textcolor{comment}{SchroederTree::get\_right\_forest\_info(Int\ i)\ const\ \{}}
+\DoxyCodeLine{00193\ \textcolor{comment}{\ \ assert\ (0\ <=\ i\ and\ i\ <\ number\_right\_forests);}}
+\DoxyCodeLine{00194\ \textcolor{comment}{\ \ return\ right\_forest\_infos[i];}}
+\DoxyCodeLine{00195\ \textcolor{comment}{\ \ \}*/}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{size\_t}}
+\DoxyCodeLine{00198\ \doxymbox{\hyperlink{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}{SchroederTree::hash}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00199\ \ \ \textcolor{keywordtype}{size\_t}\ res\ =\ 0;}
+\DoxyCodeLine{00200\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\ -\/\ 1;\ ++\ i)\ res\ +=\ \doxymbox{\hyperlink{classSchroederTree_a5eafd06fecec871f60e9ed11918ff302}{chain}}[i].\doxymbox{\hyperlink{classSchroederTree_a45da8c6bcbacddcd00e02a47cf8ef3ad}{hash}}();}
+\DoxyCodeLine{00201\ \ \ \textcolor{keywordflow}{return}\ res;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00202\ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{00205\ \doxymbox{\hyperlink{classSchroederTree_aa805ddd462b3da5e3b16844a6f3aa4ee}{SchroederTree::operator==}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{SchroederTree}}\&\ t)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00206\ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\ !=\ t.\doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}})\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00207\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\ -\/\ 1;\ ++\ i)\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{classSchroederTree_a5eafd06fecec871f60e9ed11918ff302}{chain}}[i]\ !=\ t.\doxymbox{\hyperlink{classSchroederTree_a5eafd06fecec871f60e9ed11918ff302}{chain}}[i])\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00209\ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00211\ \}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

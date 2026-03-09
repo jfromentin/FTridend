@@ -51,7 +51,7 @@ var searchData=
   ['schroedervectortype_48',['SchroederVectorType',['../schroeder__vector_8cpp.html#a161645db6ddf718f44a506f2d56cb712',1,'SchroederVectorType:&#160;schroeder_vector.cpp'],['../python_2schroeder__vector_8hpp.html#a161645db6ddf718f44a506f2d56cb712',1,'SchroederVectorType:&#160;schroeder_vector.cpp']]],
   ['setup_49',['setup',['../namespacesetup.html',1,'']]],
   ['setup_2epy_50',['setup.py',['../setup_8py.html',1,'']]],
-  ['size_51',['size',['../classArray.html#a6d8635dbcfd35c8132596084d072f7d4',1,'Array::size()'],['../classSchroederForest.html#a39bf84f043e922a0df3c0a7b7c83523f',1,'SchroederForest::size()']]],
+  ['size_51',['size',['../classArray.html#a6d8635dbcfd35c8132596084d072f7d4',1,'Array::size()'],['../classBSet.html#a4d7d7991ae80b0302917211050b418da',1,'BSet::size()'],['../classSchroederForest.html#a39bf84f043e922a0df3c0a7b7c83523f',1,'SchroederForest::size()']]],
   ['size_5fco_5fassociative_52',['size_co_associative',['../classPrimitives.html#a15cf6704fbe302f8732c99eb4ec04385',1,'Primitives']]],
   ['size_5fco_5fdendriform_53',['size_co_dendriform',['../classPrimitives.html#a7f4533619b2cbd7d14dcd24f2994066c',1,'Primitives']]],
   ['slcd_54',['slcd',['../classSchroederTree.html#ad57e7f4b854444b5ccf352a3e2916bc7',1,'SchroederTree']]],

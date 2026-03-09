@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -147,8 +154,6 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
 class Array&lt; T &gt;</div><p>Class for array. </p>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00038">38</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2118dce63544c732422135e490a25086" name="a2118dce63544c732422135e490a25086"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2118dce63544c732422135e490a25086">&#9670;&#160;</a></span>Array() <span class="overload">[1/8]</span></h2>
@@ -180,8 +185,6 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p>Construct an array from a c++ array a of size s and own it. </p>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00175">175</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -216,8 +219,6 @@ template&lt;class T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00165">165</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a1d1c3bc5516f991aa64b9a8c4b876583" name="a1d1c3bc5516f991aa64b9a8c4b876583"></a>
@@ -238,8 +239,6 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p>Construct an array from an initialization list. </p>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00182">182</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -270,8 +269,6 @@ template&lt;class T&gt; </div>
 
 <p>The copy contructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00195">195</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="ac7fd7e6eb4e97a99e62e1259437fa307" name="ac7fd7e6eb4e97a99e62e1259437fa307"></a>
@@ -301,8 +298,6 @@ template&lt;class T&gt; </div>
 
 <p>The move constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00204">204</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="ab1cbc66e04809be0b2b007f8561e72d1" name="ab1cbc66e04809be0b2b007f8561e72d1"></a>
@@ -323,8 +318,6 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p>Construct an array from a stack. </p>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00227">227</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -347,8 +340,6 @@ template&lt;class T&gt; </div>
 
 <p>Construct an array from a list. </p>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00214">214</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a9e412751f012b95a47de75aa44713c38" name="a9e412751f012b95a47de75aa44713c38"></a>
@@ -369,8 +360,6 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p>Construct an array from a set. </p>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00241">241</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -401,8 +390,6 @@ template&lt;class T&gt; </div>
 
 <p>Destructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00254">254</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
@@ -425,8 +412,6 @@ template&lt;class T&gt; </div>
 
 <p>Operator&lt;. </p>
 <p>Append an array to the current one </p>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00413">413</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -461,8 +446,6 @@ template&lt;class T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00386">386</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a9260048c2cda34af3cab59644c0de0c0" name="a9260048c2cda34af3cab59644c0de0c0"></a>
@@ -496,8 +479,6 @@ template&lt;class T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00380">380</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a9377fcd451eba80bb58ad0815aa503b8" name="a9377fcd451eba80bb58ad0815aa503b8"></a>
@@ -527,8 +508,6 @@ template&lt;class T&gt; </div>
 
 <p>Return a pointer to the begin of the array. </p>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00337">337</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a18c014355105b62276ee5d63f6764050" name="a18c014355105b62276ee5d63f6764050"></a>
@@ -555,8 +534,6 @@ template&lt;class T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00332">332</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -588,8 +565,6 @@ template&lt;class T&gt; </div>
 <li>Return a pointer a pointer just after the end of the array </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00351">351</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a260216aefa65ea32f23506b6ee1c0a33" name="a260216aefa65ea32f23506b6ee1c0a33"></a>
@@ -616,8 +591,6 @@ template&lt;class T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00346">346</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -647,8 +620,6 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 <p>Test is the array is empty </p><dl class="section return"><dt>Returns</dt><dd>true if empty flase otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00299">299</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="aeae76df5f866931f03ecce2dc7f9ff4f" name="aeae76df5f866931f03ecce2dc7f9ff4f"></a>
@@ -674,8 +645,6 @@ template&lt;class T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00283">283</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a99770b4b3b98e10cba6ec088dbaac624" name="a99770b4b3b98e10cba6ec088dbaac624"></a>
@@ -700,8 +669,6 @@ template&lt;class T&gt; </div>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00264">264</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -736,8 +703,6 @@ template&lt;class T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00402">402</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a342939a9766988536ba6ded9d4f730ff" name="a342939a9766988536ba6ded9d4f730ff"></a>
@@ -770,8 +735,6 @@ template&lt;class T&gt; </div>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00396">396</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -806,8 +769,6 @@ template&lt;class T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00370">370</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a6d8635dbcfd35c8132596084d072f7d4" name="a6d8635dbcfd35c8132596084d072f7d4"></a>
@@ -837,8 +798,6 @@ template&lt;class T&gt; </div>
 
 <p>Return the size of the array$. </p>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00308">308</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a8e9d3bb970281a493fddf282e80e816f" name="a8e9d3bb970281a493fddf282e80e816f"></a>
@@ -859,8 +818,6 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p>Display the array in a string. </p>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00317">317</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>
@@ -900,8 +857,6 @@ template&lt;class T&gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00360">360</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
@@ -929,8 +884,6 @@ template&lt;class T&gt; </div>
 
 <p>Internal data of the array. </p>
 
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00045">45</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a4b073d87cf3842e20f9aa302097b7cb9" name="a4b073d87cf3842e20f9aa302097b7cb9"></a>
@@ -956,8 +909,6 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p>Size of the array. </p>
-
-<p class="definition">Definition at line <a class="el" href="array_8hpp_source.html#l00042">42</a> of file <a class="el" href="array_8hpp_source.html">array.hpp</a>.</p>
 
 </div>
 </div>

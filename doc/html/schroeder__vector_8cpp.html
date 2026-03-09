@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -93,9 +100,7 @@ $(function(){initNavTree('schroeder__vector_8cpp.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="python_2schroeder__tree_8hpp_source.html">schroeder_tree.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="python_2schroeder__vector_8hpp_source.html">schroeder_vector.hpp</a>&quot;</code><br />
-</div>
-<p><a href="schroeder__vector_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a052354b8fc31a42172c44ab8e5e26601" id="r_a052354b8fc31a42172c44ab8e5e26601"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a052354b8fc31a42172c44ab8e5e26601">SchroederVectorInit</a> (<a class="el" href="structSchroederVectorObject.html">SchroederVectorObject</a> *self, PyObject *args, PyObject *Py_UNUSED(ignored))</td></tr>
@@ -125,8 +130,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="schroeder__vector_8cpp_source.html#l00076">76</a> of file <a class="el" href="schroeder__vector_8cpp_source.html">schroeder_vector.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a052354b8fc31a42172c44ab8e5e26601" name="a052354b8fc31a42172c44ab8e5e26601"></a>
@@ -152,8 +155,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="schroeder__vector_8cpp_source.html#l00050">50</a> of file <a class="el" href="schroeder__vector_8cpp_source.html">schroeder_vector.cpp</a>.</p>
 
 </div>
 </div>
@@ -182,13 +183,11 @@ Variables</h2></td></tr>
 <div class="line">  .tp_init = (initproc)<a class="code hl_function" href="#a052354b8fc31a42172c44ab8e5e26601">SchroederVectorInit</a>,</div>
 <div class="line">  .tp_new = PyType_GenericNew,</div>
 <div class="line">}</div>
-<div class="ttc" id="apython_2schroeder__vector_8hpp_html_a8aff6c32aeccbda95cda8e79a84a8a71"><div class="ttname"><a href="python_2schroeder__vector_8hpp.html#a8aff6c32aeccbda95cda8e79a84a8a71">SchroederVectorRepr</a></div><div class="ttdeci">PyObject * SchroederVectorRepr(SchroederVectorObject *)</div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__vector_8hpp_source.html#l00079">schroeder_vector.hpp:79</a></div></div>
-<div class="ttc" id="apython_2schroeder__vector_8hpp_html_a8d3417d96f4f3345da293574e0c31162"><div class="ttname"><a href="python_2schroeder__vector_8hpp.html#a8d3417d96f4f3345da293574e0c31162">SchroederVectorHash</a></div><div class="ttdeci">Py_hash_t SchroederVectorHash(SchroederVectorObject *)</div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__vector_8hpp_source.html#l00073">schroeder_vector.hpp:73</a></div></div>
-<div class="ttc" id="aschroeder__vector_8cpp_html_a052354b8fc31a42172c44ab8e5e26601"><div class="ttname"><a href="#a052354b8fc31a42172c44ab8e5e26601">SchroederVectorInit</a></div><div class="ttdeci">int SchroederVectorInit(SchroederVectorObject *self, PyObject *args, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> <a href="schroeder__vector_8cpp_source.html#l00050">schroeder_vector.cpp:50</a></div></div>
-<div class="ttc" id="astructSchroederVectorObject_html"><div class="ttname"><a href="structSchroederVectorObject.html">SchroederVectorObject</a></div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__vector_8hpp_source.html#l00033">schroeder_vector.hpp:33</a></div></div>
+<div class="ttc" id="apython_2schroeder__vector_8hpp_html_a8aff6c32aeccbda95cda8e79a84a8a71"><div class="ttname"><a href="python_2schroeder__vector_8hpp.html#a8aff6c32aeccbda95cda8e79a84a8a71">SchroederVectorRepr</a></div><div class="ttdeci">PyObject * SchroederVectorRepr(SchroederVectorObject *)</div><div class="ttdef"><b>Definition</b> schroeder_vector.hpp:79</div></div>
+<div class="ttc" id="apython_2schroeder__vector_8hpp_html_a8d3417d96f4f3345da293574e0c31162"><div class="ttname"><a href="python_2schroeder__vector_8hpp.html#a8d3417d96f4f3345da293574e0c31162">SchroederVectorHash</a></div><div class="ttdeci">Py_hash_t SchroederVectorHash(SchroederVectorObject *)</div><div class="ttdef"><b>Definition</b> schroeder_vector.hpp:73</div></div>
+<div class="ttc" id="aschroeder__vector_8cpp_html_a052354b8fc31a42172c44ab8e5e26601"><div class="ttname"><a href="#a052354b8fc31a42172c44ab8e5e26601">SchroederVectorInit</a></div><div class="ttdeci">int SchroederVectorInit(SchroederVectorObject *self, PyObject *args, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> schroeder_vector.cpp:50</div></div>
+<div class="ttc" id="astructSchroederVectorObject_html"><div class="ttname"><a href="structSchroederVectorObject.html">SchroederVectorObject</a></div><div class="ttdef"><b>Definition</b> schroeder_vector.hpp:33</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="schroeder__vector_8cpp_source.html#l00028">28</a> of file <a class="el" href="schroeder__vector_8cpp_source.html">schroeder_vector.cpp</a>.</p>
-
 </div>
 </div>
 </div><!-- contents -->

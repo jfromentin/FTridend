@@ -2,87 +2,87 @@
 \hypertarget{ordered__partition_8hpp_source}{}\label{ordered__partition_8hpp_source}\index{cpp/kernel/ordered\_partition.hpp@{cpp/kernel/ordered\_partition.hpp}}
 \doxymbox{\hyperlink{ordered__partition_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00001}00001\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00002}00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00003}00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00004}00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00005}00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00006}00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00007}00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00008}00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00009}00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00010}00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00011}00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00012}00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00013}00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00014}00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00015}00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00016}00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00017}00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00018}00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00019}00019\ \textcolor{comment}{//****************************************************************************//}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00021}00021\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00022}00022\ \textcolor{preprocessor}{\#ifndef\ ORDERED\_PARTITION\_HPP}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00023}00023\ \textcolor{preprocessor}{\#define\ ORDERED\_PARTITION\_HPP}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{common_8hpp}{common.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00027}\doxymbox{\hyperlink{classOrderedPartition}{00027}}\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition}}\{}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00028}00028\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00030}00030\ \ \ \textcolor{keywordtype}{int}\ n;}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00031}00031\ \ \ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00033}00033\ \ \ \textcolor{keywordtype}{int}\ l;}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00034}00034\ \ \ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00036}00036\ \ \ \textcolor{keywordtype}{int}\ a[N];}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00037}00037\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00038}00038\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00040}00040\ \ \ \doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition}}();}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00041}00041\ \ \ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00043}00043\ \ \ \doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition}}(\textcolor{keywordtype}{int}\ n);}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00044}00044\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00045}00045\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad}{initialize}}();}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00046}00046\ \ \ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00048}00048\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classOrderedPartition_aa0e815db93061a1a0b6a8da9c6252908}{length}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00049}00049\ \ \ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00051}00051\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classOrderedPartition_a934cf74c0b335e356195222d4ab86fe8}{operator[]}}(\textcolor{keywordtype}{size\_t}\ i)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00052}00052\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00053}00053\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00056}00056\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classOrderedPartition_afe9d444a875872fc5a68d4a9849035ca}{next}}();}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00057}00057\ \ \ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00058}00058\ \};}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00059}00059\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00060}00060\ ostream\&\ \doxymbox{\hyperlink{ordered__partition_8hpp_ac4fccfbec924a30b4919f861fa6cf455}{operator<<}}(ostream\&\ os,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classOrderedPartition}{OrderedPartition}}\&\ P);}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00061}00061\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00062}00062\ \textcolor{keyword}{inline}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00063}\doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{00063}}\ \doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition::OrderedPartition}}()\ \{}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00064}00064\ \ \ n\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00065}00065\ \ \ l\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00066}00066\ \}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00067}00067\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00068}00068\ \textcolor{keyword}{inline}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00069}\doxymbox{\hyperlink{classOrderedPartition_ab85b3c16908eb990fff6be635faa224f}{00069}}\ \doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition::OrderedPartition}}(\textcolor{keywordtype}{int}\ nn)\ \{}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00070}00070\ \ \ n\ =\ nn;}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00071}00071\ \ \ assert(0\ <\ n\ and\ n\ <\ (\textcolor{keywordtype}{int})N);}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00072}00072\ \ \ \doxymbox{\hyperlink{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad}{initialize}}();}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00073}00073\ \}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00074}00074\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00075}00075\ \textcolor{keyword}{inline}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00076}\doxymbox{\hyperlink{classOrderedPartition_aa0e815db93061a1a0b6a8da9c6252908}{00076}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classOrderedPartition_aa0e815db93061a1a0b6a8da9c6252908}{OrderedPartition::length}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00077}00077\ \ \ \textcolor{keywordflow}{return}\ l;}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00078}00078\ \}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00079}00079\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00080}00080\ \textcolor{keyword}{inline}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00081}\doxymbox{\hyperlink{classOrderedPartition_a934cf74c0b335e356195222d4ab86fe8}{00081}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classOrderedPartition_a934cf74c0b335e356195222d4ab86fe8}{OrderedPartition::operator[]}}(\textcolor{keywordtype}{size\_t}\ i)\textcolor{keyword}{\ const}\{}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00082}00082\ \ \ assert((\textcolor{keywordtype}{int})i\ <\ (\textcolor{keywordtype}{int})l);}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00083}00083\ \ \ \textcolor{keywordflow}{return}\ a[i];}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00084}00084\ \}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00085}00085\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00086}\doxymbox{\hyperlink{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad}{00086}}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad}{OrderedPartition::initialize}}()\ \{}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00087}00087\ \ \ l\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00088}00088\ \ \ a[0]\ =\ n;}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00089}00089\ \}}
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00090}00090\ }
-\DoxyCodeLine{\Hypertarget{ordered__partition_8hpp_source_l00091}00091\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00001\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ \ \ Copyright\ (C)\ 2026\ Jean\ Fromentin\ <jean.fromentin@univ-\/littoral.fr>\ \ \ \ \ //}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Pierre\ Catoire\ <catoire\_research@proton.me>\ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \ This\ file\ is\ part\ of\ FTridend\ <https://github.com/jfromentin/FTridend>\ \ \ \ //}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ \ FTridend\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify\ it\ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ \ under\ ethe\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the\ \ \ \ //}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ \ (at\ your\ option)\ any\ later\ version.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ FTridend\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT\ \ \ //}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or\ \ \ \ \ //}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ See\ the\ GNU\ General\ Public\ License\ \ \ \ \ \ //}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ for\ more\ details.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along\ \ \ //}}
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ \ with\ FTridend.\ If\ not,\ see\ <https://www.gnu.org/licenses/>.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //}}
+\DoxyCodeLine{00019\ \textcolor{comment}{//****************************************************************************//}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ ORDERED\_PARTITION\_HPP}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ ORDERED\_PARTITION\_HPP}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{common_8hpp}{common.hpp}}"{}}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition}}\{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{int}\ n;}
+\DoxyCodeLine{00031\ \ \ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{int}\ l;}
+\DoxyCodeLine{00034\ \ \ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{int}\ a[N];}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition}}();}
+\DoxyCodeLine{00041\ \ \ }
+\DoxyCodeLine{00043\ \ \ \doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition}}(\textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad}{initialize}}();}
+\DoxyCodeLine{00046\ \ \ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classOrderedPartition_aa0e815db93061a1a0b6a8da9c6252908}{length}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ \ \ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classOrderedPartition_a934cf74c0b335e356195222d4ab86fe8}{operator[]}}(\textcolor{keywordtype}{size\_t}\ i)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{classOrderedPartition_afe9d444a875872fc5a68d4a9849035ca}{next}}();}
+\DoxyCodeLine{00057\ \ \ }
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ ostream\&\ \doxymbox{\hyperlink{ordered__partition_8hpp_ac4fccfbec924a30b4919f861fa6cf455}{operator<<}}(ostream\&\ os,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{classOrderedPartition}{OrderedPartition}}\&\ P);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00063\ \doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition::OrderedPartition}}()\ \{}
+\DoxyCodeLine{00064\ \ \ n\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ l\ =\ 0;}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00069\ \doxymbox{\hyperlink{classOrderedPartition_ad8b2c19fd1ecb7c792d3be62da125def}{OrderedPartition::OrderedPartition}}(\textcolor{keywordtype}{int}\ nn)\ \{}
+\DoxyCodeLine{00070\ \ \ n\ =\ nn;}
+\DoxyCodeLine{00071\ \ \ assert(0\ <\ n\ and\ n\ <\ (\textcolor{keywordtype}{int})N);}
+\DoxyCodeLine{00072\ \ \ \doxymbox{\hyperlink{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad}{initialize}}();}
+\DoxyCodeLine{00073\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classOrderedPartition_aa0e815db93061a1a0b6a8da9c6252908}{OrderedPartition::length}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordflow}{return}\ l;}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{inline}}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{classOrderedPartition_a934cf74c0b335e356195222d4ab86fe8}{OrderedPartition::operator[]}}(\textcolor{keywordtype}{size\_t}\ i)\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00082\ \ \ assert((\textcolor{keywordtype}{int})i\ <\ (\textcolor{keywordtype}{int})l);}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordflow}{return}\ a[i];}
+\DoxyCodeLine{00084\ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{classOrderedPartition_a95311d1f315ac9a2617250bc272b78ad}{OrderedPartition::initialize}}()\ \{}
+\DoxyCodeLine{00087\ \ \ l\ =\ 1;}
+\DoxyCodeLine{00088\ \ \ a[0]\ =\ n;}
+\DoxyCodeLine{00089\ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -18,6 +18,7 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
+#include "../kernel/bset.hpp"
 /*#include "../kernel/schroeder_tree.hpp"
 #include "../kernel/schroeder_forest.hpp"
 #include "../kernel/quasi_shuffle.hpp"
@@ -43,6 +44,8 @@ using namespace std;
   
   }*/
 int main() {
+  BSet S = {1, 3, 6 , 30, 8, 1};
+  cout << to_string(S) << endl;
   /*
   SchroederTree TL = {31, 30, 26, 2};
   SchroederTree TR = {31, 30, 26, 2};

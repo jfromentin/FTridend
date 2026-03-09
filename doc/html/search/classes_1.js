@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['elementaryschroedertensor_0',['ElementarySchroederTensor',['../structElementarySchroederTensor.html',1,'']]]
+  ['bset_0',['BSet',['../classBSet.html',1,'']]]
 ];

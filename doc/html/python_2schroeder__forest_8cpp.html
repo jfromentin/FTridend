@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -93,9 +100,7 @@ $(function(){initNavTree('python_2schroeder__forest_8cpp.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="python_2schroeder__forest_8hpp_source.html">schroeder_forest.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="python_2schroeder__tree_8hpp_source.html">schroeder_tree.hpp</a>&quot;</code><br />
-</div>
-<p><a href="python_2schroeder__forest_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a228e1034c81a508d69a9077e9fabe243" id="r_a228e1034c81a508d69a9077e9fabe243"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a228e1034c81a508d69a9077e9fabe243">SchroederForestInit</a> (<a class="el" href="structSchroederForestObject.html">SchroederForestObject</a> *self, PyObject *args, PyObject *Py_UNUSED(ignored))</td></tr>
@@ -125,8 +130,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="python_2schroeder__forest_8cpp_source.html#l00076">76</a> of file <a class="el" href="python_2schroeder__forest_8cpp_source.html">schroeder_forest.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a228e1034c81a508d69a9077e9fabe243" name="a228e1034c81a508d69a9077e9fabe243"></a>
@@ -152,8 +155,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="python_2schroeder__forest_8cpp_source.html#l00051">51</a> of file <a class="el" href="python_2schroeder__forest_8cpp_source.html">schroeder_forest.cpp</a>.</p>
 
 </div>
 </div>
@@ -182,13 +183,11 @@ Variables</h2></td></tr>
 <div class="line">  .tp_init = (initproc)<a class="code hl_function" href="#a228e1034c81a508d69a9077e9fabe243">SchroederForestInit</a>,</div>
 <div class="line">  .tp_new = PyType_GenericNew,</div>
 <div class="line">}</div>
-<div class="ttc" id="apython_2schroeder__forest_8cpp_html_a228e1034c81a508d69a9077e9fabe243"><div class="ttname"><a href="#a228e1034c81a508d69a9077e9fabe243">SchroederForestInit</a></div><div class="ttdeci">int SchroederForestInit(SchroederForestObject *self, PyObject *args, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__forest_8cpp_source.html#l00051">schroeder_forest.cpp:51</a></div></div>
-<div class="ttc" id="apython_2schroeder__forest_8hpp_html_a3533eccdc485e35c9739e287b5fb5fc4"><div class="ttname"><a href="python_2schroeder__forest_8hpp.html#a3533eccdc485e35c9739e287b5fb5fc4">SchroederForestHash</a></div><div class="ttdeci">Py_hash_t SchroederForestHash(SchroederForestObject *)</div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__forest_8hpp_source.html#l00078">schroeder_forest.hpp:78</a></div></div>
-<div class="ttc" id="apython_2schroeder__forest_8hpp_html_a6774bd45fef456d12897d65e20065aac"><div class="ttname"><a href="python_2schroeder__forest_8hpp.html#a6774bd45fef456d12897d65e20065aac">SchroederForestRepr</a></div><div class="ttdeci">PyObject * SchroederForestRepr(SchroederForestObject *)</div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__forest_8hpp_source.html#l00084">schroeder_forest.hpp:84</a></div></div>
-<div class="ttc" id="astructSchroederForestObject_html"><div class="ttname"><a href="structSchroederForestObject.html">SchroederForestObject</a></div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__forest_8hpp_source.html#l00033">schroeder_forest.hpp:33</a></div></div>
+<div class="ttc" id="apython_2schroeder__forest_8cpp_html_a228e1034c81a508d69a9077e9fabe243"><div class="ttname"><a href="#a228e1034c81a508d69a9077e9fabe243">SchroederForestInit</a></div><div class="ttdeci">int SchroederForestInit(SchroederForestObject *self, PyObject *args, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> schroeder_forest.cpp:51</div></div>
+<div class="ttc" id="apython_2schroeder__forest_8hpp_html_a3533eccdc485e35c9739e287b5fb5fc4"><div class="ttname"><a href="python_2schroeder__forest_8hpp.html#a3533eccdc485e35c9739e287b5fb5fc4">SchroederForestHash</a></div><div class="ttdeci">Py_hash_t SchroederForestHash(SchroederForestObject *)</div><div class="ttdef"><b>Definition</b> schroeder_forest.hpp:78</div></div>
+<div class="ttc" id="apython_2schroeder__forest_8hpp_html_a6774bd45fef456d12897d65e20065aac"><div class="ttname"><a href="python_2schroeder__forest_8hpp.html#a6774bd45fef456d12897d65e20065aac">SchroederForestRepr</a></div><div class="ttdeci">PyObject * SchroederForestRepr(SchroederForestObject *)</div><div class="ttdef"><b>Definition</b> schroeder_forest.hpp:84</div></div>
+<div class="ttc" id="astructSchroederForestObject_html"><div class="ttname"><a href="structSchroederForestObject.html">SchroederForestObject</a></div><div class="ttdef"><b>Definition</b> schroeder_forest.hpp:33</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="python_2schroeder__forest_8cpp_source.html#l00029">29</a> of file <a class="el" href="python_2schroeder__forest_8cpp_source.html">schroeder_forest.cpp</a>.</p>
-
 </div>
 </div>
 </div><!-- contents -->

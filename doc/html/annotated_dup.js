@@ -6,6 +6,7 @@ var annotated_dup =
       [ "hash&lt; SchroederVector&lt; R &gt; &gt;", "structstd_1_1hash_3_01SchroederVector_3_01R_01_4_01_4.html", "structstd_1_1hash_3_01SchroederVector_3_01R_01_4_01_4" ]
     ] ],
     [ "Array", "classArray.html", "classArray" ],
+    [ "BSet", "classBSet.html", "classBSet" ],
     [ "ElementarySchroederTensor", "structElementarySchroederTensor.html", "structElementarySchroederTensor" ],
     [ "OrderedPartition", "classOrderedPartition.html", "classOrderedPartition" ],
     [ "PackedWord", "classPackedWord.html", "classPackedWord" ],

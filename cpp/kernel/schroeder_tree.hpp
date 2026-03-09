@@ -68,7 +68,7 @@ protected:
     };
     size_t info;
   };
-  BSet chain[N]; // initial cChain partition giving the structure of the tree
+  BSet chain[N]; // initial chain partition giving the structure of the tree
   //ForestInfo left_forest_infos[N];
   //ForestInfo right_forest_infos[N];
   //  void compute_left_forest_infos();

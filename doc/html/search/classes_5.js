@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['quasishuffle_0',['QuasiShuffle',['../classQuasiShuffle.html',1,'']]]
+  ['packedword_0',['PackedWord',['../classPackedWord.html',1,'']]],
+  ['primitives_1',['Primitives',['../classPrimitives.html',1,'']]]
 ];

@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -102,11 +109,12 @@ $(function(){initNavTree('functions.html','',''); });
 
 <h3 class="doxsection"><a id="index_b" name="index_b"></a>- b -</h3><ul>
 <li>begin()&#160;:&#160;<a class="el" href="classArray.html#a9377fcd451eba80bb58ad0815aa503b8">Array&lt; T &gt;</a>, <a class="el" href="classSchroederTensor.html#ac38bd76f86a7cdc73209083c088863c8">SchroederTensor&lt; R &gt;</a>, <a class="el" href="classSchroederVector.html#a6754591ab190f42c791911e9440b0042">SchroederVector&lt; R &gt;</a></li>
+<li>BSet()&#160;:&#160;<a class="el" href="classBSet.html#aa30cfc549bcaf7442d13d1d021918e49">BSet</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>chain&#160;:&#160;<a class="el" href="classSchroederTree.html#a9682ec343ffd84484dc2c59fc035ac28">SchroederTree</a></li>
+<li>chain&#160;:&#160;<a class="el" href="classSchroederTree.html#a5eafd06fecec871f60e9ed11918ff302">SchroederTree</a></li>
 <li>co_associative&#160;:&#160;<a class="el" href="classPrimitives.html#adfc30d840d874dc8932ba234fa3cce9d">Primitives</a></li>
 <li>co_dendriform&#160;:&#160;<a class="el" href="classPrimitives.html#a0ce94aa5dbb7c7bf1667268672df076c">Primitives</a></li>
 <li>compute_size()&#160;:&#160;<a class="el" href="classSchroederForest.html#aab4efff0e864a718a848f471364cd519">SchroederForest</a></li>
@@ -134,7 +142,7 @@ $(function(){initNavTree('functions.html','',''); });
 
 <h3 class="doxsection"><a id="index_h" name="index_h"></a>- h -</h3><ul>
 <li>h&#160;:&#160;<a class="el" href="classSchroederTree.html#ac5d53e7c5f289acbde00bb3a0d08e18d">SchroederTree</a></li>
-<li>hash()&#160;:&#160;<a class="el" href="classSchroederTree.html#a45da8c6bcbacddcd00e02a47cf8ef3ad">SchroederTree</a>, <a class="el" href="classSchroederVector.html#a6a10dcd174c9142a1c3a4252978c1756">SchroederVector&lt; R &gt;</a></li>
+<li>hash()&#160;:&#160;<a class="el" href="classBSet.html#a977795b436f0aa4f332816e7f1d7f52b">BSet</a>, <a class="el" href="classSchroederTree.html#a45da8c6bcbacddcd00e02a47cf8ef3ad">SchroederTree</a>, <a class="el" href="classSchroederVector.html#a6a10dcd174c9142a1c3a4252978c1756">SchroederVector&lt; R &gt;</a></li>
 <li>height()&#160;:&#160;<a class="el" href="classSchroederTree.html#aab3b80379f1e06e67c9e2f34e27f7759">SchroederTree</a></li>
 </ul>
 
@@ -149,14 +157,15 @@ $(function(){initNavTree('functions.html','',''); });
 
 
 <h3 class="doxsection"><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>layer()&#160;:&#160;<a class="el" href="classSchroederTree.html#ac7f580aad91df00eea564f2ee299f01b">SchroederTree</a></li>
+<li>layer()&#160;:&#160;<a class="el" href="classSchroederTree.html#a092c3bfddf0c3dc10fcb1064868765a4">SchroederTree</a></li>
 <li>left&#160;:&#160;<a class="el" href="structElementarySchroederTensor.html#ad2a6c7e0ff15a812f851e90cb66ff54b">ElementarySchroederTensor</a></li>
 <li>length()&#160;:&#160;<a class="el" href="classOrderedPartition.html#aa0e815db93061a1a0b6a8da9c6252908">OrderedPartition</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>max_value()&#160;:&#160;<a class="el" href="classQuasiShuffle.html#a8b25932c32e0481cc5168a1c615bb3ba">QuasiShuffle</a></li>
+<li>max_angles&#160;:&#160;<a class="el" href="classSchroederTree.html#ac0d70bb1d99827d8a68c9d83f99b4bfd">SchroederTree</a></li>
+<li>max_value&#160;:&#160;<a class="el" href="classBSet.html#aa6551932fcb5b7f314b0208bc780a7b3">BSet</a>, <a class="el" href="classQuasiShuffle.html#a8b25932c32e0481cc5168a1c615bb3ba">QuasiShuffle</a></li>
 </ul>
 
 
@@ -172,9 +181,11 @@ $(function(){initNavTree('functions.html','',''); });
 <li>omega()&#160;:&#160;<a class="el" href="classPrimitives.html#ac74754baed632c70d0c420e61aadf667">Primitives</a></li>
 <li>omega_left()&#160;:&#160;<a class="el" href="classPrimitives.html#a71ecadc59d4a8c3dd7f769bbb38d107c">Primitives</a></li>
 <li>omega_right_middle()&#160;:&#160;<a class="el" href="classPrimitives.html#a1e9a77bd205a1ad08bff03adba93a46b">Primitives</a></li>
+<li>operator uint64_t()&#160;:&#160;<a class="el" href="classBSet.html#ad4e975d0812a53250dbd235c3e033a16">BSet</a></li>
+<li>operator!=()&#160;:&#160;<a class="el" href="classBSet.html#a679384ede0e4eb6bb0ccc57394fe5591">BSet</a></li>
 <li>operator()()&#160;:&#160;<a class="el" href="structstd_1_1hash_3_01ElementarySchroederTensor_01_4.html#a0f57f859fe59ef04ae6e8673e6ab2ff6">std::hash&lt; ElementarySchroederTensor &gt;</a>, <a class="el" href="structstd_1_1hash_3_01SchroederTree_01_4.html#ab5dfdf72ecbca921df13b6cbeee9372c">std::hash&lt; SchroederTree &gt;</a>, <a class="el" href="structstd_1_1hash_3_01SchroederVector_3_01R_01_4_01_4.html#a4cc54aabedf41ca34f2dd32dc3958ac7">std::hash&lt; SchroederVector&lt; R &gt; &gt;</a></li>
 <li>operator=()&#160;:&#160;<a class="el" href="classArray.html#a99770b4b3b98e10cba6ec088dbaac624">Array&lt; T &gt;</a></li>
-<li>operator==()&#160;:&#160;<a class="el" href="classSchroederTree.html#aa805ddd462b3da5e3b16844a6f3aa4ee">SchroederTree</a>, <a class="el" href="classSchroederVector.html#ad6967e4a3ec93f98421e26c9374c0374">SchroederVector&lt; R &gt;</a></li>
+<li>operator==()&#160;:&#160;<a class="el" href="classBSet.html#a5127df71b983bb6c8fe987ab9b31b79a">BSet</a>, <a class="el" href="classSchroederTree.html#aa805ddd462b3da5e3b16844a6f3aa4ee">SchroederTree</a>, <a class="el" href="classSchroederVector.html#ad6967e4a3ec93f98421e26c9374c0374">SchroederVector&lt; R &gt;</a></li>
 <li>operator[]()&#160;:&#160;<a class="el" href="classArray.html#a342939a9766988536ba6ded9d4f730ff">Array&lt; T &gt;</a>, <a class="el" href="classOrderedPartition.html#a934cf74c0b335e356195222d4ab86fe8">OrderedPartition</a>, <a class="el" href="classQuasiShuffle.html#a6341e4b944f45c69106052728fa7e4cc">QuasiShuffle</a></li>
 <li>OrderedPartition()&#160;:&#160;<a class="el" href="classOrderedPartition.html#ad8b2c19fd1ecb7c792d3be62da125def">OrderedPartition</a></li>
 </ul>
@@ -207,7 +218,7 @@ $(function(){initNavTree('functions.html','',''); });
 <li>SchroederTensor()&#160;:&#160;<a class="el" href="classSchroederTensor.html#af137c74c9485eb34dd49b92bde086b1c">SchroederTensor&lt; R &gt;</a></li>
 <li>SchroederTree()&#160;:&#160;<a class="el" href="classSchroederTree.html#a44d898578b71cff8f201b6edc6c7be93">SchroederTree</a></li>
 <li>SchroederVector()&#160;:&#160;<a class="el" href="classSchroederVector.html#a694a585fda775229af6a167404f8af2b">SchroederVector&lt; R &gt;</a></li>
-<li>size()&#160;:&#160;<a class="el" href="classArray.html#a6d8635dbcfd35c8132596084d072f7d4">Array&lt; T &gt;</a>, <a class="el" href="classSchroederForest.html#a39bf84f043e922a0df3c0a7b7c83523f">SchroederForest</a></li>
+<li>size()&#160;:&#160;<a class="el" href="classArray.html#a6d8635dbcfd35c8132596084d072f7d4">Array&lt; T &gt;</a>, <a class="el" href="classBSet.html#a4d7d7991ae80b0302917211050b418da">BSet</a>, <a class="el" href="classSchroederForest.html#a39bf84f043e922a0df3c0a7b7c83523f">SchroederForest</a></li>
 <li>size_co_associative()&#160;:&#160;<a class="el" href="classPrimitives.html#a15cf6704fbe302f8732c99eb4ec04385">Primitives</a></li>
 <li>size_co_dendriform()&#160;:&#160;<a class="el" href="classPrimitives.html#a7f4533619b2cbd7d14dcd24f2994066c">Primitives</a></li>
 <li>slcd&#160;:&#160;<a class="el" href="classSchroederTree.html#ad57e7f4b854444b5ccf352a3e2916bc7">SchroederTree</a></li>
@@ -218,7 +229,7 @@ $(function(){initNavTree('functions.html','',''); });
 <h3 class="doxsection"><a id="index_t" name="index_t"></a>- t -</h3><ul>
 <li>theta()&#160;:&#160;<a class="el" href="classPrimitives.html#afc475b38be8879b37e810e64b61af17b">Primitives</a></li>
 <li>to_latex()&#160;:&#160;<a class="el" href="classSchroederTree.html#afd0e3907c723900f716b11476850af44">SchroederTree</a>, <a class="el" href="classSchroederVector.html#aa5455bd5537db8dd8b59b6cb9768ed33">SchroederVector&lt; R &gt;</a></li>
-<li>to_string()&#160;:&#160;<a class="el" href="classArray.html#a8e9d3bb970281a493fddf282e80e816f">Array&lt; T &gt;</a></li>
+<li>to_string()&#160;:&#160;<a class="el" href="classArray.html#a8e9d3bb970281a493fddf282e80e816f">Array&lt; T &gt;</a>, <a class="el" href="classBSet.html#a5eb853ffc6a04bcfb52c9dd046995890">BSet</a></li>
 <li>tuple&#160;:&#160;<a class="el" href="classPrimitives.html#a144b5e8e9ccfa5d30a584f4485eb1024">Primitives</a></li>
 </ul>
 

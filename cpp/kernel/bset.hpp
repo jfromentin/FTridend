@@ -26,17 +26,58 @@
 
 using namespace std;
 
+//**************
+//* Class BSet *
+//**************
+
+//! A class to represent subset of \f$\{1,\ldots,32\}\f$ with a 32-bits encoding.
+/** To each such set corresponds a unique integer between \f$0\f$ and \f$2^{32}-1\f$.
+    The integer corresponding to the set \f$S\f$ is given by \f$\sum_{i\in S} 2^{i-1}\f$.
+ **/ 
 class BSet{
 public:
-  static const int max_size = 32;
+  //! Maximum element value 
+  static const int max_value = 32;
 private:
+  //! The integer assosiated to the set
   uint32_t data;
 public:
+  //! Construct the empty set
   BSet();
-  BSet(uint32_t);
+  //! Construct a set from a 32 bits integer n using our coding
+  BSet(uint32_t n);
+  //! Construct a set from a list l of integer
+  BSet(const initializer_list<int>& l);
+
+  //! Return the size of the set 
+  int size() const;
+  
+  
+  //! Convert a set to a 32 bit integer
+  explicit operator uint64_t() const;
+  //! Hash function of a set (actually the associated integer)
   size_t hash() const;
+
+  //! Add an element to the set
+  //! \param v element to add
+  void add_element(int v);
+  
+  //! Test if two sets are equal
+  bool operator==(const BSet& s) const;
+  //! Test if two are different
   bool operator!=(const BSet&) const;
 };
+
+//***********************
+//* Auxiliary functions *
+//***********************
+
+//! Return a string from a BSet.
+string to_string(const BSet& s);
+
+//********************
+//* Inline functions *
+//********************
 
 inline BSet::BSet() {
   data = 0;
@@ -45,9 +86,23 @@ inline BSet::BSet() {
 inline BSet::BSet(uint32_t n):data(n) {
 }
 
+inline BSet::operator uint64_t() const{
+  return (uint64_t)data;
+}
+
 inline size_t BSet::hash() const {
   return data;
 }
 
-inline bool operator!=(const BSet&) const 
+inline bool BSet::operator==(const BSet& a) const {
+  return data == a.data;
+}
+
+inline bool BSet::operator!=(const BSet& a) const {
+  return data != a.data;
+}
+
+inline int BSet::size() const {
+  return popcount(data);
+}
 #endif

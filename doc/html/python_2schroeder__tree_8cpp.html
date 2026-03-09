@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -93,9 +100,7 @@ $(function(){initNavTree('python_2schroeder__tree_8cpp.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="python_2schroeder__tree_8hpp_source.html">schroeder_tree.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="python_2schroeder__forest_8hpp_source.html">schroeder_forest.hpp</a>&quot;</code><br />
-</div>
-<p><a href="python_2schroeder__tree_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:acfc2731bba1961b98be3a1039ef7bb07" id="r_acfc2731bba1961b98be3a1039ef7bb07"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#acfc2731bba1961b98be3a1039ef7bb07">SchroederTreeInit</a> (<a class="el" href="structSchroederTreeObject.html">SchroederTreeObject</a> *self, PyObject *args, PyObject *Py_UNUSED(ignored))</td></tr>
@@ -125,8 +130,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="python_2schroeder__tree_8cpp_source.html#l00087">87</a> of file <a class="el" href="python_2schroeder__tree_8cpp_source.html">schroeder_tree.cpp</a>.</p>
-
 </div>
 </div>
 <a id="acfc2731bba1961b98be3a1039ef7bb07" name="acfc2731bba1961b98be3a1039ef7bb07"></a>
@@ -152,8 +155,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="python_2schroeder__tree_8cpp_source.html#l00050">50</a> of file <a class="el" href="python_2schroeder__tree_8cpp_source.html">schroeder_tree.cpp</a>.</p>
 
 </div>
 </div>
@@ -182,13 +183,11 @@ Variables</h2></td></tr>
 <div class="line">  .tp_init = (initproc)<a class="code hl_function" href="#acfc2731bba1961b98be3a1039ef7bb07">SchroederTreeInit</a>,</div>
 <div class="line">  .tp_new = PyType_GenericNew,</div>
 <div class="line">}</div>
-<div class="ttc" id="apython_2schroeder__tree_8cpp_html_acfc2731bba1961b98be3a1039ef7bb07"><div class="ttname"><a href="#acfc2731bba1961b98be3a1039ef7bb07">SchroederTreeInit</a></div><div class="ttdeci">int SchroederTreeInit(SchroederTreeObject *self, PyObject *args, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__tree_8cpp_source.html#l00050">schroeder_tree.cpp:50</a></div></div>
-<div class="ttc" id="apython_2schroeder__tree_8hpp_html_a25673c11063e138611db37a400db4853"><div class="ttname"><a href="python_2schroeder__tree_8hpp.html#a25673c11063e138611db37a400db4853">SchroederTreeHash</a></div><div class="ttdeci">Py_hash_t SchroederTreeHash(SchroederTreeObject *)</div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__tree_8hpp_source.html#l00088">schroeder_tree.hpp:88</a></div></div>
-<div class="ttc" id="apython_2schroeder__tree_8hpp_html_a5fc8af67fc2ac629fadfdff046d8212c"><div class="ttname"><a href="python_2schroeder__tree_8hpp.html#a5fc8af67fc2ac629fadfdff046d8212c">SchroederTreeRepr</a></div><div class="ttdeci">PyObject * SchroederTreeRepr(SchroederTreeObject *)</div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__tree_8hpp_source.html#l00094">schroeder_tree.hpp:94</a></div></div>
-<div class="ttc" id="astructSchroederTreeObject_html"><div class="ttname"><a href="structSchroederTreeObject.html">SchroederTreeObject</a></div><div class="ttdef"><b>Definition</b> <a href="python_2schroeder__tree_8hpp_source.html#l00033">schroeder_tree.hpp:33</a></div></div>
+<div class="ttc" id="apython_2schroeder__tree_8cpp_html_acfc2731bba1961b98be3a1039ef7bb07"><div class="ttname"><a href="#acfc2731bba1961b98be3a1039ef7bb07">SchroederTreeInit</a></div><div class="ttdeci">int SchroederTreeInit(SchroederTreeObject *self, PyObject *args, PyObject *Py_UNUSED(ignored))</div><div class="ttdef"><b>Definition</b> schroeder_tree.cpp:50</div></div>
+<div class="ttc" id="apython_2schroeder__tree_8hpp_html_a25673c11063e138611db37a400db4853"><div class="ttname"><a href="python_2schroeder__tree_8hpp.html#a25673c11063e138611db37a400db4853">SchroederTreeHash</a></div><div class="ttdeci">Py_hash_t SchroederTreeHash(SchroederTreeObject *)</div><div class="ttdef"><b>Definition</b> schroeder_tree.hpp:88</div></div>
+<div class="ttc" id="apython_2schroeder__tree_8hpp_html_a5fc8af67fc2ac629fadfdff046d8212c"><div class="ttname"><a href="python_2schroeder__tree_8hpp.html#a5fc8af67fc2ac629fadfdff046d8212c">SchroederTreeRepr</a></div><div class="ttdeci">PyObject * SchroederTreeRepr(SchroederTreeObject *)</div><div class="ttdef"><b>Definition</b> schroeder_tree.hpp:94</div></div>
+<div class="ttc" id="astructSchroederTreeObject_html"><div class="ttname"><a href="structSchroederTreeObject.html">SchroederTreeObject</a></div><div class="ttdef"><b>Definition</b> schroeder_tree.hpp:33</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="python_2schroeder__tree_8cpp_source.html#l00028">28</a> of file <a class="el" href="python_2schroeder__tree_8cpp_source.html">schroeder_tree.cpp</a>.</p>
-
 </div>
 </div>
 </div><!-- contents -->

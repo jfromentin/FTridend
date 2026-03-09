@@ -31,7 +31,7 @@ var searchData=
   ['schroedervectorhash_28',['SchroederVectorHash',['../python_2schroeder__vector_8hpp.html#a8d3417d96f4f3345da293574e0c31162',1,'schroeder_vector.hpp']]],
   ['schroedervectorinit_29',['SchroederVectorInit',['../schroeder__vector_8cpp.html#a052354b8fc31a42172c44ab8e5e26601',1,'SchroederVectorInit(SchroederVectorObject *self, PyObject *args, PyObject *Py_UNUSED(ignored)):&#160;schroeder_vector.cpp'],['../python_2schroeder__vector_8hpp.html#a88954da4b6bd95ee9aac37230e8cc330',1,'SchroederVectorInit(SchroederVectorObject *, PyObject *, PyObject *):&#160;schroeder_vector.hpp']]],
   ['schroedervectorrepr_30',['SchroederVectorRepr',['../python_2schroeder__vector_8hpp.html#a8aff6c32aeccbda95cda8e79a84a8a71',1,'schroeder_vector.hpp']]],
-  ['size_31',['size',['../classArray.html#a6d8635dbcfd35c8132596084d072f7d4',1,'Array::size()'],['../classSchroederForest.html#a39bf84f043e922a0df3c0a7b7c83523f',1,'SchroederForest::size()']]],
+  ['size_31',['size',['../classArray.html#a6d8635dbcfd35c8132596084d072f7d4',1,'Array::size()'],['../classBSet.html#a4d7d7991ae80b0302917211050b418da',1,'BSet::size()'],['../classSchroederForest.html#a39bf84f043e922a0df3c0a7b7c83523f',1,'SchroederForest::size()']]],
   ['size_5fco_5fassociative_32',['size_co_associative',['../classPrimitives.html#a15cf6704fbe302f8732c99eb4ec04385',1,'Primitives']]],
   ['size_5fco_5fdendriform_33',['size_co_dendriform',['../classPrimitives.html#a7f4533619b2cbd7d14dcd24f2994066c',1,'Primitives']]]
 ];
