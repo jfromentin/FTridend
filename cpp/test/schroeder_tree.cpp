@@ -18,21 +18,12 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-#include "bset.hpp"
+#include "schroeder_tree.hpp"
 
-int test_BSet() {
-  BSet empty;
-  test_equal(to_string(empty), "{}");
-  test_equal(empty.size(), 0);
-  test_equal(empty.max(), 0);
-  BSet S1 = 19;
-  test_equal(to_string(S1), "{1, 2, 5}");
-  test_equal(S1.size(), 3);
-  test_equal(S1.max(), 5)
-  BSet S2 = {4,7,10,14, 3, 14};
-  test_equal(to_string(S2), "{3, 4, 7, 10, 14}");
-  test_equal(S2.size(), 5);
-  test_equal(S2.max(), 14);
-  
+int test_SchroederTree() {
+  SchroederTree t_empty;
+  test_equal(t_empty.height(), 0);
+  test_equal(t_empty.angles(), 0);
+  SchroederTree t1 = {{1, 2, 3, 4, 5}, {3, 4, 5}, {3, 5}, {}};
   return 0;
 }

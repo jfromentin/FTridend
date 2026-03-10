@@ -18,17 +18,11 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-#ifndef SCHROEDER_TREE_HPP
-#define SCHROEDER_TREE_HPP
+#ifndef KERNEL_SCHROEDER_TREE_HPP
+#define KERNEL_SCHROEDER_TREE_HPP
 
-#include <bit>
-#include <initializer_list>
+#include "schroeder_forest.hpp"
 
-#include "bset.hpp"
-#include "common.hpp"
-#include "array.hpp"
-#include "quasi_shuffle.hpp"
-#include "packed_word.hpp"
 
 /*class SchroederForest;
   class SchroederTree;*/
@@ -53,32 +47,45 @@ struct ForestInfo{
 
 
 //! A class for levelled Schroeder tree
-/** A levelled Schroeder tree with \f$n+1\f$ leaves is entierly characterized by an
-    increasing initial chain of the poset \f$(\mathcal{P}([1..n]),\subseteq)\f$. */
+/** A levelled Schroeder forest with \f$n+1\f$ leaves is entierly characterized by an
+    strictly increasing chain \f$(c_0,\ldots,c_h)\f$ of the poset \f$(\mathcal{P}([1..n]),\subseteq)\f$
+    stisfying \f$c_h=[1..n]\f$ together with \f$c_0 = {}\f$.*/
+
 class SchroederTree{
 public:
   static const int max_angles = 32;
 protected:
   union{
     struct {
-      uint8_t na; // number of angles
-      uint8_t h; // height of the tree as a levelled tree, ie, size of the corresponding initial chain - 1
-      uint8_t slcd; // size of the left comb decomposition
-      uint8_t srcd; // size of the right comb decomposition
+      //! Number of angles
+      uint8_t na;
+      //! Height of the tree as a levelled tree, ie, size of the corresponding initial chain - 1
+      uint8_t h;
+      //! Size of the left comb decomposition
+      uint8_t slcd; 
+      //! Size of the right comb decomposition
+      uint8_t srcd; 
     };
+    //! Information about the SchroederTree
     size_t info;
   };
-  BSet chain[N]; // initial chain partition giving the structure of the tree
+
+  //! Initial chain partition giving the structure of the tree
+  BSet* ic;
+  
   //ForestInfo left_forest_infos[N];
   //ForestInfo right_forest_infos[N];
   //  void compute_left_forest_infos();
   //void compute_right_forest_infos();
+
 public:
-  // Construct the empty tree
+  //! Construct the empty tree
   SchroederTree();
 
+  //! Construct a SchroederTree from a given initial chain
+  SchroederTree(const initializer_list<initializer_list<int>>& l);
 
-  SchroederTree(const initializer_list<Int>& l);
+  ~SchroederTree();
   //SchroederTree(const SchroederTree&, const SchroederTree&, const QuasiShuffle &sigma);
   bool validate();
   void normalize();
@@ -118,23 +125,37 @@ public:
   //void set_root(SchroederTree& t, const Cut&, const Array<SimpleCut>&) const;
 };
 
-//***********************
-//* Auxiliary functions *
-//***********************
+//---------------------
+// Auxiliary functions 
+//---------------------
 
 string to_string(const SchroederTree& T);
 
+//***************************
+//* Inline member functions *
+//***************************
+
+// Construct the empty SchroederTree
 inline
 SchroederTree::SchroederTree() {
-  // Construct the empty tree
   // There is no angles
   na = 0;
   // Height is 0
   h = 0;
+  // Initial chain
+  ic = new BSet[1];
+  ic[0] = 0;
   // Left and right decompositions are empty
   slcd = 0;
   srcd = 0;
 }
+
+// Delete the current SchroederTree
+inline
+SchroederTree::~SchroederTree() {
+  if (ic != nullptr) delete[] ic;
+}
+
 
 /*inline void
 SchroederTree::sage_init(Int hh, Int nn) {
@@ -178,7 +199,7 @@ SchroederTree::right_forests_length() const {
 inline BSet
 SchroederTree::layer(Int i) const {
   assert (0 <= i and i < h);
-  return chain[i];
+  return ic[i];
 }
 /*
 inline const ForestInfo&
@@ -197,7 +218,7 @@ SchroederTree::get_right_forest_info(Int i) const {
 inline size_t
 SchroederTree::hash() const {
   size_t res = 0;
-  for (int i = 0; i < h - 1; ++ i) res += chain[i].hash();
+  for (int i = 0; i < h - 1; ++ i) res += ic[i].hash();
   return res;		    			     
 }
 
@@ -205,7 +226,7 @@ inline bool
 SchroederTree::operator==(const SchroederTree& t) const {
   if (h != t.h) return false;
   for (int i = 0; i < h - 1; ++ i) {
-    if (chain[i] != t.chain[i]) return false;
+    if (ic[i] != t.ic[i]) return false;
   }
   return true;
 }

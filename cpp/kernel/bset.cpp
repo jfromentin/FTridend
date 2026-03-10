@@ -9,7 +9,7 @@ BSet::BSet(const initializer_list<int>& l) {
   data = 0;
   for (auto it = l.begin(); it != l.end(); ++ it) {
     int v = *it;
-    uint32_t p = (1 << (v - 1));
+    BSet_t p = (1 << (v - 1));
     // Add v if it not already present in the set
     if ((data & p) == 0) data += p;
   }
@@ -22,9 +22,9 @@ BSet::BSet(const initializer_list<int>& l) {
 // to_string(const BSet&)
 string to_string(const BSet& s) {
   string res = "{";
-  uint64_t n = (uint64_t)s;
-  uint32_t p = 1;
-  uint32_t i = 1;
+  BSet_t n = (BSet_t)s;
+  BSet_t p = 1;
+  int i = 1;
   bool first = true;
   while (n != 0) {
     if ((n & p) != 0) {

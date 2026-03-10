@@ -7,9 +7,9 @@ PY_MODULE		= $(PROJECT).so
 CPP 			= g++
 CFLAGS			= -O3 -Wall -g --std=c++20 -Icpp
 
-KERNEL_FILES		= bset schroeder_tree
+KERNEL_FILES		= bset schroeder_forest
 CONSOLE_FILES		=
-TEST_FILES		= test bset
+TEST_FILES		= test bset schroeder_forest
 PY_MODULE_FILES		= module schroeder_tree
 PY_MODULE_DOC_FILES	= schroeder_tree
 

@@ -19,33 +19,34 @@
 //****************************************************************************//
 
 #include "schroeder_tree.hpp"
-#include "schroeder_forest.hpp"
+//#include "schroeder_forest.hpp"
 
-bool SchroederTree::validate() {
-  /*if (chain[0] != ((1L << (na - 1)) - 1)) return false;
-  if (chain[h - 1] != 0) return false;
-  BSet prev = chain[0];
-  for (int i = 1; i < h - 1; ++ i) {
-    BSet v = chain[i];
-    if ((v | prev) != prev) return false;
-    prev = v;
-    }*/
-  return true;
-}
-SchroederTree::SchroederTree(const initializer_list<Int>& l) {
-  /* h = l.size() + 1;
-  auto it = l.begin(); 
-  BSet v = *it;
-  n = popcount(v) + 1;
-  chain[0] = v;
-  int k = 0;
-  for (++ it; it != l.end(); ++ it) {
-    v = *it;
-    chain[++ k] = v;
+bool SchroederTree::validate() const {
+  if (ic[0].max() != na) return false;
+  for (int l = 0; l < h; ++ l) {
+    if (not ic[l + 1].is_subset(ic[l])) return false;
   }
-  chain[h - 1] = 0;
-  assert(validate());
-  initialize();*/
+  return ic[h].empty();
+}
+
+SchroederTree::SchroederTree(const initializer_list<initializer_list<int>>& l) {
+  assert(l.size() > 0);
+  h = l.size() - 1;
+  ic = new BSet[h + 1];
+  auto it = l.begin();
+  ic[0] = *it;
+
+  // test if the first set is of the form {1, ..., na}
+  na = ic[0].size();
+  assert(ic[0].max() == na);
+  int i = 1;
+  for (++ it; it != l.end(); ++ it) {
+    ic[i] = *it;
+    assert(ic[i].is_subset(ic[i - 1]));
+    ++ i;
+  }
+  assert(ic[h].is_empty());
+      
 }
 
 void SchroederTree::display(ostream& os) const {

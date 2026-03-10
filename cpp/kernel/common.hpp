@@ -27,10 +27,14 @@
 
 using namespace std;
 
+//**********************
+//* Bit set parameters *
+//**********************
+using BSet_t = uint16_t;
+static const int BSet_max = 8 * sizeof(BSet_t);
+
 using Int = uint16_t;
 using Coeff = int;
 static const size_t N = 16;
 static const bool verbose_display = true;
-static const bool display_root = false;
-static const bool display_forest_size = false;
 #endif

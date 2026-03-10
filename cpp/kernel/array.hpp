@@ -18,9 +18,8 @@
 //  with FTridend. If not, see <https://www.gnu.org/licenses/>.               //
 //****************************************************************************//
 
-
-#ifndef ARRAY_HPP
-#define ARRAY_HPP
+#ifndef KERNEL_ARRAY_HPP
+#define KERNEL_ARRAY_HPP
 
 #include <iostream>
 #include <list>
