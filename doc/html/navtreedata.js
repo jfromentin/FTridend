@@ -60,7 +60,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"python_2schroeder__vector_8hpp.html"
+"python_2schroeder__forest_8hpp.html#a8b45babf2807c5a46272339e170a30cf"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

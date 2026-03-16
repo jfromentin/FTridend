@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['chain_0',['chain',['../classSchroederTree.html#a5eafd06fecec871f60e9ed11918ff302',1,'SchroederTree']]],
+  ['c_0',['c',['../classSchroederForest.html#a923372fdf01146cfede6f6d77599b175',1,'SchroederForest']]],
   ['cmp_1',['cmp',['../array_8hpp.html#acbb1120125023bdadae727b5e921a6c8',1,'cmp(int16_t x, int16_t y):&#160;array.hpp'],['../array_8hpp.html#a9c1da21109786376aecaf7015a2f895a',1,'cmp(const Array&lt; T &gt; &amp;A, const Array&lt; T &gt; &amp;B):&#160;array.hpp']]],
   ['co_5fassociative_2',['co_associative',['../classPrimitives.html#adfc30d840d874dc8932ba234fa3cce9d',1,'Primitives']]],
   ['co_5fdendriform_3',['co_dendriform',['../classPrimitives.html#a0ce94aa5dbb7c7bf1667268672df076c',1,'Primitives']]],

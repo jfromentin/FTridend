@@ -102,33 +102,32 @@ $(function(){initNavTree('classBSet.html','','classBSet-members'); });
 <p>A class to represent subset of \(\{1,\ldots,32\}\) with a 32-bits encoding.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="bset_8hpp_source.html">bset.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="kernel_2bset_8hpp_source.html">bset.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa30cfc549bcaf7442d13d1d021918e49" id="r_aa30cfc549bcaf7442d13d1d021918e49"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa30cfc549bcaf7442d13d1d021918e49">BSet</a> ()</td></tr>
 <tr class="memdesc:aa30cfc549bcaf7442d13d1d021918e49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the empty set.  <br /></td></tr>
-<tr class="memitem:ade43da2aa795f3815e2f830524a13e65" id="r_ade43da2aa795f3815e2f830524a13e65"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ade43da2aa795f3815e2f830524a13e65">BSet</a> (uint32_t n)</td></tr>
-<tr class="memdesc:ade43da2aa795f3815e2f830524a13e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a set from a 32 bits integer n using our coding.  <br /></td></tr>
+<tr class="memitem:a5435c34ae35ac08c43b30045fd5b2715" id="r_a5435c34ae35ac08c43b30045fd5b2715"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5435c34ae35ac08c43b30045fd5b2715">BSet</a> (<a class="el" href="common_8hpp.html#a9b0e4c4caef0ae2a8584045642df8f65">BSet_t</a> n)</td></tr>
+<tr class="memdesc:a5435c34ae35ac08c43b30045fd5b2715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a set from a 32 bits integer n using our coding.  <br /></td></tr>
 <tr class="memitem:a6886557c25db7a6130f585e6e71be075" id="r_a6886557c25db7a6130f585e6e71be075"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6886557c25db7a6130f585e6e71be075">BSet</a> (const initializer_list&lt; int &gt; &amp;l)</td></tr>
 <tr class="memdesc:a6886557c25db7a6130f585e6e71be075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a set from a list l of integer.  <br /></td></tr>
-<tr class="memitem:ad4e975d0812a53250dbd235c3e033a16" id="r_ad4e975d0812a53250dbd235c3e033a16"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad4e975d0812a53250dbd235c3e033a16">operator uint64_t</a> () const</td></tr>
-<tr class="memdesc:ad4e975d0812a53250dbd235c3e033a16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a set to a 32 bit integer.  <br /></td></tr>
+<tr class="memitem:a4d7d7991ae80b0302917211050b418da" id="r_a4d7d7991ae80b0302917211050b418da"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a4d7d7991ae80b0302917211050b418da">size</a> () const</td></tr>
+<tr class="memdesc:a4d7d7991ae80b0302917211050b418da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of the set.  <br /></td></tr>
+<tr class="memitem:addfa591d02a98a447676c6608862ba32" id="r_addfa591d02a98a447676c6608862ba32"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#addfa591d02a98a447676c6608862ba32">is_empty</a> () const</td></tr>
+<tr class="memdesc:addfa591d02a98a447676c6608862ba32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test is the set is empty.  <br /></td></tr>
+<tr class="memitem:a58e6664dff0f99ea9833be2ab7ecf169" id="r_a58e6664dff0f99ea9833be2ab7ecf169"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a58e6664dff0f99ea9833be2ab7ecf169">operator BSet_t</a> () const</td></tr>
+<tr class="memdesc:a58e6664dff0f99ea9833be2ab7ecf169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a set to an integer.  <br /></td></tr>
 <tr class="memitem:a977795b436f0aa4f332816e7f1d7f52b" id="r_a977795b436f0aa4f332816e7f1d7f52b"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a977795b436f0aa4f332816e7f1d7f52b">hash</a> () const</td></tr>
 <tr class="memdesc:a977795b436f0aa4f332816e7f1d7f52b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hash function of a set (actually the associated integer).  <br /></td></tr>
+<tr class="memitem:af1c7f3873df2abe20baceef1a811eb43" id="r_af1c7f3873df2abe20baceef1a811eb43"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af1c7f3873df2abe20baceef1a811eb43">add_element</a> (int v)</td></tr>
+<tr class="memitem:a83d1d5dc04198f514001c2b49a777afc" id="r_a83d1d5dc04198f514001c2b49a777afc"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a83d1d5dc04198f514001c2b49a777afc">max</a> () const</td></tr>
+<tr class="memdesc:a83d1d5dc04198f514001c2b49a777afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the maximal element of the set and 0 if it is empty.  <br /></td></tr>
+<tr class="memitem:ae8eea2f9657d40b317af3efd68c6e8bf" id="r_ae8eea2f9657d40b317af3efd68c6e8bf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae8eea2f9657d40b317af3efd68c6e8bf">is_subset</a> (const <a class="el" href="classBSet.html">BSet</a> &amp;S) const</td></tr>
 <tr class="memitem:a5127df71b983bb6c8fe987ab9b31b79a" id="r_a5127df71b983bb6c8fe987ab9b31b79a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5127df71b983bb6c8fe987ab9b31b79a">operator==</a> (const <a class="el" href="classBSet.html">BSet</a> &amp;s) const</td></tr>
 <tr class="memdesc:a5127df71b983bb6c8fe987ab9b31b79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if two sets are equal.  <br /></td></tr>
 <tr class="memitem:a679384ede0e4eb6bb0ccc57394fe5591" id="r_a679384ede0e4eb6bb0ccc57394fe5591"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a679384ede0e4eb6bb0ccc57394fe5591">operator!=</a> (const <a class="el" href="classBSet.html">BSet</a> &amp;) const</td></tr>
 <tr class="memdesc:a679384ede0e4eb6bb0ccc57394fe5591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if two are different.  <br /></td></tr>
-<tr class="memitem:a4d7d7991ae80b0302917211050b418da" id="r_a4d7d7991ae80b0302917211050b418da"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a4d7d7991ae80b0302917211050b418da">size</a> () const</td></tr>
-<tr class="memdesc:a4d7d7991ae80b0302917211050b418da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the size of the set.  <br /></td></tr>
-<tr class="memitem:a5eb853ffc6a04bcfb52c9dd046995890" id="r_a5eb853ffc6a04bcfb52c9dd046995890"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a5eb853ffc6a04bcfb52c9dd046995890">to_string</a> () const</td></tr>
-<tr class="memdesc:a5eb853ffc6a04bcfb52c9dd046995890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a string representation of the set.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:aa6551932fcb5b7f314b0208bc780a7b3" id="r_aa6551932fcb5b7f314b0208bc780a7b3"><td class="memItemLeft">static const int&#160;</td><td class="memItemRight"><a class="el" href="#aa6551932fcb5b7f314b0208bc780a7b3">max_value</a> = 32</td></tr>
-<tr class="memdesc:aa6551932fcb5b7f314b0208bc780a7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum element value.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to represent subset of \(\{1,\ldots,32\}\) with a 32-bits encoding. </p>
@@ -161,8 +160,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ade43da2aa795f3815e2f830524a13e65" name="ade43da2aa795f3815e2f830524a13e65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade43da2aa795f3815e2f830524a13e65">&#9670;&#160;</a></span>BSet() <span class="overload">[2/3]</span></h2>
+<a id="a5435c34ae35ac08c43b30045fd5b2715" name="a5435c34ae35ac08c43b30045fd5b2715"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5435c34ae35ac08c43b30045fd5b2715">&#9670;&#160;</a></span>BSet() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,7 +172,7 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">BSet::BSet </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="common_8hpp.html#a9b0e4c4caef0ae2a8584045642df8f65">BSet_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -208,6 +207,29 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af1c7f3873df2abe20baceef1a811eb43" name="af1c7f3873df2abe20baceef1a811eb43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1c7f3873df2abe20baceef1a811eb43">&#9670;&#160;</a></span>add_element()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BSet::add_element </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add an element to the set </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>element to add </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a977795b436f0aa4f332816e7f1d7f52b" name="a977795b436f0aa4f332816e7f1d7f52b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a977795b436f0aa4f332816e7f1d7f52b">&#9670;&#160;</a></span>hash()</h2>
 
@@ -235,8 +257,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad4e975d0812a53250dbd235c3e033a16" name="ad4e975d0812a53250dbd235c3e033a16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4e975d0812a53250dbd235c3e033a16">&#9670;&#160;</a></span>operator uint64_t()</h2>
+<a id="addfa591d02a98a447676c6608862ba32" name="addfa591d02a98a447676c6608862ba32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addfa591d02a98a447676c6608862ba32">&#9670;&#160;</a></span>is_empty()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,7 +267,87 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BSet::operator uint64_t </td>
+          <td class="memname">bool BSet::is_empty </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Test is the set is empty. </p>
+
+</div>
+</div>
+<a id="ae8eea2f9657d40b317af3efd68c6e8bf" name="ae8eea2f9657d40b317af3efd68c6e8bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8eea2f9657d40b317af3efd68c6e8bf">&#9670;&#160;</a></span>is_subset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BSet::is_subset </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classBSet.html">BSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>S</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Test if the current set is a subset of another one /param S another set </p>
+
+</div>
+</div>
+<a id="a83d1d5dc04198f514001c2b49a777afc" name="a83d1d5dc04198f514001c2b49a777afc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83d1d5dc04198f514001c2b49a777afc">&#9670;&#160;</a></span>max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int BSet::max </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return the maximal element of the set and 0 if it is empty. </p>
+
+</div>
+</div>
+<a id="a58e6664dff0f99ea9833be2ab7ecf169" name="a58e6664dff0f99ea9833be2ab7ecf169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e6664dff0f99ea9833be2ab7ecf169">&#9670;&#160;</a></span>operator BSet_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BSet::operator <a class="el" href="common_8hpp.html#a9b0e4c4caef0ae2a8584045642df8f65">BSet_t</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -258,7 +360,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Convert a set to a 32 bit integer. </p>
+<p>Convert a set to an integer. </p>
 
 </div>
 </div>
@@ -343,53 +445,9 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5eb853ffc6a04bcfb52c9dd046995890" name="a5eb853ffc6a04bcfb52c9dd046995890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eb853ffc6a04bcfb52c9dd046995890">&#9670;&#160;</a></span>to_string()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">string BSet::to_string </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return a string representation of the set. </p>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="aa6551932fcb5b7f314b0208bc780a7b3" name="aa6551932fcb5b7f314b0208bc780a7b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6551932fcb5b7f314b0208bc780a7b3">&#9670;&#160;</a></span>max_value</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int BSet::max_value = 32</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Maximum element value. </p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>cpp/kernel/<a class="el" href="bset_8hpp_source.html">bset.hpp</a></li>
-<li>cpp/kernel/<a class="el" href="bset_8cpp.html">bset.cpp</a></li>
+<li>cpp/kernel/<a class="el" href="kernel_2bset_8hpp_source.html">bset.hpp</a></li>
+<li>cpp/kernel/<a class="el" href="kernel_2bset_8cpp.html">bset.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

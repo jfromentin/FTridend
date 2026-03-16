@@ -1,7 +1,8 @@
 var classSchroederTree =
 [
     [ "SchroederTree", "classSchroederTree.html#a44d898578b71cff8f201b6edc6c7be93", null ],
-    [ "SchroederTree", "classSchroederTree.html#a1adc06aa91cdc56149c6ce8d680a866b", null ],
+    [ "SchroederTree", "classSchroederTree.html#a69e19308f3c54c3947edfa014ac7ba5a", null ],
+    [ "~SchroederTree", "classSchroederTree.html#a44e2f0044c70b0f00303ccf136d0b001", null ],
     [ "angles", "classSchroederTree.html#afd74f1645ea6c919ac36b60e420549bc", null ],
     [ "display", "classSchroederTree.html#ac2e06155ba50619f00cc1af1ad85e351", null ],
     [ "hash", "classSchroederTree.html#a45da8c6bcbacddcd00e02a47cf8ef3ad", null ],
@@ -14,8 +15,8 @@ var classSchroederTree =
     [ "sage_set_value", "classSchroederTree.html#a2d73da83434515dab3c934ad40a98c81", null ],
     [ "to_latex", "classSchroederTree.html#afd0e3907c723900f716b11476850af44", null ],
     [ "validate", "classSchroederTree.html#ae3117b877ba28f6c6a5391fc84430edc", null ],
-    [ "chain", "classSchroederTree.html#a5eafd06fecec871f60e9ed11918ff302", null ],
     [ "h", "classSchroederTree.html#ac5d53e7c5f289acbde00bb3a0d08e18d", null ],
+    [ "ic", "classSchroederTree.html#a3acc85e38acf6a116d70f3316c874f18", null ],
     [ "info", "classSchroederTree.html#abeb073583c22a8985ce9544d911faf6d", null ],
     [ "na", "classSchroederTree.html#aa5802c1ea9466a7ba0e4c94cdddf7b08", null ],
     [ "slcd", "classSchroederTree.html#ad57e7f4b854444b5ccf352a3e2916bc7", null ],

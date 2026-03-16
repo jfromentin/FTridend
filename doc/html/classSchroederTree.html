@@ -109,14 +109,17 @@ Inheritance diagram for SchroederTree:</div>
  <div class="center">
   <img src="classSchroederTree.png" usemap="#SchroederTree_map" alt=""/>
   <map id="SchroederTree_map" name="SchroederTree_map">
-<area href="classSchroederForest.html" alt="SchroederForest" shape="rect" coords="0,56,108,80"/>
+<area href="classSchroederForest.html" title="A class for levelled Schroeder forest." alt="SchroederForest" shape="rect" coords="0,56,108,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a44d898578b71cff8f201b6edc6c7be93" id="r_a44d898578b71cff8f201b6edc6c7be93"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a44d898578b71cff8f201b6edc6c7be93">SchroederTree</a> ()</td></tr>
-<tr class="memitem:a1adc06aa91cdc56149c6ce8d680a866b" id="r_a1adc06aa91cdc56149c6ce8d680a866b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1adc06aa91cdc56149c6ce8d680a866b">SchroederTree</a> (const initializer_list&lt; <a class="el" href="common_8hpp.html#a2eeb6279e316215d89dc3aab9122d161">Int</a> &gt; &amp;l)</td></tr>
+<tr class="memdesc:a44d898578b71cff8f201b6edc6c7be93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the empty tree.  <br /></td></tr>
+<tr class="memitem:a69e19308f3c54c3947edfa014ac7ba5a" id="r_a69e19308f3c54c3947edfa014ac7ba5a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a69e19308f3c54c3947edfa014ac7ba5a">SchroederTree</a> (const initializer_list&lt; initializer_list&lt; int &gt; &gt; &amp;l)</td></tr>
+<tr class="memdesc:a69e19308f3c54c3947edfa014ac7ba5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="classSchroederTree.html" title="A class for levelled Schroeder tree.">SchroederTree</a> from a given initial chain.  <br /></td></tr>
+<tr class="memitem:a44e2f0044c70b0f00303ccf136d0b001" id="r_a44e2f0044c70b0f00303ccf136d0b001"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a44e2f0044c70b0f00303ccf136d0b001">~SchroederTree</a> ()</td></tr>
 <tr class="memitem:ae3117b877ba28f6c6a5391fc84430edc" id="r_ae3117b877ba28f6c6a5391fc84430edc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae3117b877ba28f6c6a5391fc84430edc">validate</a> ()</td></tr>
 <tr class="memitem:a8193951e18576e5ac75260289ba9a962" id="r_a8193951e18576e5ac75260289ba9a962"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8193951e18576e5ac75260289ba9a962">normalize</a> ()</td></tr>
 <tr class="memitem:af34543973169e962338927db0041fa81" id="r_af34543973169e962338927db0041fa81"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af34543973169e962338927db0041fa81">initialize</a> ()</td></tr>
@@ -141,17 +144,23 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft anon">union {&#160;</td><td class="memItemRight"></td></tr>
 <tr class="memitem:"><td class="memItemLeft anon">&#160;&#160;&#160;struct {&#160;</td><td class="memItemRight"></td></tr>
 <tr class="memitem:a3700234b2e7b06f0ac86f19b1dd1accb" id="r_a3700234b2e7b06f0ac86f19b1dd1accb"><td class="memItemLeft anon">&#160;&#160;&#160;&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#aa5802c1ea9466a7ba0e4c94cdddf7b08">na</a>&#160;</td><td class="memItemRight"></td></tr>
+<tr class="memdesc:a3700234b2e7b06f0ac86f19b1dd1accb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of angles.  <a href="#aa5802c1ea9466a7ba0e4c94cdddf7b08">More...</a><br /></td></tr>
 <tr class="memitem:ae1b0bf8f388662c6031b11dd2cf1dd6f" id="r_ae1b0bf8f388662c6031b11dd2cf1dd6f"><td class="memItemLeft anon">&#160;&#160;&#160;&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#ac5d53e7c5f289acbde00bb3a0d08e18d">h</a>&#160;</td><td class="memItemRight"></td></tr>
+<tr class="memdesc:ae1b0bf8f388662c6031b11dd2cf1dd6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Height of the tree as a levelled tree, ie, size of the corresponding initial chain - 1.  <a href="#ac5d53e7c5f289acbde00bb3a0d08e18d">More...</a><br /></td></tr>
 <tr class="memitem:aaa0375333433b72a2c8237d8a9e19c2b" id="r_aaa0375333433b72a2c8237d8a9e19c2b"><td class="memItemLeft anon">&#160;&#160;&#160;&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#ad57e7f4b854444b5ccf352a3e2916bc7">slcd</a>&#160;</td><td class="memItemRight"></td></tr>
+<tr class="memdesc:aaa0375333433b72a2c8237d8a9e19c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the left comb decomposition.  <a href="#ad57e7f4b854444b5ccf352a3e2916bc7">More...</a><br /></td></tr>
 <tr class="memitem:a4bf9c781173d3ccad211269ffb8f7c36" id="r_a4bf9c781173d3ccad211269ffb8f7c36"><td class="memItemLeft anon">&#160;&#160;&#160;&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#a9b4622552e4a8288ec093c0c246ada1d">srcd</a>&#160;</td><td class="memItemRight"></td></tr>
+<tr class="memdesc:a4bf9c781173d3ccad211269ffb8f7c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the right comb decomposition.  <a href="#a9b4622552e4a8288ec093c0c246ada1d">More...</a><br /></td></tr>
 <tr class="memitem:a3f33028fb489dd3657a443e34da528cb" id="r_a3f33028fb489dd3657a443e34da528cb"><td class="memItemLeft anonEnd">&#160;&#160;&#160;}&#160;</td><td class="memItemRight"></td></tr>
 <tr class="memitem:a8c3eafd1de32b5dd5bea9e6f6e682b28" id="r_a8c3eafd1de32b5dd5bea9e6f6e682b28"><td class="memItemLeft anon">&#160;&#160;&#160;size_t&#160;&#160;&#160;<a class="el" href="#abeb073583c22a8985ce9544d911faf6d">info</a>&#160;</td><td class="memItemRight"></td></tr>
+<tr class="memdesc:a8c3eafd1de32b5dd5bea9e6f6e682b28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information about the <a class="el" href="classSchroederTree.html" title="A class for levelled Schroeder tree.">SchroederTree</a>.  <a href="#abeb073583c22a8985ce9544d911faf6d">More...</a><br /></td></tr>
 <tr class="memitem:a69b55761fcf4d4c148a83c3d9826759d" id="r_a69b55761fcf4d4c148a83c3d9826759d"><td class="memItemLeft anonEnd">};&#160;</td><td class="memItemRight"></td></tr>
-<tr class="memitem:a5eafd06fecec871f60e9ed11918ff302" id="r_a5eafd06fecec871f60e9ed11918ff302"><td class="memItemLeft"><a class="el" href="classBSet.html">BSet</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5eafd06fecec871f60e9ed11918ff302">chain</a> [N]</td></tr>
+<tr class="memitem:a3acc85e38acf6a116d70f3316c874f18" id="r_a3acc85e38acf6a116d70f3316c874f18"><td class="memItemLeft"><a class="el" href="classBSet.html">BSet</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a3acc85e38acf6a116d70f3316c874f18">ic</a></td></tr>
+<tr class="memdesc:a3acc85e38acf6a116d70f3316c874f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial chain partition giving the structure of the tree.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class for levelled Schroeder tree. </p>
-<p>A levelled Schroeder tree with \(n+1\) leaves is entierly characterized by an increasing initial chain of the poset \((\mathcal{P}([1..n]),\subseteq)\). </p>
+<p>A levelled Schroeder forest with \(n+1\) leaves is entierly characterized by an strictly increasing chain \((c_0,\ldots,c_h)\) of the poset \((\mathcal{P}([1..n]),\subseteq)\) stisfying \(c_h=[1..n]\) together with \(c_0 = {}\). </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a44d898578b71cff8f201b6edc6c7be93" name="a44d898578b71cff8f201b6edc6c7be93"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a44d898578b71cff8f201b6edc6c7be93">&#9670;&#160;</a></span>SchroederTree() <span class="overload">[1/2]</span></h2>
@@ -176,10 +185,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Construct the empty tree. </p>
+
 </div>
 </div>
-<a id="a1adc06aa91cdc56149c6ce8d680a866b" name="a1adc06aa91cdc56149c6ce8d680a866b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1adc06aa91cdc56149c6ce8d680a866b">&#9670;&#160;</a></span>SchroederTree() <span class="overload">[2/2]</span></h2>
+<a id="a69e19308f3c54c3947edfa014ac7ba5a" name="a69e19308f3c54c3947edfa014ac7ba5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69e19308f3c54c3947edfa014ac7ba5a">&#9670;&#160;</a></span>SchroederTree() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,10 +198,37 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">SchroederTree::SchroederTree </td>
           <td>(</td>
-          <td class="paramtype">const initializer_list&lt; <a class="el" href="common_8hpp.html#a2eeb6279e316215d89dc3aab9122d161">Int</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>l</em></span></td><td>)</td>
+          <td class="paramtype">const initializer_list&lt; initializer_list&lt; int &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>l</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+<p>Construct a <a class="el" href="classSchroederTree.html" title="A class for levelled Schroeder tree.">SchroederTree</a> from a given initial chain. </p>
+
+</div>
+</div>
+<a id="a44e2f0044c70b0f00303ccf136d0b001" name="a44e2f0044c70b0f00303ccf136d0b001"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44e2f0044c70b0f00303ccf136d0b001">&#9670;&#160;</a></span>~SchroederTree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SchroederTree::~SchroederTree </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -475,28 +513,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5eafd06fecec871f60e9ed11918ff302" name="a5eafd06fecec871f60e9ed11918ff302"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eafd06fecec871f60e9ed11918ff302">&#9670;&#160;</a></span>chain</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classBSet.html">BSet</a> SchroederTree::chain[N]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ac5d53e7c5f289acbde00bb3a0d08e18d" name="ac5d53e7c5f289acbde00bb3a0d08e18d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac5d53e7c5f289acbde00bb3a0d08e18d">&#9670;&#160;</a></span>h</h2>
 
@@ -508,6 +524,32 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Height of the tree as a levelled tree, ie, size of the corresponding initial chain - 1. </p>
+
+</div>
+</div>
+<a id="a3acc85e38acf6a116d70f3316c874f18" name="a3acc85e38acf6a116d70f3316c874f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3acc85e38acf6a116d70f3316c874f18">&#9670;&#160;</a></span>ic</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classBSet.html">BSet</a>* SchroederTree::ic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initial chain partition giving the structure of the tree. </p>
 
 </div>
 </div>
@@ -522,6 +564,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Information about the <a class="el" href="classSchroederTree.html" title="A class for levelled Schroeder tree.">SchroederTree</a>. </p>
 
 </div>
 </div>
@@ -559,6 +603,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Number of angles. </p>
+
 </div>
 </div>
 <a id="ad57e7f4b854444b5ccf352a3e2916bc7" name="ad57e7f4b854444b5ccf352a3e2916bc7"></a>
@@ -573,6 +619,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Size of the left comb decomposition. </p>
+
 </div>
 </div>
 <a id="a9b4622552e4a8288ec093c0c246ada1d" name="a9b4622552e4a8288ec093c0c246ada1d"></a>
@@ -586,6 +634,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Size of the right comb decomposition. </p>
 
 </div>
 </div>

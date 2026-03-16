@@ -19,8 +19,10 @@ Inheritance diagram for Schroeder\+Tree:\+\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \doxymbox{\hyperlink{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93}{Schroeder\+Tree}} ()
-\item 
-\doxymbox{\hyperlink{classSchroederTree_a1adc06aa91cdc56149c6ce8d680a866b}{Schroeder\+Tree}} (const initializer\+\_\+list$<$ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} $>$ \&l)
+\begin{DoxyCompactList}\small\item\em Construct the empty tree. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classSchroederTree_a69e19308f3c54c3947edfa014ac7ba5a}{Schroeder\+Tree}} (const initializer\+\_\+list$<$ initializer\+\_\+list$<$ int $>$ $>$ \&l)
+\begin{DoxyCompactList}\small\item\em Construct a \doxylink{classSchroederTree}{Schroeder\+Tree} from a given initial chain. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{classSchroederTree_a44e2f0044c70b0f00303ccf136d0b001}{\texorpdfstring{$\sim$}{\string~}\+Schroeder\+Tree}} ()
 \item 
 bool \doxymbox{\hyperlink{classSchroederTree_ae3117b877ba28f6c6a5391fc84430edc}{validate}} ()
 \item 
@@ -59,22 +61,27 @@ xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
 union \{\\
 \>struct \{\\
 \>\>uint8\_t \doxymbox{\hyperlink{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08}{na}}\\
+\>\>\>{\em Number of angles. }\\
 \>\>uint8\_t \doxymbox{\hyperlink{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}{h}}\\
+\>\>\>{\em Height of the tree as a levelled tree, ie, size of the corresponding initial chain -\/ 1. }\\
 \>\>uint8\_t \doxymbox{\hyperlink{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7}{slcd}}\\
+\>\>\>{\em Size of the left comb decomposition. }\\
 \>\>uint8\_t \doxymbox{\hyperlink{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d}{srcd}}\\
+\>\>\>{\em Size of the right comb decomposition. }\\
 \>\} \\
 \>size\_t \doxymbox{\hyperlink{classSchroederTree_abeb073583c22a8985ce9544d911faf6d}{info}}\\
+\>\>\>{\em Information about the \doxylink{classSchroederTree}{SchroederTree}. }\\
 \}; \\
 
 \end{tabbing}\item 
-\doxymbox{\hyperlink{classBSet}{BSet}} \doxymbox{\hyperlink{classSchroederTree_a5eafd06fecec871f60e9ed11918ff302}{chain}} \+[N]\+
-\end{DoxyCompactItemize}
+\doxymbox{\hyperlink{classBSet}{BSet}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{classSchroederTree_a3acc85e38acf6a116d70f3316c874f18}{ic}}
+\begin{DoxyCompactList}\small\item\em Initial chain partition giving the structure of the tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 A class for levelled Schroeder tree. 
 
-A levelled Schroeder tree with $n+1$ leaves is entierly characterized by an increasing initial chain of the poset $(\mathcal{P}([1..n]),\subseteq)$. 
+A levelled Schroeder forest with $n+1$ leaves is entierly characterized by an strictly increasing chain $(c_0,\ldots,c_h)$ of the poset $(\mathcal{P}([1..n]),\subseteq)$ stisfying $c_h=[1..n]$ together with $c_0 = {}$. 
 
 \label{doc-constructors}
 \Hypertarget{classSchroederTree_doc-constructors}
@@ -85,11 +92,25 @@ A levelled Schroeder tree with $n+1$ leaves is entierly characterized by an incr
 {\footnotesize\ttfamily \label{classSchroederTree_a44d898578b71cff8f201b6edc6c7be93} 
 Schroeder\+Tree::\+\+Schroeder\+Tree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\Hypertarget{classSchroederTree_a1adc06aa91cdc56149c6ce8d680a866b}\index{SchroederTree@{SchroederTree}!SchroederTree@{SchroederTree}}
+
+
+Construct the empty tree. 
+
+\Hypertarget{classSchroederTree_a69e19308f3c54c3947edfa014ac7ba5a}\index{SchroederTree@{SchroederTree}!SchroederTree@{SchroederTree}}
 \index{SchroederTree@{SchroederTree}!SchroederTree@{SchroederTree}}
 \doxysubsubsection{\texorpdfstring{SchroederTree()}{SchroederTree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{classSchroederTree_a1adc06aa91cdc56149c6ce8d680a866b} 
-Schroeder\+Tree::\+\+Schroeder\+Tree (\begin{DoxyParamCaption}\item[{const initializer\+\_\+list$<$ \doxymbox{\hyperlink{common_8hpp_a2eeb6279e316215d89dc3aab9122d161}{Int}} $>$ \&}]{l}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classSchroederTree_a69e19308f3c54c3947edfa014ac7ba5a} 
+Schroeder\+Tree::\+\+Schroeder\+Tree (\begin{DoxyParamCaption}\item[{const initializer\+\_\+list$<$ initializer\+\_\+list$<$ int $>$ $>$ \&}]{l}{}\end{DoxyParamCaption})}
+
+
+
+Construct a \doxylink{classSchroederTree}{Schroeder\+Tree} from a given initial chain. 
+
+\Hypertarget{classSchroederTree_a44e2f0044c70b0f00303ccf136d0b001}\index{SchroederTree@{SchroederTree}!````~SchroederTree@{\texorpdfstring{$\sim$}{\string~}SchroederTree}}
+\index{````~SchroederTree@{\texorpdfstring{$\sim$}{\string~}SchroederTree}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SchroederTree()}{\string~SchroederTree()}}
+{\footnotesize\ttfamily \label{classSchroederTree_a44e2f0044c70b0f00303ccf136d0b001} 
+Schroeder\+Tree::\+\texorpdfstring{$\sim$}{\string~}\+Schroeder\+Tree (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -185,23 +206,35 @@ bool Schroeder\+Tree::\+validate (\begin{DoxyParamCaption}{}{}\end{DoxyParamCapt
 {\footnotesize\ttfamily \label{classSchroederTree_a69b55761fcf4d4c148a83c3d9826759d} 
 union  \{ ... \}  \doxymbox{\hyperlink{classSchroederTree}{Schroeder\+Tree}}\hspace{0.3cm}{\ttfamily [protected]}}
 
-\Hypertarget{classSchroederTree_a5eafd06fecec871f60e9ed11918ff302}\index{SchroederTree@{SchroederTree}!chain@{chain}}
-\index{chain@{chain}!SchroederTree@{SchroederTree}}
-\doxysubsubsection{\texorpdfstring{chain}{chain}}
-{\footnotesize\ttfamily \label{classSchroederTree_a5eafd06fecec871f60e9ed11918ff302} 
-\doxymbox{\hyperlink{classBSet}{BSet}} Schroeder\+Tree::\+chain\+[N]\+\hspace{0.3cm}{\ttfamily [protected]}}
-
 \Hypertarget{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d}\index{SchroederTree@{SchroederTree}!h@{h}}
 \index{h@{h}!SchroederTree@{SchroederTree}}
 \doxysubsubsection{\texorpdfstring{h}{h}}
 {\footnotesize\ttfamily \label{classSchroederTree_ac5d53e7c5f289acbde00bb3a0d08e18d} 
 uint8\+\_\+t Schroeder\+Tree::\+h}
 
+
+
+Height of the tree as a levelled tree, ie, size of the corresponding initial chain -\/ 1. 
+
+\Hypertarget{classSchroederTree_a3acc85e38acf6a116d70f3316c874f18}\index{SchroederTree@{SchroederTree}!ic@{ic}}
+\index{ic@{ic}!SchroederTree@{SchroederTree}}
+\doxysubsubsection{\texorpdfstring{ic}{ic}}
+{\footnotesize\ttfamily \label{classSchroederTree_a3acc85e38acf6a116d70f3316c874f18} 
+\doxymbox{\hyperlink{classBSet}{BSet}}\texorpdfstring{$\ast$}{*} Schroeder\+Tree::\+ic\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Initial chain partition giving the structure of the tree. 
+
 \Hypertarget{classSchroederTree_abeb073583c22a8985ce9544d911faf6d}\index{SchroederTree@{SchroederTree}!info@{info}}
 \index{info@{info}!SchroederTree@{SchroederTree}}
 \doxysubsubsection{\texorpdfstring{info}{info}}
 {\footnotesize\ttfamily \label{classSchroederTree_abeb073583c22a8985ce9544d911faf6d} 
 size\+\_\+t Schroeder\+Tree::\+info}
+
+
+
+Information about the \doxylink{classSchroederTree}{Schroeder\+Tree}. 
 
 \Hypertarget{classSchroederTree_ac0d70bb1d99827d8a68c9d83f99b4bfd}\index{SchroederTree@{SchroederTree}!max\_angles@{max\_angles}}
 \index{max\_angles@{max\_angles}!SchroederTree@{SchroederTree}}
@@ -215,17 +248,29 @@ const int Schroeder\+Tree::\+max\+\_\+angles = 32\hspace{0.3cm}{\ttfamily [stati
 {\footnotesize\ttfamily \label{classSchroederTree_aa5802c1ea9466a7ba0e4c94cdddf7b08} 
 uint8\+\_\+t Schroeder\+Tree::\+na}
 
+
+
+Number of angles. 
+
 \Hypertarget{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7}\index{SchroederTree@{SchroederTree}!slcd@{slcd}}
 \index{slcd@{slcd}!SchroederTree@{SchroederTree}}
 \doxysubsubsection{\texorpdfstring{slcd}{slcd}}
 {\footnotesize\ttfamily \label{classSchroederTree_ad57e7f4b854444b5ccf352a3e2916bc7} 
 uint8\+\_\+t Schroeder\+Tree::\+slcd}
 
+
+
+Size of the left comb decomposition. 
+
 \Hypertarget{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d}\index{SchroederTree@{SchroederTree}!srcd@{srcd}}
 \index{srcd@{srcd}!SchroederTree@{SchroederTree}}
 \doxysubsubsection{\texorpdfstring{srcd}{srcd}}
 {\footnotesize\ttfamily \label{classSchroederTree_a9b4622552e4a8288ec093c0c246ada1d} 
 uint8\+\_\+t Schroeder\+Tree::\+srcd}
+
+
+
+Size of the right comb decomposition. 
 
 
 

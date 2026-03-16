@@ -25,7 +25,7 @@ int test_SchroederForest() {
   test_equal(fempty.height(), 0);
   test_equal(fempty.angles(), 0);
   SchroederForest f1 = {{}, {3, 5}, {3, 4, 5}, {1, 2, 3, 4, 5}};
-  cout << endl;
+   cout << endl;
   f1.display();
   string str = f1.to_latex();
   cout << str << endl;
