@@ -5,3 +5,4 @@ cpp/*/*/*~
 obj/kernel/*.o
 article/*.gz
 python/.ipynb*
+doc/latex/*
