@@ -1,5 +1,4 @@
 PROJECT			= ftridend
-
 EXE			= $(PROJECT)
 TEST			= $(PROJECT)_test
 PY_MODULE		= $(PROJECT).so
