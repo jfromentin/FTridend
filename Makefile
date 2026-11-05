@@ -8,9 +8,9 @@ CPP 			= g++
 CFLAGS			= -O3 -Wall -g --std=c++20 -Icpp
 PYTHON			= python
 
-KERNEL_FILES		= bset schroeder_forest
+KERNEL_FILES		= bset schroeder_forest schroeder_tree
 CONSOLE_FILES		=
-TEST_FILES		= test bset schroeder_forest
+TEST_FILES		= test bset schroeder_forest schroeder_tree
 PY_MODULE_FILES		= module #schroeder_tree
 PY_MODULE_DOC_FILES	= #schroeder_tree
 

@@ -24,12 +24,13 @@
 SchroederForest::SchroederForest(const initializer_list<initializer_list<int>>& l) {
   assert(l.size() > 0);
   h = l.size() - 1;
-  c = new BSet[h + 1];
+  assert(h <= max_height);
   int i = 0;
   for (auto it = l.begin(); it != l.end(); ++ it) {
     c[i ++] = *it;
   }
-  n = c[h].size();  
+  n = c[h].size();
+  assert(n <= max_angles);
 }
 
 bool SchroederForest::is_well_defined() const {

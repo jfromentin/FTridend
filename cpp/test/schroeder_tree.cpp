@@ -24,6 +24,7 @@ int test_SchroederTree() {
   SchroederTree t_empty;
   test_equal(t_empty.height(), 0);
   test_equal(t_empty.angles(), 0);
-  SchroederTree t1 = {{1, 2, 3, 4, 5}, {3, 4, 5}, {3, 5}, {}};
+  SchroederTree t1 = {{}, {4, 6}, {4, 5, 6}, {1, 2, 3, 4, 5, 6}};
+  t1.left_comb_decomposition();
   return 0;
 }

@@ -42,16 +42,15 @@ private:
 public:
   //! Construct the empty set
   BSet();
+  
   //! Construct a set from a 32 bits integer n using our coding
   BSet(BSet_t n);
+  
   //! Construct a set from a list l of integer
   BSet(const initializer_list<int>& l);
 
   //! Return the size of the set 
   int size() const;
-
-  //! Test is the set is empty
-  bool is_empty() const;
 
   //! Convert a set to an integer
   explicit operator BSet_t() const;
@@ -63,18 +62,38 @@ public:
   //! \param v element to add
   void add_element(int v);
 
-  //! Return the maximal element of the set and 0 if it is empty
-  int max() const;
+  //! Test if two sets are equal
+  bool operator==(const BSet& S) const;
 
+  //! Test if two are different
+  bool operator!=(const BSet&) const;
+
+  //! Return the minimal element of the set and -1 if it is empty
+  int min() const;
+  
+  //! Return the maximal element of the set and -1 if it is empty
+  int max() const;
+ 
+  //! Test if the current set is empty
+  bool is_empty() const;
+  
   //! Test if the current set is a subset of another one
   //! /param S another set
   bool is_subset(const BSet& S) const;
+
+  //! Return intersection of the current set with another one
+  BSet intersection(const BSet& S) const;
+
+  //! Return then current BSet shifted by t. Element of the returned BSet are x + t where x browse the current bitset. Elements < 1 or > 32 are ignored
+  BSet shift(int t) const;
   
-  //! Test if two sets are equal
-  bool operator==(const BSet& s) const;
-  //! Test if two are different
-  bool operator!=(const BSet&) const;
-};
+  //! Return the BSet [1 .. a]
+  static BSet range(int a);
+  
+  //! Return then BSet [a .. b]
+  static BSet range(int a, int b);
+};  
+
 
 //***********************
 //* Auxiliary functions *
@@ -98,10 +117,6 @@ inline int BSet::size() const {
   return popcount(data);
 }
 
-inline bool BSet::is_empty() const {
-  return data == 0;
-}
-
 inline BSet::operator BSet_t() const{
   return (BSet_t)data;
 }
@@ -110,20 +125,51 @@ inline size_t BSet::hash() const {
   return data;
 }
 
+inline int BSet::min() const {
+  return (data !=  0 ? (1 + __builtin_ctz(data)) : -1);
+}
+
 inline int BSet::max() const {
-  return (data !=  0 ? (32 - __builtin_clz(data)) : 0);
+  return (data !=  0 ? (32 - __builtin_clz(data)) : -1);
+}
+
+inline bool BSet::is_empty() const {
+  return data == 0;
 }
 
 inline bool BSet::is_subset(const BSet& S) const {
   return (data | S.data)  == S.data;
 }
 
+inline BSet BSet::intersection(const BSet& S) const {
+  return BSet(data & S.data);
+}
+
+inline BSet BSet::shift(int t) const {
+  return (t > 0) ? data << t : data >> -t;
+
+}
 inline bool BSet::operator==(const BSet& a) const {
   return data == a.data;
 }
 
 inline bool BSet::operator!=(const BSet& a) const {
   return data != a.data;
+}
+
+inline BSet BSet::range(int a) {
+  assert(a >= 0);
+  assert(a <= 32);
+  return  (1 << a) - 1;
+}
+
+
+inline BSet BSet::range(int a, int b) {
+  assert(a >= 0);
+  assert(b >= 0);
+  assert(a <= 32);
+  assert(b <= 32);
+  return ((a > b) ? 0 : (((1 << (b - a + 1)) - 1) << (a - 1)));    
 }
 
 #endif

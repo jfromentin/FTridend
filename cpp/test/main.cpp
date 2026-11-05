@@ -21,6 +21,7 @@
 #include <iostream>
 #include "bset.hpp"
 #include "schroeder_forest.hpp"
+#include "schroeder_tree.hpp"
 
 using namespace std;
 
@@ -33,8 +34,7 @@ int main() {
   for (int i = 0; i < 24; ++i) cout << "\u2500";
   cout << "\u2518" << endl;
 
-
   launch(test_BSet, "BSet");
   launch(test_SchroederForest, "SchroederForest");
-
+  launch(test_SchroederTree, "SchroederTree");
 }

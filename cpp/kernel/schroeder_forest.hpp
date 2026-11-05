@@ -37,15 +37,16 @@
     In our implementation of a Shroeder forest we store :
     - n : number of angles. Then n+1 is the number of leaves
     - h : height of the forest
-    - c = [c_0, ..., c_(h-1)] : the initial chain without the last elements wich is always equal to [1..n]
+    - c = [c_0, ..., c_h] : the initial chain
 */
 
 class SchroederForest{
 public:
   static const int max_angles = 32;
+  static const int max_height = max_angles;
 protected:
   //! Initial chain partition giving the structure of the forest, without the last terms. Each term is given by a BitSet
-  BSet* c;
+  BSet c[max_height + 1];
 
   //! Number of angles
   uint8_t n;
@@ -55,12 +56,6 @@ protected:
 public:
   //! Construct the empty forest
   SchroederForest();
-
-  //! Construct a Schroeder forest with a given height
-  //! \param h the height of the forest
-  //! \param n number of angles of the forest
-  //! \raisewarning The SchroederForest is not correcty defined after the call of this constructor
-  SchroederForest(int h, int n);
   
   //! Construct a Schroeder forest from a given initial chain
   SchroederForest(const initializer_list<initializer_list<int>>& l);
@@ -68,6 +63,12 @@ public:
   //! Destructor
   ~SchroederForest();
 
+  //! Set height
+  void set_height(int h);
+
+  //! Set layer
+  void set_layer(int l, BSet s);
+  
   //! Test if the current Schroeder forest is well defined
   bool is_well_defined() const;
 
@@ -86,7 +87,7 @@ public:
   //! \param S value to set
   //! \raisewarning The SchroederForest can be in an uncoherent state after a call of this function
   void set_layer(int i, const BSet& S);
-  
+
   //! Display the Schroeder forest using unicode symbols
   void display(ostream& os = cout) const;
 
@@ -119,15 +120,12 @@ SchroederForest::SchroederForest() {
   // Height is 0
   h = 0;
   // Initial chain
-  c = new BSet[1];
   c[0] = 0;
 }
 
 // Delete the current SchroederForest
 inline
 SchroederForest::~SchroederForest() {
-  assert(c != nullptr);
-  delete[] c;
 }
 
 // Return the height 

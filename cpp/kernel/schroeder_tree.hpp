@@ -37,46 +37,28 @@ struct Cut{
   int sc[N]; // indices of simple cuts to consider
   int s; // number of simple cuts in the cuts
   int m; // maximal angle in the cut
-};
-
-struct ForestInfo{
-  Int h;
-  Int n;
-  Int a; // angle
   };*/
+
+//! Structure giving information on how to get a sub forest of a given Shroeder tree
+struct SubForestInfo{
+  int l; // root level
+  int al; // left angle
+  int ar; // right angle
+};
 
 
 //! A class for levelled Schroeder tree
-/** A levelled Schroeder forest with \f$n+1\f$ leaves is entierly characterized by an
-    strictly increasing chain \f$(c_0,\ldots,c_h)\f$ of the poset \f$(\mathcal{P}([1..n]),\subseteq)\f$
-    stisfying \f$c_h=[1..n]\f$ together with \f$c_0 = {}\f$.
+/** A Schroeder tree can be sees as a Schroeder Forest where the first part of the corresponding initial chain is empty.
+    This is our approach here.
 
-    In our implementation, we store :
-    - n : number of angles such that n+1 is the number of leaves
-    - h : height of the 
 */
 
-class SchroederTree{
-public:
-  static const int max_angles = 32;
+class SchroederTree:public SchroederForest{
 protected:
-  union{
-    struct {
-      //! Number of angles
-      uint8_t n;
-      //! Height of the tree as a levelled tree, ie, size of the corresponding initial chain - 1
-      uint8_t h;
-      //! Size of the left comb decomposition
-      uint8_t slcd;
-      //! Size of the right comb decomposition
-      uint8_t srcd; 
-    };
-    //! Information about the SchroederTree
-    size_t info;
-  };
-
-  //! Initial chain partition giving the structure of the tree
-  BSet* ic;
+  //! Size of the left comb decomposition
+  uint8_t slcd;
+  //! Size of the right comb decomposition
+  uint8_t srcd; 
   
   //ForestInfo left_forest_infos[N];
   //ForestInfo right_forest_infos[N];
@@ -87,23 +69,39 @@ public:
   //! Construct the empty tree
   SchroederTree();
 
-  //! Construct a SchroederTree from a given initial chain
+  //! Construct a Schroeder tree with a given height
+  //! \param h the height of the tree
+  //! \param n number of angles of the tree
+  //! \raisewarning The SchroederTree is not correcty defined after the call of this constructor
+  SchroederTree(int h, int n);
+  
+  //! Construct a Schroeder tree from a given initial chain
   SchroederTree(const initializer_list<initializer_list<int>>& l);
 
+
+  //! Destructor
   ~SchroederTree();
+
+  //! Return the sub Shroeder forest of the given Schroeder tree given by angles and level
+  SchroederForest get_forest(const SubForestInfo& info);
+
+  //! Left comb decomposition
+  Array<SchroederForest> left_comb_decomposition() const;
+  
+
   //SchroederTree(const SchroederTree&, const SchroederTree&, const QuasiShuffle &sigma);
-  bool validate();
+  /*  bool validate();
   void normalize();
-  void initialize();
+  void initialize();*/
 
   //! Return the height of the tree as a levelled tree
-  int height() const;
+  //int height() const;
 
   //! Return the number of angles of the tree
-  int angles() const;
+  //int angles() const;
 
   
-  BSet layer(Int i) const;
+  //BSet layer(Int i) const;
   //Int left_forests_length() const;
   //Int right_forests_length() const;
   //const ForestInfo& get_left_forest_info(Int i) const;
@@ -113,17 +111,17 @@ public:
   //Array<SchroederForest> left_comb_splitting() const;
   //Array<SchroederForest> right_comb_splitting() const;
 
-  void display(ostream& os = cout) const;
+  //void display(ostream& os = cout) const;
 
-  string to_latex() const;
+  //string to_latex() const;
   
   // Sage functions
-  void sage_init(Int h, Int n);
-  void sage_set_value(Int i, Int v);
+  //void sage_init(Int h, Int n);
+  //void sage_set_value(Int i, Int v);
 
   //
-  size_t hash() const;
-  bool operator==(const SchroederTree&) const;
+  //size_t hash() const;
+  //bool operator==(const SchroederTree&) const;
   //PackedWord packed_word() const;
   //Array<SimpleCut> simple_cuts() const;
   //void set_sub_tree(SchroederTree& t, int left, int right) const;
@@ -134,7 +132,7 @@ public:
 // Auxiliary functions 
 //---------------------
 
-string to_string(const SchroederTree& T);
+//string to_string(const SchroederTree& T);
 
 //***************************
 //* Inline member functions *
@@ -142,32 +140,30 @@ string to_string(const SchroederTree& T);
 
 // Construct the empty SchroederTree
 inline
-SchroederTree::SchroederTree() {
-  // There is no angles
-  n = 0;
-  // Height is 0
-  h = 0;
-  // Initial chain
-  ic = new BSet[1];
-  ic[0] = 0;
+SchroederTree::SchroederTree():SchroederForest() {
   // Left and right decompositions are empty
   slcd = 0;
   srcd = 0;
 }
 
+// Construct a SchroederTree from an initial list
+inline
+SchroederTree::SchroederTree(const initializer_list<initializer_list<int>>& l):SchroederForest(l) {
+  assert(c[0] == 0);
+}
+
 // Delete the current SchroederTree
 inline
 SchroederTree::~SchroederTree() {
-  if (ic != nullptr) delete[] ic;
 }
 
 
-inline void
+/*inline void
 SchroederTree::sage_init(Int hh, Int nn) {
   h = hh;
   n = nn;
   delete[] ic;
-}
+  }*/
 
 /*inline void
 SchroederTree::sage_set_value(Int i, Int v) {
@@ -175,7 +171,7 @@ SchroederTree::sage_set_value(Int i, Int v) {
   p[i] = v;
   }*/
 
-inline void
+/*inline void
 SchroederTree::initialize() {
   //compute_left_forest_infos();
   //compute_right_forest_infos();
@@ -192,7 +188,7 @@ SchroederTree::angles() const {
   return n;
 }
 
-/*inline Int
+inline Int
 SchroederTree::left_forests_length() const {
   return number_left_forests;
   }
@@ -200,14 +196,14 @@ SchroederTree::left_forests_length() const {
 inline Int
 SchroederTree::right_forests_length() const {
   return number_right_forests;
-  }*/
+  }
 
 inline BSet
 SchroederTree::layer(Int i) const {
   assert (0 <= i and i < h);
   return ic[i];
 }
-/*
+
 inline const ForestInfo&
 SchroederTree::get_left_forest_info(Int i) const {
 
@@ -219,7 +215,7 @@ inline const ForestInfo&
 SchroederTree::get_right_forest_info(Int i) const {
   assert (0 <= i and i < number_right_forests);
   return right_forest_infos[i];
-  }*/
+  }
 
 inline size_t
 SchroederTree::hash() const {
@@ -235,5 +231,5 @@ SchroederTree::operator==(const SchroederTree& t) const {
     if (ic[i] != t.ic[i]) return false;
   }
   return true;
-}
+  }*/
 #endif

@@ -24,6 +24,6 @@ int test_SchroederForest() {
   SchroederForest fempty;
   test_equal(fempty.height(), 0);
   test_equal(fempty.angles(), 0);
-  //SchroederForest f1 = {{}, {3, 5}, {3, 4, 5}, {1, 2, 3, 4, 5}};
+  SchroederForest f1 = {{3, 5}, {3, 4, 5}, {1, 2, 3, 4, 5}};
   return 0;
 }

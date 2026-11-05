@@ -30,7 +30,7 @@ using namespace std;
 //**********************
 //* Bit set parameters *
 //**********************
-using BSet_t = uint16_t;
+using BSet_t = uint32_t;
 static const int BSet_max = 8 * sizeof(BSet_t);
 
 using Int = uint16_t;

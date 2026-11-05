@@ -19,17 +19,42 @@
 //****************************************************************************//
 
 #include "schroeder_tree.hpp"
+
+/*ShroederForest SchroederTree::get_forest(int l, int al, int ar) const {
+  SchroederForest res;
+  int rh = -1;
+  BSet A;
+  A.set_range(al, ar);
+  for (int j = l; j <= h; ++j) {
+
+  }
+  }*/
+
+Array<SchroederForest> SchroederTree::left_comb_decomposition() const {
+  list<SchroederForest> res;
+  BSet A = c[h];
+  for (int l = 1; l<= h; ++ l) {
+    BSet X = A.intersection(c[l]);
+    if (not X.is_empty()) {
+      int al = X.min() + 1;
+      int ar = A.max();
+      cout << al << " -> " << ar << endl;
+      A = BSet::range(al - 2);
+    }
+  }
+  return res;
+}
 //#include "schroeder_forest.hpp"
 
-bool SchroederTree::validate() const {
+/*bool SchroederTree::validate() const {
   if (ic[0].max() != na) return false;
   for (int l = 0; l < h; ++ l) {
     if (not ic[l + 1].is_subset(ic[l])) return false;
   }
   return ic[h].empty();
-}
+  }*/
 
-SchroederTree::SchroederTree(const initializer_list<initializer_list<int>>& l) {
+/*SchroederTree::SchroederTree(const initializer_list<initializer_list<int>>& l) {
   assert(l.size() > 0);
   h = l.size() - 1;
   ic = new BSet[h + 1];
@@ -47,10 +72,10 @@ SchroederTree::SchroederTree(const initializer_list<initializer_list<int>>& l) {
   }
   assert(ic[h].is_empty());
       
-}
+  }*/
 
-void SchroederTree::display(ostream& os) const {
-  /*for (int j = 0; j < na; ++ j) {
+/*void SchroederTree::display(ostream& os) const {
+  for (int j = 0; j < na; ++ j) {
     os << char('a' + j) << ' ';
   }
   if (verbose_display) {
@@ -108,8 +133,8 @@ void SchroederTree::display(ostream& os) const {
       os << "  ";
     }
     os << "\u2567" << endl;
+    }
     }*/
-}
 
 /*void SchroederTree::compute_left_forest_infos() {
   number_left_forests = 0;
@@ -408,11 +433,11 @@ void SchroederTree::normalize() {
 //* Auxiliary functions *
 //***********************
 
-string to_string(const SchroederTree& T) {
+/*string to_string(const SchroederTree& T) {
   string res = "[";
   for (int i = 0; i < T.height(); ++ i) {
     if (i> 0) res += ", ";
     res += to_string(T.layer(i));
   }
   return res + ']';
-}
+  }*/
