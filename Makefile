@@ -1,17 +1,18 @@
 PROJECT			= ftridend
 EXE			= $(PROJECT)
 TEST			= $(PROJECT)_test
-PY_MODULE		= $(PROJECT).so
+PY_MODULE		= python/$(PROJECT).so
 
 
 CPP 			= g++
 CFLAGS			= -O3 -Wall -g --std=c++20 -Icpp
+PYTHON			= python
 
 KERNEL_FILES		= bset schroeder_forest
 CONSOLE_FILES		=
 TEST_FILES		= test bset schroeder_forest
-PY_MODULE_FILES		= module schroeder_tree
-PY_MODULE_DOC_FILES	= schroeder_tree
+PY_MODULE_FILES		= module #schroeder_tree
+PY_MODULE_DOC_FILES	= #schroeder_tree
 
 KERNEL_OBJS  		= $(addprefix obj/kernel/, $(addsuffix .o, $(KERNEL_FILES)))
 CONSOLE_OBJS  		= $(addprefix obj/console/, $(addsuffix .o, $(CONSOLE_FILES)))
@@ -19,7 +20,7 @@ TEST_OBJS  		= $(addprefix obj/test/, $(addsuffix .o, $(TEST_FILES)))
 PY_MODULE_SRC  		= $(addprefix cpp/python/, $(addsuffix .cpp, $(PY_MODULE_FILES)))
 PY_MODULE_DOC_SRC	= $(addprefix cpp/python/doc, $(PY_MODULE_DOC_FILES))
 
-all: $(EXE) $(TEST)
+all: $(EXE) $(TEST) $(PY_MODULE)
 
 obj/kernel/%.o: cpp/kernel/%.cpp cpp/kernel/%.hpp
 	$(CPP) $(CFLAGS) -c $< -o $@

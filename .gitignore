@@ -1,7 +1,10 @@
 ftridend
+ftrident_test
+python/ftrident.so
 *~
 cpp/*/*~
 cpp/*/*/*~
 obj/kernel/*.o
+obj/test/*.o
 article/*.gz
 python/.ipynb*

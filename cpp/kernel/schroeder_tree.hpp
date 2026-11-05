@@ -49,7 +49,12 @@ struct ForestInfo{
 //! A class for levelled Schroeder tree
 /** A levelled Schroeder forest with \f$n+1\f$ leaves is entierly characterized by an
     strictly increasing chain \f$(c_0,\ldots,c_h)\f$ of the poset \f$(\mathcal{P}([1..n]),\subseteq)\f$
-    stisfying \f$c_h=[1..n]\f$ together with \f$c_0 = {}\f$.*/
+    stisfying \f$c_h=[1..n]\f$ together with \f$c_0 = {}\f$.
+
+    In our implementation, we store :
+    - n : number of angles such that n+1 is the number of leaves
+    - h : height of the 
+*/
 
 class SchroederTree{
 public:
@@ -58,11 +63,11 @@ protected:
   union{
     struct {
       //! Number of angles
-      uint8_t na;
+      uint8_t n;
       //! Height of the tree as a levelled tree, ie, size of the corresponding initial chain - 1
       uint8_t h;
       //! Size of the left comb decomposition
-      uint8_t slcd; 
+      uint8_t slcd;
       //! Size of the right comb decomposition
       uint8_t srcd; 
     };
@@ -139,7 +144,7 @@ string to_string(const SchroederTree& T);
 inline
 SchroederTree::SchroederTree() {
   // There is no angles
-  na = 0;
+  n = 0;
   // Height is 0
   h = 0;
   // Initial chain
@@ -157,11 +162,12 @@ SchroederTree::~SchroederTree() {
 }
 
 
-/*inline void
+inline void
 SchroederTree::sage_init(Int hh, Int nn) {
   h = hh;
   n = nn;
-  }*/
+  delete[] ic;
+}
 
 /*inline void
 SchroederTree::sage_set_value(Int i, Int v) {
@@ -183,7 +189,7 @@ SchroederTree::height() const {
 
 inline int
 SchroederTree::angles() const {
-  return na;
+  return n;
 }
 
 /*inline Int

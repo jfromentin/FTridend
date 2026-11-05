@@ -32,13 +32,19 @@
 //! A class for levelled Schroeder forest
 /** A levelled Schroeder forest with \f$n+1\f$ leaves is entierly characterized by an
     strictly increasing chain \f$(c_0,\ldots,c_h)\f$ of the poset \f$(\mathcal{P}([1..n]),\subseteq)\f$
-    stisfying \f$c_h=[1..n]\f$. */
+    stisfying \f$c_h=[1..n]\f$.
+
+    In our implementation of a Shroeder forest we store :
+    - n : number of angles. Then n+1 is the number of leaves
+    - h : height of the forest
+    - c = [c_0, ..., c_(h-1)] : the initial chain without the last elements wich is always equal to [1..n]
+*/
 
 class SchroederForest{
 public:
   static const int max_angles = 32;
 protected:
-  //! Initial chain partition giving the structure of the forest
+  //! Initial chain partition giving the structure of the forest, without the last terms. Each term is given by a BitSet
   BSet* c;
 
   //! Number of angles
@@ -50,7 +56,7 @@ public:
   //! Construct the empty forest
   SchroederForest();
 
-  //! Construct a Schroeder forest with a giveb height
+  //! Construct a Schroeder forest with a given height
   //! \param h the height of the forest
   //! \param n number of angles of the forest
   //! \raisewarning The SchroederForest is not correcty defined after the call of this constructor
