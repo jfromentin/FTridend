@@ -20,15 +20,18 @@
 
 #include "schroeder_tree.hpp"
 
-/*ShroederForest SchroederTree::get_forest(int l, int al, int ar) const {
-  SchroederForest res;
+SchroederForest SchroederTree::get_forest(int l, int al, int ar) const {
   int rh = -1;
-  BSet A;
-  A.set_range(al, ar);
+  BSet rc[max_height + 1];
+  BSet A = BSet::range(al, ar);
   for (int j = l; j <= h; ++j) {
-
+    BSet X = A.intersection(c[j]).shift(1 - al);
+    if (rh == -1 or X != rc[rh]) {
+      rc[++ rh] = X;
+    }
   }
-  }*/
+  return SchroederForest(ar - al + 1, rh, rc);
+}
 
 Array<SchroederForest> SchroederTree::left_comb_decomposition() const {
   list<SchroederForest> res;
@@ -38,12 +41,31 @@ Array<SchroederForest> SchroederTree::left_comb_decomposition() const {
     if (not X.is_empty()) {
       int al = X.min() + 1;
       int ar = A.max();
-      cout << al << " -> " << ar << endl;
-      A = BSet::range(al - 2);
+      cout << l << ", " << al << ", " << ar << endl;
+      res.push_back(get_forest(l, al, ar));
+      A = BSet::range(al - 2);      
     }
   }
   return res;
 }
+
+Array<SchroederForest> SchroederTree::right_comb_decomposition() const {
+  list<SchroederForest> res;
+  BSet A = c[h];
+  for (int l = 1; l<= h; ++ l) {
+    BSet X = A.intersection(c[l]);
+    if (not X.is_empty()) {
+      int al = A.min();
+      int ar = X.max() - 1;
+      cout << l << ", " << al << ", " << ar << " : " << to_string(A) << " and " << to_string(X) << endl;
+
+      res.push_back(get_forest(l, al, ar));
+      A = BSet::range(ar + 2, n);      
+    }
+  }
+  return res;
+}
+
 //#include "schroeder_forest.hpp"
 
 /*bool SchroederTree::validate() const {

@@ -82,13 +82,15 @@ public:
   //! Destructor
   ~SchroederTree();
 
-  //! Return the sub Shroeder forest of the given Schroeder tree given by angles and level
-  SchroederForest get_forest(const SubForestInfo& info);
+  //! Return the sub Shroeder forest of the given Schroeder tree given by level, left and right angles.
+  SchroederForest get_forest(int l, int al, int ar) const;
 
   //! Left comb decomposition
   Array<SchroederForest> left_comb_decomposition() const;
-  
 
+  //! Right comb decomposition
+  Array<SchroederForest> right_comb_decomposition() const;
+  
   //SchroederTree(const SchroederTree&, const SchroederTree&, const QuasiShuffle &sigma);
   /*  bool validate();
   void normalize();

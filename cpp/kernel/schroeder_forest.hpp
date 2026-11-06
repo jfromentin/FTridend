@@ -56,6 +56,9 @@ protected:
 public:
   //! Construct the empty forest
   SchroederForest();
+
+  //! Construct a Schroeder foret
+  SchroederForest(int n, int h, BSet* c);
   
   //! Construct a Schroeder forest from a given initial chain
   SchroederForest(const initializer_list<initializer_list<int>>& l);

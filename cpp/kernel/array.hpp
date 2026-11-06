@@ -86,10 +86,7 @@ public:
   
   //! Return the size of the array$
   size_t size() const;
-   
-  //! Display the array in a string
-  string to_string() const;
-  
+     
   //! Return a pointer to the begin of the array
   T* begin();
   const T* begin() const;
@@ -308,21 +305,6 @@ size_t Array<T>::size() const {
   return s;
 }
 
-//--------------------
-// Array::to_string()
-//--------------------
-
-template<class T>
-string Array<T>::to_string() const {
-  if( s==0 ) return "()";
-  string res = "(" + std::to_string(read(0));
-  for ( size_t i = 1; i < s; ++ i) {
-    res += ',';
-    res += std::to_string(read(i));
-  }
-  return res+")";
-}
-
 //----------------
 // Array::begin()
 //----------------
@@ -477,7 +459,13 @@ int cmp(const Array<T>& A, const Array<T>& B) {
 
 template<class T> inline
 string to_string(const Array<T>& arr) {
-  return arr.to_string();
+  if (arr.size() == 0) return "()";
+  string res = "[" + to_string(arr[0]);
+  for ( size_t i = 1; i < arr.size(); ++ i) {
+    res += ',';
+    res += to_string(arr[i]);
+  }
+  return res + "]";
 }
 
 //-------------------------------------------

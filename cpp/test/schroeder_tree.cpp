@@ -25,6 +25,10 @@ int test_SchroederTree() {
   test_equal(t_empty.height(), 0);
   test_equal(t_empty.angles(), 0);
   SchroederTree t1 = {{}, {4, 6}, {4, 5, 6}, {1, 2, 3, 4, 5, 6}};
-  t1.left_comb_decomposition();
+  Array<SchroederForest> lc1 = t1.left_comb_decomposition();
+  cout << to_string(lc1) << endl;
+  SchroederTree t2 = {{}, {2}, {2, 4, 5}, {2, 3, 4, 5}, {1, 2, 3, 4, 5}};
+  Array<SchroederForest> rc2 = t2.right_comb_decomposition();
+  cout << to_string(rc2)<< endl;
   return 0;
 }

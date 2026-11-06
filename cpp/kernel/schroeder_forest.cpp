@@ -21,6 +21,12 @@
 #include "schroeder_forest.hpp"
 
 
+SchroederForest::SchroederForest(int nn, int hh, BSet* cc): n(nn), h(hh) {
+  for (int l = 0; l <= h; ++ l) {
+    c[l] = cc[l];
+  }
+}
+
 SchroederForest::SchroederForest(const initializer_list<initializer_list<int>>& l) {
   assert(l.size() > 0);
   h = l.size() - 1;
